@@ -1,0 +1,37 @@
+version: '3.1'
+services:
+  db:
+    container_name: postgresql
+    image: postgres:15
+    user: root
+    environment:
+      - POSTGRES_USER=toolrange_odoo
+      - POSTGRES_PASSWORD=toolrange@2025
+      - POSTGRES_DB=postgres
+    ports:
+      - "5423:5432"
+    restart: always             # run as a service
+    volumes:
+      - db-toolrange:/var/lib/postgresql/data
+  odoo18:
+    image: odoo:18
+    container_name: odoo18_toolrange
+    user: root
+    ports:
+      - "18000:8069"
+      - "8072:8072" # live chat
+    tty: true
+    command: --
+    environment:
+      - HOST=db
+      - USER=toolrange_odoo
+      - PASSWORD=toolrange@2025
+      - PYTHONPATH=/usr/local/lib/python3.12/dist-packages:$PYTHONPATH
+    volumes:
+      - ./addons_custom:/mnt/addons_custom
+      - ./etc:/etc/odoo
+      - odoo-web-data:/var/lib/odoo
+    restart: always             # run as a service
+volumes:
+  db-toolrange:
+  odoo-web-data:

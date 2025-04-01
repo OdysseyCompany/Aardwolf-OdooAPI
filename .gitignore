@@ -1,0 +1,14 @@
+\.idea
+*.pyc
+odoo-web-data
+odoo
+postgresql
+etc/filestore
+etc/addons
+etc/sessions
+etc/odoo-server.log
+db-erp
+__pycache__
+wkhtmltox*.deb*
+odoo-web-data/sessions
+odoo-web-data/filestore
