@@ -27,7 +27,6 @@ services:
       - USER=toolrange_odoo
       - PASSWORD=toolrange@2025
     volumes:
-      - ./entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
       - ./addons_custom:/mnt/addons_custom
       - ./etc:/etc/odoo
       - odoo-web-data:/var/lib/odoo
