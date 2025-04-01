@@ -6,7 +6,7 @@
     'summary': '',
     'author': '',
     'website': '',
-    'depends': ['jwt_provider'],
+    'depends': ['product'],
     'data': [
     ],
     'assets': {
