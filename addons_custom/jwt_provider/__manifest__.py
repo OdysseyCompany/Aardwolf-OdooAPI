@@ -28,7 +28,7 @@
     },
     'data': [
         'security/ir.model.access.csv',
-        'views/user_view.xml',
+        # 'views/user_view.xml',
     ],
     'css': [
         'static/src/css/jwt.css',
