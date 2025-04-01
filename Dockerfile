@@ -1,6 +1,6 @@
 # Sử dụng hình ảnh Odoo 17 chính thức
 FROM odoo:18
-ENV PYTHONPATH /usr/lib/python3/dist-packages:$PYTHONPATH
+ENV PYTHONPATH /usr/local/lib/python3.12/dist-packages:$PYTHONPATH
 # Chuyển sang người dùng root để có quyền cài đặt các packages nếu cần
 USER root
 COPY ./etc/requirements.txt /etc/odoo/requirements.txt
