@@ -10,7 +10,5 @@ etc/odoo-server.log
 db-erp
 __pycache__
 wkhtmltox*.deb*
-docker-compose.yml
-etc/odoo.conf
 odoo-web-data/sessions
 odoo-web-data/filestore
