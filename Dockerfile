@@ -8,13 +8,10 @@ RUN pip3 install pip --upgrade
 RUN pip3 install -r /etc/odoo/requirements.txt
 
 # Sao chép các tập tin cần thiết từ thư mục local vào container
-COPY ./addons /mnt/extra-addons
+COPY ./addons_custom /mnt/addons_custom
 
 #COPY ./addons_hrm /mnt/hrm-addons
 COPY ./etc /etc/odoo
-
-COPY ./addons_crm /mnt/crm-addons
-#COPY ./addons_hrm /mnt/hrm-addons
 
 # Expose các cổng dịch vụ
 EXPOSE 8069 8072
