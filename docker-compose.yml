@@ -26,6 +26,7 @@ services:
       - HOST=db
       - USER=toolrange_odoo
       - PASSWORD=toolrange@2025
+      - PYTHONPATH=/usr/lib/python3/site-packages:$PYTHONPATH
     volumes:
       - ./addons_custom:/mnt/addons_custom
       - ./etc:/etc/odoo
