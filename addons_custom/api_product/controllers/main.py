@@ -1,7 +1,7 @@
 import logging
 from odoo import http
 from odoo.http import request
-from odoo.addons.jwt_provider.JwtRequest import jwt_request
+from ..JwtRequest import jwt_request
 from ..util import response
 
 _logger = logging.getLogger(__name__)
