@@ -1,5 +1,5 @@
 # Sử dụng hình ảnh Odoo 17 chính thức
-FROM odoo:17
+FROM odoo:18
 
 # Chuyển sang người dùng root để có quyền cài đặt các packages nếu cần
 USER root
