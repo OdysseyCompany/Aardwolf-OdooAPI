@@ -6,6 +6,8 @@ USER root
 COPY ./etc/requirements.txt /etc/odoo/requirements.txt
 RUN pip3 install pip --upgrade
 RUN pip3 install -r /etc/odoo/requirements.txt
+RUN pip3 install pyjwt==1.6.4
+RUN pip3 install simplejson==3.17.5
 
 # Sao chép các tập tin cần thiết từ thư mục local vào container
 COPY ./addons_custom /mnt/addons_custom
