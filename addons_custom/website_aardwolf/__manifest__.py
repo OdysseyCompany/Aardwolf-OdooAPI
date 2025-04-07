@@ -15,7 +15,7 @@
     ],
     'assets': {
         'web.assets_frontend': [
-            'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
+            # 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
             'website_toolrange/static/css/style_home.css',
             'website_toolrange/static/css/style_category.css',
         ],
