@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="custom_language_selector" name="Custom language selector" inherit_id="portal.language_selector">
+        <xpath expr="//button" position="replace">
+            <button t-attf-class="btn border-0 dropdown-toggle #{_btn_class or 'btn-sm btn-outline-secondary'}"
+                    type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <img t-att-src="active_lang[4]" class="icon-language"
+                     style="width: 24px;height: 24px;flex-shrink: 0;object-fit: cover;border-radius: 50%;"/>
+            </button>
+
+        </xpath>
+    </template>
+
+    <template id="website.template_header_default" inherit_id="website.layout" name="Template Header Default"
+              active="True">
+        <xpath expr="//header//nav" position="replace">
+            <t t-call="website.navbar">
+                <t t-set="_navbar_classes" t-valuef="d-none d-lg-block shadow-sm"/>
+
+                <div id="o_main_nav" class="container">
+                    <!-- Brand -->
+                    <t t-call="website.placeholder_header_brand">
+                        <t t-set="_link_class" t-valuef="me-4"/>
+                    </t>
+                    <!-- Navbar -->
+                    <t t-call="website.navbar_nav">
+                        <t t-set="_nav_class" t-valuef="me-auto"/>
+
+                        <!-- Menu -->
+                        <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                            <t t-call="website.submenu">
+                                <t t-set="item_class" t-valuef="nav-item"/>
+                                <t t-set="link_class" t-valuef="nav-link"/>
+                            </t>
+                        </t>
+                    </t>
+                    <!-- Extra elements -->
+                    <ul class="navbar-nav align-items-center gap-2 flex-shrink-0 justify-content-end ps-3">
+                        <!-- Search Bar -->
+                        <t t-call="website.placeholder_header_search_box">
+                            <t t-set="_layout" t-valuef="modal"/>
+                            <t t-set="_input_classes" t-valuef="border border-end-0 p-3"/>
+                            <t t-set="_submit_classes" t-valuef="border border-start-0 px-4 bg-o-color-4"/>
+                            <t t-set="_button_classes" t-valuef="o_navlink_background text-reset"/>
+                        </t>
+                        <!-- Text element -->
+                        <t t-call="website.placeholder_header_text_element"/>
+                        <!-- Social -->
+                        <t t-call="website.placeholder_header_social_links"/>
+
+                        <!-- Sign In -->
+                        <t t-call="portal.placeholder_user_sign_in">
+                            <t t-set="_link_class" t-valuef="btn btn-outline-secondary"/>
+                        </t>
+                        <!-- User Dropdown -->
+                        <t t-call="portal.user_dropdown">
+                            <t t-set="_user_name" t-value="True"/>
+                            <t t-set="_item_class" t-valuef="dropdown"/>
+                            <t t-set="_link_class" t-valuef="btn-outline-secondary border-0 fw-bold"/>
+                            <t t-set="_user_name_class" t-valuef="small"/>
+                            <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-end"/>
+                        </t>
+                        <!-- Language Selector -->
+                        <t t-call="website.placeholder_header_language_selector">
+                            <t t-set="_btn_class" t-valuef="btn-outline-secondary border-0"/>
+                            <t t-set="_txt_class" t-valuef="small"/>
+                            <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-end"/>
+                        </t>
+                        <!-- Call To Action -->
+                        <t t-call="website.placeholder_header_call_to_action"/>
+                    </ul>
+                </div>
+            </t>
+            <t t-call="website.template_header_mobile"/>
+        </xpath>
+    </template>
+
+    <!-- Ẩn button "contact us"-->
+    <template id="website.header_call_to_action" inherit_id="website.placeholder_header_call_to_action"
+              name="Header Call to Action">
+        <xpath expr="." position="inside">
+            <t t-if="False">
+                <li t-attf-class="#{_item_class}">
+                    <div t-attf-class="oe_structure oe_structure_solo #{_div_class}">
+                        <section class="oe_unremovable oe_unmovable s_text_block" data-snippet="s_text_block"
+                                 data-name="Text">
+                            <div class="container">
+                                <a href="/contactus" class="oe_unremovable btn btn-primary btn_cta">Contact Usssssss</a>
+                            </div>
+                        </section>
+                    </div>
+                </li>
+            </t>
+        </xpath>
+    </template>
+
+    <!--    Ẩn menu thông tin company-->
+    <template id="website.header_text_element" inherit_id="website.placeholder_header_text_element"
+              name="Header Text element" active="False">
+        <xpath expr="." position="inside">
+            <t t-if="False">
+                <li t-attf-class="#{_item_class}">
+                    <t t-if="_txt_elt_content == 'sentence'">
+                        <div t-attf-class="s_text_block #{_div_class}" data-name="Text">
+                            <small>Free Returns and Standard Shipping</small>
+                        </div>
+                    </t>
+                    <t t-elif="_txt_elt_content == 'list'">
+                        <div t-attf-class="s_text_block d-flex flex-column flex-lg-row gap-1 gap-lg-4 align-items-lg-center #{_div_class}"
+                             data-name="Text">
+                            <small class="d-flex align-items-center">
+                                <i class="fa fa-1x fa-fw fa-usd fa-stack me-1"/>
+                                Low Price Guarantee
+                            </small>
+                            <small class="d-flex align-items-center">
+                                <i class="fa fa-1x fa-fw fa-shopping-basket fa-stack me-1"/>
+                                30 Days Online Returns
+                            </small>
+                            <small class="d-flex align-items-center">
+                                <i class="fa fa-1x fa-fw fa-truck fa-stack me-1"/>
+                                Standard Shipping
+                            </small>
+                        </div>
+                    </t>
+                    <t t-elif="_txt_elt_content == 'phone_mail'">
+                        <div t-attf-class="s_text_block #{_div_class}" data-name="Text">
+                            <a href="tel:+1 (650) 555-0111" class="nav-link o_nav-link_secondary">
+                                <small>
+                                    <i class="fa fa-1x fa-fw fa-phone me-1"/>&#847; <!-- Empty character needed to be able to delete the icon. -->
+                                    <span class="o_force_ltr">+1 (650) 555-0111111111111</span>
+                                </small>
+                            </a>
+                            <a href="mailto:info@yourcompany.example.com" class="nav-link o_nav-link_secondary">
+                                <small>
+                                    <i class="fa fa-1x fa-fw fa-envelope me-1"/>
+                                    info@yourcompany.example.com
+                                </small>
+                            </a>
+                        </div>
+                    </t>
+                    <t t-elif="_txt_elt_content == 'mail'">
+                        <div t-attf-class="s_text_block #{_div_class}" data-name="Text">
+                            <a href="mailto:info@yourcompany.example.com" class="nav-link o_nav-link_secondary">
+                                <small>
+                                    <i class="fa fa-1x fa-fw fa-envelope me-1"/>
+                                    info@yourcompany.example.com
+                                </small>
+                            </a>
+                        </div>
+                    </t>
+                    <t t-elif="_txt_elt_content == 'mail_stretched'">
+                        <div t-attf-class="s_text_block #{_div_class}" data-name="Text">
+                            <a href="tel:+1 (650) 555-0111"
+                               class="nav-link o_nav-link_secondary p-2 o_navlink_background_hover d-flex align-items-center h-100 text-reset">
+                                <i class="fa fa-1x fa-fw fa-phone me-1"/>
+                                <span class="o_force_ltr">
+                                    <small>+1 (650) 555-011122222</small>
+                                </span>
+                            </a>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div t-attf-class="s_text_block #{_div_class}" data-name="Text">
+                            <a href="tel:+1 (650) 555-0111" class="nav-link o_nav-link_secondary p-2">
+                                <i class="fa fa-1x fa-fw fa-phone me-1"/>
+                                <span class="o_force_ltr">
+                                    <small>+1 (650) 555-011123333333</small>
+                                </span>
+                            </a>
+                        </div>
+                    </t>
+                </li>
+            </t>
+        </xpath>
+    </template>
+
+
+    <template id="website_sale.template_header_default" inherit_id="website.template_header_default">
+        <xpath expr="//t[@t-call='website.placeholder_header_search_box']" position="after">
+            <t t-call="website_sale.header_cart_link">
+                <t t-set="_icon" t-value="True"/>
+                <t t-set="_link_class"
+                   t-value="'o_navlink_background btn position-relative rounded-circle p-1 text-center text-reset'"/>
+                <t t-set="_badge_class" t-value="'position-absolute top-0 end-0 mt-n1 me-n1 rounded-pill'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="website.header_search_box" inherit_id="website.placeholder_header_search_box" name="Header Search Bar"
+              active="True">
+        <xpath expr="." position="inside">
+            <li t-attf-class="#{_item_class}">
+                <t t-if="_layout == 'modal'">
+                    <div class="modal fade" id="o_search_modal" aria-hidden="true" tabindex="-1">
+
+                        <div class="modal-dialog modal-lg pt-5">
+                            <div class="modal-content mt-5">
+                                <t t-call="website.header_search_box_input">
+                                    <t t-set="_classes" t-valuef="input-group-lg"/>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                    <a style="padding-right:200px" placeholder="Mechanical"
+                       t-attf-class="btn rounded-circle lh-1 #{_button_classes or 'bg-o-color-3'} o_not_editable"
+                       data-bs-target="#o_search_modal" data-bs-toggle="modal" role="button" title="Search">
+                        <i class="oi oi-search fa-stack lh-lg"/>
+                        <span>Search...</span>
+                    </a>
+                </t>
+                <t t-else="">
+                    <t t-call="website.header_search_box_input"/>
+                </t>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="layout" inherit_id="website.layout" name="Theme Toolrange" primary="True">
+        <xpath expr="//head" position="inside">
+            <link rel="stylesheet" href="/website_toolrange/static/src/css/style_home.css"/>
+            <link rel="stylesheet" href="/website_toolrange/static/src/css/style_category.css"/>
+        </xpath>
+        <xpath expr="//header" position="replace">
+            <header class="toolrange__header">
+                <div class="toolrange__header-wrapper">
+                    <div class="toolrange__header__left-group">
+                        <a href="/" class="toolrange__header__logo">
+                            <img src="/website_toolrange/static/imgs/home_page/logo.svg" alt="" loading="lazy"/>
+                        </a>
+
+                        <nav class="toolrange__header__navbar pc-on">
+                            <div class="toolrange__header__navbar-item drop-down"
+                            >Products
+                                <ul class="drop-down__list">
+                                    <li>
+                                        <a href="/categories">Categories</a>
+                                    </li>
+                                    <li>
+                                        <a href="/categories-detail">Categories Detail</a>
+                                    </li>
+                                    <li>
+                                        <a href="/shop">Search</a>
+                                    </li>
+                                    <li>
+                                        <a href="/shop">Product Detail</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#" class="toolrange__header__navbar-item">GALLERIES</a>
+                            <div class="toolrange__header__navbar-item drop-down"
+                            >ABOUT US
+                                <ul class="drop-down__list">
+                                    <li>
+                                        <a href="#">Our Business</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Careers</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="toolrange__header__navbar-item drop-down"
+                            >Support
+                                <ul class="drop-down__list">
+                                    <li>
+                                        <a href="#">Contact</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Account</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="toolrange__header__right-group">
+                        <!--                        <div class="toolrange__header__search">-->
+                        <!--                            <input type="text" placeholder="Search"/>-->
+                        <!--                        </div>-->
+                        <li t-attf-class="#{_item_class}">
+                            <t t-if="_layout == 'modal'">
+                                <div class="toolrange__header__search" id="o_search_modal" aria-hidden="true"
+                                     tabindex="-1">
+
+                                    <div class="modal-dialog modal-lg pt-5">
+                                        <div class="modal-content mt-5">
+                                            <t t-call="website.header_search_box_input">
+                                                <t t-set="_classes" t-valuef="input-group-lg"/>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a style="padding-right:200px" placeholder="Mechanical"
+                                   t-attf-class="btn rounded-circle lh-1 #{_button_classes or 'bg-o-color-3'} o_not_editable"
+                                   data-bs-target="#o_search_modal" data-bs-toggle="modal" role="button" title="Search">
+                                    <i class="oi oi-search fa-stack lh-lg"/>
+                                    <span>Search...</span>
+                                </a>
+                            </t>
+                            <t t-else="">
+                                <t t-call="website.header_search_box_input"/>
+                            </t>
+                        </li>
+
+                        <div class="toolrange__header__right-sub-group">
+                            <t t-call="website_sale.header_cart_link">
+                                <t t-set="_icon" t-value="True"/>
+                                <t t-set="_link_class"
+                                   t-value="'o_navlink_background btn position-relative rounded-circle p-1 text-center text-reset'"/>
+                                <t t-set="_badge_class"
+                                   t-value="'position-absolute top-0 end-0 mt-n1 me-n1 rounded-pill'"/>
+                            </t>
+                            <!--                             Sign In -->
+                            <t t-call="portal.placeholder_user_sign_in">
+                                <t t-set="_link_class" t-valuef="btn btn-outline-secondary"/>
+                            </t>
+                            <!-- User Dropdown -->
+                            <t t-call="portal.user_dropdown">
+                                <t t-set="_user_name" t-value="True"/>
+                                <t t-set="_item_class" t-valuef="dropdown"/>
+                                <t t-set="_link_class" t-valuef="btn-outline-secondary border-0 fw-bold"/>
+                                <t t-set="_user_name_class" t-valuef="small"/>
+                                <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-end"/>
+                            </t>
+                            <!-- Language Selector -->
+                            <t t-call="website.placeholder_header_language_selector">
+                                <t t-set="_btn_class" t-valuef="btn-outline-secondary border-0"/>
+                                <t t-set="_txt_class" t-valuef="small"/>
+                                <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-end"/>
+                            </t>
+                            <!--                            <a href="#" class="toolrange__account">-->
+                            <!--                                <img src="/website_toolrange/static/imgs/common/svgs/user.svg" alt="" loading="lazy"/>-->
+                            <!--                            </a>-->
+
+
+                            <div class="toolrange__header__navbar-icon">
+                                <img src="/website_toolrange/static/imgs/common/svgs/navbar.svg" alt="" loading="lazy"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="toolrange__header__contact">
+                    <div class="toolrange__header__phone">
+                        <img src="/website_toolrange/static/imgs/common/svgs/phone_white.svg" alt="" loading="lazy"/>
+                        <a href="">0983 945 604</a>
+                    </div>
+                    <div class="break"></div>
+                    <div class="toolrange__header__mail">
+                        <img src="/website_toolrange/static/imgs/common/svgs/mail_white.svg" alt="" loading="lazy"/>
+                        <a href="">Send a message</a>
+                    </div>
+                </div>
+
+                <div class="toolrange__header__search sp-on">
+                    <img src="/website_toolrange/static/imgs/common/svgs/search.svg" alt="" loading="lazy"/>
+                    <input type="text" placeholder="Search"/>
+                </div>
+            </header>
+        </xpath>
+        <xpath expr="//footer" position="replace">
+            <footer class="toolrange__footer">
+                <div class="toolrange__footer__content">
+                    <div class="toolrange__footer__grid-item">
+                        <a href="#" class="toolrange__footer__content-logo">
+                            <img src="/website_toolrange/static/imgs/home_page/logo.svg" alt="" loading="lazy"/>
+                        </a>
+
+                        <div class="toolrange__footer__content-info">
+                            <h4>TOOLRANGE ASIA</h4>
+                            <ul>
+                                <li>
+                                    <img src="/website_toolrange/static/imgs/common/svgs/address.svg" alt=""
+                                         loading="lazy"/>
+                                    <p>17 KP Binh Thuan 2, Thuan An, Binh Duong, Vietnam</p>
+                                </li>
+                                <li>
+                                    <img src="/website_toolrange/static/imgs/common/svgs/clock.svg" alt=""
+                                         loading="lazy"/>
+                                    <p>Monday - Friday 07:30 AM - 5:00 PM</p>
+                                </li>
+                                <li>
+                                    <img src="/website_toolrange/static/imgs/common/svgs/envelope.svg" alt=""
+                                         loading="lazy"/>
+                                    <p>Send Us a Message</p>
+                                </li>
+                                <li>
+                                    <img src="/website_toolrange/static/imgs/common/svgs/telephone.svg" alt=""
+                                         loading="lazy"/>
+                                    <p>0274 3712 839</p>
+                                </li>
+                            </ul>
+
+                            <div class="toolrange__footer__content-map">
+                                <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31337.294137202523!2d106.62440613289374!3d10.95115023310836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s17%20KP%20Binh%20Thuan%202%2C%20Thuan%20An%2C%20Binh%20Duong%2C%20Vietnam!5e0!3m2!1svi!2s!4v1742617149029!5m2!1svi!2s"
+                                        width="600"
+                                        height="450"
+                                        style="border: 0"
+                                        allowfullscreen=""
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="toolrange__footer__content-follow">
+                            <h4>Follow us</h4>
+
+                            <ul>
+                                <li>
+                                    <a href=""
+                                    >
+                                        <img src="/website_toolrange/static/imgs/common/svgs/facebook.svg" alt=""
+                                        />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""
+                                    >
+                                        <img src="/website_toolrange/static/imgs/common/svgs/youtube.svg" alt=""
+                                        />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""
+                                    >
+                                        <img src="/website_toolrange/static/imgs/common/svgs/linkedin.svg" alt=""
+                                        />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""
+                                    >
+                                        <img src="/website_toolrange/static/imgs/common/svgs/instagram.svg" alt=""
+                                        />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""
+                                    >
+                                        <img src="/website_toolrange/static/imgs/common/svgs/x.svg" alt=""
+                                        />
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <ul>
+                                <li>
+                                    <img src="/website_toolrange/static/imgs/home_page/DMCA.png" alt="" loading="lazy"/>
+                                </li>
+                                <li>
+                                    <img src="/website_toolrange/static/imgs/home_page/ISO.png" alt="" loading="lazy"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="toolrange__footer__grid-item">
+                        <h4>
+                            <a href="/categories" style="text-decoration: none;color: inherit;">Categories</a>
+                        </h4>
+                        <ul>
+                            <li>A-Frames</li>
+                            <li>Crane, Forklift &amp; Workshop Accessories</li>
+                            <li>Cranes</li>
+                            <li>Forklift Equipment</li>
+                            <li>Mechanical Lifting Devices</li>
+                            <li>Slab Racks &amp; Posts</li>
+                            <li>Trolleys</li>
+                            <li>Vacuum Lifting Equipment</li>
+                            <li>Vacuum Tube Lifting Equipment</li>
+                            <li>Workshop Equipment</li>
+                            <li>Workwear</li>
+                        </ul>
+                    </div>
+
+                    <div class="toolrange__footer__grid-item">
+                        <h4>About us</h4>
+                        <ul>
+                            <li>Our Business</li>
+                            <li>Careers</li>
+                            <li>Contact</li>
+                            <li>Account</li>
+                        </ul>
+
+                        <h4>Shop</h4>
+                        <ul>
+                            <li>Home</li>
+                            <li>Categories</li>
+                            <li>Deals</li>
+                            <li>Brands</li>
+                            <li>Tracking Your Order</li>
+                            <li>Blog</li>
+                        </ul>
+                    </div>
+
+                    <div class="toolrange__footer__grid-item">
+                        <h4>Helpful links</h4>
+                        <ul>
+                            <li>Privacy Policy</li>
+                            <li>Return Policy</li>
+                            <li>Shipping Information</li>
+                            <li>Newsletter Signup</li>
+                            <li>Payment Methods</li>
+                        </ul>
+
+                        <h4>Feature posts</h4>
+                        <ul>
+                            <li>How To Move A Granite, Concrete Or Heavy, Countertop</li>
+                            <li>What equipment is used for lifting?</li>
+                            <li>How do you maintain lifting equipment?</li>
+                            <li>How to lift and carry loads safely and correctly</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="toolrange__footer__reserved">
+                    <p>Copyright © 2025 ToolRange. All Rights Reserved.</p>
+                </div>
+            </footer>
+        </xpath>
+    </template>
+
+    <template id="website.homepage" name="Homepage">
+        <t t-call="website_toolrange.layout">
+            <section class="toolrange__slider swiper bannerSwiper">
+                <div class="toolrange__slider-wrapper swiper-wrapper">
+                    <div class="toolrange__slider-slide swiper-slide">
+                        <img src="/website_toolrange/static/imgs/home_page/banner.png" alt="" loading="lazy"/>
+
+                        <a href="#" class="button-link">View our products</a>
+                    </div>
+                    <div class="toolrange__slider-slide swiper-slide">
+                        <img src="/website_toolrange/static/imgs/home_page/banner.png" alt="" loading="lazy"/>
+
+                        <a href="#" class="button-link">View our products</a>
+                    </div>
+                    <div class="toolrange__slider-slide swiper-slide">
+                        <img src="/website_toolrange/static/imgs/home_page/banner.png" alt="" loading="lazy"/>
+
+                        <a href="#" class="button-link">View our products</a>
+                    </div>
+                </div>
+
+                <div class="toolrange__slider-arrows">
+                    <button class="swiper-button-prev"></button>
+                    <button class="swiper-button-next"></button>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </section>
+
+            <section class="toolrange__video">
+                <img src="/website_toolrange/static/imgs/home_page/image_video.png" alt="" loading="lazy"/>
+                <div class="toolrange__video-icon">
+                    <img src="/website_toolrange/static/imgs/common/svgs/pause.svg" alt="" loading="lazy"/>
+                </div>
+            </section>
+
+            <section class="toolrange__products">
+                <h3 class="toolrange__products__title section-title">Shop By Items</h3>
+                <div class="toolrange__products__list"></div>
+                <a href="/shop" class="button-link">View All</a>
+            </section>
+
+            <section class="toolrange__lifter">
+                <div class="toolrange__lifter__wrapper">
+                    <h3 class="toolrange__lifter__title section-title">
+                        Aardwolf Slab Lifter
+                    </h3>
+
+                    <div class="toolrange__products__list">
+                        <a href="#" class="toolrange__products__item">
+                            <div class="product-img">
+                                <img src="/website_toolrange/static/imgs/common/products/product-1.png" alt=""
+                                     loading="lazy"/>
+                            </div>
+                            <div class="product-info">
+                                <p>AARDWOLF Slab Lifter AL60</p>
+                                <p>
+                                    <span>from</span>
+                                    <span>800$</span>
+                                </p>
+                            </div>
+                        </a>
+                        <a href="#" class="toolrange__products__item">
+                            <div class="product-img">
+                                <img
+                                        src="/website_toolrange/static/imgs/common/products/product-11.png"
+                                        alt=""
+                                />
+                            </div>
+                            <div class="product-info">
+                                <p>AARDWOLF Slab Lifter AL60</p>
+                                <p>
+                                    <span>from</span>
+                                    <span>800$</span>
+                                </p>
+                            </div>
+                        </a>
+                        <a href="#" class="toolrange__products__item">
+                            <div class="product-img">
+                                <img
+                                        src="/website_toolrange/static/imgs/common/products/product-12.png"
+                                        alt=""
+                                />
+                            </div>
+                            <div class="product-info">
+                                <p>AARDWOLF Slab Lifter AL60</p>
+                                <p>
+                                    <span>from</span>
+                                    <span>800$</span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="toolrange__categories">
+                <h3 class="toolrange__categories__title section-title">
+                    Shop By categories
+                </h3>
+
+                <div class="toolrange__categories__list">
+                    <a href="#" class="toolrange__categories__item">
+                        <div class="categorie-img">
+                            <img src="/website_toolrange/static/imgs/home_page/categories/img-1.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <p class="categorie-name">A-Frames</p>
+                    </a>
+                    <a href="#" class="toolrange__categories__item">
+                        <div class="categorie-img">
+                            <img src="/website_toolrange/static/imgs/home_page/categories/img-2.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <p class="categorie-name">crane, forklift &amp; workshop accessories</p>
+                    </a>
+                    <a href="#" class="toolrange__categories__item">
+                        <div class="categorie-img">
+                            <img src="/website_toolrange/static/imgs/home_page/categories/img-3.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <p class="categorie-name">Cranes</p>
+                    </a>
+                    <a href="#" class="toolrange__categories__item">
+                        <div class="categorie-img">
+                            <img src="/website_toolrange/static/imgs/home_page/categories/img-4.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <p class="categorie-name">Forklift equipment</p>
+                    </a>
+                    <a href="#" class="toolrange__categories__item">
+                        <div class="categorie-img">
+                            <img src="/website_toolrange/static/imgs/home_page/categories/img-5.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <p class="categorie-name">Mechanical Lifting Devices</p>
+                    </a>
+                    <a href="#" class="toolrange__categories__item">
+                        <div class="categorie-img">
+                            <img src="/website_toolrange/static/imgs/home_page/categories/img-6.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <p class="categorie-name">Slab Racks &amp; Posts</p>
+                    </a>
+                    <a href="#" class="toolrange__categories__item">
+                        <div class="categorie-img">
+                            <img src="/website_toolrange/static/imgs/home_page/categories/img-7.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <p class="categorie-name">Trolleys</p>
+                    </a>
+                    <a href="#" class="toolrange__categories__item">
+                        <div class="categorie-img">
+                            <img src="/website_toolrange/static/imgs/home_page/categories/img-8.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <p class="categorie-name">Vacuum Lifting Equipment</p>
+                    </a>
+                    <a href="#" class="toolrange__categories__item">
+                        <div class="categorie-img">
+                            <img src="/website_toolrange/static/imgs/home_page/categories/img-9.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <p class="categorie-name">vacuum tube lifting equipment</p>
+                    </a>
+                    <a href="#" class="toolrange__categories__item">
+                        <div class="categorie-img">
+                            <img src="/website_toolrange/static/imgs/home_page/categories/img-10.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <p class="categorie-name">workshop equipment</p>
+                    </a>
+                    <a href="#" class="toolrange__categories__item">
+                        <div class="categorie-img">
+                            <img src="/website_toolrange/static/imgs/home_page/categories/img-11.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <p class="categorie-name">Workwear</p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="toolrange__featured">
+                <h3 class="toolrange__featured__title section-title">
+                    Featured Products
+                </h3>
+
+                <div class="toolrange__featured__slider swiper productsSwiper">
+                    <div class="toolrange__featured__slider-wrapper swiper-wrapper">
+                        <a href="" class="toolrange__featured__slide swiper-slide">
+                            <img src="/website_toolrange/static/imgs/home_page/featured/img-1.png" alt=""
+                                 loading="lazy"/>
+                        </a>
+                        <a href="" class="toolrange__featured__slide swiper-slide">
+                            <img src="/website_toolrange/static/imgs/home_page/featured/img-2.png" alt=""
+                                 loading="lazy"/>
+                        </a>
+                        <a href="" class="toolrange__featured__slide swiper-slide">
+                            <img src="/website_toolrange/static/imgs/home_page/featured/img-3.png" alt=""
+                                 loading="lazy"/>
+                        </a>
+                        <a href="" class="toolrange__featured__slide swiper-slide">
+                            <img src="/website_toolrange/static/imgs/home_page/featured/img-3.png" alt=""
+                                 loading="lazy"/>
+                        </a>
+                        <a href="" class="toolrange__featured__slide swiper-slide">
+                            <img src="/website_toolrange/static/imgs/home_page/featured/img-1.png" alt=""
+                                 loading="lazy"/>
+                        </a>
+                        <a href="" class="toolrange__featured__slide swiper-slide">
+                            <img src="/website_toolrange/static/imgs/home_page/featured/img-2.png" alt=""
+                                 loading="lazy"/>
+                        </a>
+                        <a href="" class="toolrange__featured__slide swiper-slide">
+                            <img src="/website_toolrange/static/imgs/home_page/featured/img-3.png" alt=""
+                                 loading="lazy"/>
+                        </a>
+                        <a href="" class="toolrange__featured__slide swiper-slide">
+                            <img src="/website_toolrange/static/imgs/home_page/featured/img-3.png" alt=""
+                                 loading="lazy"/>
+                        </a>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </section>
+
+            <section class="toolrange__to-help">
+                <div class="toolrange__to-help__wrapper">
+                    <div class="toolrange__to-help__content">
+                        <h2>we’re here to help</h2>
+                        <p>
+                            No question is too small. Reach out to us, and we'll be in contact
+                            with you shortly.
+                        </p>
+
+                        <a href="">ask an expert</a>
+                    </div>
+
+                    <div class="toolrange__to-help__img">
+                        <img src="/website_toolrange/static/imgs/home_page/expert.png" alt="" loading="lazy"/>
+                    </div>
+                </div>
+            </section>
+
+            <section class="toolrange__gwo">
+                <h3 class="toolrange__gwo__title section-title">
+                    Global Warehouses &amp; Offices
+                </h3>
+
+                <div class="toolrange__tabs__wrapper">
+                    <div class="toolrange__tabs">
+                        <button data-tab="Australia" class="toolrange__tab tab-active">
+                            Australia
+                        </button>
+                        <button data-tab="Europe" class="toolrange__tab">Europe</button>
+                        <button data-tab="Asia" class="toolrange__tab">Asia</button>
+                    </div>
+
+                    <div class="toolrange__views">
+                        <div class="toolrange__view view-active" data-view-tab="Australia">
+                            <img src="/website_toolrange/static/imgs/home_page/image 48.png" alt="" loading="lazy"/>
+                        </div>
+                        <div class="toolrange__view" data-view-tab="Europe">
+                            <img src="/website_toolrange/static/imgs/home_page/image_video.png" alt="" loading="lazy"/>
+                        </div>
+                        <div class="toolrange__view" data-view-tab="Asia">
+                            <img src="/website_toolrange/static/imgs/home_page/banner.png" alt="" loading="lazy"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="toolrange__industries">
+                <h3 class="toolrange__industries__title section-title">Industries</h3>
+
+                <div class="toolrange__industries__grid">
+                    <a href="#" class="toolrange__industries__item">
+                        <img src="/website_toolrange/static/imgs/home_page/industries/img-1.png" alt="" loading="lazy"/>
+                        <p>Fabrication</p>
+                    </a>
+                    <a href="#" class="toolrange__industries__item">
+                        <img src="/website_toolrange/static/imgs/home_page/industries/img-2.png" alt="" loading="lazy"/>
+                        <p>Glass</p>
+                    </a>
+                    <a href="#" class="toolrange__industries__item">
+                        <img src="/website_toolrange/static/imgs/home_page/industries/img-3.png" alt="" loading="lazy"/>
+                        <p>Installation Tools &amp; Equipment</p>
+                    </a>
+                    <a href="#" class="toolrange__industries__item">
+                        <img src="/website_toolrange/static/imgs/home_page/industries/img-4.png" alt="" loading="lazy"/>
+                        <p>Sheet Metal</p>
+                    </a>
+                    <a href="#" class="toolrange__industries__item">
+                        <img src="/website_toolrange/static/imgs/home_page/industries/img-5.png" alt="" loading="lazy"/>
+                        <p>Stone</p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="toolrange__galleries">
+                <h3 class="toolrange__galleries__title section-title">Galleries</h3>
+
+                <div class="toolrange__galleries__slider swiper galleriesSwiper">
+                    <div class="toolrange__galleries__slider-wrapper swiper-wrapper">
+                        <div class="toolrange__galleries__slide swiper-slide">
+                            <img src="/website_toolrange/static/imgs/home_page/galleries/img-1.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <div class="toolrange__galleries__slide swiper-slide">
+                            <img src="/website_toolrange/static/imgs/home_page/galleries/img-2.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <div class="toolrange__galleries__slide swiper-slide">
+                            <img src="/website_toolrange/static/imgs/home_page/galleries/img-1.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                        <div class="toolrange__galleries__slide swiper-slide">
+                            <img src="/website_toolrange/static/imgs/home_page/galleries/img-2.png" alt=""
+                                 loading="lazy"/>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+                <div class="toolrange__galleries__grid-tags">
+                    <div class="toolrange__galleries__tag">
+                        <div class="toolrange__galleries__tag-icon">
+                            <img src="/website_toolrange/static/imgs/common/svgs/free-delivery.svg" alt=""
+                                 loading="lazy"/>
+                        </div>
+
+                        <p>Shipping Worldwide</p>
+                    </div>
+                    <div class="toolrange__galleries__tag">
+                        <div class="toolrange__galleries__tag-icon">
+                            <img src="/website_toolrange/static/imgs/common/svgs/support.svg" alt="" loading="lazy"/>
+                        </div>
+
+                        <p>Global Support</p>
+                    </div>
+                    <div class="toolrange__galleries__tag">
+                        <div class="toolrange__galleries__tag-icon">
+                            <img src="/website_toolrange/static/imgs/common/svgs/umbrella.svg" alt="" loading="lazy"/>
+                        </div>
+
+                        <p>Easy Tracking</p>
+                    </div>
+                    <div class="toolrange__galleries__tag">
+                        <div class="toolrange__galleries__tag-icon">
+                            <img src="/website_toolrange/static/imgs/common/svgs/secure-payment.svg" alt=""
+                                 loading="lazy"/>
+                        </div>
+
+                        <p>Secure PaymenT</p>
+                    </div>
+                </div>
+            </section>
+        </t>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
+        <script src="/website_toolrange/static/src/js/slider.js"/>
+        <script src="/website_toolrange/static/src/js/main.js"/>
+
+    </template>
+
+</odoo>

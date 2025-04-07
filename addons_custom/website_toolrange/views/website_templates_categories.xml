@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="categories_templates" name="Categories">
+        <t t-call="website_toolrange.layout">
+            <main class="toolrange">
+                <div class="toolrange__categories-page">
+                    <div class="toolrange__categories-page__head">
+                        <div class="toolrange__categories-page__head-breadcrumbs toolrange__breadcrumbs">
+                            <a href="/">Home</a>
+                            <a href="#" class="current">Categories</a>
+                        </div>
+                        <p class="toolrange__categories-page__head-title">Categories</p>
+                    </div>
+
+                    <div class="toolrange__categories-page__content">
+                        <div class="toolrange__categorie-list">
+                            <t t-foreach="values.items()" t-as="category_data">
+                                <div class="toolrange__categorie">
+                                    <div class="toolrange__categorie__head">
+                                        <p class="toolrange__categorie__name">
+                                            <t t-esc="category_data[0]"/>
+                                        </p>
+                                        <a t-att-href="'/category-detail/' + category_data[1]['slug'] + '?page=1'">
+                                            view all
+                                        </a>
+                                    </div>
+
+                                    <div class="toolrange__categorie__products toolrange__products__list">
+                                        <t t-foreach="category_data[1]['products']" t-as="product">
+                                            <a t-att-href="'/category-detail/%s' % product['slug']"
+                                               class="toolrange__categorie__item toolrange__products__item">
+                                                <div class="product-img">
+                                                    <img t-att-src="product['image_url'] or '/website_toolrange/static/imgs/common/products/product-1.png'"
+                                                         t-att-alt="product['name']" loading="lazy"/>
+
+                                                </div>
+                                                <div class="product-info">
+                                                    <p>
+                                                        <t t-esc="product['name']"/>
+                                                    </p>
+                                                    <p>
+                                                        <span>from</span>
+                                                        <span>
+                                                            <t t-esc="product['list_price']"/>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+
+                        </div>
+
+                        <button class="categories-page__button-more button-link">View All</button>
+                    </div>
+                </div>
+            </main>
+        </t>
+        <script src="/website_toolrange/static/src/js/main.js"/>
+
+    </template>
+
+    <template id="categories_detail_templates" name="Categories Detail">
+        <t t-call="website_toolrange.layout">
+            <div class="toolrange__categories-detail">
+                <h3 class="toolrange__categories-detail__title">
+                    <t t-esc="category_name"/>
+                </h3>
+
+                <div class="toolrange__categories-detail__content">
+                    <div class="toolrange__categories-detail__filters">
+                        <div class="toolrange__categories-detail__filters-head">
+                            <p>Filters</p>
+                            <button>Clear filters</button>
+                        </div>
+
+                        <div class="toolrange__categories-detail__filters-box">
+                            <label for="">Weight Load Limit</label>
+                            <div class="filters-select select-custom select-common">
+                                <input type="text" value="All Capacities"/>
+
+                                <div class="select-custom__options">
+                                    <data value="All Capacities" class="select-custom__option"
+                                    >All Capacities
+                                    </data
+                                    >
+                                    <data value="Capacities" class="select-custom__option"
+                                    >Capacities
+                                    </data
+                                    >
+                                </div>
+                            </div>
+
+                            <label for="">Product Weight</label>
+                            <div class="filters-select select-custom select-common">
+                                <input type="text" value="All Weights"/>
+
+                                <div class="select-custom__options">
+                                    <data value="All Weights" class="select-custom__option"
+                                    >All Weights
+                                    </data
+                                    >
+                                    <data value="Weights" class="select-custom__option"
+                                    >Weights
+                                    </data
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="toolrange__categories-detail__group">
+                        <div class="toolrange__categories-detail__sub-group">
+                            <p>(
+                                <span class="total-item">
+                                    <t t-esc="total_product"></t>
+                                </span>
+                                ) Results found
+                            </p>
+
+                            <div class="toolrange__categories-detail__sort">
+                                <p>Sort by:
+                                    <span class="sort-by__value"></span>
+                                </p>
+
+                                <div class="sort__options">
+                                    <data value="Price increase">Price increase</data>
+                                    <data value="Price decrease">Price decrease</data>
+                                    <data value="New">New</data>
+                                    <data value="Old">Old</data>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="toolrange__categories-detail__list toolrange__products__list">
+                            <t t-foreach="values" t-as="data">
+                                <a t-att-href="'/product-detail/%s' % data['slug']"
+                                   class="toolrange__categorie__item toolrange__products__item">
+                                    <div class="product-img">
+                                        <img t-att-src="data['image_url']"
+                                             t-att-alt="data['name']" loading="lazy"/>
+                                    </div>
+                                    <div class="product-info">
+                                        <p><t t-esc="data['name']"/></p>
+                                        <p>
+                                            <span><t t-esc="data['list_price']"/>$</span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </t>
+                        </div>
+
+                        <div class="toolrange__categories-detail__pagination">
+                        </div>
+                    </div>
+                </div>
+                <div id="category-data" t-att-data-category-slug="category_slug" style="display: none;"></div>
+            </div>
+        </t>
+        <script src="/website_toolrange/static/src/js/main.js"/>
+
+    </template>
+
+</odoo>

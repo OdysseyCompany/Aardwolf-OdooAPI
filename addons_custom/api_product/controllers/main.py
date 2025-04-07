@@ -1,6 +1,9 @@
+import json
 import logging
+
+from odoo.http import request, Response
+
 from odoo import http
-from odoo.http import request
 from odoo.addons.jwt_provider.JwtRequest import jwt_request
 from ..util import response
 
@@ -102,4 +105,76 @@ class APIWebsite(http.Controller):
                 "error": str(error)
             }
 
+    @http.route("/api/v1/get-data-product", type="http", auth='public', csrf=False, cors='*', methods=['GET'])
+    def api_get_product(self, **payload):
+        try:
+            result = []
 
+            # Lấy domain hệ thống từ config
+            base_url = request.env['ir.config_parameter'].sudo().get_param('web.base.url')
+
+            # Truy vấn tất cả sản phẩm
+            products = request.env['product.template'].sudo().search_read(
+                fields=['name', 'list_price', 'slug', 'image_1920'], limit=10
+            )
+
+            # Nhóm sản phẩm theo danh mục với giới hạn
+            for prod in products:
+                # Tạo URL ảnh
+                image_url = f"{base_url}/web/image/product.template/{prod.get('id')}/image_256" if prod.get(
+                    'image_1920') else None
+                result.append({
+                    'img': image_url,
+                    "name": prod['name'],
+                    "list_price": prod['list_price'],
+                    "slug": prod['slug'],
+                })
+            return Response(
+                json.dumps({'result': result}),
+                content_type='application/json',
+                status=200
+            )
+
+        except Exception as error:
+            return {
+                "status": 500,
+                "message": "Server error",
+                "error": str(error)
+            }
+
+    @http.route("/api/v1/get-data-categories", type="http", auth='public', csrf=False, cors='*', methods=['GET'])
+    def api_get_categories(self, **payload):
+        try:
+            # Lấy tất cả category cha (ví dụ: cấp 1, không có parent)
+            categories = request.env['product.category'].sudo().search([('parent_id', '=', False)])
+
+            result = []
+            for category in categories:
+                # Tạo danh sách con
+                children = [{
+                    'name': child.name,
+                    'slug': child.slug
+                } for child in category.child_id]
+
+                result.append({
+                    'name': category.name,
+                    'slug': category.slug,
+                    'children': children
+                })
+
+            return Response(
+                json.dumps({'result': result}),
+                content_type='application/json',
+                status=200
+            )
+
+        except Exception as error:
+            return Response(
+                json.dumps({
+                    "status": 500,
+                    "message": "Server error",
+                    "error": str(error)
+                }),
+                content_type='application/json',
+                status=500
+            )

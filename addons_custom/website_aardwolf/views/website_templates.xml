@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="custom_language_selector" name="Custom language selector" inherit_id="portal.language_selector">
+        <xpath expr="//button" position="replace">
+            <button t-attf-class="btn border-0 dropdown-toggle #{_btn_class or 'btn-sm btn-outline-secondary'}"
+                    type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <img t-att-src="active_lang[4]" class="icon-language"
+                     style="width: 24px;height: 24px;flex-shrink: 0;object-fit: cover;border-radius: 50%;"/>
+            </button>
+
+        </xpath>
+    </template>
+
+    <template id="layout" inherit_id="website.layout" name="Theme Aardwolf" primary="True">
+        <xpath expr="//head" position="inside">
+            <link rel="stylesheet" href="/website_aardwolf/static/css/style.css"/>
+        </xpath>
+        <xpath expr="//header" position="replace">
+            <header class="toolrange__header">
+                <div class="toolrange__header-wrapper">
+                    <div class="toolrange__header__left-group">
+                        <a href="/" class="toolrange__header__logo">
+                            <img src="/website_aardwolf/static/imgs/home_page/logo.svg" alt=""/>
+                        </a>
+
+                        <nav class="toolrange__header__navbar pc-on">
+                            <div class="toolrange__header__navbar-item drop-down multiple-drop-down">
+                                Products
+                                <ul class="product-drop-down__list drop-down__list"></ul>
+                            </div>
+                            <a href="categories.html" class="toolrange__header__navbar-item"
+                            >GALLERIES
+                            </a>
+                            <div class="toolrange__header__navbar-item drop-down link-drop-down">
+                                ABOUT US
+                                <ul class="drop-down__list">
+                                    <li>
+                                        <a href="/">About Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="/">Our Business</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Careers</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Account</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Our Trade Shows</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Blog</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="/" class="toolrange__header__navbar-item">Become distributor</a>
+                            <a href="/" class="toolrange__header__navbar-item">Our Presence
+                            </a
+                            >
+                        </nav>
+                    </div>
+
+                    <div class="toolrange__header__right-group">
+                        <div class="toolrange__header__search">
+                            <input type="text" placeholder="Search"/>
+
+                            <div class="toolrange__header__search-wrapper">
+                                <div class="toolrange__header__search-box">
+                                    <div class="box-input-wrapper">
+                                        <input type="text" class="toolrange__input-search" placeholder="Mechanical"/>
+                                        <img src="/website_aardwolf/static/imgs/common/svgs/close.svg" alt=""/>
+                                    </div>
+
+                                    <ul class="toolrange__header__search-suggestions">
+                                        <li tabindex="0">AARDWOLF Slab Lifter</li>
+                                        <li tabindex="0">Vacuum Glass Lifter</li>
+                                        <li tabindex="0">Kitchen Installation Cart- Pro Version</li>
+                                        <li tabindex="0">Hydraulic brick scissor grab</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="toolrange__header__right-sub-group">
+                            <t t-call="website_sale.header_cart_link">
+                                <t t-set="_icon" t-value="True"/>
+                                <t t-set="_link_class"
+                                   t-value="'o_navlink_background btn position-relative rounded-circle p-1 text-center text-reset'"/>
+                                <t t-set="_badge_class"
+                                   t-value="'position-absolute top-0 end-0 mt-n1 me-n1 rounded-pill'"/>
+                            </t>
+                            <!--                             Sign In -->
+                            <t t-call="portal.placeholder_user_sign_in">
+                                <t t-set="_link_class" t-valuef="btn btn-outline-secondary"/>
+                            </t>
+                            <!-- User Dropdown -->
+                            <t t-call="portal.user_dropdown">
+                                <t t-set="_user_name" t-value="True"/>
+                                <t t-set="_item_class" t-valuef="dropdown"/>
+                                <t t-set="_link_class" t-valuef="btn-outline-secondary border-0 fw-bold"/>
+                                <t t-set="_user_name_class" t-valuef="small"/>
+                                <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-end"/>
+                            </t>
+                            <!-- Language Selector -->
+                            <t t-call="website.placeholder_header_language_selector">
+                                <t t-set="_btn_class" t-valuef="btn-outline-secondary border-0"/>
+                                <t t-set="_txt_class" t-valuef="small"/>
+                                <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-end"/>
+                            </t>
+
+
+                            <div class="toolrange__header__navbar-icon">
+                                <img src="/website_toolrange/static/imgs/common/svgs/navbar.svg" alt="" loading="lazy"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="toolrange__header__contact">
+                    <div class="toolrange__header__phone">
+                        <img src="/website_aardwolf/static/imgs/common/svgs/phone_white.svg" alt=""/>
+                        <a href="tel:+15625536050">+1 562-553-6050</a>
+                    </div>
+                    <div class="break"></div>
+                    <div class="toolrange__header__mail">
+                        <img src="/website_aardwolf/static/imgs/common/svgs/mail_white.svg" alt=""/>
+                        <a href="mailto:sales@aardwolfusa.com">SEND A MESSAGE</a>
+                    </div>
+                </div>
+
+                <div class="toolrange__header__search sp-on">
+                    <img src="/website_aardwolf/static/imgs/common/svgs/search.svg" alt=""/>
+                    <input type="text" placeholder="Search"/>
+                </div>
+            </header>
+        </xpath>
+        <xpath expr="//footer" position="replace">
+            <footer class="toolrange__footer">
+                <div class="toolrange__footer__content">
+                    <div class="toolrange__footer__grid-item">
+                        <a href="#" class="toolrange__footer__content-logo">
+                            <img src="/website_aardwolf/static/imgs/home_page/logo.svg" alt="" loading="lazy"/>
+                        </a>
+
+                        <div class="toolrange__footer__content-info">
+                            <h4>TOOLRANGE ASIA</h4>
+                            <ul>
+                                <li>
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/address.svg" alt=""
+                                         loading="lazy"/>
+                                    <p>17 KP Binh Thuan 2, Thuan An, Binh Duong, Vietnam</p>
+                                </li>
+                                <li>
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/clock.svg" alt=""
+                                         loading="lazy"/>
+                                    <p>Monday - Friday 07:30 AM - 5:00 PM</p>
+                                </li>
+                                <li>
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/envelope.svg" alt=""
+                                         loading="lazy"/>
+                                    <p>Send Us a Message</p>
+                                </li>
+                                <li>
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/telephone.svg" alt=""
+                                         loading="lazy"/>
+                                    <p>0274 3712 839</p>
+                                </li>
+                            </ul>
+
+                            <div class="toolrange__footer__content-map">
+                                <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31337.294137202523!2d106.62440613289374!3d10.95115023310836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s17%20KP%20Binh%20Thuan%202%2C%20Thuan%20An%2C%20Binh%20Duong%2C%20Vietnam!5e0!3m2!1svi!2s!4v1742617149029!5m2!1svi!2s"
+                                        width="600"
+                                        height="450"
+                                        style="border: 0"
+                                        allowfullscreen=""
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="toolrange__footer__content-follow">
+                            <h4>Follow us</h4>
+
+                            <ul>
+                                <li>
+                                    <a href=""
+                                    >
+                                        <img src="/website_aardwolf/static/imgs/common/svgs/facebook.svg" alt=""
+                                        />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""
+                                    >
+                                        <img src="/website_aardwolf/static/imgs/common/svgs/youtube.svg" alt=""
+                                        />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""
+                                    >
+                                        <img src="/website_aardwolf/static/imgs/common/svgs/linkedin.svg" alt=""
+                                        />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""
+                                    >
+                                        <img src="/website_aardwolf/static/imgs/common/svgs/instagram.svg" alt=""
+                                        />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""
+                                    >
+                                        <img src="/website_aardwolf/static/imgs/common/svgs/x.svg" alt=""
+                                        />
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <ul>
+                                <li>
+                                    <img src="/website_aardwolf/static/imgs/home_page/DMCA.png" alt="" loading="lazy"/>
+                                </li>
+                                <li>
+                                    <img src="/website_aardwolf/static/imgs/home_page/ISO.png" alt="" loading="lazy"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="toolrange__footer__grid-item">
+                        <h4>
+                            <a href="/categories" style="text-decoration: none;color: inherit;">Categories</a>
+                        </h4>
+                        <ul>
+                            <li>A-Frames</li>
+                            <li>Crane, Forklift &amp; Workshop Accessories</li>
+                            <li>Cranes</li>
+                            <li>Forklift Equipment</li>
+                            <li>Mechanical Lifting Devices</li>
+                            <li>Slab Racks &amp; Posts</li>
+                            <li>Trolleys</li>
+                            <li>Vacuum Lifting Equipment</li>
+                            <li>Vacuum Tube Lifting Equipment</li>
+                            <li>Workshop Equipment</li>
+                            <li>Workwear</li>
+                        </ul>
+                    </div>
+
+                    <div class="toolrange__footer__grid-item">
+                        <h4>About us</h4>
+                        <ul>
+                            <li>Our Business</li>
+                            <li>Careers</li>
+                            <li>Contact</li>
+                            <li>Account</li>
+                        </ul>
+
+                        <h4>Shop</h4>
+                        <ul>
+                            <li>Home</li>
+                            <li>Categories</li>
+                            <li>Deals</li>
+                            <li>Brands</li>
+                            <li>Tracking Your Order</li>
+                            <li>Blog</li>
+                        </ul>
+                    </div>
+
+                    <div class="toolrange__footer__grid-item">
+                        <h4>Helpful links</h4>
+                        <ul>
+                            <li>Privacy Policy</li>
+                            <li>Return Policy</li>
+                            <li>Shipping Information</li>
+                            <li>Newsletter Signup</li>
+                            <li>Payment Methods</li>
+                        </ul>
+
+                        <h4>Feature posts</h4>
+                        <ul>
+                            <li>How To Move A Granite, Concrete Or Heavy, Countertop</li>
+                            <li>What equipment is used for lifting?</li>
+                            <li>How do you maintain lifting equipment?</li>
+                            <li>How to lift and carry loads safely and correctly</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="toolrange__footer__reserved">
+                    <p>Copyright © 2025 ToolRange. All Rights Reserved.</p>
+                </div>
+            </footer>
+        </xpath>
+    </template>
+
+    <template id="website.homepage" name="Homepage">
+        <t t-call="website_aardwolf.layout">
+            <main class="toolrange">
+                <section class="toolrange__banner">
+                    <div class="toolrange__banner__content">
+                        <p class="toolrange__banner__content-text">
+                            Top-Tier Equipment Cost-Effective Solutions Global Leader In
+                            Industry
+                        </p>
+                        <a href="/" class="toolrange__banner__content-btn btn-common">View our products</a>
+                    </div>
+                </section>
+
+                <section class="toolrange__video">
+                    <label for="home-video" class="toolrange__video-icon">
+                        <img src="/website_aardwolf/static/imgs/common/svgs/pause.svg" alt=""/>
+                    </label>
+
+                    <video id="home-video" height="706"
+                           poster="/website_aardwolf/static/imgs/home_page/image_video.png">
+                        <source src="/website_aardwolf/static/imgs/common/videos/video-demo.mp4" type="video/mp4"/>
+                    </video>
+                </section>
+
+                <section class="toolrange__categories">
+                    <h3 class="toolrange__categories__title section-title">CATEGORIES</h3>
+                    <div class="toolrange__categories__list">
+                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
+                            <div class="categorie-img">
+                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-1.png" alt=""/>
+                            </div>
+                            <p class="categorie-name">A-Frames</p>
+                        </a>
+                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
+                            <div class="categorie-img">
+                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-2.png" alt=""/>
+                            </div>
+                            <p class="categorie-name">A-Frames</p>
+                        </a>
+                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
+                            <div class="categorie-img">
+                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-3.png" alt=""/>
+                            </div>
+                            <p class="categorie-name">A-Frames</p>
+                        </a>
+                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
+                            <div class="categorie-img">
+                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-4.png" alt=""/>
+                            </div>
+                            <p class="categorie-name">A-Frames</p>
+                        </a>
+                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
+                            <div class="categorie-img">
+                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-5.png" alt=""/>
+                            </div>
+                            <p class="categorie-name">A-Frames</p>
+                        </a>
+                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
+                            <div class="categorie-img">
+                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-6.png" alt=""/>
+                            </div>
+                            <p class="categorie-name">A-Frames</p>
+                        </a>
+                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
+                            <div class="categorie-img">
+                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-7.png" alt=""/>
+                            </div>
+                            <p class="categorie-name">A-Frames</p>
+                        </a>
+                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
+                            <div class="categorie-img">
+                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-8.png" alt=""/>
+                            </div>
+                            <p class="categorie-name">A-Frames</p>
+                        </a>
+                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
+                            <div class="categorie-img">
+                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-9.png" alt=""/>
+                            </div>
+                            <p class="categorie-name">A-Frames</p>
+                        </a>
+                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
+                            <div class="categorie-img">
+                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-10.png" alt=""/>
+                            </div>
+                            <p class="categorie-name">A-Frames</p>
+                        </a>
+                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
+                            <div class="categorie-img">
+                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-11.png" alt=""/>
+                            </div>
+                            <p class="categorie-name">A-Frames</p>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="toolrange__industries">
+                    <h3 class="toolrange__industries__title section-title">INDUSTRIES</h3>
+
+                    <div class="toolrange__industries__grid">
+                        <a href="#" class="toolrange__industries__item">
+                            <img src="/website_aardwolf/static/imgs/home_page/industries/img-1.png" alt=""/>
+                            <p>Stone Handling and Installation Equipment</p>
+                        </a>
+                        <a href="#" class="toolrange__industries__item">
+                            <img src="/website_aardwolf/static/imgs/home_page/industries/img-2.png" alt=""/>
+                            <p>Glass Handling and Installation Equipment</p>
+                        </a>
+                        <a href="#" class="toolrange__industries__item">
+                            <img src="/website_aardwolf/static/imgs/home_page/industries/img-3.png" alt=""/>
+                            <p>Hardscape - Handling &amp; Installation Equipment</p>
+                        </a>
+                        <a href="#" class="toolrange__industries__item">
+                            <img src="/website_aardwolf/static/imgs/home_page/industries/img-4.png" alt=""/>
+                            <p>Sheet Metal Handling Solutions</p>
+                        </a>
+                        <a href="#" class="toolrange__industries__item">
+                            <img src="/website_aardwolf/static/imgs/home_page/industries/img-5.png" alt=""/>
+                            <p>Packaging Handling &amp; Lifting Equipment</p>
+                        </a>
+                        <a href="#" class="toolrange__industries__item">
+                            <img src="/website_aardwolf/static/imgs/home_page/industries/img-6.png" alt=""/>
+                            <p>Material Handling &amp; Lifting Equipment</p>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="toolrange__section-slider">
+                    <div class="toolrange__recomment-slider swiper recommendedSwiper">
+                        <div class="toolrange__recomment-slider-group">
+                            <p class="toolrange__recomment-slider-title">FEATURED PRODUCTS</p>
+
+                            <div class="toolrange__recomment-slider-actions">
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </div>
+
+                        <div class="toolrange__recomment-slider-slides swiper-wrapper">
+                            <a productItemId="" href="#" class="toolrange__recomment-slider-slide swiper-slide">
+                                <div class="slide-img">
+                                    <img src="/website_aardwolf/static/imgs/common/products/product-29.png" alt=""/>
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a productItemId="" href="#" class="toolrange__recomment-slider-slide swiper-slide">
+                                <div class="slide-img">
+                                    <img src="/website_aardwolf/static/imgs/common/products/product-29.png" alt=""/>
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a productItemId="" href="#" class="toolrange__recomment-slider-slide swiper-slide">
+                                <div class="slide-img">
+                                    <img src="/website_aardwolf/static/imgs/common/products/product-29.png" alt=""/>
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a productItemId="" href="#" class="toolrange__recomment-slider-slide swiper-slide">
+                                <div class="slide-img">
+                                    <img src="/website_aardwolf/static/imgs/common/products/product-29.png" alt=""/>
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a productItemId="" href="#" class="toolrange__recomment-slider-slide swiper-slide">
+                                <div class="slide-img">
+                                    <img src="/website_aardwolf/static/imgs/common/products/product-29.png" alt=""/>
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a
+                                    productItemId=""
+                                    href="#"
+                                    class="toolrange__recomment-slider-slide swiper-slide"
+                            >
+                                <div class="slide-img">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a
+                                    productItemId=""
+                                    href="#"
+                                    class="toolrange__recomment-slider-slide swiper-slide"
+                            >
+                                <div class="slide-img">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a
+                                    productItemId=""
+                                    href="#"
+                                    class="toolrange__recomment-slider-slide swiper-slide"
+                            >
+                                <div class="slide-img">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a
+                                    productItemId=""
+                                    href="#"
+                                    class="toolrange__recomment-slider-slide swiper-slide"
+                            >
+                                <div class="slide-img">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="/categories" class="button-link">View All</a>
+                </section>
+
+                <section class="toolrange__section-slider">
+                    <div class="toolrange__recomment-slider swiper recommendedSwiper2">
+                        <div class="toolrange__recomment-slider-group">
+                            <p class="toolrange__recomment-slider-title">Trend in industry</p>
+
+                            <div class="toolrange__recomment-slider-actions">
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </div>
+
+                        <div class="toolrange__recomment-slider-slides swiper-wrapper">
+                            <a
+                                    productItemId=""
+                                    href="#"
+                                    class="toolrange__recomment-slider-slide swiper-slide"
+                            >
+                                <div class="slide-img">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a
+                                    productItemId=""
+                                    href="#"
+                                    class="toolrange__recomment-slider-slide swiper-slide"
+                            >
+                                <div class="slide-img">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a
+                                    productItemId=""
+                                    href="#"
+                                    class="toolrange__recomment-slider-slide swiper-slide"
+                            >
+                                <div class="slide-img">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a
+                                    productItemId=""
+                                    href="#"
+                                    class="toolrange__recomment-slider-slide swiper-slide"
+                            >
+                                <div class="slide-img">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a
+                                    productItemId=""
+                                    href="#"
+                                    class="toolrange__recomment-slider-slide swiper-slide"
+                            >
+                                <div class="slide-img">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a
+                                    productItemId=""
+                                    href="#"
+                                    class="toolrange__recomment-slider-slide swiper-slide"
+                            >
+                                <div class="slide-img">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a
+                                    productItemId=""
+                                    href="#"
+                                    class="toolrange__recomment-slider-slide swiper-slide"
+                            >
+                                <div class="slide-img">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a
+                                    productItemId=""
+                                    href="#"
+                                    class="toolrange__recomment-slider-slide swiper-slide"
+                            >
+                                <div class="slide-img">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                            <a
+                                    productItemId=""
+                                    href="#"
+                                    class="toolrange__recomment-slider-slide swiper-slide"
+                            >
+                                <div class="slide-img">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="img-content">
+                                    <p>AARDWOLF Slab Lifter</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="/" class="button-link">View All</a>
+                </section>
+
+                <section class="toolrange__distributors">
+                    <h3 class="toolrange__distributors__title">TRUSTED DISTRIBUTORS</h3>
+
+                    <div class="toolrange__distributors__slider swiper distributorsSwiper">
+                        <div class="toolrange__distributors__slider-wrapper swiper-wrapper">
+                            <div class="toolrange__distributors__slide swiper-slide">
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-1.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-2.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-3.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-4.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-5.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-6.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-7.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-8.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-9.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-10.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-11.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-12.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-13.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-14.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-15.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-16.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-17.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-18.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-19.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-20.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-21.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-22.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-23.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-24.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-25.png"
+                                            alt=""
+                                    />
+                                </div>
+                            </div>
+                            <div class="toolrange__distributors__slide swiper-slide">
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-26.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-27.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-28.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-29.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-30.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-31.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-32.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-33.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-34.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-35.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-36.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-37.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-38.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-39.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-40.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-41.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-42.png"
+                                            alt=""
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+
+                    <a href="/" class="btn-common">Find Your Nearest Distributor</a>
+                </section>
+
+                <section class="toolrange__why-aardwolf">
+                    <div class="toolrange__why-aardwolf__content">
+                        <div class="toolrange__why-aardwolf__content-logo">
+                            <img src="/website_aardwolf/static/imgs/home_page/logo2.svg" alt=""/>
+                        </div>
+                        <p class="toolrange__why-aardwolf__content-title">Why aardwolf</p>
+                        <p class="toolrange__why-aardwolf__content-message">
+                            Aardwolf is more than a manufacturer; we are a partner in your
+                            success. Join us at Aardwolf Industries LLC, where every challenge
+                            is met with an innovative solution, and every customer Get The
+                            Aardwolf AAdvantage.
+                        </p>
+                        <a href="/" class="btn-common">Learn More</a>
+                    </div>
+                </section>
+
+                <section class="toolrange__team">
+                    <div class="toolrange__team__content">
+                        <p class="toolrange__team__content-title">
+                            MEET OUR PROFESSTIONAL TEAM
+                        </p>
+                        <p class="toolrange__team__content-message">
+                            Our team of experts is here to provide you with the best service and
+                            support. We're dedicated to helping you grow your business
+                        </p>
+                        <a href="/" class="button-link">Contact Us</a>
+                    </div>
+                </section>
+
+                <section class="toolrange__become-distributor">
+                    <h3 class="toolrange__become-distributor__title">Become distributor</h3>
+
+                    <div class="toolrange__become-distributor__items">
+                        <div class="toolrange__become-distributor__item">
+                            <div class="toolrange__become-distributor__item-icon">
+                                <img src="/website_aardwolf/static/imgs/common/svgs/open_box.svg" alt=""/>
+                            </div>
+
+                            <div>
+                                <p class="toolrange__become-distributor__item-title">
+                                    Become distributor
+                                </p>
+                                <p class="toolrange__become-distributor__item-content">
+                                    At Aardwolf, we believe in building long-term distributor
+                                    partnership with those who want to grow their business
+                                </p>
+
+                                <a href="/" class="btn-common">Learn more</a>
+                            </div>
+                        </div>
+
+                        <div class="toolrange__become-distributor__item">
+                            <div class="toolrange__become-distributor__item-icon">
+                                <img src="/website_aardwolf/static/imgs/common/svgs/in_hand.svg" alt=""/>
+                            </div>
+
+                            <div>
+                                <p class="toolrange__become-distributor__item-title">
+                                    FINANCING OPTIONS
+                                </p>
+                                <p class="toolrange__become-distributor__item-content">
+                                    Discover our flexible financing options to help you acquire
+                                    top-tier stone and glass lifting equipment. We offer competitive
+                                    rates and tailored plans to fit your business needs.
+                                </p>
+
+                                <a href="/" class="btn-common">Learn more</a>
+                            </div>
+                        </div>
+
+                        <div class="toolrange__become-distributor__item">
+                            <div class="toolrange__become-distributor__item-icon">
+                                <img src="/website_aardwolf/static/imgs/common/svgs/omnichannel.svg" alt=""/>
+                            </div>
+
+                            <div>
+                                <p class="toolrange__become-distributor__item-title">
+                                    LIST OF DISTRIBUTORS
+                                </p>
+                                <p class="toolrange__become-distributor__item-content">
+                                    Find out which distributor is near you. Use our locator tool to
+                                    connect with a distributor in your area and get the products you
+                                    need quickly and efficiently.
+                                </p>
+
+                                <a href="/" class="btn-common">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </t>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
+        <script type="module" src="/website_aardwolf/static/js/slider.js"/>
+        <script type="module" src="/website_toolrange/static/src/js/main.js"/>
+    </template>
+
+</odoo>

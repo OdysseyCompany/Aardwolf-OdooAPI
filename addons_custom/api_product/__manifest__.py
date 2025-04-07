@@ -6,8 +6,10 @@
     'summary': '',
     'author': '',
     'website': '',
-    'depends': ['product'],
+    'depends': ['jwt_provider'],
     'data': [
+        'security/ir.model.access.csv',
+        'views/product_template_view.xml',
     ],
     'assets': {
         },
