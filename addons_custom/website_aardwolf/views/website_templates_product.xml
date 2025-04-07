@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="product_detail_templates" name="Product Detail">
+        <main class="toolrange">
+            <div class="toolrange__prod-detail">
+                <div class="toolrange__prod-detail__head-breadcrumbs toolrange__breadcrumbs">
+                    <a href="/">Home</a>
+                    <a t-att-href="'/category-detail/' + values['categ_slug'] + '?page=1'">
+                        <t t-esc="values['category']"/>
+                    </a>
+                    <a href="#" class="current">
+                        <t t-esc="values['name']"/>
+                    </a>
+                </div>
+                <div class="toolrange__prod-detail__prod">
+                    <div class="toolrange__prod-detail__prod-thumbnalls">
+                        <t t-foreach="values['image']" t-as="img">
+                            <div class="toolrange__prod-detail__prod-thumbnall">
+                                <img t-att-src="img" t-att-alt="values['name']" loading="lazy"/>
+                            </div>
+                        </t>
+                    </div>
+
+                    <div class="toolrange__prod-detail__prod-view">
+                        <img t-att-src="values['img_128']" t-att-alt="values['name']" loading="lazy"/>
+                    </div>
+
+                    <div class="toolrange__prod-detail__prod-info">
+                        <div class="info-group">
+                            <p>
+                                <t t-esc="values['category']"/>
+                            </p>
+                            <button>
+                                <img src="/website_aardwolf/static/imgs/common/svgs/heart.svg" alt=""/>
+                            </button>
+                        </div>
+
+                        <h3 class="toolrange__prod-detail__prod-name">
+                            <t t-esc="values['name']"/>
+                        </h3>
+
+                        <div class="toolrange__prod-detail__prod-options-wrapper">
+                            <p class="toolrange__prod-detail__prod-options-title">
+                                Grip Range Options
+                            </p>
+
+                            <ul class="toolrange__prod-detail__prod-options">
+                                <t t-foreach="values['product_variant']" t-as="product_variant">
+                                    <li class="toolrange__prod-detail__prod-option option-active">
+                                        <t t-esc="product_variant"/>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+
+                        <div class="toolrange__prod-detail__prod-quantity-box">
+                            <span class="quantity-title">Quantity</span>
+
+                            <div class="toolrange__prod-detail__prod-quantity-action product-quantity-action">
+                                <button class="decrease-quantity disable"/>
+                                <p class="quantity">1</p>
+                                <button class="increase-quantity"/>
+                            </div>
+                        </div>
+
+                        <div class="toolrange__prod-detail__prod-btns">
+                            <div class="group-bns">
+                                <button class="toolrange__prod-detail__prod-btn btn-find">Find Your Nearest Store
+                                </button>
+                                <div >
+                                    <a data-animation-selector=".o_wsale_product_images" role="button"
+                                       id="add_to_cart"
+                                       t-attf-class="btn btn-primary js_check_product a-submit flex-grow-1"
+                                       href="#">
+                                        <i class="fa fa-shopping-cart me-2"/>
+                                        Add to cart
+                                    </a>
+                                </div>
+                                <button class="toolrange__prod-detail__prod-btn btn-add">Add to cart</button>
+                            </div>
+                            <button class="toolrange__prod-detail__prod-btn btn-request">Request A Price</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="toolrange__prod-detail__description">
+                    <p class="toolrange__prod-detail__description-title">Description</p>
+
+                    <div class="toolrange__prod-detail__description-blocks">
+                        <div class="toolrange__prod-detail__description-block">
+                            <p class="toolrange__prod-detail__description-tag">General</p>
+
+                            <div class="toolrange__prod-detail__description-content">
+                                <p>
+                                    <t t-esc="values['description']"/>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="toolrange__prod-detail__description-block">
+                            <p class="toolrange__prod-detail__description-tag">Key Features</p>
+
+                            <div class="toolrange__prod-detail__description-content">
+                                <p>
+                                    <t t-esc="values['description']"/>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="toolrange__prod-detail__description-block">
+                            <p class="toolrange__prod-detail__description-tag">General</p>
+                            <div class="toolrange__prod-detail__description-content">
+                                <t t-esc="values['description']"/>
+                                <img srcset="/website_aardwolf/static/imgs/common/specifications.png 2x" alt=""/>
+                            </div>
+                        </div>
+
+                        <div class="toolrange__prod-detail__description-block block-tab">
+                            <div class="toolrange__prod-detail__description-tabs">
+                                <button data-tab="image" class="toolrange__prod-detail__description-tab tab-active">
+                                    Image
+                                </button>
+                                <button data-tab="video" class="toolrange__prod-detail__description-tab">Video</button>
+                            </div>
+
+                            <div class="toolrange__prod-detail__description-views">
+                                <div data-view="image"
+                                     class="toolrange__prod-detail__description-view view-img view-active">
+                                    <div class="img-left">
+                                        <!--                                        <img t-att-src="values['image'][0]" t-att-alt="values['name']" loading="lazy"/>-->
+                                        <img src="/website_aardwolf/static/imgs/common/product/img-5.png" alt=""/>
+                                    </div>
+
+                                    <div class="img-right">
+                                        <div class="img-right-top">
+                                            <img src="/website_aardwolf/static/imgs/common/product/img-6.png" alt=""/>
+                                        </div>
+
+                                        <div class="img-right-bottom">
+                                            <img src="/website_aardwolf/static/imgs/common/product/img-7.png" alt=""/>
+                                            <img src="/website_aardwolf/static/imgs/common/product/img-7.png" alt=""/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div data-view="video" class="toolrange__prod-detail__description-view view-video">
+                                    <iframe
+                                            width="100%"
+                                            height="658"
+                                            t-att-src="values['video']"
+                                            title="YouTube video player"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerpolicy="strict-origin-when-cross-origin"
+                                    ></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toolrange__prod-detail__reviews non-first">
+                    <h3 class="toolrange__prod-detail__reviews-title">Customer Reviews</h3>
+
+                    <div class="toolrange__prod-detail__reviews-group">
+                        <div class="toolrange__prod-detail__reviews-sub-group">
+                            <p class="average-number-of-stars">4.3</p>
+                            <div>
+                                <div class="toolrange__prod-detail__reviews-stars">
+                                    <data value="5" class="toolrange__prod-detail__reviews-star"></data>
+                                    <data
+                                            value="4"
+                                            class="toolrange__prod-detail__reviews-star star-active"
+                                    ></data>
+                                    <data
+                                            value="3"
+                                            class="toolrange__prod-detail__reviews-star star-active"
+                                    ></data>
+                                    <data
+                                            value="2"
+                                            class="toolrange__prod-detail__reviews-star star-active"
+                                    ></data>
+                                    <data
+                                            value="1"
+                                            class="toolrange__prod-detail__reviews-star star-active"
+                                    ></data>
+                                </div>
+
+                                <p class="total-rating">Be the first to write a review</p>
+                            </div>
+                        </div>
+
+                        <div class="line-break"></div>
+
+                        <button class="toolrange__prod-detail__reviews-btn">
+                            WRITE A REVIEW
+                        </button>
+                    </div>
+
+                    <div class="toolrange__prod-detail__reviews-wrapper">
+                        <ul class="review-list">
+                            <li class="review-item">
+                                <p class="review-item__title">Be the first to write a review</p>
+
+                                <div class="toolrange__prod-detail__reviews-stars review-item__stars">
+                                    <data
+                                            value="5"
+                                            class="toolrange__prod-detail__reviews-star review-item__star"
+                                    ></data>
+                                    <data
+                                            value="4"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                    <data
+                                            value="3"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                    <data
+                                            value="2"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                    <data
+                                            value="1"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                </div>
+
+                                <p class="review-item__message">
+                                    Just wanted to give a shoutout to [team member] for their hard work
+                                    on this task, it's really paying; Just wanted to give a shoutout to
+                                    [team member] for their hard work on this task, it's really
+                                    payingJust wanted to give a shoutout to [team member] for their hard
+                                    work on this task, it's really paying
+                                </p>
+                            </li>
+                            <li class="review-item">
+                                <p class="review-item__title">Great experience overall</p>
+
+                                <div class="toolrange__prod-detail__reviews-stars review-item__stars">
+                                    <data
+                                            value="5"
+                                            class="toolrange__prod-detail__reviews-star review-item__star"
+                                    ></data>
+                                    <data
+                                            value="4"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                    <data
+                                            value="3"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                    <data
+                                            value="2"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                    <data
+                                            value="1"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                </div>
+
+                                <p class="review-item__message">
+                                    The project exceeded my expectations and the collaboration was
+                                    seamless; The project exceeded my expectations and the collaboration
+                                    was seamlessThe project exceeded my expectations and the
+                                    collaboration was seamless.
+                                </p>
+                            </li>
+                            <li class="review-item">
+                                <p class="review-item__title">Highly recommend this service</p>
+
+                                <div class="toolrange__prod-detail__reviews-stars review-item__stars">
+                                    <data
+                                            value="5"
+                                            class="toolrange__prod-detail__reviews-star review-item__star"
+                                    ></data>
+                                    <data
+                                            value="4"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                    <data
+                                            value="3"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                    <data
+                                            value="2"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                    <data
+                                            value="1"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                </div>
+
+                                <p class="review-item__message">
+                                    The team was professional and delivered on time; The team was
+                                    professional and delivered on timeThe team was professional and
+                                    delivered on time.
+                                </p>
+                            </li>
+                            <li class="review-item">
+                                <p class="review-item__title">Fantastic results and support</p>
+
+                                <div class="toolrange__prod-detail__reviews-stars review-item__stars">
+                                    <data
+                                            value="5"
+                                            class="toolrange__prod-detail__reviews-star review-item__star"
+                                    ></data>
+                                    <data
+                                            value="4"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                    <data
+                                            value="3"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                    <data
+                                            value="2"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                    <data
+                                            value="1"
+                                            class="toolrange__prod-detail__reviews-star review-item__star star-active"
+                                    ></data>
+                                </div>
+
+                                <p class="review-item__message">
+                                    Every question I had was answered promptly and thoroughly; Every
+                                    question I had was answered promptly and thoroughlyEvery question I
+                                    had was answered promptly and thoroughly.
+                                </p>
+                            </li>
+                        </ul>
+
+                        <div class="review-pagination">
+                            <button class="review-pagination__btn btn-prev disable"></button>
+                            <button class="review-pagination__btn btn-page page-active">1</button>
+                            <button class="review-pagination__btn btn-page">2</button>
+                            <button class="review-pagination__btn btn-page">3</button>
+                            <button class="review-pagination__btn btn-page">4</button>
+                            <button class="review-pagination__btn btn-page">5</button>
+                            <button class="review-pagination__btn btn-none">...</button>
+                            <button class="review-pagination__btn btn-page">10</button>
+                            <button class="review-pagination__btn btn-next"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="toolrange__prod-detail__slider recommended-combinations__slider swiper recommendedCombinationsSwiper">
+                    <div class="toolrange__prod-detail__slider-group">
+                        <p class="toolrange__prod-detail__slider-title">
+                            Recommended Combinations
+                        </p>
+
+                        <div class="toolrange__prod-detail__slider-actions">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+
+                    <div class="toolrange__prod-detail__slider-slides swiper-wrapper">
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                        class="toolrange__prod-detail__slider recommended-combinations__slider swiper ymalSwiper"
+                >
+                    <div class="toolrange__prod-detail__slider-group">
+                        <p class="toolrange__prod-detail__slider-title">You Might Also Like</p>
+
+                        <div class="toolrange__prod-detail__slider-actions">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+
+                    <div class="toolrange__prod-detail__slider-slides swiper-wrapper">
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__recomment-slider-slide swiper-slide"
+                        >
+                            <div class="slide-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/products/product-29.png"
+                                        alt=""
+                                />
+                            </div>
+
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script type="module" src="/website_toolrange/static/src/js/main.js"/>
+    </template>
+
+    <template id="product_detail_templates_aardwolf" name="Product Detail">
+        <t t-call="website_aardwolf.layout">
+            <t t-call="website_aardwolf.product_detail_templates"/>
+        </t>
+        <script src="/website_aardwolf/static/js/main.js"/>
+    </template>
+
+    <template id="product_templates" name="Product">
+        <section class="toolrange__search-results">
+            <div class="toolrange__search-results__value">
+                <p>Results for “<span class="value-search">Mechanical</span>”
+                </p>
+            </div>
+
+            <div class="toolrange__search-results__content">
+                <div class="toolrange__search-results__list toolrange__products__list">
+                    <t t-foreach="values" t-as="prd">
+                        <a t-att-href="'/product-detail/%s' % prd['slug']" class="toolrange__products__item">
+                            <div class="product-img">
+                                <img t-att-src="prd['img']" t-att-alt="prd['name']" loading="lazy"/>
+                            </div>
+                            <p class="product-info">
+                                <t t-esc="prd['name']"/>
+                            </p>
+                        </a>
+                    </t>
+                </div>
+                <a href="#" class="toolrange__search-results__button-more">
+                    Load more
+                </a>
+            </div>
+        </section>
+    </template>
+
+    <template id="product_templates_aardwolf" name="Product">
+        <t t-call="website_aardwolf.layout">
+            <t t-call="website_aardwolf.product_templates"/>
+        </t>
+        <script src="/website_aardwolf/static/js/main.js"/>
+    </template>
+
+    <template id="products" inherit_id="website_sale.product" primary="True">
+        <xpath expr="//header" position="replace">
+
+        </xpath>
+    </template>
+
+</odoo>
