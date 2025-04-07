@@ -29,7 +29,7 @@ class ProductTemplate(models.Model):
     image_ids = fields.One2many('image.product', 'product_template_id', string='Image')
     video_url = fields.Char('Video URL')
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
         # Khi tạo mới sản phẩm, tạo thumbnail nếu có image_1920
         if vals.get('image_1920'):
