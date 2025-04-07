@@ -68,15 +68,6 @@
                             <div class="group-bns">
                                 <button class="toolrange__prod-detail__prod-btn btn-find">Find Your Nearest Store
                                 </button>
-                                <div >
-                                    <a data-animation-selector=".o_wsale_product_images" role="button"
-                                       id="add_to_cart"
-                                       t-attf-class="btn btn-primary js_check_product a-submit flex-grow-1"
-                                       href="#">
-                                        <i class="fa fa-shopping-cart me-2"/>
-                                        Add to cart
-                                    </a>
-                                </div>
                                 <button class="toolrange__prod-detail__prod-btn btn-add">Add to cart</button>
                             </div>
                             <button class="toolrange__prod-detail__prod-btn btn-request">Request A Price</button>
@@ -710,12 +701,6 @@
             <t t-call="website_aardwolf.product_templates"/>
         </t>
         <script src="/website_aardwolf/static/js/main.js"/>
-    </template>
-
-    <template id="products" inherit_id="website_sale.product" primary="True">
-        <xpath expr="//header" position="replace">
-
-        </xpath>
     </template>
 
 </odoo>

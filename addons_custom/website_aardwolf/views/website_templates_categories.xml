@@ -30,7 +30,7 @@
                                         <a t-att-href="'/category-detail/%s' % product['slug']"
                                            class="toolrange__categorie__item toolrange__products__item">
                                             <div class="product-img">
-                                                <img t-att-src="product['image_url'] or '/website_toolrange/static/imgs/common/products/product-1.png'"
+                                                <img t-att-src="product['image_url'] or '/website_aardwolf/static/imgs/common/products/product-1.png'"
                                                      t-att-alt="product['name']" loading="lazy"/>
 
                                             </div>
@@ -58,14 +58,14 @@
             </div>
         </main>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script type="module" src="/website_toolrange/static/src/js/main.js"/>
+        <script type="module" src="/website_aardwolf/static/src/js/main.js"/>
     </template>
 
     <template id="categories_templates_aardwolf" name="Categories">
         <t t-call="website_aardwolf.layout">
             <t t-call="website_aardwolf.categories_templates"/>
         </t>
-        <script src="/website_aardwolf/static/js/main.js"/>
+        <script type="module" src="/website_aardwolf/static/js/main.js"/>
     </template>
 
     <template id="categories_detail_templates" name="Categories Detail">
@@ -166,14 +166,14 @@
                 <div id="category-data" t-att-data-category-slug="category_slug" style="display: none;"></div>
             </div>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script type="module" src="/website_toolrange/static/src/js/main.js"/>
+        <script type="module" src="/website_aardwolf/static/src/js/main.js"/>
     </template>
 
     <template id="categories_detail_templates_aardwolf" name="Categories Detail">
         <t t-call="website_aardwolf.layout">
             <t t-call="website_aardwolf.categories_detail_templates"/>
         </t>
-        <script src="/website_aardwolf/static/js/main.js"/>
+        <script type="module" src="/website_aardwolf/static/js/main.js"/>
     </template>
 
 </odoo>

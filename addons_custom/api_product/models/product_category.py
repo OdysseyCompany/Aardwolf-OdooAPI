@@ -30,11 +30,12 @@ class ProductTemplate(models.Model):
     video_url = fields.Char('Video URL')
 
     @api.model_create_multi
-    def create(self, vals):
+    def create(self, vals_list):
         # Khi tạo mới sản phẩm, tạo thumbnail nếu có image_1920
-        if vals.get('image_1920'):
-            vals['image_thumb'] = self._generate_thumbnail(vals['image_1920'])
-        return super().create(vals)
+        for vals in vals_list:
+            if vals.get('image_1920'):
+                vals['image_thumb'] = self._generate_thumbnail(vals['image_1920'])
+        return super().create(vals_list)
 
     def write(self, vals):
         # Khi cập nhật ảnh gốc, cũng cập nhật thumbnail
