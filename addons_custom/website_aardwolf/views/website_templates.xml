@@ -1055,7 +1055,7 @@
               href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
         <script type="module" src="/website_aardwolf/static/js/slider.js"/>
-        <script type="module" src="/website_toolrange/static/src/js/main.js"/>
+        <script type="module" src="/website_aardwolf/static/js/main.js"/>
     </template>
 
 </odoo>
