@@ -118,6 +118,7 @@ class WebsiteAardwolf(http.Controller):
             product = request.env['product.template'].sudo().search([('slug', '=', slug)], limit=1)
             if not product:
                 return request.not_found()
+            url_img = f"/web/image/product.template/{product.id}/image_1024" if product.image_1024 else '/website_aardwolf/static/imgs/common/product/img-1.png'
             result = {
                 'category': product.categ_id.name,
                 'categ_slug': product.categ_id.slug,
@@ -126,9 +127,10 @@ class WebsiteAardwolf(http.Controller):
                 'key_features': product.description,
                 'general': product.description,
                 'video': product.video_url,
-                'img_128': f"/web/image/product.template/{product.id}/image_1024" if product.image_1024 else '/website_aardwolf/static/imgs/common/product/img-1.png',
+                'img_128': url_img,
+                'id': product.id
             }
-            url_image = []
+            url_image = [str(url_img)]
             for img in product.image_ids:
                 image_url = f"/web/image/image.product/{img.id}/image" if img.image else '/website_aardwolf/static/imgs/common/product/img-1.png'
                 url_image.append(image_url)
@@ -173,3 +175,91 @@ class WebsiteAardwolf(http.Controller):
                 headers=[('Content-Type', 'text/plain')],
                 status=500
             )
+
+    @http.route(['/contact'], type='http', auth="public", website=True, sitemap=False)
+    def contact(self, **post):
+        try:
+            result = []
+            return request.render("website_aardwolf.contact_aardwolf", {
+                'values': result
+            })
+
+        except Exception as error:
+            return request.make_response(
+                str(error),
+                headers=[('Content-Type', 'text/plain')],
+                status=500
+            )
+
+    @http.route(['/careers'], type='http', auth="public", website=True, sitemap=False)
+    def careers(self, **post):
+        try:
+            result = []
+            return request.render("website_aardwolf.careers_aardwolf", {
+                'values': result
+            })
+
+        except Exception as error:
+            return request.make_response(
+                str(error),
+                headers=[('Content-Type', 'text/plain')],
+                status=500
+            )
+
+    @http.route(['/our-business'], type='http', auth="public", website=True, sitemap=False)
+    def our_business(self, **post):
+        try:
+            result = []
+            return request.render("website_aardwolf.our_business_aardwolf", {
+                'values': result
+            })
+
+        except Exception as error:
+            return request.make_response(
+                str(error),
+                headers=[('Content-Type', 'text/plain')],
+                status=500
+            )
+
+    @http.route(['/our-trade-shows'], type='http', auth="public", website=True, sitemap=False)
+    def our_trade_shows(self, **post):
+        try:
+            result = []
+            return request.render("website_aardwolf.our_trade_shows_aardwolf", {
+                'values': result
+            })
+
+        except Exception as error:
+            return request.make_response(
+                str(error),
+                headers=[('Content-Type', 'text/plain')],
+                status=500
+            )
+
+    @http.route('/custom/cart/add', type='json', auth='public', website=True, csrf=False)
+    def add_to_cart(self, product_id, quantity=1, **kwargs):
+        user = request.env.user
+        if user and not user._is_public():
+            sale_order = request.website.sale_get_order(force_create=True)
+            product = request.env['product.product'].browse(int(product_id))
+            if product.exists():
+                sale_order._cart_update(
+                    product_id=product.id,
+                    add_qty=int(quantity),
+                    set_qty=0
+                )
+                return {'status': 'ok', 'message': 'Đã thêm vào giỏ hàng'}
+            else:
+                return {'status': 'error', 'message': 'Không tìm thấy sản phẩm'}
+        else:
+            return {'status': 'client', 'message': 'Lưu vào localStorage'}
+
+    @http.route('/cart', type='http', auth='public', website=True)
+    def view_cart(self, **kwargs):
+        sale_order = request.website.sale_get_order()
+        order_lines = sale_order.order_line if sale_order else []
+
+        return request.render('your_module_name.cart_template', {
+            'order': sale_order,
+            'order_lines': order_lines,
+        })

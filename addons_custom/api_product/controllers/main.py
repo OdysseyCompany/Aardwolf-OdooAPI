@@ -178,3 +178,21 @@ class APIWebsite(http.Controller):
                 content_type='application/json',
                 status=500
             )
+
+    @http.route('/api/search', type='json', auth="public", csrf=False, methods=["POST"])
+    def search_api_aardwolf(self):
+        keyword = request.jsonrequest.get("search")
+        _logger.info("Received keyword: %s", keyword)
+
+        products = request.env['product.template'].sudo().search([
+            ('name', 'ilike', keyword)
+        ], limit=10)
+
+        return [
+            {
+                'name': p.name,
+                'image_url': f"/web/image/product.template/{p.id}/image_128",
+                'url': p.website_url,
+            }
+            for p in products
+        ]

@@ -17,13 +17,14 @@
                     <div class="toolrange__prod-detail__prod-thumbnalls">
                         <t t-foreach="values['image']" t-as="img">
                             <div class="toolrange__prod-detail__prod-thumbnall">
-                                <img t-att-src="img" t-att-alt="values['name']" loading="lazy"/>
+                                <img t-att-src="img" t-att-alt="values['name']" t-att-data-src="img"
+                                     class="thumbnail-img" loading="lazy"/>
                             </div>
                         </t>
                     </div>
 
                     <div class="toolrange__prod-detail__prod-view">
-                        <img t-att-src="values['img_128']" t-att-alt="values['name']" loading="lazy"/>
+                        <img t-att-src="values['img_128']" t-att-alt="values['name']" class="main-img" loading="lazy"/>
                     </div>
 
                     <div class="toolrange__prod-detail__prod-info">
@@ -59,7 +60,7 @@
 
                             <div class="toolrange__prod-detail__prod-quantity-action product-quantity-action">
                                 <button class="decrease-quantity disable"/>
-                                <p class="quantity">1</p>
+                                <p class="quantity" style="margin-bottom: 0;">1</p>
                                 <button class="increase-quantity"/>
                             </div>
                         </div>
@@ -68,7 +69,10 @@
                             <div class="group-bns">
                                 <button class="toolrange__prod-detail__prod-btn btn-find">Find Your Nearest Store
                                 </button>
-                                <button class="toolrange__prod-detail__prod-btn btn-add">Add to cart</button>
+                                <button class="toolrange__prod-detail__prod-btn btn-add"
+                                        t-att-data-product-id="values['id']">
+                                    Add to cart
+                                </button>
                             </div>
                             <button class="toolrange__prod-detail__prod-btn btn-request">Request A Price</button>
                         </div>
@@ -658,8 +662,10 @@
                 </div>
             </div>
         </main>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
         <script type="module" src="/website_toolrange/static/src/js/main.js"/>
+        <script type="module" src="/website_aardwolf/static/js/click_thumbnails.js"/>
+        <script type="module" src="/website_aardwolf/static/js/add_to_cart.js"/>
     </template>
 
     <template id="product_detail_templates_aardwolf" name="Product Detail">
