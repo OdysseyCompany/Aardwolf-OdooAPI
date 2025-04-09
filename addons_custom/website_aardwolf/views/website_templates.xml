@@ -30,8 +30,8 @@
                                 Products
                                 <ul class="product-drop-down__list drop-down__list"></ul>
                             </div>
-                            <a href="categories.html" class="toolrange__header__navbar-item"
-                            >GALLERIES
+                            <a href="/categories" class="toolrange__header__navbar-item"
+                            >Categories
                             </a>
                             <div class="toolrange__header__navbar-item drop-down link-drop-down">
                                 ABOUT US
@@ -82,6 +82,9 @@
                         </div>
 
                         <div class="toolrange__header__right-sub-group">
+                            <a href="/cart" class="toolrange__cart-icon">
+                                <img src="/website_aardwolf/static/imgs/common/svgs/cart.svg" alt=""/>
+                            </a>
                             <t t-call="website_sale.header_cart_link">
                                 <t t-set="_icon" t-value="True"/>
                                 <t t-set="_link_class"
