@@ -881,8 +881,7 @@
                 </div>
             </section>
         </t>
-        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
         <script src="/website_toolrange/static/src/js/slider.js"/>
         <script src="/website_toolrange/static/src/js/main.js"/>

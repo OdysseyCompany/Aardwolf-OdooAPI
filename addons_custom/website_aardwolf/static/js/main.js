@@ -28,27 +28,36 @@ document.addEventListener("DOMContentLoaded", async function () {
     renderCategories(categories, container) {
       categories.forEach(category => {
         const li = document.createElement("li");
-        const div = document.createElement("div");
-        div.textContent = category.name;
 
+        // Tạo thẻ <a> cho category cha
+        const a = document.createElement("a");
+        a.href = `/category-detail/${category.slug}`;
+        a.textContent = category.name;
+
+        // Thêm class hoặc style nếu cần
+        a.className = "category-parent";
+
+        // Nếu có children
         if (category.children?.length) {
           const subUl = document.createElement("ul");
           subUl.className = "sub-drop-down__list";
 
           category.children.forEach(child => {
             const subLi = document.createElement("li");
-            const a = document.createElement("a");
-            a.href = `/category-detail/${child.slug}`;
-            a.textContent = child.name;
+            const childA = document.createElement("a");
+            childA.href = `/category-detail/${child.slug}`;
+            childA.textContent = child.name;
 
-            subLi.appendChild(a);
+            subLi.appendChild(childA);
             subUl.appendChild(subLi);
           });
 
-          div.appendChild(subUl);
+          li.appendChild(a);      // Gắn thẻ <a> (cha)
+          li.appendChild(subUl);  // Gắn danh sách con
+        } else {
+          li.appendChild(a);
         }
 
-        li.appendChild(div);
         container.appendChild(li);
       });
     }

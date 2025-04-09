@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <template id="custom_language_selector" name="Custom language selector" inherit_id="portal.language_selector">
+    <template id="custom_language_selector" inherit_id="portal.language_selector">
         <xpath expr="//button" position="replace">
             <button t-attf-class="btn border-0 dropdown-toggle #{_btn_class or 'btn-sm btn-outline-secondary'}"
                     type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <img t-att-src="active_lang[4]" class="icon-language"
+                <img t-att-src="active_lang.flag_image_url" class="icon-language"
                      style="width: 24px;height: 24px;flex-shrink: 0;object-fit: cover;border-radius: 50%;"/>
             </button>
-
         </xpath>
     </template>
 
     <template id="layout" inherit_id="website.layout" name="Theme Aardwolf" primary="True">
         <xpath expr="//head" position="inside">
             <link rel="stylesheet" href="/website_aardwolf/static/css/style.css"/>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+            <script type="module" src="/website_aardwolf/static/js/search-container.js"/>
         </xpath>
         <xpath expr="//header" position="replace">
             <header class="toolrange__header">
@@ -36,19 +37,19 @@
                                 ABOUT US
                                 <ul class="drop-down__list">
                                     <li>
-                                        <a href="/">About Us</a>
+                                        <a href="/contact">Contact</a>
                                     </li>
                                     <li>
-                                        <a href="/">Our Business</a>
+                                        <a href="/our-business">Our Business</a>
                                     </li>
                                     <li>
-                                        <a href="#">Careers</a>
+                                        <a href="/careers">Careers</a>
                                     </li>
                                     <li>
                                         <a href="#">Account</a>
                                     </li>
                                     <li>
-                                        <a href="#">Our Trade Shows</a>
+                                        <a href="/our-trade-shows">Our Trade Shows</a>
                                     </li>
                                     <li>
                                         <a href="#">Blog</a>
@@ -63,25 +64,23 @@
                     </div>
 
                     <div class="toolrange__header__right-group">
-                        <div class="toolrange__header__search">
-                            <input type="text" placeholder="Search"/>
+                        <div class="toolrange__header__search" id="search-container">
+                            <input type="text" placeholder="Search" id="main-search"/>
 
-                            <div class="toolrange__header__search-wrapper">
+                            <div class="toolrange__header__search-wrapper" id="search-wrapper">
                                 <div class="toolrange__header__search-box">
                                     <div class="box-input-wrapper">
-                                        <input type="text" class="toolrange__input-search" placeholder="Mechanical"/>
-                                        <img src="/website_aardwolf/static/imgs/common/svgs/close.svg" alt=""/>
+                                        <input type="text" class="toolrange__input-search" placeholder="Mechanical"
+                                               id="sub-search"/>
+                                        <img src="/website_aardwolf/static/imgs/common/svgs/close.svg" alt=""
+                                             id="search-close"/>
                                     </div>
-
-                                    <ul class="toolrange__header__search-suggestions">
-                                        <li tabindex="0">AARDWOLF Slab Lifter</li>
-                                        <li tabindex="0">Vacuum Glass Lifter</li>
-                                        <li tabindex="0">Kitchen Installation Cart- Pro Version</li>
-                                        <li tabindex="0">Hydraulic brick scissor grab</li>
+                                    <ul class="toolrange__header__search-suggestions" id="suggestion-list">
                                     </ul>
                                 </div>
                             </div>
                         </div>
+
                         <div class="toolrange__header__right-sub-group">
                             <t t-call="website_sale.header_cart_link">
                                 <t t-set="_icon" t-value="True"/>
@@ -1051,10 +1050,793 @@
                 </section>
             </main>
         </t>
-        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
         <script type="module" src="/website_aardwolf/static/js/slider.js"/>
+        <script type="module" src="/website_aardwolf/static/js/main.js"/>
+    </template>
+
+    <template id="contact" name="Contact">
+        <main class="toolrange">
+            <div class="toolrange__contact-page">
+                <div class="toolrange__contact-page__banner"></div>
+
+                <div class="toolrange__contact-page__info">
+                    <div class="toolrange__contact-page__info-us">
+                        <h3>Contact Us</h3>
+                        <p>
+                            We’re here to help! Reach out to us for any questions, support, or
+                            inquiries about our products and services. Contact us via email,
+                            phone, or the form below, and our team will get back to you
+                            promptly.
+                        </p>
+                    </div>
+
+                    <div class="toolrange__contact-page__info-img">
+                        <img src="/website_aardwolf/static/imgs/common/contact/image.png" alt=""/>
+                    </div>
+
+                    <h3 class="toolrange__contact-page__info-title">USA Head Office</h3>
+                    <p class="toolrange__contact-page__info-sub-title">
+                        AARDWOLF Industries LLC
+                    </p>
+
+                    <div class="toolrange__contact-page__info-group">
+                        <div class="toolrange__contact-page__info-line">
+                            <p class="title">Address</p>
+                            <p class="content">
+                                9401 Norwalk Blvd Santa Fe Springs California 90670
+                            </p>
+                        </div>
+                        <div class="toolrange__contact-page__info-line">
+                            <p class="title">E-mail</p>
+                            <p class="content">sales@aardwolfusa.com</p>
+                        </div>
+                        <div class="toolrange__contact-page__info-line">
+                            <p class="title">Sales</p>
+                            <p class="content">+1 562-553-6050</p>
+                        </div>
+                        <div class="toolrange__contact-page__info-line">
+                            <p class="title">Service &amp; Parts</p>
+                            <p class="content">+1 562-553-6050</p>
+                        </div>
+                    </div>
+
+                    <div class="toolrange__contact-page__contact">
+                        <div class="toolrange__contact">
+                            <div class="toolrange__contact__intro">
+                                <div class="toolrange__contact__intro-help">
+                                    <h3 class="toolrange__contact__intro-help-title">
+                                        We're here to help
+                                    </h3>
+                                    <p class="toolrange__contact__intro-help-message">
+                                        Interested in finding out more about our products and
+                                        categories, or need support?
+                                        <br/>
+                                        <br/>Fill in the form to
+                                        submit an enquiry.
+                                    </p>
+                                </div>
+
+                                <div class="toolrange__contact__intro-policy">
+                                    <p class="toolrange__contact__intro-policy-message">
+                                        *How we might use your information We may contact you by
+                                        phone or email, if you have not opted out, or where we are
+                                        otherwise permitted by law, to provide you with marketing
+                                        communications about similar goods and services. The legal
+                                        basis that allows us to use your information is ‘legitimate
+                                        interests’. More information about how we use your personal
+                                        data can be found in our Privacy Policy.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <form action="" class="toolrange__contact__form">
+                                <label for="contact-first-name">Contact form</label>
+
+                                <div class="group-fields">
+                                    <div class="toolrange__contact__form-fields">
+                                        <input
+                                                id="contact-first-name"
+                                                name="firstName"
+                                                type="text"
+                                                class="toolrange__contact__form-field"
+                                                placeholder="First Name*"
+                                        />
+                                        <input
+                                                id="contact-last-name"
+                                                name="lastName"
+                                                type="text"
+                                                class="toolrange__contact__form-field"
+                                                placeholder="Last Name*"
+                                        />
+                                    </div>
+                                    <div class="toolrange__contact__form-fields">
+                                        <input
+                                                id="contact-email"
+                                                name="email"
+                                                type="email"
+                                                class="toolrange__contact__form-field"
+                                                placeholder="Email*"
+                                        />
+                                        <input
+                                                id="contact-phone"
+                                                name="phone"
+                                                type="number"
+                                                class="toolrange__contact__form-field"
+                                                placeholder="Phone*"
+                                        />
+                                    </div>
+                                    <div class="toolrange__contact__form-fields">
+                                        <input
+                                                id="contact-company"
+                                                name="company"
+                                                type="text"
+                                                class="toolrange__contact__form-field"
+                                                placeholder="Company Name*"
+                                        />
+                                        <input
+                                                id="contact-postcode"
+                                                name="postcode"
+                                                type="number"
+                                                class="toolrange__contact__form-field"
+                                                placeholder="Postcode*"
+                                        />
+                                    </div>
+
+                                    <div
+                                            class="toolrange__contact__form-select select-custom select-common"
+                                    >
+                                        <span name="select-mask" class="select-custom__mask"></span>
+                                        <input
+                                                id="contact-country"
+                                                name="country"
+                                                type="text"
+                                                class="toolrange__contact__form-field"
+                                                placeholder="Country*"
+                                        />
+
+                                        <div class="select-custom__options">
+                                            <data value="Vietnam" class="select-custom__option"
+                                            >Vietnam
+                                            </data
+                                            >
+                                            <data value="USA" class="select-custom__option">USA</data>
+                                        </div>
+                                    </div>
+
+                                    <textarea
+                                            name="message"
+                                            id="contact-message"
+                                            class="toolrange__contact__form-field"
+                                            placeholder="Message"
+                                    ></textarea>
+                                </div>
+
+                                <button
+                                        type="submit"
+                                        class="toolrange__contact__form-btn btn-submit"
+                                >
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </template>
+
+    <template id="contact_aardwolf" name="Contact">
+        <t t-call="website_aardwolf.layout">
+            <t t-call="website_aardwolf.contact"/>
+        </t>
+        <script type="module" src="/website_aardwolf/static/js/main.js"/>
+    </template>
+
+    <template id="careers" name="Careers">
+        <main class="toolrange">
+            <div class="toolrange__carrer">
+                <div class="toolrange__carrer__banner"></div>
+
+                <div class="toolrange__carrer__content">
+                    <h2 class="toolrange__carrer__content-title">
+                        Join Our Team and Shape the Future!
+                    </h2>
+                    <p class="toolrange__carrer__content-sub-message">
+                        Exciting Careers in Aardwolf America
+                    </p>
+                    <p class="toolrange__carrer__content-message">
+                        At AARDWOLF, you are encouraged to be a difference-maker. We
+                        consider your ideas, experiences, and values to be our greatest
+                        assets for realizing our aspirations. Together with AARDWOLF, you
+                        can work with the sharpest minds in the industry and experience
+                        exciting diversity and inclusion through AARDWOLF‘s growing
+                        worldwide business presence. Here, you can build the future with
+                        your own meaningful work.
+                    </p>
+                </div>
+
+                <div class="toolrange__carrer__intro">
+                    <div class="toolrange__carrer__intro-img">
+                        <img src="/website_aardwolf/static/imgs/common/carrer/image_65.png" alt=""/>
+                    </div>
+
+                    <div class="toolrange__carrer__intro-content">
+                        <h3 class="toolrange__carrer__intro-content-title">
+                            Workplace Culture
+                        </h3>
+                        <p class="toolrange__carrer__intro-content-message">
+                            At Aardwolf America, we believe that collaboration and creativity
+                            are the keys to innovation. Our inclusive work environment
+                            encourages every team member to share ideas, take initiative, and
+                            grow professionally. As a leader in material handling and lifting
+                            equipment, our mission is to deliver exceptional solutions while
+                            fostering a culture that values teamwork, respect, and diversity.
+                            We are committed to creating an innovative workspace where
+                            employees feel empowered to contribute their unique perspectives
+                            and thrive in a supportive community.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="toolrange__carrer__intro intro-reverse">
+                    <div class="toolrange__carrer__intro-img">
+                        <img src="/website_aardwolf/static/imgs/common/carrer/image_66.png" alt=""/>
+                    </div>
+
+                    <div class="toolrange__carrer__intro-content">
+                        <h3 class="toolrange__carrer__intro-content-title">
+                            How to Get in Touch
+                        </h3>
+                        <p class="toolrange__carrer__intro-content-message">
+                            Stay connected even if there aren’t current openings that match
+                            your skills, we’d love to hear from you! Stay in touch for future
+                            opportunities at Aardwolf America by reaching out to us at
+                            careers@aardwolfamerica.com. We’re always excited to connect with
+                            talented individuals who share our passion for innovation and
+                            collaboration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </template>
+
+    <template id="careers_aardwolf" name="Careers">
+        <t t-call="website_aardwolf.layout">
+            <t t-call="website_aardwolf.careers"/>
+        </t>
+        <script type="module" src="/website_aardwolf/static/js/main.js"/>
+    </template>
+
+    <template id="our_business" name="Our Business">
+        <main class="toolrange">
+            <div class="toolrange__our-business">
+                <section class="toolrange__our-business__banner banner-top"></section>
+
+                <section class="toolrange__our-business__content">
+                    <h3 class="toolrange__our-business__content-title">About Us</h3>
+                    <p class="toolrange__our-business__content-message">
+                        Aardwolf USA is recognized as a leader in wholesale material
+                        handling solutions and lifting equipment, renowned for its
+                        exceptional quality, innovation, and outstanding service. With a
+                        strong reputation and an extensive network of distributors across
+                        America, Aardwolf continues to expand rapidly, setting new
+                        benchmarks in the industry. Our company serves diverse sectors,
+                        including stone, glass, construction, moving services, showcasing
+                        adaptability and a commitment to meeting the dynamic needs of
+                        various markets.
+                    </p>
+                </section>
+
+                <section class="toolrange__our-business__banner banner-mid"></section>
+
+                <section class="toolrange__our-business__content content-intro">
+                    <p class="toolrange__our-business__content-message">
+                        In 1980, James Corbett, a visionary entrepreneur, owned two
+                        manufacturing companies in Australia that served the stone industry,
+                        employing a team of around 100 dedicated individuals. Faced with the
+                        challenge of finding an efficient way to lift heavy objects, James
+                        had a groundbreaking idea that would change the industry forever. In
+                        a moment of brilliance, he invented a clamp for lifting marble and
+                        granite—an innovation so impactful that it earned him a patent in
+                        early 1995.
+                        <br/>
+                        <br/>
+                        James took the next bold step in 2002, establishing a factory in
+                        Vietnam to bring his revolutionary products, such as Slab Lifting
+                        Clamps, to a global audience. While the Aardwolf Slab Lifting Clamps
+                        remain the foundation of James's success, the company has expanded
+                        its horizons, offering a diverse range of material handling and
+                        lifting equipment that is celebrated and trusted worldwide.
+                        <br/>
+                        <br/>
+                        Below is a glimpse into the remarkable history of the Aardwolf
+                        Lifting Clamps—a legacy of transforming challenges into
+                        opportunities and redefining industries one solution at a time.
+                    </p>
+                </section>
+
+                <section class="toolrange__our-business__history">
+                    <h3 class="toolrange__our-business__history-title">
+                        The history of the aardwolf lifters
+                    </h3>
+
+                    <div class="toolrange__our-business__history-slider">
+                        <div
+                                class="toolrange__history-slider slider-tabs swiper historySwiper"
+                        >
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <p class="year">1989</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="time">Early</p>
+                                    <p class="year">1995</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="time">Late</p>
+                                    <p class="year">1995</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="year">2002</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="year">TODAY</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                                thumbsSlider=""
+                                class="toolrange__history-slider slider-thumbs swiper historySwiper2"
+                        >
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <p class="swiper-slide__year">1989</p>
+                                    <p class="swiper-slide__fact">
+                                        The Aardwolf Lifter was invented and developed by James
+                                        Edmud Corbett,
+                                    </p>
+
+                                    <div class="swiper-slide__img">
+                                        <img src="/website_aardwolf/static/imgs/common/our-business/1989.png"/>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="swiper-slide__year">
+                                        <span class="swiper-slide__time">Early</span>1995
+                                    </p>
+                                    <p class="swiper-slide__fact">
+                                        A production prototype lifter at about the time James filed
+                                        his patent application in March 1995
+                                    </p>
+
+                                    <div class="swiper-slide__img">
+                                        <img src="/website_aardwolf/static/imgs/common/our-business/1995.png"/>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="swiper-slide__year">
+                                        <span class="swiper-slide__time">Late</span>1995
+                                    </p>
+                                    <p class="swiper-slide__fact">
+                                        A full range of lifters were futher developed in 2002 and
+                                        sold worldwide under the trademark Aardwolf
+                                    </p>
+
+                                    <div class="swiper-slide__img">
+                                        <img src="/website_aardwolf/static/imgs/common/our-business/1995_1.png"/>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="swiper-slide__year">2002</p>
+                                    <p class="swiper-slide__fact">
+                                        A full range of lifters were futher developed in 2002 and
+                                        sold worldwide under the trademark Aardwolf
+                                    </p>
+
+                                    <div class="swiper-slide__img">
+                                        <img src="/website_aardwolf/static/imgs/common/our-business/2002.png"/>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="swiper-slide__year">TODAY</p>
+                                    <p class="swiper-slide__fact">
+                                        Aardwolf Industry has continuously improved its products
+                                        throughout its history to ensure users achieve three core
+                                        goal of Quality, Efficiency and Safety.
+                                    </p>
+
+                                    <div class="swiper-slide__img">
+                                        <img src="/website_aardwolf/static/imgs/common/our-business/today.png"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="toolrange__our-business__banner banner-bot"></section>
+
+                <section class="toolrange__our-business__content our-journey">
+                    <h3 class="toolrange__our-business__history-title">Our Journey</h3>
+                    <div class="content-group">
+                        <div class="toolrange__our-business__content-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-business/our_journey.png"
+                                    alt=""
+                            />
+                        </div>
+                        <p class="toolrange__our-business__content-message">
+                            Aardwolf Industry continually enhances its products to ensure
+                            Quality, Efficiency, and Safety, maintaining its position as a
+                            global leader in material handling. Aardwolf America operates a
+                            distribution warehouse in Los Angeles, supplying retail businesses
+                            nationwide. With appreciation for its dedicated team in Vietnam,
+                            the company is building a modern factory to expand its delivery of
+                            high-quality equipment to the U.S. and global markets.
+                        </p>
+                    </div>
+                </section>
+
+                <div class="toolrange__our-business__contact">
+                    <div class="toolrange__contact">
+                        <div class="toolrange__contact__intro">
+                            <div class="toolrange__contact__intro-help">
+                                <h3 class="toolrange__contact__intro-help-title">
+                                    We're here to help
+                                </h3>
+                                <p class="toolrange__contact__intro-help-message">
+                                    Interested in finding out more about our products and
+                                    categories, or need support?
+                                    <br/>
+                                    <br/>Fill in the form to
+                                    submit an enquiry.
+                                </p>
+                            </div>
+
+                            <div class="toolrange__contact__intro-policy">
+                                <p class="toolrange__contact__intro-policy-message">
+                                    *How we might use your information We may contact you by phone
+                                    or email, if you have not opted out, or where we are otherwise
+                                    permitted by law, to provide you with marketing communications
+                                    about similar goods and services. The legal basis that allows
+                                    us to use your information is ‘legitimate interests’. More
+                                    information about how we use your personal data can be found
+                                    in our Privacy Policy.
+                                </p>
+                            </div>
+                        </div>
+
+                        <form action="" class="toolrange__contact__form">
+                            <label for="contact-first-name">Contact form</label>
+
+                            <div class="group-fields">
+                                <div class="toolrange__contact__form-fields">
+                                    <input
+                                            id="contact-first-name"
+                                            name="firstName"
+                                            type="text"
+                                            class="toolrange__contact__form-field"
+                                            placeholder="First Name*"
+                                    />
+                                    <input
+                                            id="contact-last-name"
+                                            name="lastName"
+                                            type="text"
+                                            class="toolrange__contact__form-field"
+                                            placeholder="Last Name*"
+                                    />
+                                </div>
+                                <div class="toolrange__contact__form-fields">
+                                    <input
+                                            id="contact-email"
+                                            name="email"
+                                            type="email"
+                                            class="toolrange__contact__form-field"
+                                            placeholder="Email*"
+                                    />
+                                    <input
+                                            id="contact-phone"
+                                            name="phone"
+                                            type="number"
+                                            class="toolrange__contact__form-field"
+                                            placeholder="Phone*"
+                                    />
+                                </div>
+                                <div class="toolrange__contact__form-fields">
+                                    <input
+                                            id="contact-company"
+                                            name="company"
+                                            type="text"
+                                            class="toolrange__contact__form-field"
+                                            placeholder="Company Name*"
+                                    />
+                                    <input
+                                            id="contact-postcode"
+                                            name="postcode"
+                                            type="number"
+                                            class="toolrange__contact__form-field"
+                                            placeholder="Postcode*"
+                                    />
+                                </div>
+
+                                <div
+                                        class="toolrange__contact__form-select select-custom select-common"
+                                >
+                                    <span name="select-mask" class="select-custom__mask"></span>
+                                    <input
+                                            id="contact-country"
+                                            name="country"
+                                            type="text"
+                                            class="toolrange__contact__form-field"
+                                            placeholder="Country*"
+                                    />
+
+                                    <div class="select-custom__options">
+                                        <data value="Vietnam" class="select-custom__option"
+                                        >Vietnam
+                                        </data
+                                        >
+                                        <data value="USA" class="select-custom__option">USA</data>
+                                    </div>
+                                </div>
+
+                                <textarea
+                                        name="message"
+                                        id="contact-message"
+                                        class="toolrange__contact__form-field"
+                                        placeholder="Message"
+                                ></textarea>
+                            </div>
+
+                            <button
+                                    type="submit"
+                                    class="toolrange__contact__form-btn btn-submit"
+                            >
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </template>
+
+    <template id="our_business_aardwolf" name="Our Business">
+        <t t-call="website_aardwolf.layout">
+            <t t-call="website_aardwolf.our_business"/>
+        </t>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
+        <script type="module" src="/website_aardwolf/static/js/slider.js"/>
+        <script type="module" src="/website_aardwolf/static/js/main.js"/>
+    </template>
+
+    <template id="our_trade_shows" name="Our Trade Shows">
+        <main class="toolrange">
+            <div class="toolrange__our-trade-shows">
+                <div class="toolrange__our-trade-shows__banner"></div>
+
+                <div class="toolrange__our-trade-shows__intro">
+                    <h3 class="toolrange__our-trade-shows__intro-title">
+                        Our Trade Show
+                    </h3>
+                    <p class="toolrange__our-trade-shows__intro-message">
+                        With more than 10 years of expansion, our presence spans the globe.
+                        <br/>
+                        We look forward to seeing you and having exciting and personal
+                        discussions. Visit us at
+                    </p>
+                </div>
+
+                <div class="toolrange__our-trade-shows__shows">
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            USA- All Slab Fabbers 2025
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_1.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            Italy- Marmomac 2025
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_2.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            USA- TISE Expo 2025
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall 4375</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_3.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            Italy- Marmomac 2024
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall 5 C5</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_4.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            Italy- Marmomac 2023
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall 5 C5</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_5.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            Italy- Marmomac 2022
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall 2 D3</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_6.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            Brazil- Marmomac 2017
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_7.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            Dubai- World Trade Center 2015
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall B6</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_8.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            USA- Hardscape North America 2015
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall C750</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_9.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            Indonesia- Grand City Convention &amp; Exhibition 2015
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall 182</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_10.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            USA Las Vegas, Nevada- The International Surface Event 2014
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall 1A</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_11.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            Italy- Marmomac 2014
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall 5</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_12.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            India, Bangalore 2014
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall 114</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_13.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            Poland- Kamień-Stone Fair 2013
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall 7</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_14.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                    <a href="/news.html" class="toolrange__our-trade-shows__show">
+                        <p class="toolrange__our-trade-shows__show-name">
+                            China Trade Show Exhibition Fair 2013
+                        </p>
+                        <p class="toolrange__our-trade-shows__show-tag">Hall L195 L196</p>
+
+                        <div class="toolrange__our-trade-shows__show-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/our-trade-shows/image_15.png"
+                                    alt=""
+                            />
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </template>
+
+    <template id="our_trade_shows_aardwolf" name="Our Trade Shows">
+        <t t-call="website_aardwolf.layout">
+            <t t-call="website_aardwolf.our_trade_shows"/>
+        </t>
         <script type="module" src="/website_aardwolf/static/js/main.js"/>
     </template>
 
