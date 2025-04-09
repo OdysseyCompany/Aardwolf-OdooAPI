@@ -196,3 +196,25 @@ class APIWebsite(http.Controller):
             }
             for p in products
         ]
+
+    @http.route('/custom/cart/add', type='http', auth='public', website=True, csrf=False)
+    def add_to_cart(self, product_id, quantity=1, **kwargs):
+        user = request.env.user
+        if user and not user._is_public():
+            sale_order = request.website.sale_get_order(force_create=True)
+            product = request.env['product.product'].browse(int(product_id))
+            if product.exists():
+                sale_order._cart_update(
+                    product_id=product.id,
+                    add_qty=int(quantity),
+                    set_qty=0
+                )
+
+                return Response(json.dumps({'status': 'ok', 'message': 'Đã thêm vào giỏ hàng'}),
+                                content_type='application/json')
+            else:
+                return Response(json.dumps({'status': 'error', 'message': 'Không tìm thấy sản phẩm'}),
+                                content_type='application/json')
+        else:
+            return Response(json.dumps({'status': 'client', 'message': 'Lưu vào localStorage'}),
+                            content_type='application/json')

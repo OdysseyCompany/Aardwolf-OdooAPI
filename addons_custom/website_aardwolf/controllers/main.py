@@ -236,24 +236,6 @@ class WebsiteAardwolf(http.Controller):
                 status=500
             )
 
-    @http.route('/custom/cart/add', type='json', auth='public', website=True, csrf=False)
-    def add_to_cart(self, product_id, quantity=1, **kwargs):
-        user = request.env.user
-        if user and not user._is_public():
-            sale_order = request.website.sale_get_order(force_create=True)
-            product = request.env['product.product'].browse(int(product_id))
-            if product.exists():
-                sale_order._cart_update(
-                    product_id=product.id,
-                    add_qty=int(quantity),
-                    set_qty=0
-                )
-                return {'status': 'ok', 'message': 'Đã thêm vào giỏ hàng'}
-            else:
-                return {'status': 'error', 'message': 'Không tìm thấy sản phẩm'}
-        else:
-            return {'status': 'client', 'message': 'Lưu vào localStorage'}
-
     @http.route('/cart', type='http', auth='public', website=True)
     def view_cart(self, **kwargs):
         sale_order = request.website.sale_get_order()
