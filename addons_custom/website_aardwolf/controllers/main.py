@@ -81,6 +81,7 @@ class WebsiteAardwolf(http.Controller):
             # Tạo dữ liệu để render view
             data = [{
                 'name': prod.name,
+                'website_url': prod.website_url,
                 'slug': slugify(prod.name),
                 'list_price': prod.list_price,
                 'image_url': f"/web/image/product.template/{prod.id}/image_thumb" if prod.image_thumb else '/website_aardwolf/static/imgs/common/products/product-1.png',

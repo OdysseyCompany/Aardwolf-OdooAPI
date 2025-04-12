@@ -140,7 +140,7 @@
                         </div>
                         <div class="toolrange__categories-detail__list toolrange__products__list">
                             <t t-foreach="values" t-as="data">
-                                <a t-att-href="'/product-detail/%s' % data['slug']"
+                                <a t-att-href="data['website_url']"
                                    class="toolrange__products__item">
                                     <div class="product-img">
                                         <img t-att-src="data['image_url']"
