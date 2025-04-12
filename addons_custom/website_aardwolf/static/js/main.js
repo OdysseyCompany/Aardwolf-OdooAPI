@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   const menuCategoryHandler = {
     async init() {
       const categoriesList = $(".product-drop-down__list.drop-down__list");
-      if (!categoriesList) return;
+      const categoriesListHomepage = $(".toolrange__categories__list");
+      if (!categoriesList && !categoriesListHomepage) return;
 
       try {
         const response = await fetch('/api/v1/get-data-categories', {
@@ -18,12 +19,55 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         const data = await response.json();
         const categories = data.result || [];
-
-        this.renderCategories(categories, categoriesList);
+        if (categoriesList) this.renderCategories(categories, categoriesList);
+        if (categoriesListHomepage) this.renderCategoriesHomepage(categories, categoriesListHomepage);
       } catch (error) {
         console.error("Error loading categories:", error);
       }
     },
+
+    renderCategoriesHomepage(categories, container) {
+      const isHomepageStyle = container.classList.contains("toolrange__categories__list");
+
+      categories.forEach(category => {
+        if (isHomepageStyle) {
+          // Render kiểu homepage
+          const a = document.createElement("a");
+          a.className = "toolrange__categories__item";
+          a.href = `/category-detail/${category.slug}`;
+          a.setAttribute("categorieItemId", category.id || "");
+
+          const divImg = document.createElement("div");
+          divImg.className = "categorie-img";
+
+          const img = document.createElement("img");
+          img.src = category.image || "/website_aardwolf/static/imgs/home_page/categories/img-1.png";
+          img.alt = "";
+
+          divImg.appendChild(img);
+
+          const p = document.createElement("p");
+          p.className = "categorie-name";
+          p.textContent = category.name;
+
+          a.appendChild(divImg);
+          a.appendChild(p);
+
+          container.appendChild(a);
+        } else {
+          // Render kiểu danh sách thả
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = `/category-detail/${category.slug}`;
+          a.textContent = category.name;
+          a.className = "category-parent";
+
+          li.appendChild(a);
+          container.appendChild(li);
+        }
+      });
+    },
+
 
     renderCategories(categories, container) {
       categories.forEach(category => {
@@ -62,6 +106,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       });
     }
   };
+
+
 
   // Search Handler
   const searchHandler = {

@@ -82,9 +82,6 @@
                         </div>
 
                         <div class="toolrange__header__right-sub-group">
-                            <a href="/cart" class="toolrange__cart-icon">
-                                <img src="/website_aardwolf/static/imgs/common/svgs/cart.svg" alt=""/>
-                            </a>
                             <t t-call="website_sale.header_cart_link">
                                 <t t-set="_icon" t-value="True"/>
                                 <t t-set="_link_class"
@@ -310,7 +307,7 @@
                             Top-Tier Equipment Cost-Effective Solutions Global Leader In
                             Industry
                         </p>
-                        <a href="/" class="toolrange__banner__content-btn btn-common">View our products</a>
+                        <a href="/product" class="toolrange__banner__content-btn btn-common">View our products</a>
                     </div>
                 </section>
 
@@ -328,72 +325,6 @@
                 <section class="toolrange__categories">
                     <h3 class="toolrange__categories__title section-title">CATEGORIES</h3>
                     <div class="toolrange__categories__list">
-                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
-                            <div class="categorie-img">
-                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-1.png" alt=""/>
-                            </div>
-                            <p class="categorie-name">A-Frames</p>
-                        </a>
-                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
-                            <div class="categorie-img">
-                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-2.png" alt=""/>
-                            </div>
-                            <p class="categorie-name">A-Frames</p>
-                        </a>
-                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
-                            <div class="categorie-img">
-                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-3.png" alt=""/>
-                            </div>
-                            <p class="categorie-name">A-Frames</p>
-                        </a>
-                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
-                            <div class="categorie-img">
-                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-4.png" alt=""/>
-                            </div>
-                            <p class="categorie-name">A-Frames</p>
-                        </a>
-                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
-                            <div class="categorie-img">
-                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-5.png" alt=""/>
-                            </div>
-                            <p class="categorie-name">A-Frames</p>
-                        </a>
-                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
-                            <div class="categorie-img">
-                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-6.png" alt=""/>
-                            </div>
-                            <p class="categorie-name">A-Frames</p>
-                        </a>
-                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
-                            <div class="categorie-img">
-                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-7.png" alt=""/>
-                            </div>
-                            <p class="categorie-name">A-Frames</p>
-                        </a>
-                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
-                            <div class="categorie-img">
-                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-8.png" alt=""/>
-                            </div>
-                            <p class="categorie-name">A-Frames</p>
-                        </a>
-                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
-                            <div class="categorie-img">
-                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-9.png" alt=""/>
-                            </div>
-                            <p class="categorie-name">A-Frames</p>
-                        </a>
-                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
-                            <div class="categorie-img">
-                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-10.png" alt=""/>
-                            </div>
-                            <p class="categorie-name">A-Frames</p>
-                        </a>
-                        <a categorieItemId="" href="/categories" class="toolrange__categories__item">
-                            <div class="categorie-img">
-                                <img src="/website_aardwolf/static/imgs/home_page/categories/img-11.png" alt=""/>
-                            </div>
-                            <p class="categorie-name">A-Frames</p>
-                        </a>
                     </div>
                 </section>
 
@@ -552,8 +483,6 @@
                             </a>
                         </div>
                     </div>
-
-                    <a href="/categories" class="button-link">View All</a>
                 </section>
 
                 <section class="toolrange__section-slider">
@@ -715,8 +644,6 @@
                             </a>
                         </div>
                     </div>
-
-                    <a href="/" class="button-link">View All</a>
                 </section>
 
                 <section class="toolrange__distributors">
@@ -973,7 +900,7 @@
                             is met with an innovative solution, and every customer Get The
                             Aardwolf AAdvantage.
                         </p>
-                        <a href="/" class="btn-common">Learn More</a>
+                        <a href="/contact" class="btn-common">Learn More</a>
                     </div>
                 </section>
 

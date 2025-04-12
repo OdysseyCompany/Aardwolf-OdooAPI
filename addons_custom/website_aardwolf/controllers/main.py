@@ -1,10 +1,10 @@
 import re
 
 import unicodedata
-from odoo.http import request
-
+from odoo.http import request, route
 from odoo import http
-
+from odoo.addons.website_sale.controllers.main import WebsiteSale
+from odoo.addons.website.controllers.main import QueryURL
 
 def slugify(value):
     value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
@@ -97,21 +97,6 @@ class WebsiteAardwolf(http.Controller):
         except Exception as e:
             return request.make_response(str(e), status=500)
 
-    @http.route(['/product'], type='http', auth="public", website=True)
-    def product(self, **post):
-        try:
-            result = {}
-            return request.render("website_aardwolf.categories_templates", {
-                'values': result
-            })
-
-        except Exception as error:
-            return request.make_response(
-                str(error),
-                headers=[('Content-Type', 'text/plain')],
-                status=500
-            )
-
     @http.route(['/product-detail/<slug>'], type='http', auth="public", website=True)
     def product_detail(self, slug, **post):
         try:
@@ -156,11 +141,12 @@ class WebsiteAardwolf(http.Controller):
         try:
             result = []
             products = request.env['product.template'].sudo().search_read(
-                fields=['name', 'slug', 'image_512'], limit=limit, offset=(int(page) - 1) * limit)
+                fields=['name', 'slug', 'image_512', 'website_url'], limit=limit, offset=(int(page) - 1) * limit)
 
             for prd in products:
                 result.append({
                     'name': prd.get('name'),
+                    'website_url': prd.get('website_url'),
                     'slug': prd.get('slug'),
                     'img': f"/web/image/product.template/{prd.get('id')}/image_512" if prd.get(
                         'image_512') else '/website_aardwolf/static/imgs/common/product/img-1.png',
@@ -245,3 +231,69 @@ class WebsiteAardwolf(http.Controller):
             'order': sale_order,
             'order_lines': order_lines,
         })
+
+
+class WebsiteSaleAardwolf(WebsiteSale):
+
+    def _prepare_product_values(self, product, category, search, **kwargs):
+        ProductCategory = request.env['product.public.category']
+        if category:
+            category = ProductCategory.browse(int(category)).exists()
+        keep = QueryURL(
+            '/shop',
+            **self._product_get_query_url_kwargs(
+                category=category and category.id,
+                search=search,
+                **kwargs,
+            ),
+        )
+
+        # Needed to trigger the recently viewed product rpc
+        view_track = request.website.viewref("website_sale.product").track
+        if not product:
+            return request.not_found()
+        url_img = f"/web/image/product.template/{product.id}/image_1024" if product.image_1024 else '/website_aardwolf/static/imgs/common/product/img-1.png'
+        result = {
+            'category': product.categ_id.name,
+            'categ_slug': product.categ_id.slug,
+            'name': product.name,
+            'description': product.description,
+            'key_features': product.description,
+            'general': product.description,
+            'video': product.video_url,
+            'img_128': url_img,
+            'id': product.id
+        }
+        url_image = [str(url_img)]
+        for img in product.image_ids:
+            image_url = f"/web/image/image.product/{img.id}/image" if img.image else '/website_aardwolf/static/imgs/common/product/img-1.png'
+            url_image.append(image_url)
+        product_variant = []
+        for prd in product.product_variant_ids:
+            product_variant.append(prd)
+
+        result['product_variant'] = product_variant
+        result['image'] = url_image
+
+
+        return {
+            'search': search,
+            'category': category,
+            'keep': keep,
+            'categories': ProductCategory.search([('parent_id', '=', False)]),
+            'main_object': product,
+            'optional_product_ids': [
+                p.with_context(active_id=p.id) for p in product.optional_product_ids
+            ],
+            'product': product,
+            'view_track': view_track,
+            'values': result
+        }
+
+    @route(['/shop/<model("product.template"):product>'], type='http', auth="public", website=True,
+           sitemap=WebsiteSale.sitemap_products, readonly=True)
+    def product(self, product, category='', search='', **kwargs):
+        if not request.website.has_ecommerce_access():
+            return request.redirect('/web/login')
+
+        return request.render("website_aardwolf.product_detail_aardwolf", self._prepare_product_values(product, category, search, **kwargs))

@@ -14,12 +14,20 @@ class ProductCategory(models.Model):
     _inherit = 'product.category'
 
     slug = fields.Char('Slug', store=True, compute='related_slug_by_name')
+    description = fields.Char('Description')
 
     @api.depends('name')
     def related_slug_by_name(self):
         for record in self:
             record.slug = slugify(record.display_name)
 
+class ProductGroup(models.Model):
+    _name = 'product.group'
+
+    name = fields.Char('Name')
+    product_template_ids = fields.Many2many('product.template', string='Product')
+    is_featured = fields.Boolean('Featured product')
+    is_industry = fields.Boolean('Industry product')
 
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
