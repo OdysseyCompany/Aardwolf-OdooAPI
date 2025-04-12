@@ -10,6 +10,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/product_template_view.xml',
+        'views/product_group_view.xml',
     ],
     'assets': {
         },
