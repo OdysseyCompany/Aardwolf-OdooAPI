@@ -10,6 +10,7 @@
         'views/website_templates.xml',
         'views/website_templates_categories.xml',
         'views/website_templates_product.xml',
+        'views/login_templates.xml',
     ],
     'assets': {
         'web.assets_frontend': [

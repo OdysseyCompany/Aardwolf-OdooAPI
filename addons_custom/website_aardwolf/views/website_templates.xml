@@ -56,7 +56,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <a href="/" class="toolrange__header__navbar-item">Become distributor</a>
+                            <a href="/become-distributor" class="toolrange__header__navbar-item">Become distributor</a>
                             <a href="/" class="toolrange__header__navbar-item">Our Presence
                             </a
                             >
@@ -980,7 +980,7 @@
                 </section>
             </main>
         </t>
-
+        <link rel="stylesheet" href="/website_aardwolf/static/css/style.css"/>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
         <script type="module" src="/website_aardwolf/static/js/slider.js"/>
         <script type="module" src="/website_aardwolf/static/js/main.js"/>
@@ -1769,5 +1769,532 @@
         </t>
         <script type="module" src="/website_aardwolf/static/js/main.js"/>
     </template>
+
+    <template id="become_distributor" name="Become Distributor">
+        <div class="toolrange">
+            <div class="toolrange__b-distributor">
+                <div class="toolrange__b-distributor__banner"></div>
+
+                <div class="toolrange__b-distributor__intro">
+                    <h2 class="toolrange__b-distributor__intro-title">
+                        Become Distributor
+                    </h2>
+                    <p class="toolrange__b-distributor__intro-sub-title">
+                        Gain A Competitive Advantage
+                    </p>
+                </div>
+
+                <div class="toolrange__b-distributor__values">
+                    <div class="toolrange__b-distributor__values-commitment">
+                        <div class="toolrange__b-distributor__values-commitment-item">
+                            <div class="commitment-item__img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/become-distributor/protect_icon.svg"
+                                        alt=""
+                                />
+                            </div>
+                            <p class="commitment-item__text">Partner with industry leader</p>
+                        </div>
+                        <div class="toolrange__b-distributor__values-commitment-item">
+                            <div class="commitment-item__img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/become-distributor/stocks_growth_icon.svg"
+                                        alt=""
+                                />
+                            </div>
+                            <p class="commitment-item__text">Maximise<br/>revenue
+                            </p>
+                        </div>
+                        <div class="toolrange__b-distributor__values-commitment-item">
+                            <div class="commitment-item__img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/become-distributor/good_quality_icon.svg"
+                                        alt=""
+                                />
+                            </div>
+                            <p class="commitment-item__text">Competitive advantage</p>
+                        </div>
+                        <div class="toolrange__b-distributor__values-commitment-item">
+                            <div class="commitment-item__img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/become-distributor/refresh_icon.svg"
+                                        alt=""
+                                />
+                            </div>
+                            <p class="commitment-item__text">Alternative product offering</p>
+                        </div>
+                    </div>
+
+                    <div class="toolrange__b-distributor__values-detail">
+                        <div class="toolrange__b-distributor__values-detail-img">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/become-distributor/img-1.png"
+                                    alt=""
+                            />
+                        </div>
+
+                        <div class="toolrange__b-distributor__values-detail-text">
+                            <p class="toolrange__b-distributor__values-detail-title">
+                                Provide best-in-class lifting equipments and material handling
+                                solutions to your customers
+                            </p>
+
+                            <ul class="toolrange__b-distributor__values-detail-group">
+                                <li>
+                                    Join our network and gain a competitive advantage over others
+                                    in your market by becoming a AARDWOLF Distributor.
+                                </li>
+                                <li>
+                                    Our approved Distributors benefit from growth in sales,
+                                    service, and rental incomes as global demand for safe and
+                                    efficient material handling increases.
+                                </li>
+                                <li>
+                                    Our approved Distributors benefit from growth in sales,
+                                    service, and rental incomes as global demand for safe and
+                                    efficient material handling increases.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="toolrange__b-distributor__demo">
+                    <div class="toolrange__b-distributor__demo-video-wrapper">
+                        <label for="b-distributor-video" class="video-icon"
+                        >
+                            <img src="/website_aardwolf/static/imgs/common/svgs/pause-grey.svg" alt=""
+                            />
+                        </label>
+                        <video
+                                height="600"
+                                id="b-distributor-video"
+                                class="toolrange__b-distributor__demo-video pause"
+
+                        >
+                            <source
+                                    src="/website_aardwolf/static/imgs/common/videos/video-demo.mp4"
+                                    type="video/mp4"
+                            />
+                        </video>
+                    </div>
+
+                    <div class="toolrange__b-distributor__demo-text">
+                        <p class="toolrange__b-distributor__demo-text-title">
+                            Gain access to a world-leading, diverse products portfolio
+                        </p>
+                        <p class="toolrange__b-distributor__demo-text-message">
+                            At AARDWOLF, we’ve pioneered material handling innovation for over
+                            15 years. We design and manufacture material handling, lifting
+                            equipment to help improve safety and efficiency across industrial
+                            manufacturing, retail, stone, glass, metal, ....
+                        </p>
+
+                        <a href="#" class="toolrange__b-distributor__demo-btn button-link"
+                        >Request a consultation
+                        </a
+                        >
+                    </div>
+                </div>
+
+                <div class="toolrange__b-distributor__quote">
+                    <div class="toolrange__b-distributor__quote-message">
+                        <span class="quote-icon">
+                            <img
+                                    src="/website_aardwolf/static/imgs/common/become-distributor/quote_left_icon.svg"
+                                    alt=""
+                            />
+                        </span>
+                        <p>
+                            AARDWOLF has been an incredible partner, providing us with the
+                            tools, knowledge and support to effectively serve our customers.
+                        </p>
+                    </div>
+
+                    <div class="toolrange__b-distributor__quote-signature">
+                        <p class="toolrange__b-distributor__quote-name">Mark</p>
+                        <p class="toolrange__b-distributor__quote-position">CDK Stone NZ</p>
+                    </div>
+                </div>
+
+                <div class="toolrange__b-distributor__benefits">
+                    <div class="toolrange__b-distributor__benefits-text">
+                        <h5 class="toolrange__b-distributor__benefits-title">
+                            What becoming a Distributor Partner can do for you
+                        </h5>
+                        <p class="toolrange__b-distributor__benefits-content">
+                            AARDWOLF lifting equipment and material handling are trusted by
+                            leading companies around the globe to improve safety and
+                            efficiency. This ensures you can confidently offer these products
+                            to your customers. With our worldwide brand recognition and
+                            comprehensive support can unlock new opportunities for your
+                            business, enabling you to enter new markets, broaden your product
+                            range, and secure ongoing revenue streams
+                        </p>
+                    </div>
+
+                    <div class="toolrange__b-distributor__benefits-list">
+                        <ul class="toolrange__b-distributor__benefits-list-wrapper">
+                            <li class="toolrange__b-distributor__benefits-list-item">
+                                <div class="benefits-item__icon">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/become-distributor/icon-1.svg"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="benefits-item__text">
+                                    <h5 class="benefits-item__title">Sales growth</h5>
+                                    <p class="benefits-item__message">
+                                        Boost your sales revenue through AARDWOLF lead referrals,
+                                        existing clients, and distributors. Plus, benefit from
+                                        service and parts sales income.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="toolrange__b-distributor__benefits-list-item">
+                                <div class="benefits-item__icon">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/become-distributor/icon-2.svg"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="benefits-item__text">
+                                    <h5 class="benefits-item__title">Break into new markets</h5>
+                                    <p class="benefits-item__message">
+                                        AARDWOLF works with some of the leading industry experts and
+                                        by becoming a Distributor, you will too – providing access
+                                        to a wider range of opportunities.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="toolrange__b-distributor__benefits-list-item">
+                                <div class="benefits-item__icon">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/become-distributor/icon-3.svg"
+                                            alt=""
+                                    />
+                                </div>
+
+                                <div class="benefits-item__text">
+                                    <h5 class="benefits-item__title">Collaborative sales</h5>
+                                    <p class="benefits-item__message">
+                                        Take advantage of our existing established relationships and
+                                        sell your products into companies already using AARDWOLF
+                                        equipments.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="toolrange__b-distributor__partners">
+                    <div class="toolrange__b-distributor__partners-text">
+                        <h5 class="toolrange__b-distributor__partners-text-title">Work with industry giants</h5>
+                        <p class="toolrange__b-distributor__partners-text-message">
+                            By becoming a AARDWOLF Distributor, you too can work with
+                            worldwide leading brands.
+                        </p>
+                    </div>
+
+                    <div class="toolrange__b-distributor__partners-special">
+                        <div class="toolrange__b-distributor__partners-special-item">
+                            <p class="toolrange__b-distributor__partners-special-name">Gran Quartz</p>
+
+                            <div class="toolrange__b-distributor__partners-special-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/become-distributor/img-2.png"
+                                        alt=""
+                                />
+                            </div>
+                        </div>
+                        <div class="toolrange__b-distributor__partners-special-item">
+                            <p class="toolrange__b-distributor__partners-special-name">
+                                EleMar Oregon
+                                <br></br>
+                                Granite &amp; Marble
+                            </p>
+
+                            <div class="toolrange__b-distributor__partners-special-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/become-distributor/img-3.png"
+                                        alt=""
+                                />
+                            </div>
+                        </div>
+                        <div class="toolrange__b-distributor__partners-special-item">
+                            <p class="toolrange__b-distributor__partners-special-name">Colossal Diamond Tools</p>
+
+                            <div class="toolrange__b-distributor__partners-special-img">
+                                <img
+                                        src="/website_aardwolf/static/imgs/common/become-distributor/img-4.png"
+                                        alt=""
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="toolrange__b-distributor__all-partners toolrange__distributors">
+                    <div class="toolrange__distributors__slider swiper distributorsSwiper2">
+                        <div class="toolrange__distributors__slider-wrapper swiper-wrapper">
+                            <div class="toolrange__distributors__slide swiper-slide">
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-1.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-2.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-3.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-4.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-5.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-6.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-7.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-8.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img src="/website_aardwolf/static/imgs/common/distributors/img-9.png" alt=""/>
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-10.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-11.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-12.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-13.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-14.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-15.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-16.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-17.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-18.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-19.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-20.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-21.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-22.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-23.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-24.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-25.png"
+                                            alt=""
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="toolrange__distributors__slide swiper-slide">
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-26.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-27.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-28.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-29.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-30.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-31.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-32.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-33.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-34.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-35.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-36.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-37.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-38.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-39.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-40.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-41.png"
+                                            alt=""
+                                    />
+                                </div>
+                                <div class="toolrange__distributors__slide-item">
+                                    <img
+                                            src="/website_aardwolf/static/imgs/common/distributors/img-42.png"
+                                            alt=""
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+
+                    <a href="./sass/" class="toolrange__b-distributor__all-partners-btn button-link">Find Your Nearest
+                        Distributor
+                    </a>
+                </section>
+            </div>
+        </div>
+    </template>
+
+
+    <template id="become_distributor_aardwolf" name="Become Distributor">
+        <t t-call="website_aardwolf.layout">
+            <t t-call="website_aardwolf.become_distributor"/>
+        </t>
+        <link rel="stylesheet" href="/website_aardwolf/static/css/style.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script type="module" src="/website_aardwolf/static/js/become-distributor.js"/>
+    </template>
+
 
 </odoo>
