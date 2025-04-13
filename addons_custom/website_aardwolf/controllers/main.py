@@ -1,10 +1,35 @@
+import logging
 import re
 
+import werkzeug
+from markupsafe import Markup
+from odoo.exceptions import UserError
+from werkzeug.urls import url_encode
+
+from odoo.addons.auth_signup.models.res_users import SignupError
+
+import odoo.exceptions
+import odoo.modules.registry
 import unicodedata
-from odoo.http import request, route
+from odoo.http import request
+from odoo.http import route
+from odoo.tools.translate import _
+from odoo.addons.web.controllers.home import Home
 from odoo import http
-from odoo.addons.website_sale.controllers.main import WebsiteSale
 from odoo.addons.website.controllers.main import QueryURL
+from odoo.addons.website_sale.controllers.main import WebsiteSale
+from odoo.addons.web.controllers.utils import ensure_db
+
+_logger = logging.getLogger(__name__)
+
+# Shared parameters for all login/signup flows
+SIGN_UP_REQUEST_PARAMS = {'db', 'login', 'debug', 'token', 'message', 'error', 'scope', 'mode',
+                          'redirect', 'redirect_hostname', 'email', 'name', 'partner_id',
+                          'password', 'confirm_password', 'city', 'country_id', 'lang', 'signup_email', 'account_created'}
+LOGIN_SUCCESSFUL_PARAMS = set()
+CREDENTIAL_PARAMS = ['login', 'password', 'type']
+
+LOGIN_SUCCESSFUL_PARAMS.add('account_created')
 
 def slugify(value):
     value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
@@ -233,6 +258,124 @@ class WebsiteAardwolf(http.Controller):
             'order_lines': order_lines,
         })
 
+    @http.route('/become-distributor', type='http', auth='public', website=True)
+    def become_distributor(self, **kwargs):
+        try:
+            result = []
+            return request.render("website_aardwolf.become_distributor_aardwolf", {
+                'values': result
+            })
+
+        except Exception as error:
+            return request.make_response(
+                str(error),
+                headers=[('Content-Type', 'text/plain')],
+                status=500
+            )
+
+
+class AardwolfHome(Home):
+    @http.route('/web/login', type='http', auth='none', readonly=False)
+    def web_login(self, redirect=None, **kw):
+        ensure_db()
+        request.params['login_success'] = False
+        if request.httprequest.method == 'GET' and redirect and request.session.uid:
+            return request.redirect(redirect)
+
+        # simulate hybrid auth=user/auth=public, despite using auth=none to be able
+        # to redirect users when no db is selected - cfr ensure_db()
+        if request.env.uid is None:
+            if request.session.uid is None:
+                # no user -> auth=public with specific website public user
+                request.env["ir.http"]._auth_method_public()
+            else:
+                # auth=user
+                request.update_env(user=request.session.uid)
+
+        values = {k: v for k, v in request.params.items() if k in SIGN_UP_REQUEST_PARAMS}
+        try:
+            values['databases'] = http.db_list()
+        except odoo.exceptions.AccessDenied:
+            values['databases'] = None
+
+        if request.httprequest.method == 'POST':
+            try:
+                credential = {key: value for key, value in request.params.items() if key in CREDENTIAL_PARAMS and value}
+                credential.setdefault('type', 'password')
+                auth_info = request.session.authenticate(request.db, credential)
+                request.params['login_success'] = True
+                return request.redirect(self._login_redirect(auth_info['uid'], redirect=redirect))
+            except odoo.exceptions.AccessDenied as e:
+                if e.args == odoo.exceptions.AccessDenied().args:
+                    values['error'] = _("Wrong login/password")
+                else:
+                    values['error'] = e.args[0]
+        else:
+            if 'error' in request.params and request.params.get('error') == 'access':
+                values['error'] = _('Only employees can access this database. Please contact the administrator.')
+
+        if 'login' not in values and request.session.get('auth_login'):
+            values['login'] = request.session.get('auth_login')
+
+        if not odoo.tools.config['list_db']:
+            values['disable_database_manager'] = True
+
+        response = request.render('website_aardwolf.left_login_template', values)
+        response.headers['Cache-Control'] = 'no-cache'
+        response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+        response.headers['Content-Security-Policy'] = "frame-ancestors 'self'"
+        return response
+
+    @http.route('/web/signup', type='http', auth='public', website=True, sitemap=False)
+    def web_auth_signup(self, *args, **kw):
+        qcontext = self.get_auth_signup_qcontext()
+
+        if not qcontext.get('token') and not qcontext.get('signup_enabled'):
+            raise werkzeug.exceptions.NotFound()
+
+        if 'error' not in qcontext and request.httprequest.method == 'POST':
+            try:
+                if not request.env['ir.http']._verify_request_recaptcha_token('signup'):
+                    raise UserError(_("Suspicious activity detected by Google reCaptcha."))
+
+                self.do_signup(qcontext)
+
+                # Set user to public if they were not signed in by do_signup
+                # (mfa enabled)
+                if request.session.uid is None:
+                    public_user = request.env.ref('base.public_user')
+                    request.update_env(user=public_user)
+
+                # Send an account creation confirmation email
+                User = request.env['res.users']
+                user_sudo = User.sudo().search(
+                    User._get_login_domain(qcontext.get('login')), order=User._get_login_order(), limit=1
+                )
+                template = request.env.ref('auth_signup.mail_template_user_signup_account_created',
+                                           raise_if_not_found=False)
+                if user_sudo and template:
+                    template.sudo().send_mail(user_sudo.id, force_send=True)
+                return self.web_login(*args, **kw)
+            except UserError as e:
+                qcontext['error'] = e.args[0]
+            except (SignupError, AssertionError) as e:
+                if request.env["res.users"].sudo().search_count([("login", "=", qcontext.get("login"))], limit=1):
+                    qcontext["error"] = _("Another user is already registered using this email address.")
+                else:
+                    _logger.warning("%s", e)
+                    qcontext['error'] = _("Could not create a new account.") + Markup('<br/>') + str(e)
+
+        elif 'signup_email' in qcontext:
+            user = request.env['res.users'].sudo().search(
+                [('email', '=', qcontext.get('signup_email')), ('state', '!=', 'new')], limit=1)
+            if user:
+                return request.redirect('/web/login?%s' % url_encode({'login': user.login, 'redirect': '/web'}))
+
+        response = request.render('website_aardwolf.signup_aardwolf', qcontext)
+        response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+        response.headers['Content-Security-Policy'] = "frame-ancestors 'self'"
+        return response
+
 
 class WebsiteSaleAardwolf(WebsiteSale):
 
@@ -276,7 +419,6 @@ class WebsiteSaleAardwolf(WebsiteSale):
         result['product_variant'] = product_variant
         result['image'] = url_image
 
-
         return {
             'search': search,
             'category': category,
@@ -297,4 +439,5 @@ class WebsiteSaleAardwolf(WebsiteSale):
         if not request.website.has_ecommerce_access():
             return request.redirect('/web/login')
 
-        return request.render("website_aardwolf.product_detail_aardwolf", self._prepare_product_values(product, category, search, **kwargs))
+        return request.render("website_aardwolf.product_detail_aardwolf",
+                              self._prepare_product_values(product, category, search, **kwargs))

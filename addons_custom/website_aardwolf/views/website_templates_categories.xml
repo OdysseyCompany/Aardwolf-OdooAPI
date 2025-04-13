@@ -165,7 +165,7 @@
                 </div>
                 <div id="category-data" t-att-data-category-slug="category_slug" style="display: none;"></div>
             </div>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
         <script type="module" src="/website_aardwolf/static/src/js/main.js"/>
     </template>
 
