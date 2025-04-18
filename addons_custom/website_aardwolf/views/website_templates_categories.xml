@@ -4,61 +4,219 @@
     <template id="categories_templates" name="Categories">
         <main class="toolrange">
             <div class="toolrange__categories-page">
-                <div class="toolrange__categories-page__head">
-                    <div class="toolrange__categories-page__head-breadcrumbs toolrange__breadcrumbs">
-                        <a href="/">Home</a>
-                        <a href="#" class="current">Categories</a>
-                    </div>
-                    <p class="toolrange__categories-page__head-title">Categories</p>
+                <div class="toolrange__categories-page__banner"/>
+
+                <div class="toolrange__categories-page__intro">
+                    <h3 class="toolrange__categories-page__intro-title">Categories</h3>
+                    <p class="toolrange__categories-page__intro-message">
+                        Explore our wide range of industry solutions, designed to enhance
+                        efficiency, safety, and performance. From lifting equipment and
+                        material handling to glass, stone, and hardscape installation tools.
+                    </p>
                 </div>
-
-                <div class="toolrange__categories-page__content">
-                    <div class="toolrange__categorie-list">
-                        <t t-foreach="values.items()" t-as="category_data">
-                            <div class="toolrange__categorie">
-                                <div class="toolrange__categorie__head">
-                                    <p class="toolrange__categorie__name">
-                                        <t t-esc="category_data[0]"/>
-                                    </p>
-                                    <a t-att-href="'/category-detail/' + category_data[1]['slug'] + '?page=1'">
-                                        view all
-                                    </a>
-                                </div>
-
-                                <div class="toolrange__categorie__products toolrange__products__list">
-                                    <t t-foreach="category_data[1]['products']" t-as="product">
-                                        <a t-att-href="'/category-detail/%s' % product['slug']"
-                                           class="toolrange__categorie__item toolrange__products__item">
-                                            <div class="product-img">
-                                                <img t-att-src="product['image_url'] or '/website_aardwolf/static/imgs/common/products/product-1.png'"
-                                                     t-att-alt="product['name']" loading="lazy"/>
-
-                                            </div>
-                                            <div class="product-info">
-                                                <p>
-                                                    <t t-esc="product['name']"/>
-                                                </p>
-                                                <p>
-                                                    <span>from</span>
-                                                    <span>
-                                                        <t t-esc="product['list_price']"/>
-                                                    </span>
-                                                </p>
-                                            </div>
+                <t t-foreach="values" t-as="category_data">
+                    <div class="toolrange__categories-page__slider-wrapper">
+                        <div class="slider-view__wrapper">
+                            <div class="slider-view__info">
+                                <div class="slider-view__info-box">
+                                    <div>
+                                        <p class="slider-view__info-text">
+                                            <t t-esc="category_data[0]['description']"/>
+                                        </p>
+                                        <h3 class="slider-view__info-name">
+                                            <t t-esc="category_data[0]['name']"/>
+                                        </h3>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="slider-view__info-btn btn-request">Request Demo</a>
+                                        <a t-att-href="'/category-detail/%s' % category_data[0]['slug']"
+                                           class="slider-view__info-btn">Learn more
                                         </a>
-                                    </t>
+                                    </div>
                                 </div>
                             </div>
-                        </t>
 
+                            <div class="toolrange__categories-page__slider-view swiper swiperView">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-1.png"/>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-2.png"/>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-3.png"/>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-4.png"/>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-5.png"/>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-6.png"/>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-3.png"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div thumbsSlider="" class="toolrange__categories-page__slider-thumbs swiper swiperThumbs">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-1.png"/>
+                                    <p>Economy Slab Buggy Single Side SBSSE</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-2.png"/>
+                                    <p>Slab Buggy Single
+                                        <br></br>
+                                        Side SBSS
+                                    </p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-3.png"/>
+                                    <p>Transport Frame TF3050H</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-4.png"/>
+                                    <p>Economy Slab Buggy Single Side SBSSE</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-5.png"/>
+                                    <p>Harp Rack AHR</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-6.png"/>
+                                    <p>Demountable Frame DFF400</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-3.png"/>
+                                    <p>Transport Frame TF3050H</p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
                     </div>
+                    <t t-if="len(category_data) > 1">
+                        <div class="toolrange__categories-page__slider-wrapper mt-82">
+                            <div class="slider-view__wrapper reverse">
+                                <div class="slider-view__info">
+                                    <div class="slider-view__info-box">
+                                        <div>
+                                            <p class="slider-view__info-text">
+                                                <t t-esc="category_data[1]['description']"/>
+                                            </p>
+                                            <h3 class="slider-view__info-name">
+                                                <t t-esc="category_data[1]['name']"/>
+                                            </h3>
+                                        </div>
+                                        <div>
+                                            <a t-att-href="'/category-detail/%s' % category_data[1]['slug']"
+                                               class="slider-view__info-btn btn-request">Request Demo
+                                            </a>
+                                            <a t-att-href="'/category-detail/%s' % category_data[1]['slug']"
+                                               class="slider-view__info-btn">Learn more
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
 
-                    <button class="categories-page__button-more button-link">View All</button>
-                </div>
+                                <div
+                                        class="toolrange__categories-page__slider-view swiper swiperView2"
+                                >
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img
+                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-1.png"
+                                            />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img
+                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-2.png"
+                                            />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img
+                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-3.png"
+                                            />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img
+                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-4.png"
+                                            />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img
+                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-5.png"
+                                            />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img
+                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-6.png"
+                                            />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img
+                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-3.png"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                    thumbsSlider=""
+                                    class="toolrange__categories-page__slider-thumbs swiper swiperThumbs2"
+                            >
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-1.png"/>
+                                        <p>Bow Shackle 3.0T</p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-2.png"/>
+                                        <p>Combo Swivel-Chain-Lifting Lug 1.5T</p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-3.png"/>
+                                        <p>Forged Aluminium Swivel 1.5T</p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-4.png"/>
+                                        <p>AL30R</p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-5.png"/>
+                                        <p>Slab Edge Protector ASEP30</p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-6.png"/>
+                                        <p>Forklift Boom FB1/2720</p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-3.png"/>
+                                        <p>Forged Aluminium Swivel 1.5T</p>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                    </t>
+
+                </t>
             </div>
         </main>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
         <script type="module" src="/website_aardwolf/static/src/js/main.js"/>
+        <script type="module" src="/website_aardwolf/static/src/js/categories.js"/>
     </template>
 
     <template id="categories_templates_aardwolf" name="Categories">
@@ -70,103 +228,69 @@
 
     <template id="categories_detail_templates" name="Categories Detail">
         <div class="toolrange__categories-detail">
-                <h3 class="toolrange__categories-detail__title">
-                    <t t-esc="category_name"/>
-                </h3>
-
-                <div class="toolrange__categories-detail__content">
-                    <div class="toolrange__categories-detail__filters">
-                        <div class="toolrange__categories-detail__filters-head">
-                            <p>Filters</p>
-                            <button>Clear filters</button>
-                        </div>
-
-                        <div class="toolrange__categories-detail__filters-box">
-                            <label for="">Weight Load Limit</label>
-                            <div class="filters-select select-custom select-common">
-                                <input type="text" value="All Capacities"/>
-
-                                <div class="select-custom__options">
-                                    <data value="All Capacities" class="select-custom__option"
-                                    >All Capacities
-                                    </data
-                                    >
-                                    <data value="Capacities" class="select-custom__option"
-                                    >Capacities
-                                    </data
-                                    >
-                                </div>
-                            </div>
-
-                            <label for="">Product Weight</label>
-                            <div class="filters-select select-custom select-common">
-                                <input type="text" value="All Weights"/>
-
-                                <div class="select-custom__options">
-                                    <data value="All Weights" class="select-custom__option"
-                                    >All Weights
-                                    </data
-                                    >
-                                    <data value="Weights" class="select-custom__option"
-                                    >Weights
-                                    </data
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="toolrange__categories-detail__group">
-                        <div class="toolrange__categories-detail__sub-group">
-                            <p>(
-                                <span class="total-item">
-                                    <t t-esc="total_product"></t>
-                                </span>
-                                ) Results found
-                            </p>
-
-                            <div class="toolrange__categories-detail__sort">
-                                <p>Sort by:
-                                    <span class="sort-by__value"></span>
-                                </p>
-
-                                <div class="sort__options">
-                                    <data value="Price increase">Price increase</data>
-                                    <data value="Price decrease">Price decrease</data>
-                                    <data value="New">New</data>
-                                    <data value="Old">Old</data>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="toolrange__categories-detail__list toolrange__products__list">
-                            <t t-foreach="values" t-as="data">
-                                <a t-att-href="data['website_url']"
-                                   class="toolrange__products__item">
-                                    <div class="product-img">
-                                        <img t-att-src="data['image_url']"
-                                             t-att-alt="data['name']" loading="lazy"/>
-                                    </div>
-                                    <div class="product-info">
-                                        <p>
-                                            <t t-esc="data['name']"/>
-                                        </p>
-                                        <p>
-                                            <span><t t-esc="data['list_price']"/>$
-                                            </span>
-                                        </p>
-                                    </div>
-                                </a>
-                            </t>
-                        </div>
-
-                        <div class="toolrange__categories-detail__pagination">
-                        </div>
-                    </div>
+            <div class="toolrange__categories-detail__head">
+                <div
+                        class="toolrange__categories-detail__head-breadcrumbs toolrange__breadcrumbs"
+                >
+                    <a href="/">Home</a>
+                    <a href="#" class="current">
+                        <t t-esc="category_name"/>
+                    </a>
                 </div>
-                <div id="category-data" t-att-data-category-slug="category_slug" style="display: none;"></div>
             </div>
+
+            <div class="toolrange__categories-detail__intro">
+                <h2 class="toolrange__categories-detail__intro-title">
+                    <t t-esc="category_name"/>
+                </h2>
+                <p class="toolrange__categories-detail__intro-content">
+                    <t t-esc="description"/>
+                </p>
+            </div>
+
+            <div class="toolrange__categories-detail__sub-categories">
+                <h5 class="toolrange__categories-detail__sub-categories-title">
+                    Sub-Categories
+                </h5>
+
+                <div class="toolrange__categories-detail__sub-categories-list">
+                    <t t-foreach="sub_category" t-as="sub_category_data">
+                        <a href="/categories" class="toolrange__categories-detail__sub-categories-item">
+                            <t t-esc="sub_category_data['name']"/>
+                        </a>
+                    </t>
+                </div>
+            </div>
+
+            <div class="toolrange__categories-detail__list">
+                <h5 class="toolrange__categories-detail__list-title">Products</h5>
+
+                <div class="toolrange__categories-detail__list-wrapper">
+                    <t t-foreach="values" t-as="prd">
+                        <a href="#" class="toolrange__categories-detail__item">
+                            <div class="product-img">
+                                <img t-att-src="prd['image_url']"
+                                     t-att-alt="prd['name']" loading="lazy"/>
+                            </div>
+                            <div class="product-info">
+                                <p>
+                                    <t t-esc="prd['name']"/>
+                                </p>
+                            </div>
+                        </a>
+                    </t>
+                </div>
+            </div>
+
+            <div class="categories-pagination pagination-common">
+                <button class="pagination-common__btn btn-prev disable"></button>
+                <div class="pagination-common__pages"></div>
+                <button class="pagination-common__btn btn-next"></button>
+            </div>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
-        <script type="module" src="/website_aardwolf/static/src/js/main.js"/>
+        <script type="module" src="/website_aardwolf/static/js/main.js"/>
+        <script type="module" src="/website_aardwolf/static/js/categories-detail.js"/>
     </template>
 
     <template id="categories_detail_templates_aardwolf" name="Categories Detail">

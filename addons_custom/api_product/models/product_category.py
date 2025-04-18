@@ -14,6 +14,7 @@ class ProductCategory(models.Model):
     _inherit = 'product.category'
 
     slug = fields.Char('Slug', store=True, compute='related_slug_by_name')
+    image_1920 = fields.Binary('Image_1920')
     description = fields.Char('Description')
 
     @api.depends('name')

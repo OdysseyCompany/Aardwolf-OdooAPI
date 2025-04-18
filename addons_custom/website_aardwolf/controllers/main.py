@@ -48,35 +48,24 @@ class WebsiteAardwolf(http.Controller):
     @http.route(['/categories'], type='http', auth="public", website=True)
     def categories(self, **post):
         try:
-            result = {}
-            limit_per_category = 6
+            result = []
+            temp = []
+            categories = request.env['product.category'].sudo().search([])
 
-            base_url = request.env['ir.config_parameter'].sudo().get_param('web.base.url')
+            for idx, categ in enumerate(categories):
+                temp.append({
+                    'name': categ.name,
+                    'description': categ.description,
+                    'img': f"/web/image?model=product.category&id={categ.id}&field=image_1920",  # ảnh không check quyền
+                    'slug': categ.slug,
+                })
 
-            products = request.env['product.template'].sudo().search_read(
-                fields=['name', 'list_price', 'categ_id', 'image_128']
-            )
+                if len(temp) == 2:
+                    result.append(temp)
+                    temp = []
 
-            for prod in products:
-                category_name = prod.get('categ_id', [0, "No Category"])[1]
-                category_slug = slugify(category_name)
-
-                if category_name not in result:
-                    result[category_name] = {
-                        'slug': category_slug,
-                        'products': []
-                    }
-
-                if len(result[category_name]['products']) < limit_per_category:
-                    image_url = f"{base_url}/web/image/product.template/{prod.get('id')}/image_128" if prod.get(
-                        'image_128') else None
-
-                    result[category_name]['products'].append({
-                        "name": prod['name'],
-                        "slug": slugify(prod['name']),
-                        "list_price": prod['list_price'],
-                        "image_url": image_url
-                    })
+            if temp:
+                result.append(temp)
 
             return request.render("website_aardwolf.categories_templates_aardwolf", {
                 'values': result
@@ -94,10 +83,14 @@ class WebsiteAardwolf(http.Controller):
         try:
             # Tìm danh mục với slug từ URL
             category = request.env['product.category'].sudo().search([('slug', '=', slug)], limit=1)
-
+            sub_cate = request.env['product.category'].sudo().search([('parent_id', '=', category.id)])
+            sub_category = []
+            for rec in sub_cate:
+                sub_category.append({
+                    'name': rec.name
+                })
             if not category:
                 return request.not_found()
-            total_product = request.env['product.template'].sudo().search_count([('categ_id', '=', category.id)])
             # Lấy các sản phẩm thuộc danh mục này, giới hạn 6 sản phẩm và phân trang
             products = request.env['product.template'].sudo().search([
                 ('categ_id', '=', category.id)
@@ -116,8 +109,9 @@ class WebsiteAardwolf(http.Controller):
             return request.render("website_aardwolf.categories_detail_templates_aardwolf", {
                 'values': data,
                 'category_name': category.name,
+                'description': category.description,
                 'category_slug': slugify(category.name),
-                'total_product': total_product,
+                'sub_category': sub_category,
             })
 
         except Exception as e:
