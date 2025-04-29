@@ -6,7 +6,7 @@
     'summary': '',
     'author': '',
     'website': '',
-    'depends': ['jwt_provider'],
+    'depends': ['jwt_provider', 'website'],
     'data': [
         'security/ir.model.access.csv',
         'views/product_template_view.xml',
