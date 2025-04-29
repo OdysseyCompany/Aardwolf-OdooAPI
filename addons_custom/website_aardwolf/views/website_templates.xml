@@ -30,9 +30,7 @@
                                 Products
                                 <ul class="product-drop-down__list drop-down__list"></ul>
                             </div>
-                            <a href="/categories" class="toolrange__header__navbar-item"
-                            >Categories
-                            </a>
+                            <a href="/categories" class="toolrange__header__navbar-item">Categories</a>
                             <div class="toolrange__header__navbar-item drop-down link-drop-down">
                                 ABOUT US
                                 <ul class="drop-down__list">
@@ -130,6 +128,41 @@
 
                 <div class="toolrange__header__search sp-on">
                     <input type="text" placeholder="Search"/>
+                </div>
+                <div class="toolrange__menu-sp">
+                    <div class="toolrange__menu-sp__links">
+                        <div class="toolrange__menu-sp__item item-dropdown">
+                            <p>PRODUCTS</p>
+
+                            <div class="toolrange__sub-menu-sp">
+                                <a href="">Mechanical Lifting Devices</a>
+                                <a href="">Mechanical Lifting Devices</a>
+                                <a href="">Mechanical Lifting Devices</a>
+                            </div>
+                        </div>
+                        <div class="toolrange__menu-sp__item item-dropdown">
+                            <p>About us</p>
+
+                            <div class="toolrange__sub-menu-sp">
+                                <a href="">Mechanical Lifting Devices</a>
+                                <a href="">Mechanical Lifting Devices</a>
+                                <a href="">Mechanical Lifting Devices</a>
+                            </div>
+                        </div>
+                        <a href="" class="toolrange__menu-sp__item">Become distributor</a>
+                        <a href="" class="toolrange__menu-sp__item">Our Presence</a>
+                    </div>
+
+                    <div class="toolrange__menu-sp__contact">
+                        <div class="toolrange__header__phone">
+                            <img src="./assets/imgs/common/svgs/phone_white.svg" alt=""/>
+                            <a href="tel:+15625536050">+1 562-553-6050</a>
+                        </div>
+                        <div class="toolrange__header__mail">
+                            <img src="./assets/imgs/common/svgs/mail_white.svg" alt=""/>
+                            <a href="mailto:sales@aardwolfusa.com">SEND A MESSAGE</a>
+                        </div>
+                    </div>
                 </div>
             </header>
         </xpath>

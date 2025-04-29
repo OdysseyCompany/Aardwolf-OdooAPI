@@ -1,523 +1,214 @@
-document.addEventListener("DOMContentLoaded", async function () {
-  const $ = document.querySelector.bind(document);
-  const $$ = document.querySelectorAll.bind(document);
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
 
-  // Menu Category Header Handler
-  const menuCategoryHandler = {
-    async init() {
-      const categoriesList = $(".product-drop-down__list.drop-down__list");
-      const categoriesListHomepage = $(".toolrange__categories__list");
-      if (!categoriesList && !categoriesListHomepage) return;
+// Handle search
+$(".toolrange__input-search")?.addEventListener("input", function () {
+  console.log("input search value: ", this.value);
+});
 
-      try {
-        const response = await fetch('/api/v1/get-data-categories', {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' }
-        });
+$(".toolrange__header__search > input")?.addEventListener("focus", function () {
+  $(".toolrange__header__search-wrapper").classList.add("show");
+});
 
-        if (!response.ok) throw new Error('Failed to fetch categories');
+$(".box-input-wrapper > img")?.addEventListener("click", function () {
+  $(".toolrange__header__search-wrapper").classList.remove("show");
+});
 
-        const data = await response.json();
-        const categories = data.result || [];
-        if (categoriesList) this.renderCategories(categories, categoriesList);
-        if (categoriesListHomepage) this.renderCategoriesHomepage(categories, categoriesListHomepage);
-      } catch (error) {
-        console.error("Error loading categories:", error);
+$$(".toolrange__header__search-suggestions > li")?.forEach((item) => {
+  item.addEventListener("click", function () {
+    $(".toolrange__input-search").value = this.innerText;
+  });
+});
+
+// Handle select language
+$(".select-language")?.addEventListener("click", function (e) {
+  this.classList.toggle("show");
+  e.stopPropagation();
+});
+
+$$(".select-language__option")?.forEach((element) => {
+  element.addEventListener("click", function (e) {
+    e.stopPropagation();
+    const focusUrl = this.firstElementChild.currentSrc;
+    const focusAlt = this.firstElementChild.alt;
+    const selectValue =
+      $(".select-language").firstElementChild.firstElementChild;
+
+    selectValue.src = focusUrl;
+    selectValue.alt = focusAlt;
+
+    $(".select-language").classList.remove("show");
+  });
+});
+
+// Handle menu sp
+$('.toolrange__header__navbar-icon')?.addEventListener('click', function () {
+    console.log('toolrange__header__navbar');
+  this.classList.toggle('show');
+  $('.toolrange__menu-sp').classList.toggle('show');
+});
+
+// Handle submenu sp
+$$('.toolrange__menu-sp__item.item-dropdown').forEach((item) => {
+  item.addEventListener('click', function () {
+    $$('.toolrange__menu-sp__item.item-dropdown').forEach((item2) =>
+      item2 !== this && item2.classList.remove('show')
+    );
+    this.classList.toggle('show');
+  });
+});
+
+// Handle video
+$(".toolrange__video-icon")?.addEventListener("click", function () {
+  $("#home-video").play();
+  $("#home-video").classList.add("play");
+  this.classList.add("hidden");
+});
+
+// Handle tabs
+$$(".toolrange__tab")?.forEach((tab, i) => {
+  tab.addEventListener("click", function () {
+    let thisTab = this.dataset.tab;
+
+    $$(".toolrange__tab").forEach((tab2, i2) => {
+      if (i !== i2) {
+        tab2.classList.remove("tab-active");
       }
-    },
+    });
 
-    renderCategoriesHomepage(categories, container) {
-      const isHomepageStyle = container.classList.contains("toolrange__categories__list");
+    this.classList.add("tab-active");
 
-      categories.forEach(category => {
-        if (isHomepageStyle) {
-          // Render kiểu homepage
-          const a = document.createElement("a");
-          a.className = "toolrange__categories__item";
-          a.href = `/category-detail/${category.slug}`;
-          a.setAttribute("categorieItemId", category.id || "");
-
-          const divImg = document.createElement("div");
-          divImg.className = "categorie-img";
-
-          const img = document.createElement("img");
-          img.src = category.image || "/website_aardwolf/static/imgs/home_page/categories/img-1.png";
-          img.alt = "";
-
-          divImg.appendChild(img);
-
-          const p = document.createElement("p");
-          p.className = "categorie-name";
-          p.textContent = category.name;
-
-          a.appendChild(divImg);
-          a.appendChild(p);
-
-          container.appendChild(a);
-        } else {
-          // Render kiểu danh sách thả
-          const li = document.createElement("li");
-          const a = document.createElement("a");
-          a.href = `/category-detail/${category.slug}`;
-          a.textContent = category.name;
-          a.className = "category-parent";
-
-          li.appendChild(a);
-          container.appendChild(li);
-        }
-      });
-    },
-
-
-    renderCategories(categories, container) {
-      categories.forEach(category => {
-        const li = document.createElement("li");
-
-        // Tạo thẻ <a> cho category cha
-        const a = document.createElement("a");
-        a.href = `/category-detail/${category.slug}`;
-        a.textContent = category.name;
-
-        // Thêm class hoặc style nếu cần
-        a.className = "category-parent";
-
-        // Nếu có children
-        if (category.children?.length) {
-          const subUl = document.createElement("ul");
-          subUl.className = "sub-drop-down__list";
-
-          category.children.forEach(child => {
-            const subLi = document.createElement("li");
-            const childA = document.createElement("a");
-            childA.href = `/category-detail/${child.slug}`;
-            childA.textContent = child.name;
-
-            subLi.appendChild(childA);
-            subUl.appendChild(subLi);
-          });
-
-          li.appendChild(a);      // Gắn thẻ <a> (cha)
-          li.appendChild(subUl);  // Gắn danh sách con
-        } else {
-          li.appendChild(a);
-        }
-
-        container.appendChild(li);
-      });
-    }
-  };
-
-
-
-  // Search Handler
-  const searchHandler = {
-    init() {
-      this.handleSearchInput();
-      this.handleHeaderSearch();
-      this.handleCloseSearch();
-      this.handleSearchSuggestions();
-    },
-
-    handleSearchInput() {
-      const searchInput = $(".toolrange__input-search");
-      if (searchInput) {
-        searchInput.addEventListener("input", () => {
-          console.log("input search value: ", searchInput.value);
-        });
-      }
-    },
-
-    handleHeaderSearch() {
-      const headerInput = $(".toolrange__header__search > input");
-      if (headerInput) {
-        headerInput.addEventListener("focus", () => {
-          $(".toolrange__header__search-wrapper")?.classList.add("show");
-        });
-      }
-    },
-
-    handleCloseSearch() {
-      const closeSearch = $(".box-input-wrapper > img");
-      if (closeSearch) {
-        closeSearch.addEventListener("click", () => {
-          $(".toolrange__header__search-wrapper")?.classList.remove("show");
-        });
-      }
-    },
-
-    handleSearchSuggestions() {
-      $$(".toolrange__header__search-suggestions > li").forEach((item) => {
-        item.addEventListener("click", () => {
-          const input = $(".toolrange__input-search");
-          if (input) input.value = item.innerText;
-        });
-      });
-    }
-  };
-
-  // Language Selector Handler
-  const languageHandler = {
-    init() {
-      const langSelector = $(".select-language");
-      if (langSelector) {
-        langSelector.addEventListener("click", (e) => {
-          langSelector.classList.toggle("show");
-          e.stopPropagation();
-        });
-      }
-
-      $$(".select-language__option").forEach((element) => {
-        element.addEventListener("click", (e) => {
-          e.stopPropagation();
-          this.updateLanguage(element);
-        });
-      });
-    },
-
-    updateLanguage(element) {
-      const img = element.firstElementChild;
-      if (!img) return;
-
-      const selectValue = $(".select-language")?.firstElementChild?.firstElementChild;
-      if (selectValue) {
-        selectValue.src = img.currentSrc;
-        selectValue.alt = img.alt;
-        $(".select-language")?.classList.remove("show");
-      }
-    }
-  };
-
-  // Video Handler
-  const videoHandler = {
-    init() {
-      const videoIcon = $(".toolrange__video-icon");
-      if (videoIcon) {
-        videoIcon.addEventListener("click", () => {
-          const video = $("#home-video");
-          if (video) {
-            video.play();
-            video.classList.add("play");
-          }
-          videoIcon.classList.add("hidden");
-        });
-      }
-    }
-  };
-
-  // Tabs Handler
-  const tabHandler = {
-    init() {
-      this.handleTabs(".toolrange__tab", ".toolrange__view", "viewTab");
-      this.handleTabs(
-        ".toolrange__prod-detail__description-tab",
-        ".toolrange__prod-detail__description-view",
-        "view"
-      );
-    },
-
-    handleTabs(tabSelector, viewSelector, viewDataAttr) {
-      $$(tabSelector).forEach((tab) => {
-        tab.addEventListener("click", () => {
-          const tabId = tab.dataset.tab;
-
-          $$(tabSelector).forEach((otherTab) => {
-            otherTab.classList.toggle("tab-active", otherTab === tab);
-          });
-
-          $$(viewSelector).forEach((view) => {
-            view.classList.toggle("view-active", view.dataset[viewDataAttr] === tabId);
-          });
-        });
-      });
-    }
-  };
-
-  // Categories Handler
-  const categoryHandler = {
-    init() {
-      const btnMore = $(".categories-page__button-more");
-      if (btnMore) {
-        btnMore.addEventListener("click", () => {
-          $(".toolrange__categories-page__content")?.classList.add("show-all");
-          btnMore.classList.add("hide");
-        });
-      }
-    }
-  };
-
-  // Select and Sort Handler
-  const selectHandler = {
-    init() {
-      this.handleCommonSelect();
-      this.handleSortBox();
-    },
-
-    handleCommonSelect() {
-      $$(".select-common").forEach((select) => {
-        select.addEventListener("click", (e) => {
-          select.classList.toggle("show");
-          e.stopPropagation();
-          if (e.target.tagName === "DATA") {
-            select.firstElementChild.value = e.target.value;
-          }
-        });
-      });
-    },
-
-    handleSortBox() {
-      const sortBox = $(".toolrange__categories-detail__sort");
-      if (sortBox) {
-        sortBox.addEventListener("click", (e) => {
-          sortBox.classList.toggle("show");
-          e.stopPropagation();
-          if (e.target.tagName === "DATA") {
-            sortBox.querySelector(".sort-by__value").innerText = e.target.value;
-          }
-        });
-      }
-    }
-  };
-
-  // Pagination Handler
-  const paginationHandler = {
-    itemsPerPage: 9,
-    currentPage: 1,
-
-    init(totalProducts) {
-      this.totalProducts = totalProducts || parseInt($(".total-item")?.textContent) || 0;
-      this.categorySlug = $("#category-data")?.dataset.categorySlug || 'default-slug';
-      this.currentPage = this.getCurrentPageFromUrl();
-      if (this.totalProducts > 0) {
-        this.renderPagination();
-        this.setupEventListeners();
+    $$(".toolrange__view").forEach((view) => {
+      let thisView = view.dataset.viewTab;
+      if (thisTab === thisView) {
+        view.classList.add("view-active");
       } else {
-        this.setupBasicPagination();
+        view.classList.remove("view-active");
       }
-    },
+    });
+  });
+});
 
-    getCurrentPageFromUrl() {
-      const urlParams = new URLSearchParams(window.location.search);
-      return parseInt(urlParams.get('page')) || 1;
-    },
+$$(".toolrange__prod-detail__description-tab")?.forEach((tab, i) => {
+  tab.addEventListener("click", function () {
+    let thisTab = this.dataset.tab;
 
-    setupBasicPagination() {
-      $$(".btn-page-number").forEach((page) => {
-        page.addEventListener("click", () => {
-          $$(".btn-page-number").forEach((otherPage) => {
-            otherPage.classList.remove("btn-active");
-          });
-          page.classList.add("btn-active");
-        });
-      });
-    },
-
-    renderPagination() {
-      const paginationContainer = $(".toolrange__categories-detail__pagination");
-      if (!paginationContainer) return;
-
-      const totalPages = Math.ceil(this.totalProducts / this.itemsPerPage);
-      let paginationHTML = '';
-
-      paginationHTML += `
-        <button class="pagination-btn btn-prev ${this.currentPage === 1 ? 'btn-disable' : ''}">
-
-        </button>
-      `;
-
-      const maxVisiblePages = 5;
-      let startPage = Math.max(1, this.currentPage - Math.floor(maxVisiblePages / 2));
-      let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-
-      if (endPage - startPage + 1 < maxVisiblePages) {
-        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    $$(".toolrange__prod-detail__description-tab").forEach((tab2, i2) => {
+      if (i !== i2) {
+        tab2.classList.remove("tab-active");
       }
+    });
 
-      if (startPage > 1) {
-        paginationHTML += `
-          <button class="pagination-btn btn-page-number">1</button>
-          ${startPage > 2 ? '<button class="pagination-btn btn-event-none">...</button>' : ''}
-        `;
+    this.classList.add("tab-active");
+
+    $$(".toolrange__prod-detail__description-view").forEach((view) => {
+      let thisView = view.dataset.view;
+      if (thisTab === thisView) {
+        view.classList.add("view-active");
+      } else {
+        view.classList.remove("view-active");
       }
+    });
+  });
+});
 
-      for (let i = startPage; i <= endPage; i++) {
-        paginationHTML += `
-          <button class="pagination-btn btn-page-number ${i === this.currentPage ? 'btn-active' : ''}">
-            ${i}
-          </button>
-        `;
+// Handle show categories
+$(".categories-page__button-more")?.addEventListener("click", function () {
+  $(".toolrange__categories-page__content").classList.add("show-all");
+  this.classList.add("hide");
+});
+
+// Handle select custom
+function handleSelectCommon(e) {
+  const allSelects = document?.querySelectorAll(".select-custom");
+
+  if (e.target.closest(".select-custom__mask")) {
+    const currentSelect = e.target.closest(".select-custom");
+
+    allSelects.forEach((select) => {
+      if (select !== currentSelect) {
+        select.classList.remove("show");
       }
+    });
 
-      if (endPage < totalPages) {
-        paginationHTML += `
-          ${endPage < totalPages - 1 ? '<button class="pagination-btn btn-event-none">...</button>' : ''}
-          <button class="pagination-btn btn-page-number">${totalPages}</button>
-        `;
-      }
+    currentSelect.classList.toggle("show");
+  } else if (e.target.tagName === "DATA") {
+    const parentSelect = e.target.closest(".select-custom");
+    parentSelect.querySelector("input").value = e.target.innerText;
+    parentSelect.classList.remove("show");
 
-      paginationHTML += `
-        <button class="pagination-btn btn-next ${this.currentPage === totalPages ? 'btn-disable' : ''}">
+  } else {
+    allSelects.forEach((select) => {
+      select.classList.remove("show");
+    });
+  }
+}
 
-        </button>
-      `;
+// Handle select sort
+$(".toolrange__categories-detail__sort")?.addEventListener(
+  "click",
+  function (e) {
+    this.classList.toggle("show");
+    e.stopPropagation();
 
-      paginationContainer.innerHTML = paginationHTML;
-    },
-
-    setupEventListeners() {
-      $$(".btn-page-number").forEach((pageBtn) => {
-        pageBtn.addEventListener("click", () => {
-          const pageNumber = parseInt(pageBtn.textContent);
-          this.navigateToPage(pageNumber);
-        });
-      });
-
-      $(".btn-prev")?.addEventListener("click", () => {
-        if (this.currentPage > 1) {
-          this.navigateToPage(this.currentPage - 1);
-        }
-      });
-
-      $(".btn-next")?.addEventListener("click", () => {
-        const totalPages = Math.ceil(this.totalProducts / this.itemsPerPage);
-        if (this.currentPage < totalPages) {
-          this.navigateToPage(this.currentPage + 1);
-        }
-      });
-    },
-
-    navigateToPage(pageNumber) {
-      const url = `/category-detail/${this.categorySlug}?limit=${this.itemsPerPage}&page=${pageNumber}`;
-      window.location.href = url;
-    },
-
-    updatePagination() {
-      this.renderPagination();
-      this.setupEventListeners();
+    if (e.target.tagName === "DATA") {
+      this.querySelector(".sort-by__value").innerText = e.target.value;
     }
-  };
+  }
+);
 
-  // Product Options Handler
-  const productOptionsHandler = {
-    init() {
-      $$(".toolrange__prod-detail__prod-option").forEach((option) => {
-        option.addEventListener("click", () => {
-          $$(".toolrange__prod-detail__prod-option").forEach((otherOption) => {
-            otherOption.classList.remove("option-active");
-          });
-          option.classList.add("option-active");
-        });
-      });
-    }
-  };
+// Handle pagination
+$$(".btn-page-number")?.forEach((page) => {
+  page.addEventListener("click", function () {
+    $$(".btn-page-number").forEach((page2) => {
+      page2.classList.remove("btn-active");
+    });
+    this.classList.add("btn-active");
+  });
+});
 
-  // Product Quantity Handler
-  const productQuantityHandler = {
-    init() {
-      $$(".product-quantity-action > button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const quantityEl = $(".quantity");
-          if (!quantityEl) return;
+// Handle edit Checkout Infomation form
+$(".form-view__btn-edit")?.addEventListener("click", function () {
+  $(".toolrange__cart__checkout-info").classList.remove("view");
+  $(".toolrange__cart__checkout-info").classList.add("edit");
+});
 
-          let quantity = parseInt(quantityEl.innerText);
-          const decreaseBtn = $(".decrease-quantity");
+$(".toolrange__cart__checkout-info__form.form-edit")?.addEventListener(
+  "submit",
+  function (e) {
+    e.preventDefault();
 
-          if (btn.classList.contains("increase-quantity")) {
-            quantity += 1;
-            decreaseBtn?.classList.remove("disable");
-          } else if (quantity > 1) {
-            quantity -= 1;
-            if (quantity < 2) {
-              decreaseBtn?.classList.add("disable");
-            }
-          }
-
-          quantityEl.innerText = quantity;
-        });
-      });
-    }
-  };
-
-  // Checkout Info Form Handler
-  const checkoutFormHandler = {
-    init() {
-      this.handleEditButton();
-      this.handleFormSubmit();
-    },
-
-    handleEditButton() {
-      const editBtn = $(".form-view__btn-edit");
-      if (editBtn) {
-        editBtn.addEventListener("click", () => {
-          const checkoutInfo = $(".toolrange__cart__checkout-info");
-          checkoutInfo?.classList.remove("view");
-          checkoutInfo?.classList.add("edit");
-        });
-      }
-    },
-
-    handleFormSubmit() {
-      const form = $(".toolrange__cart__checkout-info__form.form-edit");
-      if (form) {
-        form.addEventListener("submit", (e) => {
-          e.preventDefault();
-
-          if (e.submitter.classList.contains("form__btn-save")) {
-            const formData = this.getFormData(form);
-            console.log("after loop: ", formData);
-          }
-
-          const checkoutInfo = $(".toolrange__cart__checkout-info");
-          checkoutInfo?.classList.remove("edit");
-          checkoutInfo?.classList.add("view");
-        });
-      }
-    },
-
-    getFormData(form) {
+    if (e.submitter.classList.contains("form__btn-save")) {
+      const listInputs = this?.querySelectorAll("input");
       const formData = {};
-      const inputs = form.querySelectorAll("input");
-      inputs.forEach((input) => {
-        formData[input.name] = input.value;
+
+      listInputs.forEach((input) => {
+        const keyName = input.name;
+        formData[keyName] = input.value;
       });
-      return formData;
+
+      console.log("after loop: ", formData);
     }
-  };
 
-  // Contact Form Handler
-  const contactFormHandler = {
-    init() {
-      const form = $(".toolrange__contact__form");
-      if (form) {
-        form.addEventListener("submit", (e) => {
-          e.preventDefault();
-          const formData = this.getFormData(form);
-          console.log("formData: ", formData);
-        });
-      }
-    },
+    $(".toolrange__cart__checkout-info").classList.remove("edit");
+    $(".toolrange__cart__checkout-info").classList.add("view");
+  }
+);
 
-    getFormData(form) {
-      const formData = {};
-      const inputs = form.querySelectorAll("input");
-      inputs.forEach((input) => {
-        formData[input.name] = input.value;
-      });
-      return formData;
-    }
-  };
+// Handle edit form Contact form
+$(".toolrange__contact__form")?.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const listInputs = this?.querySelectorAll("input");
+  const formData = {};
 
-  // Initialize all handlers
-  await menuCategoryHandler.init();
-  searchHandler.init();
-  languageHandler.init();
-  videoHandler.init();
-  tabHandler.init();
-  categoryHandler.init();
-  selectHandler.init();
-  const totalProduct = parseInt($(".total-item")?.textContent) || 0;
-  paginationHandler.init(totalProduct);
-  productOptionsHandler.init();
-  productQuantityHandler.init();
-  checkoutFormHandler.init();
-  contactFormHandler.init();
+  listInputs.forEach((input) => {
+    const keyName = input.name;
+    formData[keyName] = input.value;
+  });
+
+  console.log("formData: ", formData);
+});
+
+document.addEventListener("click", function (e) {
+  handleSelectCommon(e);
 });

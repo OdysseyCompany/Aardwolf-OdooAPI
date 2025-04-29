@@ -267,7 +267,7 @@
 
                 <div class="toolrange__categories-detail__list-wrapper">
                     <t t-foreach="values" t-as="prd">
-                        <a href="#" class="toolrange__categories-detail__item">
+                        <a t-att-href="prd['website_url']" class="toolrange__categories-detail__item">
                             <div class="product-img">
                                 <img t-att-src="prd['image_url']"
                                      t-att-alt="prd['name']" loading="lazy"/>
