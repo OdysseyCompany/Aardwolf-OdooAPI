@@ -39,6 +39,12 @@ def slugify(value):
 
 class WebsiteAardwolf(http.Controller):
 
+    @http.route('/contact/form', type='http', auth="public", methods=['POST'], multilang=False, readonly=True)
+    def contact_form_empty(self, **kwargs):
+        print()
+        # This is a workaround to don't add language prefix to <form action="/website/form/" ...>
+        return ""
+
     def update_product_image_thumb(self):
         # Chạy bằng shell hoặc cron job
         products = request.env['product.template'].search([('image_1920', '!=', False), ('image_thumb', '=', False)])
