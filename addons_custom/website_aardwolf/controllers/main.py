@@ -39,11 +39,20 @@ def slugify(value):
 
 class WebsiteAardwolf(http.Controller):
 
-    @http.route('/contact/form', type='http', auth="public", methods=['POST'], multilang=False, readonly=True)
+    @http.route('/contact/form', type='http', auth="public", methods=['POST'], website=True,
+                csrf=False)
     def contact_form_empty(self, **kwargs):
-        print()
+        name = kwargs['firstName'] + ' ' + kwargs['lastName']
+        request.env['res.partner'].sudo().create({
+            'name': name,
+            'email': kwargs['email'],
+            'phone': kwargs['phone'],
+            'comment': kwargs,
+        })
         # This is a workaround to don't add language prefix to <form action="/website/form/" ...>
-        return ""
+        return request.render('website_aardwolf.contact_thanks_page')
+
+
 
     def update_product_image_thumb(self):
         # Chạy bằng shell hoặc cron job
