@@ -2,6 +2,18 @@ document.addEventListener("DOMContentLoaded", async function () {
   const $ = document.querySelector.bind(document);
   const $$ = document.querySelectorAll.bind(document);
 
+  const video = document.getElementById('home-video');
+
+   if (video) {
+      video.addEventListener('click', function () {
+          if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+   };
+
   // Menu Category Header Handler
   const menuCategoryHandler = {
     async init() {
