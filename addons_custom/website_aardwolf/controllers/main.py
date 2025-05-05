@@ -25,11 +25,13 @@ _logger = logging.getLogger(__name__)
 # Shared parameters for all login/signup flows
 SIGN_UP_REQUEST_PARAMS = {'db', 'login', 'debug', 'token', 'message', 'error', 'scope', 'mode',
                           'redirect', 'redirect_hostname', 'email', 'name', 'partner_id',
-                          'password', 'confirm_password', 'city', 'country_id', 'lang', 'signup_email', 'account_created'}
+                          'password', 'confirm_password', 'city', 'country_id', 'lang', 'signup_email',
+                          'account_created'}
 LOGIN_SUCCESSFUL_PARAMS = set()
 CREDENTIAL_PARAMS = ['login', 'password', 'type']
 
 LOGIN_SUCCESSFUL_PARAMS.add('account_created')
+
 
 def slugify(value):
     value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
@@ -52,8 +54,6 @@ class WebsiteAardwolf(http.Controller):
         # This is a workaround to don't add language prefix to <form action="/website/form/" ...>
         return request.render('website_aardwolf.contact_thanks_page')
 
-
-
     def update_product_image_thumb(self):
         # Chạy bằng shell hoặc cron job
         products = request.env['product.template'].search([('image_1920', '!=', False), ('image_thumb', '=', False)])
@@ -68,11 +68,17 @@ class WebsiteAardwolf(http.Controller):
             categories = request.env['product.category'].sudo().search([])
 
             for idx, categ in enumerate(categories):
+                categ_product = request.env['product.template'].sudo().search(
+                    [('categ_id', 'child_of', categ.id)])  #, ('is_published', '=', True)
                 temp.append({
                     'name': categ.name,
                     'description': categ.description,
-                    'img': f"/web/image?model=product.category&id={categ.id}&field=image_1920",  # ảnh không check quyền
+                    'img': f"/web/image?model=product.category&id={categ.id}&field=image_1920",
                     'slug': categ.slug,
+                    'product': [{
+                        'name': prd.name,
+                        'img': f"/web/image?model=product.template&id={prd.id}&field=image_256",
+                    } for prd in categ_product]
                 })
 
                 if len(temp) == 2:

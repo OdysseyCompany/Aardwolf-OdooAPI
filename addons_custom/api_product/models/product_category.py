@@ -22,6 +22,7 @@ class ProductCategory(models.Model):
         for record in self:
             record.slug = slugify(record.display_name)
 
+
 class ProductGroup(models.Model):
     _name = 'product.group'
 
@@ -29,6 +30,7 @@ class ProductGroup(models.Model):
     product_template_ids = fields.Many2many('product.template', string='Product')
     is_featured = fields.Boolean('Featured product')
     is_industry = fields.Boolean('Industry product')
+
 
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
@@ -72,6 +74,7 @@ class ProductTemplate(models.Model):
     def related_slug_by_name(self):
         for record in self:
             record.slug = slugify(record.name)
+
 
 class ImageProduct(models.Model):
     _name = 'image.product'
