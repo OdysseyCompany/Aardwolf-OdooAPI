@@ -8358,6 +8358,15 @@ button {
           justify-content: center;
   gap: 20.101px;
 }
+.toolrange__distributors__slide-item {
+    transition: transform 0.3s ease;
+    display: inline-block; /* đảm bảo hiệu ứng hoạt động chính xác */
+}
+
+.toolrange__distributors__slide-item:hover {
+    transform: scale(1.1);
+    z-index: 2;
+}
 @media (max-width: 768px) {
   .toolrange__distributors__slide {
     gap: 10px;

@@ -39,63 +39,25 @@
                             <div class="toolrange__categories-page__slider-view swiper swiperView">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-1.png"/>
+                                        <img t-att-src="category_data[0]['img']" t-att-alt="category_data[0]['name']" loading="lazy"/>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-2.png"/>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-3.png"/>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-4.png"/>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-5.png"/>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-6.png"/>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-3.png"/>
-                                    </div>
+<!--                                    <t t-foreach="category_data[0]['product']" t-as="prd_categ">-->
+<!--                                        <div class="swiper-slide">-->
+<!--                                            <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>-->
+<!--                                        </div>-->
+<!--                                    </t>-->
                                 </div>
                             </div>
                         </div>
 
                         <div thumbsSlider="" class="toolrange__categories-page__slider-thumbs swiper swiperThumbs">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-1.png"/>
-                                    <p>Economy Slab Buggy Single Side SBSSE</p>
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-2.png"/>
-                                    <p>Slab Buggy Single
-                                        <br></br>
-                                        Side SBSS
-                                    </p>
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-3.png"/>
-                                    <p>Transport Frame TF3050H</p>
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-4.png"/>
-                                    <p>Economy Slab Buggy Single Side SBSSE</p>
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-5.png"/>
-                                    <p>Harp Rack AHR</p>
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-6.png"/>
-                                    <p>Demountable Frame DFF400</p>
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="/website_aardwolf/static/imgs/common/categories/slider-1/img-3.png"/>
-                                    <p>Transport Frame TF3050H</p>
-                                </div>
+                                <t t-foreach="category_data[0]['product']" t-as="prd_categ">
+                                    <div class="swiper-slide">
+                                        <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>
+                                        <p><t t-esc="prd_categ['name']"/></p>
+                                    </div>
+                                </t>
                             </div>
 
                             <div class="swiper-button-next"></div>
@@ -129,39 +91,7 @@
                                 <div class="toolrange__categories-page__slider-view swiper swiperView2">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <img
-                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-1.png"
-                                            />
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img
-                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-2.png"
-                                            />
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img
-                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-3.png"
-                                            />
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img
-                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-4.png"
-                                            />
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img
-                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-5.png"
-                                            />
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img
-                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-6.png"
-                                            />
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img
-                                                    src="/website_aardwolf/static/imgs/common/categories/slider-2/img-3.png"
-                                            />
+                                            <img t-att-src="category_data[1]['img']" t-att-alt="category_data[1]['name']" loading="lazy"/>
                                         </div>
                                     </div>
                                 </div>
@@ -169,42 +99,18 @@
 
                             <div thumbsSlider="" class="toolrange__categories-page__slider-thumbs swiper swiperThumbs">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-1.png"/>
-                                        <p>Bow Shackle 3.0T</p>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-2.png"/>
-                                        <p>Combo Swivel-Chain-Lifting Lug 1.5T</p>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-3.png"/>
-                                        <p>Forged Aluminium Swivel 1.5T</p>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-4.png"/>
-                                        <p>AL30R</p>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-5.png"/>
-                                        <p>Slab Edge Protector ASEP30</p>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-6.png"/>
-                                        <p>Forklift Boom FB1/2720</p>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-3.png"/>
-                                        <p>Forged Aluminium Swivel 1.5T</p>
-                                    </div>
+                                    <t t-foreach="category_data[1]['product']" t-as="prd_categ">
+                                        <div class="swiper-slide">
+                                            <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>
+                                            <p><t t-esc="prd_categ['name']"/></p>
+                                        </div>
+                                    </t>
                                 </div>
-
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
                             </div>
                         </div>
                     </t>
-
                 </t>
             </div>
         </main>
@@ -279,7 +185,7 @@
 
             <div class="categories-pagination pagination-common">
                 <button class="pagination-common__btn btn-prev disable"></button>
-                <div class="pagination-common__pages"></div>
+<!--                <div class="pagination-common__pages"></div>-->
                 <button class="pagination-common__btn btn-next"></button>
             </div>
         </div>

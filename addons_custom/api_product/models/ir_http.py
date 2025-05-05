@@ -23,7 +23,8 @@ class IrHttp(models.AbstractModel):
 
         # specific page first
         page = _search_page()
-        product = request.env['product.template'].sudo().search([], limit=10)
+        featured_product = request.env['product.group'].sudo().search([('is_featured', '=', True)], limit=1)
+        trend_in_industry = request.env['product.group'].sudo().search([('is_industry', '=', True)], limit=1)
         # case insensitive search
         if not page:
             page = _search_page('=ilike')
@@ -55,8 +56,8 @@ class IrHttp(models.AbstractModel):
             _, ext = os.path.splitext(req_page)
             response = request.render(page.view_id.id, {
                 'main_object': page,
-                'featured_product': product,
-                'trend_in_industry': product,
+                'featured_product': featured_product.product_template_ids if featured_product else False,
+                'trend_in_industry': trend_in_industry.product_template_ids if trend_in_industry else False,
             }, mimetype=EXTENSION_TO_WEB_MIMETYPES.get(ext, 'text/html'))
             return response
         return False
