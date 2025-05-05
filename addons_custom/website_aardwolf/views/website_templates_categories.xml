@@ -126,9 +126,7 @@
                                     </div>
                                 </div>
 
-                                <div
-                                        class="toolrange__categories-page__slider-view swiper swiperView2"
-                                >
+                                <div class="toolrange__categories-page__slider-view swiper swiperView2">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <img
@@ -169,10 +167,7 @@
                                 </div>
                             </div>
 
-                            <div
-                                    thumbsSlider=""
-                                    class="toolrange__categories-page__slider-thumbs swiper swiperThumbs2"
-                            >
+                            <div thumbsSlider="" class="toolrange__categories-page__slider-thumbs swiper swiperThumbs">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <img src="/website_aardwolf/static/imgs/common/categories/slider-2/img-1.png"/>
@@ -215,8 +210,8 @@
         </main>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
-        <script type="module" src="/website_aardwolf/static/src/js/main.js"/>
-        <script type="module" src="/website_aardwolf/static/src/js/categories.js"/>
+        <script type="module" src="/website_aardwolf/static/js/main.js"/>
+        <script type="module" src="/website_aardwolf/static/js/categories.js"/>
     </template>
 
     <template id="categories_templates_aardwolf" name="Categories">

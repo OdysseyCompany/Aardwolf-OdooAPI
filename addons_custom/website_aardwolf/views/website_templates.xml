@@ -347,10 +347,9 @@
                     <label for="home-video" class="toolrange__video-icon">
                         <img src="/website_aardwolf/static/imgs/common/svgs/pause.svg" alt=""/>
                     </label>
-
                     <video id="home-video" height="706"
                            poster="/website_aardwolf/static/imgs/home_page/image_video.png">
-                        <source src="/website_aardwolf/static/imgs/common/videos/video-demo.mp4" type="video/mp4"/>
+                        <source src="/website_aardwolf/static/imgs/common/videos/video_demo_homepage.mp4" type="video/mp4"/>
                     </video>
                 </section>
 
@@ -1606,11 +1605,6 @@
                                 <li>
                                     Join our network and gain a competitive advantage over others
                                     in your market by becoming a AARDWOLF Distributor.
-                                </li>
-                                <li>
-                                    Our approved Distributors benefit from growth in sales,
-                                    service, and rental incomes as global demand for safe and
-                                    efficient material handling increases.
                                 </li>
                                 <li>
                                     Our approved Distributors benefit from growth in sales,
