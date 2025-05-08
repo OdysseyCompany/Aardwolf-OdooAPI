@@ -778,7 +778,9 @@
     <template id="product_templates" name="Product">
         <section class="toolrange__search-results">
             <div class="toolrange__search-results__value">
-                <p>Results for “<span class="value-search">Mechanical</span>”
+                <p>Results for “<span class="value-search">
+                    <t t-esc="search"/>
+                </span>”
                 </p>
             </div>
 

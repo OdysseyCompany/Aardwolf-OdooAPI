@@ -153,13 +153,14 @@ class APIWebsite(http.Controller):
                 # Tạo danh sách con
                 children = [{
                     'name': child.name,
-                    'slug': child.slug
+                    'slug': child.slug,
                 } for child in category.child_id]
 
                 result.append({
                     'name': category.name,
                     'slug': category.slug,
-                    'children': children
+                    'children': children,
+                    'image': f"/web/image/product.category/{category.id}/image_1920",
                 })
 
             return Response(

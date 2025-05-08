@@ -5,9 +5,10 @@ import werkzeug
 from markupsafe import Markup
 from odoo.exceptions import UserError
 from werkzeug.urls import url_encode
-
+import json
+import urllib.parse
 from odoo.addons.auth_signup.models.res_users import SignupError
-
+from odoo.addons.portal.controllers.portal import pager as portal_pager
 import odoo.exceptions
 import odoo.modules.registry
 import unicodedata
@@ -56,7 +57,7 @@ class WebsiteAardwolf(http.Controller):
 
     def update_product_image_thumb(self):
         # Chạy bằng shell hoặc cron job
-        products = request.env['product.template'].search([('image_1920', '!=', False), ('image_thumb', '=', False)])
+        products = request.env['product.template'].sudo().search([('image_1920', '!=', False), ('image_thumb', '=', False)])
         for p in products:
             p.image_thumb = p._generate_thumbnail(p.image_1920)
 
@@ -108,13 +109,14 @@ class WebsiteAardwolf(http.Controller):
             sub_category = []
             for rec in sub_cate:
                 sub_category.append({
-                    'name': rec.name
+                    'name': rec.name,
+                    'id': rec.id
                 })
             if not category:
                 return request.not_found()
             # Lấy các sản phẩm thuộc danh mục này, giới hạn 6 sản phẩm và phân trang
             products = request.env['product.template'].sudo().search([
-                ('categ_id', '=', category.id)
+                ('categ_id', 'child_of', category.id)
             ], limit=int(limit), offset=(int(page) - 1) * limit)
 
             # Tạo dữ liệu để render view
@@ -178,10 +180,15 @@ class WebsiteAardwolf(http.Controller):
             )
 
     @http.route(['/product'], type='http', auth="public", website=True, sitemap=False)
-    def get_product(self, limit=15, page=1, **post):
+    def get_product(self, limit=15, page=1, search='', categ_id='', **post):
         try:
+            domain = []
+            if search:
+                domain += [('name', 'ilike', search)]
+            if categ_id:
+                domain += [('categ_id', 'child_of', int(categ_id))]
             result = []
-            products = request.env['product.template'].sudo().search_read(
+            products = request.env['product.template'].sudo().search_read(domain=domain,
                 fields=['name', 'slug', 'image_512', 'website_url'], limit=limit, offset=(int(page) - 1) * limit)
 
             for prd in products:
@@ -193,7 +200,8 @@ class WebsiteAardwolf(http.Controller):
                         'image_512') else '/website_aardwolf/static/imgs/common/product/img-1.png',
                 })
             return request.render("website_aardwolf.product_templates_aardwolf", {
-                'values': result
+                'values': result,
+                'search': search
             })
 
         except Exception as error:
@@ -391,11 +399,21 @@ class AardwolfHome(Home):
         response.headers['Content-Security-Policy'] = "frame-ancestors 'self'"
         return response
 
+    @http.route([
+        '/website/search',
+        '/website/search/page/<int:page>',
+        '/website/search/<string:search_type>',
+        '/website/search/<string:search_type>/page/<int:page>',
+    ], type='http', auth="public", website=True, sitemap=False, readonly=True)
+    def hybrid_list(self, page=1, search='', search_type='all', **kw):
+        if not search:
+            return request.redirect(f'/product')
+        return request.redirect(f'/product?search={search}&page={page}')
 
 class WebsiteSaleAardwolf(WebsiteSale):
 
     def _prepare_product_values(self, product, category, search, **kwargs):
-        ProductCategory = request.env['product.public.category']
+        ProductCategory = request.env['product.public.category'].sudo()
         if category:
             category = ProductCategory.browse(int(category)).exists()
         keep = QueryURL(
