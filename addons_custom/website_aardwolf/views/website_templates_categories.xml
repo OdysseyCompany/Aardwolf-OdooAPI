@@ -39,13 +39,14 @@
                             <div class="toolrange__categories-page__slider-view swiper swiperView">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <img t-att-src="category_data[0]['img']" t-att-alt="category_data[0]['name']" loading="lazy"/>
+                                        <img t-att-src="category_data[0]['img']" t-att-alt="category_data[0]['name']"
+                                             loading="lazy"/>
                                     </div>
-<!--                                    <t t-foreach="category_data[0]['product']" t-as="prd_categ">-->
-<!--                                        <div class="swiper-slide">-->
-<!--                                            <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>-->
-<!--                                        </div>-->
-<!--                                    </t>-->
+                                    <!--                                    <t t-foreach="category_data[0]['product']" t-as="prd_categ">-->
+                                    <!--                                        <div class="swiper-slide">-->
+                                    <!--                                            <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </t>-->
                                 </div>
                             </div>
                         </div>
@@ -55,7 +56,9 @@
                                 <t t-foreach="category_data[0]['product']" t-as="prd_categ">
                                     <div class="swiper-slide">
                                         <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>
-                                        <p><t t-esc="prd_categ['name']"/></p>
+                                        <p>
+                                            <t t-esc="prd_categ['name']"/>
+                                        </p>
                                     </div>
                                 </t>
                             </div>
@@ -91,7 +94,8 @@
                                 <div class="toolrange__categories-page__slider-view swiper swiperView2">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <img t-att-src="category_data[1]['img']" t-att-alt="category_data[1]['name']" loading="lazy"/>
+                                            <img t-att-src="category_data[1]['img']"
+                                                 t-att-alt="category_data[1]['name']" loading="lazy"/>
                                         </div>
                                     </div>
                                 </div>
@@ -102,7 +106,9 @@
                                     <t t-foreach="category_data[1]['product']" t-as="prd_categ">
                                         <div class="swiper-slide">
                                             <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>
-                                            <p><t t-esc="prd_categ['name']"/></p>
+                                            <p>
+                                                <t t-esc="prd_categ['name']"/>
+                                            </p>
                                         </div>
                                     </t>
                                 </div>
@@ -156,7 +162,8 @@
 
                 <div class="toolrange__categories-detail__sub-categories-list">
                     <t t-foreach="sub_category" t-as="sub_category_data">
-                        <a href="/categories" class="toolrange__categories-detail__sub-categories-item">
+                        <a t-attf-href="/product?categ_id=#{sub_category_data['id']}"
+                           class="toolrange__categories-detail__sub-categories-item">
                             <t t-esc="sub_category_data['name']"/>
                         </a>
                     </t>
@@ -185,7 +192,7 @@
 
             <div class="categories-pagination pagination-common">
                 <button class="pagination-common__btn btn-prev disable"></button>
-<!--                <div class="pagination-common__pages"></div>-->
+                <!--                <div class="pagination-common__pages"></div>-->
                 <button class="pagination-common__btn btn-next"></button>
             </div>
         </div>

@@ -64,8 +64,8 @@
                         <div class="o_login_auth"/>
                     </div>
                     <div class="justify-content-between mt-2 d-flex small">
-                        <a t-if="signup_enabled" t-attf-href="/web/signup?{{ keep_query() }}">Don't have an account?</a>
-                        <a t-if="reset_password_enabled" t-attf-href="/web/reset_password?{{ keep_query() }}"
+<!--                        <a t-if="signup_enabled" t-attf-href="/web/signup?{{ keep_query() }}">Don't have an account?</a>-->
+                        <a t-attf-href="/web/reset_password?{{ keep_query() }}"
                            class="aardwolf-login__form__forgot-password">Forgot password?
                         </a>
                         <p class="aardwolf-login__form__forgot-terms">

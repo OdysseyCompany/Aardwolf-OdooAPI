@@ -1204,8 +1204,8 @@ button {
   }
 }
 .toolrange__footer__grid-item:nth-child(3) {
-  max-width: 181px;
-  margin-left: 100px;
+  max-width: 300px;
+  margin-left: 66px;
 }
 @media (max-width: 1023px) {
   .toolrange__footer__grid-item:nth-child(3) {

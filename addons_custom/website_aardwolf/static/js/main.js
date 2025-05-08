@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         const data = await response.json();
         const categories = data.result || [];
 
-        this.renderCategories(categories, categoriesList);
         if (categoriesList) this.renderCategories(categories, categoriesList);
         if (categoriesListHomepage) this.renderCategoriesHomepage(categories, categoriesListHomepage);
       } catch (error) {
@@ -56,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           divImg.className = "categorie-img";
 
           const img = document.createElement("img");
-          img.src = category.image || "/website_aardwolf/static/imgs/home_page/categories/img-1.png";
+          img.src = category.image;
           img.alt = "";
 
           divImg.appendChild(img);

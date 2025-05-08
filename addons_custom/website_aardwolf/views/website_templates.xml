@@ -55,31 +55,39 @@
                                 </ul>
                             </div>
                             <a href="/become-distributor" class="toolrange__header__navbar-item">Become distributor</a>
-                            <a href="/" class="toolrange__header__navbar-item">Our Presence
+                            <a href="/our-trade-shows" class="toolrange__header__navbar-item">Our Presence
                             </a
                             >
                         </nav>
                     </div>
 
                     <div class="toolrange__header__right-group">
-                        <div class="toolrange__header__search" id="search-container">
-                            <input type="text" placeholder="Search" id="main-search"/>
+                        <!--                        <div class="toolrange__header__search" id="search-container">-->
+                        <!--                            <input type="text" placeholder="Search" id="main-search"/>-->
 
-                            <div class="toolrange__header__search-wrapper" id="search-wrapper">
-                                <div class="toolrange__header__search-box">
-                                    <div class="box-input-wrapper">
-                                        <input type="text" class="toolrange__input-search" placeholder="Mechanical"
-                                               id="sub-search"/>
-                                        <img src="/website_aardwolf/static/imgs/common/svgs/close.svg" alt=""
-                                             id="search-close"/>
-                                    </div>
-                                    <ul class="toolrange__header__search-suggestions" id="suggestion-list">
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <!--                            <div class="toolrange__header__search-wrapper" id="search-wrapper">-->
+                        <!--                                <div class="toolrange__header__search-box">-->
+                        <!--                                    <div class="box-input-wrapper">-->
+                        <!--                                        <input type="text" class="toolrange__input-search" placeholder="Mechanical"-->
+                        <!--                                               id="sub-search"/>-->
+                        <!--                                        <img src="/website_aardwolf/static/imgs/common/svgs/close.svg" alt=""-->
+                        <!--                                             id="search-close"/>-->
+                        <!--                                    </div>-->
+                        <!--                                    <ul class="toolrange__header__search-suggestions" id="suggestion-list">-->
+                        <!--                                    </ul>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
 
                         <div class="toolrange__header__right-sub-group">
+                            <!-- Search Bar -->
+                            <t t-call="website.placeholder_header_search_box"
+                               t-nocache="The searchbox should not cache previous searches.">
+                                <t t-set="_layout" t-valuef="modal"/>
+                                <t t-set="_input_classes" t-valuef="border border-end-0 p-3"/>
+                                <t t-set="_submit_classes" t-valuef="border border-start-0 px-4 bg-o-color-4"/>
+                                <t t-set="_button_classes" t-valuef="o_navlink_background text-reset"/>
+                            </t>
                             <t t-call="website_sale.header_cart_link">
                                 <t t-set="_icon" t-value="True"/>
                                 <t t-set="_link_class"
@@ -91,6 +99,7 @@
                             <t t-call="portal.placeholder_user_sign_in">
                                 <t t-set="_link_class" t-valuef="btn btn-outline-secondary"/>
                             </t>
+
                             <!-- User Dropdown -->
                             <t t-call="portal.user_dropdown">
                                 <t t-set="_user_name" t-value="True"/>
@@ -149,8 +158,8 @@
                                 <a href="">Mechanical Lifting Devices</a>
                             </div>
                         </div>
-                        <a href="" class="toolrange__menu-sp__item">Become distributor</a>
-                        <a href="" class="toolrange__menu-sp__item">Our Presence</a>
+                        <a href="/become-distributor" class="toolrange__menu-sp__item">Become distributor</a>
+                        <a href="/our-trade-shows" class="toolrange__menu-sp__item">Our Presence</a>
                     </div>
 
                     <div class="toolrange__menu-sp__contact">
@@ -175,17 +184,17 @@
                         </a>
 
                         <div class="toolrange__footer__content-info">
-                            <h4>TOOLRANGE ASIA</h4>
+                            <h4>CONTACT</h4>
                             <ul>
                                 <li>
                                     <img src="/website_aardwolf/static/imgs/common/svgs/address.svg" alt=""
                                          loading="lazy"/>
-                                    <p>17 KP Binh Thuan 2, Thuan An, Binh Duong, Vietnam</p>
+                                    <p>9401 Norwalk Blvd Santa Fe Springs, CA 90670</p>
                                 </li>
                                 <li>
                                     <img src="/website_aardwolf/static/imgs/common/svgs/clock.svg" alt=""
                                          loading="lazy"/>
-                                    <p>Monday - Friday 07:30 AM - 5:00 PM</p>
+                                    <p>Monday - Friday 07:30 AM - 5:00 PM EST</p>
                                 </li>
                                 <li>
                                     <img src="/website_aardwolf/static/imgs/common/svgs/envelope.svg" alt=""
@@ -195,25 +204,25 @@
                                 <li>
                                     <img src="/website_aardwolf/static/imgs/common/svgs/telephone.svg" alt=""
                                          loading="lazy"/>
-                                    <p>0274 3712 839</p>
+                                    <p>+1 562-553-6050 sales@aardwolfusa.com</p>
                                 </li>
                             </ul>
 
-                            <div class="toolrange__footer__content-map">
-                                <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31337.294137202523!2d106.62440613289374!3d10.95115023310836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s17%20KP%20Binh%20Thuan%202%2C%20Thuan%20An%2C%20Binh%20Duong%2C%20Vietnam!5e0!3m2!1svi!2s!4v1742617149029!5m2!1svi!2s"
-                                        width="600"
-                                        height="450"
-                                        style="border: 0"
-                                        allowfullscreen=""
-                                        loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"
-                                />
-                            </div>
+                            <!--                            <div class="toolrange__footer__content-map">-->
+                            <!--                                <iframe-->
+                            <!--                                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31337.294137202523!2d106.62440613289374!3d10.95115023310836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s17%20KP%20Binh%20Thuan%202%2C%20Thuan%20An%2C%20Binh%20Duong%2C%20Vietnam!5e0!3m2!1svi!2s!4v1742617149029!5m2!1svi!2s"-->
+                            <!--                                        width="600"-->
+                            <!--                                        height="450"-->
+                            <!--                                        style="border: 0"-->
+                            <!--                                        allowfullscreen=""-->
+                            <!--                                        loading="lazy"-->
+                            <!--                                        referrerpolicy="no-referrer-when-downgrade"-->
+                            <!--                                />-->
+                            <!--                            </div>-->
                         </div>
 
                         <div class="toolrange__footer__content-follow">
-                            <h4>Follow us</h4>
+                            <h4 style="color:red;">Follow us</h4>
 
                             <ul>
                                 <li>
@@ -255,10 +264,13 @@
 
                             <ul>
                                 <li>
-                                    <img src="/website_aardwolf/static/imgs/home_page/DMCA.png" alt="" loading="lazy"/>
+                                    <img src="/website_aardwolf/static/imgs/home_page/asf.png" alt="" loading="lazy"/>
                                 </li>
                                 <li>
-                                    <img src="/website_aardwolf/static/imgs/home_page/ISO.png" alt="" loading="lazy"/>
+                                    <img src="/website_aardwolf/static/imgs/home_page/nsi.png" alt="" loading="lazy"/>
+                                </li>
+                                <li>
+                                    <img src="/website_aardwolf/static/imgs/home_page/sfa.png" alt="" loading="lazy"/>
                                 </li>
                             </ul>
                         </div>
@@ -266,65 +278,64 @@
 
                     <div class="toolrange__footer__grid-item">
                         <h4>
-                            <a href="/categories" style="text-decoration: none;color: inherit;">Categories</a>
+                            <a href="/categories" style="text-decoration: none;color: red;">Categories</a>
                         </h4>
                         <ul>
-                            <li>A-Frames</li>
-                            <li>Crane, Forklift &amp; Workshop Accessories</li>
-                            <li>Cranes</li>
-                            <li>Forklift Equipment</li>
-                            <li>Mechanical Lifting Devices</li>
-                            <li>Slab Racks &amp; Posts</li>
-                            <li>Trolleys</li>
-                            <li>Vacuum Lifting Equipment</li>
-                            <li>Vacuum Tube Lifting Equipment</li>
-                            <li>Workshop Equipment</li>
-                            <li>Workwear</li>
+                            <a style="color: white;" href="/categories">A-Frames</a>
+                            <a href="/categories" style="color: white;">Crane, Forklift &amp; Workshop Accessories</a>
+                            <a href="/categories" style="color: white;">Cranes</a>
+                            <a href="/categories" style="color: white;">Forklift Equipment</a>
+                            <a href="/categories" style="color: white;">Mechanical Lifting Devices</a>
+                            <a href="/categories" style="color: white;">Slab Racks &amp; Posts</a>
+                            <a href="/categories" style="color: white;">Trolleys</a>
+                            <a href="/categories" style="color: white;">Vacuum Lifting Equipment</a>
+                            <a href="/categories" style="color: white;">Vacuum Tube Lifting Equipment</a>
+                            <a href="/categories" style="color: white;">Workshop Equipment</a>
+                            <a href="/categories" style="color: white;">Workwear</a>
                         </ul>
                     </div>
 
                     <div class="toolrange__footer__grid-item">
-                        <h4>About us</h4>
+                        <h4 style="color: red;">Feature posts</h4>
                         <ul>
-                            <li>Our Business</li>
-                            <li>Careers</li>
-                            <li>Contact</li>
-                            <li>Account</li>
+                            <li>How to Become an Aardwolf Distributor</li>
+                            <li>Boost Your Business with Aardwolf</li>
+                            <li>Join Aardwolf: Elevate Your Success</li>
+                            <li>Aardwolf Network: Your Advantage</li>
+                            <li>Aardwolf Partnership Benefits</li>
                         </ul>
 
-                        <h4>Shop</h4>
+                        <h4 style="color: red;">OUR DISTRIBUTORS</h4>
                         <ul>
-                            <li>Home</li>
-                            <li>Categories</li>
-                            <li>Deals</li>
-                            <li>Brands</li>
-                            <li>Tracking Your Order</li>
-                            <li>Blog</li>
+                            <li>
+                                <img src="/website_aardwolf/static/imgs/home_page/our_distributors.png" alt=""
+                                     loading="lazy"/>
+                            </li>
                         </ul>
+
                     </div>
 
                     <div class="toolrange__footer__grid-item">
-                        <h4>Helpful links</h4>
+                        <h4 style="color: red;">About us</h4>
                         <ul>
-                            <li>Privacy Policy</li>
-                            <li>Return Policy</li>
-                            <li>Shipping Information</li>
-                            <li>Newsletter Signup</li>
-                            <li>Payment Methods</li>
+                            <a href="/our-business" style="color: white;">Our Business</a>
+                            <a href="/careers" style="color: white;">Careers</a>
+                            <a href="/contact" style="color: white;">Contact</a>
+                            <a href="" style="color: white;">Account</a>
                         </ul>
-
-                        <h4>Feature posts</h4>
+                        <h4 style="color: red;">Catalog/portfolio</h4>
                         <ul>
-                            <li>How To Move A Granite, Concrete Or Heavy, Countertop</li>
-                            <li>What equipment is used for lifting?</li>
-                            <li>How do you maintain lifting equipment?</li>
-                            <li>How to lift and carry loads safely and correctly</li>
+                            <li>CATALOG 1</li>
+                            <li>CATALOG 2</li>
+                            <li>CATALOG 3</li>
+                            <li>PORTFOLIO 1</li>
+                            <li>PORTFOLIO 2</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="toolrange__footer__reserved">
-                    <p>Copyright © 2025 ToolRange. All Rights Reserved.</p>
+                    <p>Copyright © 2025 Aardwolf. All Rights Reserved.</p>
                 </div>
             </footer>
         </xpath>
@@ -349,7 +360,8 @@
                     </label>
                     <video id="home-video" height="706"
                            poster="/website_aardwolf/static/imgs/home_page/image_video.png">
-                        <source src="/website_aardwolf/static/imgs/common/videos/video_demo_homepage.mp4" type="video/mp4"/>
+                        <source src="/website_aardwolf/static/imgs/common/videos/video_demo_homepage.mp4"
+                                type="video/mp4"/>
                     </video>
                 </section>
 
@@ -878,24 +890,18 @@
                                         />
                                     </div>
 
-                                    <div class="toolrange__contact__form-select select-custom select-common">
-                                        <span name="select-mask" class="select-custom__mask"/>
-                                        <input
+                                    <div class="toolrange__contact__form-select select-common">
+                                        <label for="contact-country" class="sr-only"></label>
+                                        <select
                                                 id="contact-country"
                                                 name="country"
-                                                type="text"
                                                 class="toolrange__contact__form-field"
-                                                placeholder="Country*"
-                                        />
-
-                                        <div class="select-custom__options">
-                                            <data value="Vietnam" class="select-custom__option"
-                                            >Vietnam
-                                            </data
-                                            >
-                                            <data value="USA" class="select-custom__option">USA</data>
-                                        </div>
+                                        >
+                                            <option value="Vietnam">Vietnam</option>
+                                            <option value="USA">USA</option>
+                                        </select>
                                     </div>
+
 
                                     <textarea name="message" id="contact-message" class="toolrange__contact__form-field"
                                               placeholder="Message"/>
@@ -966,6 +972,8 @@
                             grow professionally. As a leader in material handling and lifting
                             equipment, our mission is to deliver exceptional solutions while
                             fostering a culture that values teamwork, respect, and diversity.
+                            <br></br>
+                            <br></br>
                             We are committed to creating an innovative workspace where
                             employees feel empowered to contribute their unique perspectives
                             and thrive in a supportive community.
