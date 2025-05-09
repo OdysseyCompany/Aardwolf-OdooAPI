@@ -73,7 +73,7 @@ class WebsiteAardwolf(http.Controller):
                     [('public_categ_ids', 'child_of', categ.id)])  #, ('is_published', '=', True)
                 temp.append({
                     'name': categ.name,
-                    'description': categ.description,
+                    'description': categ.website_description,
                     'img': f"/web/image?model=product.public.category&id={categ.id}&field=image_1920",
                     'slug': categ.slug,
                     'product': [{
@@ -132,7 +132,7 @@ class WebsiteAardwolf(http.Controller):
             return request.render("website_aardwolf.categories_detail_templates_aardwolf", {
                 'values': data,
                 'category_name': category.name,
-                'description': category.description,
+                'description': category.website_description,
                 'category_slug': slugify(category.name),
                 'sub_category': sub_category,
             })
