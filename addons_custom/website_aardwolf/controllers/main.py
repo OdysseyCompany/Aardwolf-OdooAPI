@@ -66,7 +66,7 @@ class WebsiteAardwolf(http.Controller):
         try:
             result = []
             temp = []
-            categories = request.env['product.public.category'].sudo().search([])
+            categories = request.env['product.category'].sudo().search([])
 
             for idx, categ in enumerate(categories):
                 categ_product = request.env['product.template'].sudo().search(
@@ -74,7 +74,7 @@ class WebsiteAardwolf(http.Controller):
                 temp.append({
                     'name': categ.name,
                     'description': categ.description,
-                    'img': f"/web/image?model=product.public.category&id={categ.id}&field=image_1920",
+                    'img': f"/web/image?model=product.category&id={categ.id}&field=image_1920",
                     'slug': categ.slug,
                     'product': [{
                         'name': prd.name,
