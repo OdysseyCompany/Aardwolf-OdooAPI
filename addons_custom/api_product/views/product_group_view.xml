@@ -24,7 +24,7 @@
         <menuitem id="menu_sale_general_settings"
             name="Settings product"
             action="action_group_product"
-            parent="website_sale.menu_catalog_products"/>
+            parent="website_sale.menu_catalog"/>
 
     </data>
 </odoo>

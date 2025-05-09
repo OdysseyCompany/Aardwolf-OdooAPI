@@ -66,7 +66,7 @@ class WebsiteAardwolf(http.Controller):
         try:
             result = []
             temp = []
-            categories = request.env['product.category'].sudo().search([])
+            categories = request.env['product.public.category'].sudo().search([])
 
             for idx, categ in enumerate(categories):
                 categ_product = request.env['product.template'].sudo().search(
@@ -74,7 +74,7 @@ class WebsiteAardwolf(http.Controller):
                 temp.append({
                     'name': categ.name,
                     'description': categ.description,
-                    'img': f"/web/image?model=product.category&id={categ.id}&field=image_1920",
+                    'img': f"/web/image?model=product.public.category&id={categ.id}&field=image_1920",
                     'slug': categ.slug,
                     'product': [{
                         'name': prd.name,
@@ -104,8 +104,8 @@ class WebsiteAardwolf(http.Controller):
     def category_detail(self, slug, limit=9, page=1, **post):
         try:
             # Tìm danh mục với slug từ URL
-            category = request.env['product.category'].sudo().search([('slug', '=', slug)], limit=1)
-            sub_cate = request.env['product.category'].sudo().search([('parent_id', '=', category.id)])
+            category = request.env['product.public.category'].sudo().search([('slug', '=', slug)], limit=1)
+            sub_cate = request.env['product.public.category'].sudo().search([('parent_id', '=', category.id)])
             sub_category = []
             for rec in sub_cate:
                 sub_category.append({

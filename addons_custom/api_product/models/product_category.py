@@ -22,6 +22,15 @@ class ProductCategory(models.Model):
         for record in self:
             record.slug = slugify(record.display_name)
 
+class ProductPublicCategory(models.Model):
+    _inherit = 'product.public.category'
+
+    slug = fields.Char('Slug', store=True, compute='related_slug_by_name')
+
+    @api.depends('name')
+    def related_slug_by_name(self):
+        for record in self:
+            record.slug = slugify(record.display_name)
 
 class ProductGroup(models.Model):
     _name = 'product.group'
