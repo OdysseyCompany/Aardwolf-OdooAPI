@@ -116,7 +116,7 @@ class WebsiteAardwolf(http.Controller):
                 return request.not_found()
             # Lấy các sản phẩm thuộc danh mục này, giới hạn 6 sản phẩm và phân trang
             products = request.env['product.template'].sudo().search([
-                ('categ_id', 'child_of', category.id)
+                ('public_categ_ids', 'child_of', category.id)
             ], limit=int(limit), offset=(int(page) - 1) * limit)
 
             # Tạo dữ liệu để render view
@@ -148,8 +148,8 @@ class WebsiteAardwolf(http.Controller):
                 return request.not_found()
             url_img = f"/web/image/product.template/{product.id}/image_1024" if product.image_1024 else '/website_aardwolf/static/imgs/common/product/img-1.png'
             result = {
-                'category': product.categ_id.name,
-                'categ_slug': product.categ_id.slug,
+                'category': product.public_categ_ids[0].name,
+                'categ_slug': product.public_categ_ids[0].slug,
                 'name': product.name,
                 'description': product.description,
                 'key_features': product.description,
@@ -186,7 +186,7 @@ class WebsiteAardwolf(http.Controller):
             if search:
                 domain += [('name', 'ilike', search)]
             if categ_id:
-                domain += [('categ_id', 'child_of', int(categ_id))]
+                domain += [('public_categ_ids', 'child_of', int(categ_id))]
             result = []
             products = request.env['product.template'].sudo().search_read(domain=domain,
                 fields=['name', 'slug', 'image_512', 'website_url'], limit=limit, offset=(int(page) - 1) * limit)
@@ -431,8 +431,8 @@ class WebsiteSaleAardwolf(WebsiteSale):
             return request.not_found()
         url_img = f"/web/image/product.template/{product.id}/image_1024" if product.image_1024 else '/website_aardwolf/static/imgs/common/product/img-1.png'
         result = {
-            'category': product.categ_id.name,
-            'categ_slug': product.categ_id.slug,
+            'category': product.public_categ_ids[0].name,
+            'categ_slug': product.public_categ_ids[0].slug,
             'name': product.name,
             'description': product.description,
             'key_features': product.description,
