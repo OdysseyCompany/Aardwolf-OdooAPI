@@ -11,6 +11,7 @@
         'security/ir.model.access.csv',
         'views/product_template_view.xml',
         'views/product_group_view.xml',
+        'views/product_industries_view.xml',
     ],
     'assets': {
         },

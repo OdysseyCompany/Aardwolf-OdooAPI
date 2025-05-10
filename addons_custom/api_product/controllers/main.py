@@ -180,6 +180,37 @@ class APIWebsite(http.Controller):
                 status=500
             )
 
+    @http.route("/api/v1/get-data-industries", type="http", auth='public', csrf=False, cors='*', methods=['GET'])
+    def api_get_industries(self, **payload):
+        try:
+            # Lấy tất cả category cha (ví dụ: cấp 1, không có parent)
+            industries = request.env['product.industries'].sudo().search([])
+
+            result = []
+            for indus in industries:
+                result.append({
+                    'name': indus.name,
+                    'slug': indus.slug,
+                    'image': f"/web/image/product.industries/{indus.id}/image_1920",
+                })
+
+            return Response(
+                json.dumps({'result': result}),
+                content_type='application/json',
+                status=200
+            )
+
+        except Exception as error:
+            return Response(
+                json.dumps({
+                    "status": 500,
+                    "message": "Server error",
+                    "error": str(error)
+                }),
+                content_type='application/json',
+                status=500
+            )
+
     @http.route('/api/search', type='json', auth="public", csrf=False, methods=["POST"])
     def search_api_aardwolf(self):
         keyword = request.jsonrequest.get("search")

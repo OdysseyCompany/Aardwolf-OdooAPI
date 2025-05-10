@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (!industriesListHomepage) return;
 
       try {
-        const response = await fetch('/api/v1/get-data-categories', {
+        const response = await fetch('/api/v1/get-data-industries', {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' }
         });
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           // Render kiểu homepage
           const a = document.createElement("a");
           a.className = "toolrange__industries__item";
-          a.href = `/category-detail/${category.slug}`;
+          a.href = `/product?search=${encodeURIComponent(category.name || "")}`;
           a.setAttribute("categorieItemId", category.id || "");
 
           const divImg = document.createElement("div");
@@ -172,16 +172,6 @@ document.addEventListener("DOMContentLoaded", async function () {
           a.appendChild(p);
 
           container.appendChild(a);
-        } else {
-          // Render kiểu danh sách thả
-          const li = document.createElement("li");
-          const a = document.createElement("a");
-          a.href = `/category-detail/${category.slug}`;
-          a.textContent = category.name;
-          a.className = "category-parent";
-
-          li.appendChild(a);
-          container.appendChild(li);
         }
       });
     },
