@@ -146,7 +146,7 @@ class APIWebsite(http.Controller):
     def api_get_categories(self, **payload):
         try:
             # Lấy tất cả category cha (ví dụ: cấp 1, không có parent)
-            categories = request.env['product.public.category'].sudo().search([('parent_id', '=', False)])
+            categories = request.env['product.public.category'].sudo().search([('parent_id', '=', False)], limit=6)
 
             result = []
             for category in categories:
@@ -184,7 +184,7 @@ class APIWebsite(http.Controller):
     def api_get_industries(self, **payload):
         try:
             # Lấy tất cả category cha (ví dụ: cấp 1, không có parent)
-            industries = request.env['product.industries'].sudo().search([])
+            industries = request.env['product.industries'].sudo().search([], limit=6)
 
             result = []
             for indus in industries:
