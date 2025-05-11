@@ -48,6 +48,7 @@ class ProductTemplate(models.Model):
     image_thumb = fields.Binary("Thumbnail", attachment=True)
     image_ids = fields.One2many('image.product', 'product_template_id', string='Image')
     video_url = fields.Char('Video URL')
+    industries_ids = fields.Many2many('product.industries', string='Industries')
 
     @api.model_create_multi
     def create(self, vals_list):

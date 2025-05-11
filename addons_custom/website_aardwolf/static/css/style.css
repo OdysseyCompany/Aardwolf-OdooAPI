@@ -1449,6 +1449,8 @@ button {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  flex: 0 0 calc((100% - 3 * 24px) / 4); /* 4 phần tử, 3 khoảng cách */
+  box-sizing: border-box;
 }
 @media (max-width: 768px) {
   .toolrange__categories__item {

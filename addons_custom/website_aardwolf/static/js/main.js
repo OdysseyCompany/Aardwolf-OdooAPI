@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           // Render kiểu homepage
           const a = document.createElement("a");
           a.className = "toolrange__industries__item";
-          a.href = `/product?search=${encodeURIComponent(category.name || "")}`;
+          a.href = `/product?industries=${category.id}`;
           a.setAttribute("categorieItemId", category.id || "");
 
           const divImg = document.createElement("div");

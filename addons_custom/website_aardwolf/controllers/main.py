@@ -180,13 +180,15 @@ class WebsiteAardwolf(http.Controller):
             )
 
     @http.route(['/product'], type='http', auth="public", website=True, sitemap=False)
-    def get_product(self, limit=15, page=1, search='', categ_id='', **post):
+    def get_product(self, limit=15, page=1, search='', categ_id='', industries='', **post):
         try:
             domain = []
             if search:
                 domain += [('name', 'ilike', search)]
             if categ_id:
                 domain += [('public_categ_ids', 'child_of', int(categ_id))]
+            if industries:
+                domain += [('industries_ids', 'in', int(industries))]
             result = []
             products = request.env['product.template'].sudo().search_read(domain=domain,
                 fields=['name', 'slug', 'image_512', 'website_url'], limit=limit, offset=(int(page) - 1) * limit)
