@@ -70,7 +70,7 @@ class WebsiteAardwolf(http.Controller):
 
             for idx, categ in enumerate(categories):
                 categ_product = request.env['product.template'].sudo().search(
-                    [('public_categ_ids', 'child_of', categ.id)])  #, ('is_published', '=', True)
+                    [('public_categ_ids', 'child_of', categ.id), ('is_published', '=', True)])  #, ('is_published', '=', True)
                 temp.append({
                     'name': categ.name,
                     'description': categ.website_description,
@@ -116,7 +116,7 @@ class WebsiteAardwolf(http.Controller):
                 return request.not_found()
             # Lấy các sản phẩm thuộc danh mục này, giới hạn 6 sản phẩm và phân trang
             products = request.env['product.template'].sudo().search([
-                ('public_categ_ids', 'child_of', category.id)
+                ('public_categ_ids', 'child_of', category.id), ('is_published', '=', True)
             ], limit=int(limit), offset=(int(page) - 1) * limit)
 
             # Tạo dữ liệu để render view
@@ -143,7 +143,7 @@ class WebsiteAardwolf(http.Controller):
     @http.route(['/product-detail/<slug>'], type='http', auth="public", website=True)
     def product_detail(self, slug, **post):
         try:
-            product = request.env['product.template'].sudo().search([('slug', '=', slug)], limit=1)
+            product = request.env['product.template'].sudo().search([('slug', '=', slug), ('is_published', '=', True)], limit=1)
             if not product:
                 return request.not_found()
             url_img = f"/web/image/product.template/{product.id}/image_1024" if product.image_1024 else '/website_aardwolf/static/imgs/common/product/img-1.png'
@@ -182,7 +182,7 @@ class WebsiteAardwolf(http.Controller):
     @http.route(['/product'], type='http', auth="public", website=True, sitemap=False)
     def get_product(self, limit=15, page=1, search='', categ_id='', industries='', **post):
         try:
-            domain = []
+            domain = [('is_published', '=', True)]
             if search:
                 domain += [('name', 'ilike', search)]
             if categ_id:

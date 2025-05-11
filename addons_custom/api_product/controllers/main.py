@@ -22,7 +22,7 @@ class APIWebsite(http.Controller):
             base_url = request.env['ir.config_parameter'].sudo().get_param('web.base.url')
 
             # Truy vấn tất cả sản phẩm
-            products = request.env['product.template'].sudo().search_read(
+            products = request.env['product.template'].sudo().search_read(domain=[('is_published', '=', True)],
                 fields=['name', 'list_price', 'categ_id', 'image_1920']
             )
 
@@ -73,7 +73,7 @@ class APIWebsite(http.Controller):
 
             # Truy vấn tất cả sản phẩm
             products = request.env['product.template'].sudo().search_read(
-                domain=[('categ_id.slug', '=', payload['slug'])],
+                domain=[('categ_id.slug', '=', payload['slug']), ('is_published', '=', True)],
                 fields=['slug', 'name', 'list_price', 'categ_id', 'image_1920']
             )
 
@@ -114,7 +114,7 @@ class APIWebsite(http.Controller):
             base_url = request.env['ir.config_parameter'].sudo().get_param('web.base.url')
 
             # Truy vấn tất cả sản phẩm
-            products = request.env['product.template'].sudo().search_read(
+            products = request.env['product.template'].sudo().search_read(domain=[('is_published', '=', True)],
                 fields=['name', 'list_price', 'slug', 'image_1920'], limit=10
             )
 
