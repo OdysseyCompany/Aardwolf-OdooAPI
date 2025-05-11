@@ -148,8 +148,8 @@ class WebsiteAardwolf(http.Controller):
                 return request.not_found()
             url_img = f"/web/image/product.template/{product.id}/image_1024" if product.image_1024 else '/website_aardwolf/static/imgs/common/product/img-1.png'
             result = {
-                'category': product.public_categ_ids[0].name if product.public_categ_ids else False,
-                'categ_slug': product.public_categ_ids[0].slug if product.public_categ_ids else False,
+                'category': product.public_categ_ids[0].name if product.public_categ_ids else product.categ_id.name,
+                'categ_slug': product.public_categ_ids[0].slug if product.public_categ_ids else product.categ_id.name,
                 'name': product.name,
                 'description': product.description,
                 'key_features': product.description,
