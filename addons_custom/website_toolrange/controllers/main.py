@@ -28,7 +28,7 @@ class WebsiteToolrange(http.Controller):
 
             base_url = request.env['ir.config_parameter'].sudo().get_param('web.base.url')
 
-            products = request.env['product.template'].sudo().search_read(
+            products = request.env['product.template'].sudo().search_read(domain=[('is_published', '=', True)],
                 fields=['name', 'list_price', 'categ_id', 'image_128', 'image_thumb']
             )
 
