@@ -125,7 +125,7 @@ class WebsiteAardwolf(http.Controller):
                 'website_url': prod.website_url,
                 'slug': slugify(prod.name),
                 'list_price': prod.list_price,
-                'image_url': f"/web/image/product.template/{prod.id}/image_thumb" if prod.image_thumb else '/website_aardwolf/static/imgs/common/products/product-1.png',
+                'image_url': f"/web/image/product.template/{prod.id}/image_1920" if prod.image_1920 else '/website_aardwolf/static/imgs/common/products/product-1.png',
             } for prod in products]
 
             # Render view với dữ liệu danh mục và sản phẩm
