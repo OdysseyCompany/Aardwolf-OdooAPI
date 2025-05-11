@@ -6,7 +6,7 @@
             <div class="toolrange__prod-detail">
                 <div class="toolrange__prod-detail__head-breadcrumbs toolrange__breadcrumbs">
                     <a href="/">Home</a>
-                    <a t-att-href="'/category-detail/' + values['categ_slug'] + '?page=1'">
+                    <a t-att-href="'/category-detail/' + (values['categ_slug'] or '') + '?page=1'">
                         <t t-esc="values['category']"/>
                     </a>
                     <a href="#" class="current">
