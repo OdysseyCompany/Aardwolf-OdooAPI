@@ -56,10 +56,10 @@
                                                 <t t-esc="prd_categ['name']"/>
                                             </p>
                                         </a>
-<!--                                        <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>-->
-<!--                                        <p>-->
-<!--                                            <t t-esc="prd_categ['name']"/>-->
-<!--                                        </p>-->
+                                        <!--                                        <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>-->
+                                        <!--                                        <p>-->
+                                        <!--                                            <t t-esc="prd_categ['name']"/>-->
+                                        <!--                                        </p>-->
                                     </div>
                                 </t>
                             </div>
@@ -106,10 +106,12 @@
                                 <div class="swiper-wrapper">
                                     <t t-foreach="category_data[1]['product']" t-as="prd_categ">
                                         <div class="swiper-slide">
-                                            <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>
-                                            <p>
-                                                <t t-esc="prd_categ['name']"/>
-                                            </p>
+                                            <a t-att-href="prd_categ['website_url']">
+                                                <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>
+                                                <p>
+                                                    <t t-esc="prd_categ['name']"/>
+                                                </p>
+                                            </a>
                                         </div>
                                     </t>
                                 </div>
