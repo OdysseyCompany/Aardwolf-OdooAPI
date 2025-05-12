@@ -29,6 +29,79 @@
                                     </div>
                                     <div>
                                         <a href="#" class="slider-view__info-btn btn-request">Request Demo</a>
+                                        <form action="/contact/form" class="toolrange__contact__form" method="post">
+                                            <label for="contact-first-name">Contact form</label>
+                                            <div class="group-fields">
+                                                <div class="toolrange__contact__form-fields">
+                                                    <input
+                                                            id="contact-first-name"
+                                                            name="firstName"
+                                                            type="text"
+                                                            class="toolrange__contact__form-field"
+                                                            placeholder="First Name*"
+                                                    />
+                                                    <input
+                                                            id="contact-last-name"
+                                                            name="lastName"
+                                                            type="text"
+                                                            class="toolrange__contact__form-field"
+                                                            placeholder="Last Name*"
+                                                    />
+                                                </div>
+                                                <div class="toolrange__contact__form-fields">
+                                                    <input
+                                                            id="contact-email"
+                                                            name="email"
+                                                            type="email"
+                                                            class="toolrange__contact__form-field"
+                                                            placeholder="Email*"
+                                                    />
+                                                    <input
+                                                            id="contact-phone"
+                                                            name="phone"
+                                                            type="number"
+                                                            class="toolrange__contact__form-field"
+                                                            placeholder="Phone*"
+                                                    />
+                                                </div>
+                                                <div class="toolrange__contact__form-fields">
+                                                    <input
+                                                            id="contact-company"
+                                                            name="company"
+                                                            type="text"
+                                                            class="toolrange__contact__form-field"
+                                                            placeholder="Company Name*"
+                                                    />
+                                                    <input
+                                                            id="contact-postcode"
+                                                            name="postcode"
+                                                            type="number"
+                                                            class="toolrange__contact__form-field"
+                                                            placeholder="Postcode*"
+                                                    />
+                                                </div>
+
+                                                <div class="toolrange__contact__form-select select-common">
+                                                    <label for="contact-country" class="sr-only"></label>
+                                                    <select
+                                                            id="contact-country"
+                                                            name="country"
+                                                            class="toolrange__contact__form-field"
+                                                    >
+                                                        <option value="Vietnam">Vietnam</option>
+                                                        <option value="USA">USA</option>
+                                                    </select>
+                                                </div>
+
+
+                                                <textarea name="message" id="contact-message"
+                                                          class="toolrange__contact__form-field"
+                                                          placeholder="Message"/>
+                                            </div>
+                                            <button type="submit" class="toolrange__contact__form-btn btn-submit">
+                                                Submit
+                                            </button>
+                                        </form>
                                         <a t-att-href="'/category-detail/%s' % category_data[0]['slug']"
                                            class="slider-view__info-btn">Learn more
                                         </a>
@@ -157,22 +230,22 @@
                     <t t-esc="description"/>
                 </p>
             </div>
+            <t t-if="sub_category">
+                <div class="toolrange__categories-detail__sub-categories">
+                    <h5 class="toolrange__categories-detail__sub-categories-title">
+                        Sub-Categories
+                    </h5>
 
-            <div class="toolrange__categories-detail__sub-categories">
-                <h5 class="toolrange__categories-detail__sub-categories-title">
-                    Sub-Categories
-                </h5>
-
-                <div class="toolrange__categories-detail__sub-categories-list">
-                    <t t-foreach="sub_category" t-as="sub_category_data">
-                        <a t-attf-href="/product?categ_id=#{sub_category_data['id']}"
-                           class="toolrange__categories-detail__sub-categories-item">
-                            <t t-esc="sub_category_data['name']"/>
-                        </a>
-                    </t>
+                    <div class="toolrange__categories-detail__sub-categories-list">
+                        <t t-foreach="sub_category" t-as="sub_category_data">
+                            <a t-attf-href="/product?categ_id=#{sub_category_data['id']}"
+                               class="toolrange__categories-detail__sub-categories-item">
+                                <t t-esc="sub_category_data['name']"/>
+                            </a>
+                        </t>
+                    </div>
                 </div>
-            </div>
-
+            </t>
             <div class="toolrange__categories-detail__list">
                 <h5 class="toolrange__categories-detail__list-title">Products</h5>
 
