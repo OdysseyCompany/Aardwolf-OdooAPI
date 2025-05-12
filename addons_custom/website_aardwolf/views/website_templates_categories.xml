@@ -42,11 +42,6 @@
                                         <img t-att-src="category_data[0]['img']" t-att-alt="category_data[0]['name']"
                                              loading="lazy"/>
                                     </div>
-                                    <!--                                    <t t-foreach="category_data[0]['product']" t-as="prd_categ">-->
-                                    <!--                                        <div class="swiper-slide">-->
-                                    <!--                                            <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </t>-->
                                 </div>
                             </div>
                         </div>
@@ -55,10 +50,16 @@
                             <div class="swiper-wrapper">
                                 <t t-foreach="category_data[0]['product']" t-as="prd_categ">
                                     <div class="swiper-slide">
-                                        <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>
-                                        <p>
-                                            <t t-esc="prd_categ['name']"/>
-                                        </p>
+                                        <a t-att-href="prd_categ['website_url']">
+                                            <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>
+                                            <p>
+                                                <t t-esc="prd_categ['name']"/>
+                                            </p>
+                                        </a>
+<!--                                        <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>-->
+<!--                                        <p>-->
+<!--                                            <t t-esc="prd_categ['name']"/>-->
+<!--                                        </p>-->
                                     </div>
                                 </t>
                             </div>

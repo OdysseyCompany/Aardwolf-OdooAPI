@@ -2609,6 +2609,7 @@ button {
   margin: 11px 0 0 0;
   padding: 0 74.56px 0 48.44px;
   position: relative;
+  padding: 0 50px !important;
 }
 @media (max-width: 768px) {
   .toolrange__categories-page__slider-thumbs {
@@ -2629,7 +2630,6 @@ button {
   height: 100%;
   top: 0;
   left: calc(100% - 74.56px);
-  background-color: #fff;
   z-index: 9;
 }
 @media (max-width: 768px) {

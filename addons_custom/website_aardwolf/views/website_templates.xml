@@ -15,7 +15,6 @@
         <xpath expr="//head" position="inside">
             <link rel="stylesheet" href="/website_aardwolf/static/css/style.css"/>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-            <script type="module" src="/website_aardwolf/static/js/search-container.js"/>
         </xpath>
         <xpath expr="//header" position="replace">
             <header class="toolrange__header">

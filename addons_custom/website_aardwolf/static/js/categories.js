@@ -9,7 +9,7 @@ const slideAction1 = {
 const swiperThumbs = new Swiper(".swiperThumbs", {
   loop: true,
   spaceBetween: 0,
-  slidesPerView: 5,
+  slidesPerView: 4,
   freeMode: true,
   watchSlidesProgress: true,
 });
@@ -30,7 +30,7 @@ const swiperView = new Swiper(".swiperView", {
 const swiperThumbs2 = new Swiper(".swiperThumbs2", {
   loop: true,
   spaceBetween: 0,
-  slidesPerView: 5,
+  slidesPerView: 4,
   freeMode: true,
   watchSlidesProgress: true,
 });
@@ -51,7 +51,7 @@ const swiperView2 = new Swiper(".swiperView2", {
 const swiperThumbs3 = new Swiper(".swiperThumbs3", {
   loop: true,
   spaceBetween: 0,
-  slidesPerView: 5,
+  slidesPerView: 4,
   freeMode: true,
   watchSlidesProgress: true,
 });
@@ -72,7 +72,7 @@ const swiperView3 = new Swiper(".swiperView3", {
 const swiperThumbs4 = new Swiper(".swiperThumbs4", {
   loop: true,
   spaceBetween: 0,
-  slidesPerView: 5,
+  slidesPerView: 4,
   freeMode: true,
   watchSlidesProgress: true,
 });
@@ -93,7 +93,7 @@ const swiperView4 = new Swiper(".swiperView4", {
 const swiperThumbs5 = new Swiper(".swiperThumbs5", {
   loop: true,
   spaceBetween: 0,
-  slidesPerView: 5,
+  slidesPerView: 4,
   freeMode: true,
   watchSlidesProgress: true,
 });

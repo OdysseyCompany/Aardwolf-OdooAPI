@@ -77,6 +77,7 @@ class WebsiteAardwolf(http.Controller):
                     'img': f"/web/image?model=product.public.category&id={categ.id}&field=image_1920",
                     'slug': categ.slug,
                     'product': [{
+                        'website_url': prd.website_url,
                         'name': prd.name,
                         'img': f"/web/image?model=product.template&id={prd.id}&field=image_256",
                     } for prd in categ_product]
