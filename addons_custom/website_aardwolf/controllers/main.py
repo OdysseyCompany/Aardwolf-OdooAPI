@@ -66,7 +66,7 @@ class WebsiteAardwolf(http.Controller):
         try:
             result = []
             temp = []
-            categories = request.env['product.public.category'].sudo().search([])
+            categories = request.env['product.public.category'].sudo().search([('parent_id', '=', False)])
 
             for idx, categ in enumerate(categories):
                 categ_product = request.env['product.template'].sudo().search(
