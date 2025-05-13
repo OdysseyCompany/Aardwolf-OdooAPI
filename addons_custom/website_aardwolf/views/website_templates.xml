@@ -15,6 +15,8 @@
         <xpath expr="//head" position="inside">
             <link rel="stylesheet" href="/website_aardwolf/static/css/style.css"/>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
+            <script type="module" src="/website_aardwolf/static/js/slider.js"/>
         </xpath>
         <xpath expr="//header" position="replace">
             <header class="toolrange__header">
@@ -267,9 +269,6 @@
                                 </li>
                                 <li>
                                     <img src="/website_aardwolf/static/imgs/home_page/nsi.png" alt="" loading="lazy"/>
-                                </li>
-                                <li>
-                                    <img src="/website_aardwolf/static/imgs/home_page/sfa.png" alt="" loading="lazy"/>
                                 </li>
                             </ul>
                         </div>
@@ -756,9 +755,9 @@
                 </section>
             </main>
         </t>
-        <link rel="stylesheet" href="/website_aardwolf/static/css/style.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
-        <script type="module" src="/website_aardwolf/static/js/slider.js"/>
+<!--        <link rel="stylesheet" href="/website_aardwolf/static/css/style.css"/>-->
+<!--        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>-->
+<!--        <script type="module" src="/website_aardwolf/static/js/slider.js"/>-->
         <script type="module" src="/website_aardwolf/static/js/main.js"/>
     </template>
 
@@ -1308,9 +1307,9 @@
         <t t-call="website_aardwolf.layout">
             <t t-call="website_aardwolf.our_business"/>
         </t>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
-        <script type="module" src="/website_aardwolf/static/js/slider.js"/>
+<!--        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>-->
+<!--        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>-->
+<!--        <script type="module" src="/website_aardwolf/static/js/slider.js"/>-->
         <script type="module" src="/website_aardwolf/static/js/main.js"/>
     </template>
 
@@ -2054,9 +2053,9 @@
         <t t-call="website_aardwolf.layout">
             <t t-call="website_aardwolf.become_distributor"/>
         </t>
-        <link rel="stylesheet" href="/website_aardwolf/static/css/style.css"/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!--        <link rel="stylesheet" href="/website_aardwolf/static/css/style.css"/>-->
+<!--        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>-->
+<!--        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>-->
         <script type="module" src="/website_aardwolf/static/js/become-distributor.js"/>
     </template>
 

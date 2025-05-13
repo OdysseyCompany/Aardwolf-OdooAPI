@@ -763,9 +763,9 @@
                 </div>
             </div>
         </main>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
-        <script type="module" src="/website_aardwolf/static/js/main.js"/>
-        <script type="module" src="/website_aardwolf/static/js/click_thumbnails.js"/>
+<!--        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>-->
+<!--        <script type="module" src="/website_aardwolf/static/js/main.js"/>-->
+<!--        <script type="module" src="/website_aardwolf/static/js/click_thumbnails.js"/>-->
     </template>
 
     <template id="product_detail_templates_aardwolf" name="Product Detail">

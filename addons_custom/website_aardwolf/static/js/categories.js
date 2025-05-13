@@ -1,6 +1,31 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+
+// Handle request form (categories page)
+$$(".toolrange__categories-page .btn-request").forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    $(".toolrange__categories-page .toolrange-dialog").classList.add("show");
+    $(".toolrange__categories-page .form-request__demo").classList.add("show");
+  });
+});
+
+$(".toolrange__categories-page .form-request-close")?.addEventListener(
+  "click",
+  function () {
+    $(".toolrange__categories-page .form-request__demo").classList.remove(
+      "show"
+    );
+    setTimeout(() => {
+      $(".toolrange__categories-page .toolrange-dialog").classList.remove(
+        "show"
+      );
+    }, 100);
+  }
+);
+
+
 const slideAction1 = {
   nextEl: document.querySelectorAll(".swiper-button-next"),
   prevEl: document.querySelectorAll(".swiper-button-prev"),
@@ -110,26 +135,3 @@ const swiperView5 = new Swiper(".swiperView5", {
     swiper: swiperThumbs5,
   },
 });
-
-// Handle request form
-$$(".toolrange__categories-page .btn-request").forEach((btn) => {
-  btn.addEventListener("click", function (e) {
-    e.preventDefault();
-    $(".toolrange__categories-page .toolrange-dialog").classList.add("show");
-    $(".toolrange__categories-page .form-request__demo").classList.add("show");
-  });
-});
-
-$(".toolrange__categories-page .form-request-close")?.addEventListener(
-  "click",
-  function () {
-    $(".toolrange__categories-page .form-request__demo").classList.remove(
-      "show"
-    );
-    setTimeout(() => {
-      $(".toolrange__categories-page .toolrange-dialog").classList.remove(
-        "show"
-      );
-    }, 100);
-  }
-);
