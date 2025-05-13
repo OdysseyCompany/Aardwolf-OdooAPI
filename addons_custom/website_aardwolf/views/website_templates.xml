@@ -279,17 +279,21 @@
                             <a href="/categories" style="text-decoration: none;color: red;">Categories</a>
                         </h4>
                         <ul>
-                            <a style="color: white;" href="/categories">A-Frames</a>
-                            <a href="/categories" style="color: white;">Crane, Forklift &amp; Workshop Accessories</a>
-                            <a href="/categories" style="color: white;">Cranes</a>
-                            <a href="/categories" style="color: white;">Forklift Equipment</a>
-                            <a href="/categories" style="color: white;">Mechanical Lifting Devices</a>
-                            <a href="/categories" style="color: white;">Slab Racks &amp; Posts</a>
-                            <a href="/categories" style="color: white;">Trolleys</a>
-                            <a href="/categories" style="color: white;">Vacuum Lifting Equipment</a>
-                            <a href="/categories" style="color: white;">Vacuum Tube Lifting Equipment</a>
-                            <a href="/categories" style="color: white;">Workshop Equipment</a>
-                            <a href="/categories" style="color: white;">Workwear</a>
+                            <a style="color: white;" href="/category-detail/a-frames">A-FRAMES</a>
+                            <a href="/category-detail/cranes" style="color: white;">CRANES</a>
+                            <a href="/category-detail/forklift-equipment" style="color: white;">FORKLIFT EQUIPMENT</a>
+                            <a href="/category-detail/mechanical-lifting-devices" style="color: white;">MECHANICAL LIFTING DEVICES</a>
+                            <a href="/category-detail/slab-bundle-racks" style="color: white;">SLAB &amp; BUNDLE RACKS</a>
+                            <a href="/category-detail/trolleys" style="color: white;">TROLLEYS</a>
+                            <a href="/category-detail/vacuum-lifting-equipment" style="color: white;">VACUUM LIFTING EQUIPMENT</a>
+                            <a href="/category-detail/workshop-equipment" style="color: white;">WORKSHOP EQUIPMENT</a>
+                            <a href="/category-detail/workwear" style="color: white;">WORKWEAR</a>
+                            <a href="/category-detail/workbenches-stands" style="color: white;">WORKBENCHES &amp; STANDS</a>
+                            <a href="/category-detail/cargo-lashing-slings" style="color: white;">CARGO LASHING &amp; SLINGS</a>
+                            <a href="/category-detail/transportation" style="color: white;">TRANSPORTATION</a>
+                            <a href="/category-detail/fabrication" style="color: white;">FABRICATION</a>
+                            <a href="/category-detail/installation" style="color: white;">INSTALLATION</a>
+                            <a href="/category-detail/maintenance" style="color: white;">MAINTENANCE</a>
                         </ul>
                     </div>
 
