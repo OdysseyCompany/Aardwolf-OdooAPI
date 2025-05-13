@@ -36,7 +36,7 @@
                                 </div>
                             </div>
 
-                            <div class="toolrange__categories-page__slider-view swiper swiperView">
+                            <div class="toolrange__categories-page__slider-view swiper">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <img t-att-src="category_data[0]['img']" t-att-alt="category_data[0]['name']"
@@ -56,10 +56,6 @@
                                                 <t t-esc="prd_categ['name']"/>
                                             </p>
                                         </a>
-                                        <!--                                        <img t-att-src="prd_categ['img']" t-att-alt="" loading="lazy"/>-->
-                                        <!--                                        <p>-->
-                                        <!--                                            <t t-esc="prd_categ['name']"/>-->
-                                        <!--                                        </p>-->
                                     </div>
                                 </t>
                             </div>
@@ -92,7 +88,7 @@
                                     </div>
                                 </div>
 
-                                <div class="toolrange__categories-page__slider-view swiper swiperView2">
+                                <div class="toolrange__categories-page__slider-view swiper">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <img t-att-src="category_data[1]['img']"
@@ -121,12 +117,160 @@
                         </div>
                     </t>
                 </t>
+                <div class="toolrange__prod-detail__dialog toolrange-dialog">
+                    <form action="" class="toolrange__prod-detail__form-request form-request__demo">
+                        <div class="toolrange__prod-detail__form-request-close form-request-close"/>
+                        <h2 class="toolrange__prod-detail__form-request-title">
+                            Request demo
+                        </h2>
+
+                        <div class="group-fields">
+                            <div class="toolrange__prod-detail__form-request-fields">
+                                <input
+                                        id="form-request-first-name"
+                                        name="firstName"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="First Name*"
+                                />
+                                <input
+                                        id="form-request-last-name"
+                                        name="lastName"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Last Name*"
+                                />
+                            </div>
+
+                            <div class="toolrange__prod-detail__form-request-fields">
+                                <input
+                                        id="form-request-email"
+                                        name="firstName"
+                                        type="email"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Email*"
+                                />
+                                <input
+                                        id="form-request-phone"
+                                        name="phone"
+                                        type="number"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Phone*"
+                                />
+                            </div>
+
+                            <div class="toolrange__prod-detail__form-request-fields">
+                                <input
+                                        id="form-request-company"
+                                        name="firstName"
+                                        type="email"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Company Name*"
+                                />
+                                <input
+                                        id="form-request-last-name"
+                                        name="phone"
+                                        type="number"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Postcode*"
+                                />
+                            </div>
+
+                            <div class="toolrange__prod-detail__form-request-select select-custom select-country">
+                                <span name="select-mask" class="select-custom__mask"></span>
+                                <input
+                                        id="form-request-country"
+                                        name="country"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field select-field"
+                                        placeholder="Country*"
+                                />
+                                <div class="select-custom__options">
+                                    <label for="contact-country" class="sr-only"></label>
+                                    <select
+                                            id="contact-country"
+                                            name="country"
+                                            class="toolrange__contact__form-field"
+                                    >
+                                        <option value="vietnam">Vietnam</option>
+                                        <option value="usa">America</option>
+                                        <option value="aus">Australia</option>
+                                        <option value="ca">Canada</option>
+                                        <option value="ind">India</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="toolrange__prod-detail__form-request-select select-custom select-state">
+                                <span name="select-mask" class="select-custom__mask"></span>
+                                <input
+                                        id="form-request-state"
+                                        name="state"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field select-field"
+                                        placeholder="state*"
+                                />
+
+                                <div class="select-custom__options">
+                                    <data value="Alabama" class="select-custom__option"
+                                    >Alabama
+                                    </data
+                                    >
+                                    <data value="Alaska" class="select-custom__option"
+                                    >Alaska
+                                    </data
+                                    >
+                                    <data value="Massachusetts" class="select-custom__option"
+                                    >Massachusetts
+                                    </data
+                                    >
+                                    <data value="Texas" class="select-custom__option">Texas</data>
+                                    <data value="California" class="select-custom__option"
+                                    >California
+                                    </data
+                                    >
+                                    <data value="New York" class="select-custom__option"
+                                    >New York
+                                    </data
+                                    >
+                                    <data value="Washington" class="select-custom__option"
+                                    >Washington
+                                    </data
+                                    >
+                                    <data value="West Virginia" class="select-custom__option"
+                                    >West Virginia
+                                    </data
+                                    >
+                                </div>
+                            </div>
+
+                            <textarea
+                                    name="message"
+                                    id="form-request-message"
+                                    class="toolrange__prod-detail__form-request-field"
+                                    placeholder="Message"/>
+                        </div>
+
+                        <button type="submit" class="toolrange__prod-detail__form-request-btn btn-submit">
+                            Request demo
+                        </button>
+
+                        <p class="toolrange__prod-detail__form-request-explain">
+                            *How we might use your information We may contact you by phone or
+                            email, if you have not opted out, or where we are otherwise
+                            permitted by law, to provide you with marketing communications
+                            about similar goods and services. The legal basis that allows us
+                            to use your information is ‘legitimate interests’. More
+                            information about how we use your personal data can be found in
+                            our Privacy Policy.
+                        </p>
+                    </form>
+                </div>
             </div>
         </main>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
-        <script type="module" src="/website_aardwolf/static/js/main.js"/>
+
         <script type="module" src="/website_aardwolf/static/js/categories.js"/>
+        <script type="module" src="/website_aardwolf/static/js/main.js"/>
     </template>
 
     <template id="categories_templates_aardwolf" name="Categories">
@@ -199,7 +343,7 @@
                 <button class="pagination-common__btn btn-next"></button>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>
+        <!--        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>-->
         <script type="module" src="/website_aardwolf/static/js/main.js"/>
         <script type="module" src="/website_aardwolf/static/js/categories-detail.js"/>
     </template>
