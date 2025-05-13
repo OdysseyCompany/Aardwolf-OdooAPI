@@ -354,7 +354,13 @@ class AardwolfHome(Home):
 
     @http.route('/web/signup', type='http', auth='public', website=True, sitemap=False)
     def web_auth_signup(self, *args, **kw):
+        if kw:
+            kw['name'] = kw['first_name'] + ' ' + kw['last_name']
+            kw['password'] = '123123'
+            kw['confirm_password'] = '123123'
+            request.params = kw
         qcontext = self.get_auth_signup_qcontext()
+        # kw = {'login': 'vwegf', 'name': 'veq', 'password': '1', 'confirm_password': '1', 'redirect': '', 'token': ''}
 
         if not qcontext.get('token') and not qcontext.get('signup_enabled'):
             raise werkzeug.exceptions.NotFound()
@@ -363,7 +369,15 @@ class AardwolfHome(Home):
             try:
                 if not request.env['ir.http']._verify_request_recaptcha_token('signup'):
                     raise UserError(_("Suspicious activity detected by Google reCaptcha."))
-
+                # qcontext = {'login': 'vewfg',
+                # 'name': 'fqwe',
+                # 'password': '1',
+                # 'confirm_password': '1',
+                # 'redirect': '',
+                # 'token': '',
+                # 'disable_database_manager': False,
+                # 'signup_enabled': True,
+                # 'reset_password_enabled': True}
                 self.do_signup(qcontext)
 
                 # Set user to public if they were not signed in by do_signup
@@ -381,7 +395,7 @@ class AardwolfHome(Home):
                                            raise_if_not_found=False)
                 if user_sudo and template:
                     template.sudo().send_mail(user_sudo.id, force_send=True)
-                return self.web_login(*args, **kw)
+                return request.redirect('/')
             except UserError as e:
                 qcontext['error'] = e.args[0]
             except (SignupError, AssertionError) as e:

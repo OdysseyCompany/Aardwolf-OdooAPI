@@ -119,7 +119,7 @@
                     </div>
 
                     <div class="aardwolf-login__form__field">
-                        <input type="text" name="email" t-att-value="email" id="email"
+                        <input type="text" name="login" t-att-value="login" id="login"
                                class="form-control form-control-sm" autofocus="autofocus"
                                autocapitalize="off" required="required"
                                t-att-readonly="'readonly' if only_passwords else None" placeholder="Email*"/>
@@ -140,10 +140,10 @@
                     </div>
 
                     <div class="aardwolf-login__form__field">
-                        <input type="text" name="last_names" t-att-value="last_names" id="last_names"
+                        <input type="text" name="phone" t-att-value="phone" id="phone"
                                class="form-control form-control-sm" autofocus="autofocus"
                                autocapitalize="off" required="required"
-                               t-att-readonly="'readonly' if only_passwords else None" placeholder="Last Name*"/>
+                               t-att-readonly="'readonly' if only_passwords else None" placeholder="Phone*"/>
                     </div>
 
                     <div class="aardwolf-login__form__select select-custom select-common">
