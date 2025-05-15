@@ -1271,7 +1271,7 @@ button {
   text-transform: uppercase;
 }
 .toolrange__banner {
-  height: 585.326px;
+  height: 700.326px;
   -ms-flex-item-align: stretch;
       -ms-grid-row-align: stretch;
       align-self: stretch;
@@ -1342,7 +1342,6 @@ button {
   }
 }
 .toolrange__video {
-  padding-top: 22px;
   height: 571px;
 }
 .toolrange__video-icon {
