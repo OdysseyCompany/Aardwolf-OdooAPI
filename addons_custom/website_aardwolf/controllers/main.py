@@ -104,32 +104,48 @@ class WebsiteAardwolf(http.Controller):
     @http.route(['/category-detail/<slug>'], type='http', auth="public", website=True)
     def category_detail(self, slug, limit=9, page=1, **post):
         try:
-            # Tìm danh mục với slug từ URL
             category = request.env['product.public.category'].sudo().search([('slug', '=', slug)], limit=1)
-            sub_cate = request.env['product.public.category'].sudo().search([('parent_id', '=', category.id)])
-            sub_category = []
-            for rec in sub_cate:
-                sub_category.append({
-                    'name': rec.name,
-                    'id': rec.id
-                })
             if not category:
                 return request.not_found()
-            # Lấy các sản phẩm thuộc danh mục này, giới hạn 6 sản phẩm và phân trang
+
+            sub_cate = request.env['product.public.category'].sudo().search([('parent_id', '=', category.id)])
+            product_tmpl_by_sub = {}
+            if sub_cate:
+                all_sub_ids = sub_cate.ids
+                all_sub_products = request.env['product.template'].sudo().search([
+                    ('public_categ_ids', 'child_of', all_sub_ids), ('is_published', '=', True)
+                ])
+                for sub in sub_cate:
+                    product_tmpl_by_sub[sub.id] = []
+
+                for prd in all_sub_products:
+                    for cat in prd.public_categ_ids.filtered(lambda c: c.id in all_sub_ids):
+                        product_tmpl_by_sub[cat.id].append(prd)
+
+            def clean_product_data(prod):
+                return {
+                    'name': prod.name,
+                    'website_url': prod.website_url,
+                    'slug': slugify(prod.name),
+                    'list_price': prod.list_price,
+                    'image_url': f"/web/image/product.template/{prod.id}/image_1920" if prod.image_1920 else '/website_aardwolf/static/imgs/common/products/product-1.png',
+                }
+
+            sub_category = []
+            for rec in sub_cate:
+                products = [clean_product_data(prd) for prd in product_tmpl_by_sub.get(rec.id, [])]
+                sub_category.append({
+                    'name': rec.name,
+                    'id': rec.id,
+                    'products_json': json.dumps(products)
+                })
+
+            # Products chính
             products = request.env['product.template'].sudo().search([
                 ('public_categ_ids', 'child_of', category.id), ('is_published', '=', True)
             ], limit=int(limit), offset=(int(page) - 1) * limit)
+            data = [clean_product_data(prod) for prod in products]
 
-            # Tạo dữ liệu để render view
-            data = [{
-                'name': prod.name,
-                'website_url': prod.website_url,
-                'slug': slugify(prod.name),
-                'list_price': prod.list_price,
-                'image_url': f"/web/image/product.template/{prod.id}/image_1920" if prod.image_1920 else '/website_aardwolf/static/imgs/common/products/product-1.png',
-            } for prod in products]
-
-            # Render view với dữ liệu danh mục và sản phẩm
             return request.render("website_aardwolf.categories_detail_templates_aardwolf", {
                 'values': data,
                 'category_name': category.name,

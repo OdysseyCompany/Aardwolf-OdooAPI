@@ -318,6 +318,58 @@ document.addEventListener("DOMContentLoaded", async function () {
     init() {
       this.handleCommonSelect();
       this.handleSortBox();
+      this.clickSubCategories();
+    },
+
+    clickSubCategories() {
+      const wrapper = document.querySelector(".toolrange__categories-detail__list-wrapper");
+      const subCategories = document.querySelectorAll(".toolrange__categories-detail__sub-categories-item");
+
+      subCategories.forEach((select) => {
+        select.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const isActive = select.classList.contains("active");
+
+          // Remove active tất cả
+          subCategories.forEach((item) => item.classList.remove("active"));
+
+          if (isActive) {
+            // Nếu click vào item đang active => trở về All products
+            renderProducts(JSON.parse(wrapper.getAttribute("data-products-all")));
+          } else {
+            // Highlight item
+            select.classList.add("active");
+
+            // Render sản phẩm thuộc sub category
+            const productsData = select.getAttribute("data-products");
+            if (!productsData) return;
+            try {
+              const products = JSON.parse(productsData);
+              renderProducts(products);
+            } catch (error) {
+              console.error("Invalid JSON data:", error);
+            }
+          }
+        });
+      });
+
+      function renderProducts(products) {
+        wrapper.innerHTML = "";
+        products.forEach((prd) => {
+          const html = `
+            <a href="${prd.website_url}" class="toolrange__categories-detail__item">
+              <div class="product-img">
+                <img src="${prd.image_url}" alt="${prd.name}" loading="lazy" />
+              </div>
+              <div class="product-info">
+                <p>${prd.name}</p>
+              </div>
+            </a>
+          `;
+          wrapper.insertAdjacentHTML("beforeend", html);
+        });
+      }
     },
 
     handleCommonSelect() {

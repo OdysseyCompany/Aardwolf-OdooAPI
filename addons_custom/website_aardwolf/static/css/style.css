@@ -2991,6 +2991,9 @@ button {
           transform: unset;
   border-color: #ED1C24;
 }
+.toolrange__categories-detail__sub-categories-item.active {
+  border-color: #f00;
+}
 .toolrange__categories-detail__list {
   margin-top: 36.43px;
   display: -webkit-box;
