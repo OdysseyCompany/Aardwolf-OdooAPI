@@ -301,6 +301,12 @@
                     <t t-esc="description"/>
                 </p>
             </div>
+            <t t-set="products_json" t-value="json.dumps([{
+                'name': prd['name'],
+                'image_url': prd['image_url'],
+                'website_url': prd['website_url'],
+            } for prd in values])"/>
+
             <t t-if="sub_category">
                 <div class="toolrange__categories-detail__sub-categories">
                     <h5 class="toolrange__categories-detail__sub-categories-title">
@@ -309,10 +315,11 @@
 
                     <div class="toolrange__categories-detail__sub-categories-list">
                         <t t-foreach="sub_category" t-as="sub_category_data">
-                            <a t-attf-href="/product?categ_id=#{sub_category_data['id']}"
-                               class="toolrange__categories-detail__sub-categories-item">
+                            <div class="toolrange__categories-detail__sub-categories-item"
+                                 t-att-data-category-id="sub_category_data['id']"
+                                 t-att-data-products="sub_category_data['products_json']">
                                 <t t-esc="sub_category_data['name']"/>
-                            </a>
+                            </div>
                         </t>
                     </div>
                 </div>
@@ -320,7 +327,8 @@
             <div class="toolrange__categories-detail__list">
                 <h5 class="toolrange__categories-detail__list-title">Products</h5>
 
-                <div class="toolrange__categories-detail__list-wrapper">
+                <div class="toolrange__categories-detail__list-wrapper"
+                     t-att-data-products-all="products_json">
                     <t t-foreach="values" t-as="prd">
                         <a t-att-href="prd['website_url']" class="toolrange__categories-detail__item">
                             <div class="product-img">
@@ -336,6 +344,7 @@
                     </t>
                 </div>
             </div>
+
 
             <div class="categories-pagination pagination-common">
                 <button class="pagination-common__btn btn-prev disable"></button>
