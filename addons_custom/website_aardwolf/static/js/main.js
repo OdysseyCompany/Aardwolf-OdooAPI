@@ -626,6 +626,73 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   };
 
+  // Handle combobox
+    const countries = ["Vietnam", "USA", "Canada"];
+
+    function createOption(option) {
+      const optionEl = document.createElement("data");
+      optionEl.classList.add("select-custom__option");
+      optionEl.setAttribute("value", option);
+      optionEl.innerText = option;
+
+      return optionEl;
+    }
+
+    function updateOptions(options) {
+      const container = document.querySelector(
+        ".select-custom__options.select-country"
+      );
+      if (!container) return;
+      container.innerHTML = "";
+      const optionElements = options.map((option) => createOption(option));
+      optionElements.forEach((optionEl) => container.appendChild(optionEl));
+    }
+
+    updateOptions(countries);
+
+    (function handleCombobox() {
+      $$('.combobox-common').forEach((combobox) => {
+        const comboboxInput = combobox.querySelector('input');
+        const comboboxOptions = combobox.querySelectorAll('.select-custom__option');
+
+        comboboxOptions.forEach((option) => {
+          option.addEventListener('click', function(e) {
+            comboboxInput.value = e.target.value;
+          })
+        })
+      })
+    })()
+
+    $$(".combobox-common > input")?.forEach((input) => {
+      input.addEventListener("input", function (e) {
+        const value = e.target.value.toLowerCase();
+        const filteredCountries = countries.filter((country) =>
+          country.toLowerCase().includes(value)
+        );
+        if (filteredCountries.length) {
+          updateOptions(filteredCountries);
+        } else {
+          updateOptions([]);
+        }
+      });
+    });
+
+    // Handle input phone
+    $$('input[name="phone"]').forEach((field) => {
+      field.addEventListener("focus", function (e) {
+        e.target.value = "+";
+      });
+
+      field.addEventListener("input", function (e) {
+        const value = e.target.value;
+        e.target.value = value.replace(/[^+\d]/g, "");
+      });
+
+      field.addEventListener("blur", function (e) {
+        e.target.value = "";
+      });
+    });
+
   // Initialize all handlers
   await menuCategoryHandler.init();
   await menuIndustriesHandler.init();

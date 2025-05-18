@@ -32,7 +32,7 @@
                                 <ul class="product-drop-down__list drop-down__list"></ul>
                             </div>
                             <a href="/categories" class="toolrange__header__navbar-item">Categories</a>
-                            <div class="toolrange__header__navbar-item drop-down link-drop-down">
+                            <div class="toolrange__header__navbar-item drop-down multiple-drop-down">
                                 ABOUT US
                                 <ul class="drop-down__list">
                                     <li>
@@ -870,7 +870,7 @@
                                         <input
                                                 id="contact-phone"
                                                 name="phone"
-                                                type="number"
+                                                type="text"
                                                 class="toolrange__contact__form-field"
                                                 placeholder="Phone*"
                                         />
@@ -893,17 +893,17 @@
                                     </div>
 
                                     <div class="toolrange__contact__form-select select-common">
-                                        <label for="contact-country" class="sr-only"></label>
+                                        <label for="support-type" class="sr-only"></label>
                                         <select
-                                                id="contact-country"
-                                                name="country"
+                                                id="support-type"
+                                                name="Support Type"
                                                 class="toolrange__contact__form-field"
                                         >
-                                            <option value="Vietnam">Vietnam</option>
-                                            <option value="USA">USA</option>
+                                            <option value="Technical">Technical</option>
+                                            <option value="Sales">Sales</option>
+                                            <option value="Support">Support</option>
                                         </select>
                                     </div>
-
 
                                     <textarea name="message" id="contact-message" class="toolrange__contact__form-field"
                                               placeholder="Message"/>
@@ -1689,15 +1689,16 @@
                         <h5 class="toolrange__b-distributor__benefits-title">
                             What becoming a Distributor Partner can do for you
                         </h5>
-                        <p class="toolrange__b-distributor__benefits-content">
-                            AARDWOLF lifting equipment and material handling are trusted by
-                            leading companies around the globe to improve safety and
-                            efficiency. This ensures you can confidently offer these products
-                            to your customers. With our worldwide brand recognition and
-                            comprehensive support can unlock new opportunities for your
-                            business, enabling you to enter new markets, broaden your product
-                            range, and secure ongoing revenue streams
-                        </p>
+                        <pre class="toolrange__b-distributor__benefits-content">
+AARDWOLF lifting equipment and material handling are trusted by
+leading companies around the globe to improve safety and efficiency.
+This ensures you can confidently offer these products to your
+customers.
+
+With our worldwide brand recognition and comprehensive support can
+unlock new opportunities for your business, enabling you to enter new
+markets, broaden your product range, and secure ongoing revenue
+streams</pre>
                     </div>
 
                     <div class="toolrange__b-distributor__benefits-list">
