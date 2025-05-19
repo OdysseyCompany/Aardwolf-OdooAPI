@@ -1789,9 +1789,13 @@ button {
 .toolrange__prod-detail__prod-view > img {
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
+  object-fit: contain;
+=======
   -o-object-fit: cover;
      object-fit: cover;
   -webkit-transition: 0.2s ease-out;
+>>>>>>> 71be8fa9e5afca7f74f83bda85699e7a6ebb2777
   transition: 0.2s ease-out;
 }
 .toolrange__prod-detail__prod-view:hover > img {

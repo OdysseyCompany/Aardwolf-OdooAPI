@@ -272,6 +272,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   };
 
+  $("#home-video")?.classList.add("play");
+  $(".toolrange__video-icon")?.classList.add("hidden");
+
   // Tabs Handler
   const tabHandler = {
     init() {

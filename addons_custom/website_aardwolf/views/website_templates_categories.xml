@@ -28,7 +28,7 @@
                                         </h3>
                                     </div>
                                     <div>
-                                        <a href="#" class="slider-view__info-btn btn-request">Request Demo</a>
+                                        <a href="#" class="slider-view__info-btn btn-request">Place Order</a>
                                         <a t-att-href="'/category-detail/%s' % category_data[0]['slug']"
                                            class="slider-view__info-btn">Learn more
                                         </a>
@@ -79,7 +79,7 @@
                                         </div>
                                         <div>
                                             <a t-att-href="'/category-detail/%s' % category_data[1]['slug']"
-                                               class="slider-view__info-btn btn-request">Request Demo
+                                               class="slider-view__info-btn btn-request">Place Order
                                             </a>
                                             <a t-att-href="'/category-detail/%s' % category_data[1]['slug']"
                                                class="slider-view__info-btn">Learn more
