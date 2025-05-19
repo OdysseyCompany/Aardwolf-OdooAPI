@@ -20,7 +20,8 @@ class ProductCategory(models.Model):
     @api.depends('name')
     def related_slug_by_name(self):
         for record in self:
-            record.slug = slugify(record.display_name)
+            if record.display_name:
+                record.slug = slugify(record.display_name)
 
 class ProductPublicCategory(models.Model):
     _inherit = 'product.public.category'
@@ -30,7 +31,8 @@ class ProductPublicCategory(models.Model):
     @api.depends('name')
     def related_slug_by_name(self):
         for record in self:
-            record.slug = slugify(record.display_name)
+            if record.display_name:
+                record.slug = slugify(record.display_name)
 
 class ProductGroup(models.Model):
     _name = 'product.group'
@@ -83,7 +85,8 @@ class ProductTemplate(models.Model):
     @api.depends('name')
     def related_slug_by_name(self):
         for record in self:
-            record.slug = slugify(record.name)
+            if record.name:
+                record.slug = slugify(record.name)
 
 
 class ImageProduct(models.Model):

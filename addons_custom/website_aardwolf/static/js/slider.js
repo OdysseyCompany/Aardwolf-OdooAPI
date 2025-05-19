@@ -1,3 +1,39 @@
+
+const historySwiper2Settings = {
+  initialSlide: 1,
+  spaceBetween: 160,
+  grabCursor: false,
+  centeredSlides: true,
+  slidesPerView: 3,
+  thumbs: {
+    swiper: historySwiper,
+  },
+}
+
+function handleCheckScreen(screenWidth) {
+  if (screenWidth <= 1024 && screenWidth > 490) {
+    historySwiper2.params.slidesPerView = 2;
+  } else if (screenWidth <= 490) {
+    historySwiper2.params.slidesPerView = 1;
+  } else {
+    historySwiper2.params.slidesPerView = 3;
+  }
+
+  historySwiper2.update();
+}
+
+window.addEventListener("beforeunload", (event) => {
+  const screenWidth = event.target.defaultView.innerWidth;
+
+  handleCheckScreen(screenWidth);
+});
+
+window.addEventListener("resize", (event) => {
+  const screenWidth = event.target.innerWidth;
+
+  handleCheckScreen(screenWidth);
+});
+
 const swiperR1 = new Swiper(".recommendedSwiper", {
   slidesPerView: 5,
   spaceBetween: 20,
@@ -39,15 +75,7 @@ var historySwiper = new Swiper(".historySwiper", {
   watchSlidesProgress: true,
 });
 
-var historySwiper2 = new Swiper(".historySwiper2", {
-  initialSlide: 1,
-  grabCursor: false,
-  centeredSlides: true,
-  slidesPerView: 3,
-  thumbs: {
-    swiper: historySwiper,
-  },
-});
+const historySwiper2 = new Swiper(".historySwiper2", historySwiper2Settings);
 
 // Slider 2
 const swiper2 = new Swiper(".productsSwiper", {

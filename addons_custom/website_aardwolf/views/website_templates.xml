@@ -32,7 +32,7 @@
                                 <ul class="product-drop-down__list drop-down__list"></ul>
                             </div>
                             <a href="/categories" class="toolrange__header__navbar-item">Categories</a>
-                            <div class="toolrange__header__navbar-item drop-down link-drop-down">
+                            <div class="toolrange__header__navbar-item drop-down multiple-drop-down">
                                 ABOUT US
                                 <ul class="drop-down__list">
                                     <li>
@@ -42,7 +42,7 @@
                                         <a href="/our-business">Our Business</a>
                                     </li>
                                     <li>
-                                        <a href="/careers">Careers</a>
+                                        <a href="/categories">Careers</a>
                                     </li>
                                     <li>
                                         <a href="#">Account</a>
@@ -51,11 +51,11 @@
                                         <a href="/our-trade-shows">Our Trade Shows</a>
                                     </li>
                                     <li>
-                                        <a href="#">Blog</a>
+                                        <a href="/">Blog</a>
                                     </li>
                                 </ul>
                             </div>
-                            <a href="/become-distributor" class="toolrange__header__navbar-item">Become distributor</a>
+                            <a href="/become-distributor" class="toolrange__header__navbar-item">Become a distributor</a>
                             <a href="/our-trade-shows" class="toolrange__header__navbar-item">Our Presence
                             </a
                             >
@@ -159,7 +159,7 @@
                                 <a href="">Mechanical Lifting Devices</a>
                             </div>
                         </div>
-                        <a href="/become-distributor" class="toolrange__menu-sp__item">Become distributor</a>
+                        <a href="/become-distributor" class="toolrange__menu-sp__item">Become a distributor</a>
                         <a href="/our-trade-shows" class="toolrange__menu-sp__item">Our Presence</a>
                     </div>
 
@@ -292,8 +292,8 @@
                             <a href="/category-detail/cargo-lashing-slings" style="color: white;">CARGO LASHING &amp; SLINGS</a>
                             <a href="/category-detail/transportation" style="color: white;">TRANSPORTATION</a>
                             <a href="/category-detail/fabrication" style="color: white;">FABRICATION</a>
-                            <a href="/category-detail/installation" style="color: white;">INSTALLATION</a>
-                            <a href="/category-detail/maintenance" style="color: white;">MAINTENANCE</a>
+<!--                            <a href="/category-detail/installation" style="color: white;">INSTALLATION</a>-->
+<!--                            <a href="/category-detail/maintenance" style="color: white;">MAINTENANCE</a>-->
                         </ul>
                     </div>
 
@@ -360,7 +360,7 @@
                     <label for="home-video" class="toolrange__video-icon">
                         <img src="/website_aardwolf/static/imgs/common/svgs/pause.svg" alt=""/>
                     </label>
-                    <video id="home-video" height="706"
+                    <video id="home-video" height="706" controls="true" autoplay="true" loop="true" muted="true"
                            poster="/website_aardwolf/static/imgs/home_page/image_video.png">
                         <source src="/website_aardwolf/static/imgs/common/videos/video_demo_homepage.mp4"
                                 type="video/mp4"/>
@@ -716,7 +716,7 @@
                 </section>
 
                 <section class="toolrange__become-distributor">
-                    <h3 class="toolrange__become-distributor__title">Become distributor</h3>
+                    <h3 class="toolrange__become-distributor__title">BECOME A DISTRIBUTOR</h3>
 
                     <div class="toolrange__become-distributor__items">
                         <div class="toolrange__become-distributor__item">
@@ -726,7 +726,7 @@
 
                             <div>
                                 <p class="toolrange__become-distributor__item-title">
-                                    Become distributor
+                                    BECOME A DISTRIBUTOR
                                 </p>
                                 <p class="toolrange__become-distributor__item-content">
                                     At Aardwolf, we believe in building long-term distributor
@@ -870,7 +870,7 @@
                                         <input
                                                 id="contact-phone"
                                                 name="phone"
-                                                type="number"
+                                                type="text"
                                                 class="toolrange__contact__form-field"
                                                 placeholder="Phone*"
                                         />
@@ -893,17 +893,17 @@
                                     </div>
 
                                     <div class="toolrange__contact__form-select select-common">
-                                        <label for="contact-country" class="sr-only"></label>
+                                        <label for="support-type" class="sr-only"></label>
                                         <select
-                                                id="contact-country"
-                                                name="country"
+                                                id="support-type"
+                                                name="Support Type"
                                                 class="toolrange__contact__form-field"
                                         >
-                                            <option value="Vietnam">Vietnam</option>
-                                            <option value="USA">USA</option>
+                                            <option value="Technical">Technical</option>
+                                            <option value="Sales">Sales</option>
+                                            <option value="Support">Support</option>
                                         </select>
                                     </div>
-
 
                                     <textarea name="message" id="contact-message" class="toolrange__contact__form-field"
                                               placeholder="Message"/>
@@ -1324,7 +1324,7 @@
 
                 <div class="toolrange__our-trade-shows__intro">
                     <h3 class="toolrange__our-trade-shows__intro-title">
-                        Our Trade Show
+                        Our Trade Shows
                     </h3>
                     <p class="toolrange__our-trade-shows__intro-message">
                         With more than 10 years of expansion, our presence spans the globe.
@@ -1549,7 +1549,7 @@
 
                 <div class="toolrange__b-distributor__intro">
                     <h2 class="toolrange__b-distributor__intro-title">
-                        Become Distributor
+                        BECOME A DISTRIBUTOR
                     </h2>
                     <p class="toolrange__b-distributor__intro-sub-title">
                         Gain A Competitive Advantage
@@ -1565,7 +1565,7 @@
                                         alt=""
                                 />
                             </div>
-                            <p class="commitment-item__text">Partner with industry leader</p>
+                            <p class="commitment-item__text">Partner with an industry leader</p>
                         </div>
                         <div class="toolrange__b-distributor__values-commitment-item">
                             <div class="commitment-item__img">
@@ -1607,14 +1607,13 @@
 
                         <div class="toolrange__b-distributor__values-detail-text">
                             <p class="toolrange__b-distributor__values-detail-title">
-                                Provide best-in-class lifting equipments and material handling
-                                solutions to your customers
+                                Provide best-in-class lifting equipment and material handling solutions to your customers
                             </p>
 
                             <ul class="toolrange__b-distributor__values-detail-group">
                                 <li>
                                     Join our network and gain a competitive advantage over others
-                                    in your market by becoming a AARDWOLF Distributor.
+                                    in your market by becoming an AARDWOLF Distributor.
                                 </li>
                                 <li>
                                     Our approved Distributors benefit from growth in sales,
@@ -1640,7 +1639,7 @@
 
                         >
                             <source
-                                    src="/website_aardwolf/static/imgs/common/videos/video-demo.mp4"
+                                    src="/website_aardwolf/static/imgs/home_page/become_distributor/video.mp4"
                                     type="video/mp4"
                             />
                         </video>
@@ -1657,7 +1656,7 @@
                             manufacturing, retail, stone, glass, metal, ....
                         </p>
 
-                        <a href="#" class="toolrange__b-distributor__demo-btn button-link"
+                        <a href="#" class="toolrange__b-distributor__demo-btn button-link btn-request"
                         >Request a consultation
                         </a
                         >
@@ -1689,15 +1688,16 @@
                         <h5 class="toolrange__b-distributor__benefits-title">
                             What becoming a Distributor Partner can do for you
                         </h5>
-                        <p class="toolrange__b-distributor__benefits-content">
-                            AARDWOLF lifting equipment and material handling are trusted by
-                            leading companies around the globe to improve safety and
-                            efficiency. This ensures you can confidently offer these products
-                            to your customers. With our worldwide brand recognition and
-                            comprehensive support can unlock new opportunities for your
-                            business, enabling you to enter new markets, broaden your product
-                            range, and secure ongoing revenue streams
-                        </p>
+                        <pre class="toolrange__b-distributor__benefits-content">
+AARDWOLF lifting equipment and material handling are trusted by
+leading companies around the globe to improve safety and efficiency.
+This ensures you can confidently offer these products to your
+customers.
+
+With our worldwide brand recognition and comprehensive support can
+unlock new opportunities for your business, enabling you to enter new
+markets, broaden your product range, and secure ongoing revenue
+streams</pre>
                     </div>
 
                     <div class="toolrange__b-distributor__benefits-list">
@@ -1763,7 +1763,7 @@
                     <div class="toolrange__b-distributor__partners-text">
                         <h5 class="toolrange__b-distributor__partners-text-title">Work with industry giants</h5>
                         <p class="toolrange__b-distributor__partners-text-message">
-                            By becoming a AARDWOLF Distributor, you too can work with
+                            By becoming an AARDWOLF Distributor, you too can work with
                             worldwide leading brands.
                         </p>
                     </div>
@@ -2048,6 +2048,146 @@
                         Distributor
                     </a>
                 </section>
+
+                <div class="toolrange__prod-detail__dialog toolrange-dialog">
+                    <form action="" class="toolrange__prod-detail__form-request form-request__demo">
+                        <div class="toolrange__prod-detail__form-request-close form-request-close"/>
+                        <h2 class="toolrange__prod-detail__form-request-title">
+                            Request demo
+                        </h2>
+
+                        <div class="group-fields">
+                            <div class="toolrange__prod-detail__form-request-fields">
+                                <input
+                                        id="form-request-first-name"
+                                        name="firstName"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="First Name*"
+                                />
+                                <input
+                                        id="form-request-last-name"
+                                        name="lastName"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Last Name*"
+                                />
+                            </div>
+
+                            <div class="toolrange__prod-detail__form-request-fields">
+                                <input
+                                        id="form-request-email"
+                                        name="firstName"
+                                        type="email"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Email*"
+                                />
+                                <input
+                                        id="form-request-phone"
+                                        name="phone"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Phone*"
+                                />
+                            </div>
+
+                            <div class="toolrange__prod-detail__form-request-fields">
+                                <input
+                                        id="form-request-company"
+                                        name="firstName"
+                                        type="email"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Company Name*"
+                                />
+                                <input
+                                        id="form-request-last-name"
+                                        name="phone"
+                                        type="number"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Postcode*"
+                                />
+                            </div>
+
+                            <div
+                                class="toolrange__prod-detail__form-request-combobox combobox-common"
+                              >
+                                <input
+                                  id="contact-country2"
+                                  name="country"
+                                  type="text"
+                                  class="toolrange__prod-detail__form-request-field select-field"
+                                  placeholder="Country*"
+                                />
+                                <div class="select-custom__options select-country">
+
+                                </div>
+                              </div>
+
+                            <div class="toolrange__prod-detail__form-request-select select-custom select-state">
+                                <span name="select-mask" class="select-custom__mask"></span>
+                                <input
+                                        id="form-request-state"
+                                        name="state"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field select-field"
+                                        placeholder="state*"
+                                />
+
+                                <div class="select-custom__options">
+                                    <data value="Alabama" class="select-custom__option"
+                                    >Alabama
+                                    </data
+                                    >
+                                    <data value="Alaska" class="select-custom__option"
+                                    >Alaska
+                                    </data
+                                    >
+                                    <data value="Massachusetts" class="select-custom__option"
+                                    >Massachusetts
+                                    </data
+                                    >
+                                    <data value="Texas" class="select-custom__option">Texas</data>
+                                    <data value="California" class="select-custom__option"
+                                    >California
+                                    </data
+                                    >
+                                    <data value="New York" class="select-custom__option"
+                                    >New York
+                                    </data
+                                    >
+                                    <data value="Washington" class="select-custom__option"
+                                    >Washington
+                                    </data
+                                    >
+                                    <data value="West Virginia" class="select-custom__option"
+                                    >West Virginia
+                                    </data
+                                    >
+                                </div>
+                            </div>
+
+                            <textarea
+                                    name="message"
+                                    id="form-request-message"
+                                    class="toolrange__prod-detail__form-request-field"
+                                    placeholder="Message"/>
+                        </div>
+
+                        <button type="submit" class="toolrange__prod-detail__form-request-btn btn-submit">
+                            Request demo
+                        </button>
+
+                        <p class="toolrange__prod-detail__form-request-explain">
+                            *How we might use your information We may contact you by phone or
+                            email, if you have not opted out, or where we are otherwise
+                            permitted by law, to provide you with marketing communications
+                            about similar goods and services. The legal basis that allows us
+                            to use your information is ‘legitimate interests’. More
+                            information about how we use your personal data can be found in
+                            our Privacy Policy.
+                        </p>
+                    </form>
+                </div>
             </div>
         </div>
     </template>

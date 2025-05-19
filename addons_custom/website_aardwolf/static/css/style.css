@@ -178,6 +178,23 @@ button {
     height: 72px;
     padding: 22.04px 28px 10.63px 32px;
   }
+
+  body .aardwolf-login {
+    flex-direction: column-reverse;
+    padding: 27px 28px 45px 28px;
+  }
+
+  .aardwolf-login .aardwolf-login__img {
+      max-width: 100%;
+      height: 327px;
+  }
+
+  .aardwolf-login__form {
+      padding: 66px 123px;
+    }
+  .aardwolf-login__form .aardwolf-login__form__btn {
+    max-width: 100%;
+   }
 }
 @media (max-width: 455px) {
   .toolrange__header {
@@ -263,7 +280,40 @@ button {
     width: 145px;
   }
 }
+@media (max-width: 1023px) {
+  .aardwolf-login.aardwolf-register {
+    flex-direction: column-reverse;
+    padding: 27px 28px 45px 28px;
+  }
+  .aardwolf-login .aardwolf-login__form {
+      padding: 66px 123px;
+    }
+    .aardwolf-login__img {
+      height: 327px;
+    }
+
+    .toolrange__header__search-box > .box-input-wrapper > input {
+      font-size: 24px;
+      text-transform: capitalize;
+      letter-spacing: unset;
+    }
+}
+@media (max-width: 666px) {
+    .aardwolf-login.aardwolf-register {
+    flex-direction: column-reverse;
+    padding: 17.5px 16px;
+  }
+  .aardwolf-login .aardwolf-login__form {
+      padding: 62.5px 0;
+    }
+   .aardwolf-login .aardwolf-login__img {
+      height: 198px;
+    }
+}
 @media (max-width: 768px) {
+   .toolrange .toolrange__banner {
+      height: 534px !important;
+    }
   .toolrange__header__logo > img {
     width: 160px;
   }
@@ -330,7 +380,6 @@ button {
 .toolrange__header__navbar-item:hover {
   -webkit-transform: unset;
           transform: unset;
-  color: #ED1C24;
 }
 .toolrange__header__navbar-item:hover::before {
   content: "";
@@ -372,6 +421,7 @@ button {
   transition: 0.1s ease-out;
 }
 .toolrange__header__navbar-item.drop-down .drop-down__list > li:hover > a {
+    color: #fff;
   -webkit-transform: unset;
           transform: unset;
 }
@@ -1213,7 +1263,6 @@ button {
   }
 }
 .toolrange__footer__grid-item:nth-child(3) > ul:nth-child(2) {
-  height: 120px;
   margin-bottom: 48px;
 }
 .toolrange__footer__grid-item:nth-child(4) {
@@ -1271,13 +1320,14 @@ button {
   text-transform: uppercase;
 }
 .toolrange__banner {
-  height: 585.326px;
+  height: 585px !important;
   -ms-flex-item-align: stretch;
       -ms-grid-row-align: stretch;
       align-self: stretch;
   background: url("/website_aardwolf/static/imgs/home_page/banner1.png") no-repeat center;
   background-size: cover;
   position: relative;
+  background-position: top;
 }
 .toolrange__banner__content {
   position: absolute;
@@ -1341,10 +1391,7 @@ button {
     font-size: 16px;
   }
 }
-.toolrange__video {
-  padding-top: 22px;
-  height: 571px;
-}
+
 .toolrange__video-icon {
   width: 108px;
   height: 108px;
@@ -1449,7 +1496,6 @@ button {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  flex: 0 0 calc((100% - 3 * 24px) / 4); /* 4 phần tử, 3 khoảng cách */
   box-sizing: border-box;
 }
 @media (max-width: 768px) {
@@ -1823,7 +1869,7 @@ button {
 }
 @media (max-width: 768px) {
   .toolrange__why-aardwolf {
-    height: 525px;
+    height: 525px !important;
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
@@ -1915,14 +1961,14 @@ button {
 }
 .toolrange__team {
   position: relative;
-  height: 610px;
+  height: 610px !important;
   background: url("/website_aardwolf/static/imgs/home_page/banner3.png") no-repeat center;
   background-size: cover;
 }
 @media (max-width: 768px) {
   .toolrange__team {
     background-image: url("/website_aardwolf/static/imgs/home_page/banner3-tablet.png");
-    height: 540px;
+    height: 540px !important;
     -webkit-box-ordinal-group: 5;
         -ms-flex-order: 4;
             order: 4;
@@ -2401,6 +2447,11 @@ button {
   height: 550px;
   padding-left: 217.25px;
   position: relative;
+
+  display: flex;
+  padding-left: 0;
+  align-items: center;
+  gap: 30px;
 }
 @media (max-width: 768px) {
   .toolrange__categories-page__slider-wrapper .slider-view__wrapper {
@@ -2430,6 +2481,9 @@ button {
   top: 27px;
   left: 0;
   z-index: 98;
+
+  position: relative;
+  top: unset;
 }
 @media (max-width: 768px) {
   .toolrange__categories-page__slider-wrapper .slider-view__wrapper .slider-view__info {
@@ -2597,6 +2651,7 @@ button {
 }
 .toolrange__categories-page__slider-view {
   height: 100%;
+  margin-left: 0 !important;
 }
 .toolrange__categories-page__slider-view .swiper-wrapper .swiper-slide > img {
   width: 100%;
@@ -3260,9 +3315,7 @@ button {
 .toolrange__prod-detail__prod-view > img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -webkit-transition: 0.2s ease-out;
+  object-fit: contain;
   transition: 0.2s ease-out;
 }
 .toolrange__prod-detail__prod-view:hover > img {
@@ -4331,6 +4384,20 @@ button {
 .toolrange__prod-detail__form-request-field::placeholder {
   color: #aeaeae;
 }
+
+.combobox-common {
+  position: relative;
+}
+.combobox-common input:focus + .select-custom__options {
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  opacity: 1;
+}
+.combobox-common input:focus + .select-custom__options > data {
+  opacity: 1;
+}
+
 .toolrange__prod-detail__form-request-select.select-custom > input {
   padding: 10px 16px;
   border-radius: 0;
@@ -5843,6 +5910,7 @@ button {
 .toolrange__b-distributor__demo-video-wrapper {
   position: relative;
   width: 50%;
+  padding-left: 6px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6150,6 +6218,9 @@ button {
   font-size: 16px;
   font-weight: 400;
   line-height: 160%;
+  padding: 0;
+  background: transparent;
+  border: none;
 }
 @media (max-width: 666px) {
   .toolrange__b-distributor__benefits-content {
@@ -6190,6 +6261,7 @@ button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding-left: 0;
 }
 @media (max-width: 1023px) {
   .toolrange__b-distributor__benefits-list-wrapper {
@@ -8539,7 +8611,7 @@ button {
   color: #131313;
 }
 .toolrange__history-slider.slider-thumbs {
-  margin-top: 58.82px;
+  padding-top: 58.82px;
 }
 .toolrange__history-slider.slider-thumbs > .swiper-wrapper {
   position: relative;
@@ -8674,7 +8746,7 @@ button {
 .toolrange__video {
   width: 100%;
   max-width: 2560px;
-  height: 571px;
+  height: 803px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9317,6 +9389,10 @@ button {
     width: 100%;
   }
 }
+
+.toolrange__contact__form-select.select-common {
+    display: flex;
+}
 .toolrange__contact__form-field {
   width: 100%;
   padding: 10px 16px;
@@ -9326,6 +9402,8 @@ button {
   font-size: 18px;
   font-weight: 400;
   line-height: normal;
+  outline: none;
+  border: none;
 }
 .toolrange__contact__form-field::-webkit-input-placeholder {
   color: #aeaeae;
