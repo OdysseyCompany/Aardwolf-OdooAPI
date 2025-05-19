@@ -10,6 +10,7 @@
         'views/website_templates.xml',
         'views/website_templates_categories.xml',
         'views/website_templates_product.xml',
+        'views/shop_cart_template.xml',
         'views/login_templates.xml',
     ],
     'assets': {
