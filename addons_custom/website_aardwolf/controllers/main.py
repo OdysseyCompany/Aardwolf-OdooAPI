@@ -317,6 +317,18 @@ class WebsiteAardwolf(http.Controller):
 
 
 class AardwolfHome(Home):
+
+    def _login_redirect(self, uid, redirect=None):
+        """ Redirect regular users (employees) to the backend) and others to
+        the frontend
+        """
+        if not redirect and request.params.get('login_success'):
+            if request.env['res.users'].browse(uid)._is_internal():
+                redirect = '/odoo?' + request.httprequest.query_string.decode()
+            else:
+                redirect = '/'
+        return super()._login_redirect(uid, redirect=redirect)
+
     @http.route('/web/login', type='http', auth='none', readonly=False)
     def web_login(self, redirect=None, **kw):
         ensure_db()
