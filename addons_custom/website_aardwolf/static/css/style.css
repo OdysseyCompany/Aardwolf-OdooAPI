@@ -198,7 +198,7 @@ button {
 }
 @media (max-width: 455px) {
   .toolrange__header {
-    height: 136px;
+    height: auto;
     padding: 27.04px 16px 15.5px 16px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1596,7 +1596,7 @@ button {
     gap: 14px;
   }
 }
-@media (max-width: 391px) {
+@media (max-width: 490px) {
   .toolrange__industries__grid {
     -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2, 1fr);
@@ -2703,9 +2703,10 @@ button {
   gap: 9px;
   position: relative;
 }
-.toolrange__categories-page__slider-thumbs .swiper-wrapper .swiper-slide > img {
+.toolrange__categories-page__slider-thumbs .swiper-wrapper .swiper-slide img {
   width: 100%;
   height: 92px;
+  object-fit: contain;
 }
 .toolrange__categories-page__slider-thumbs .swiper-wrapper .swiper-slide > p {
   color: #000;
@@ -3027,6 +3028,7 @@ button {
   overflow: hidden;
   -webkit-transition: 0.1s ease;
   transition: 0.1s ease;
+  cursor: pointer;
 }
 .toolrange__categories-detail__sub-categories-item > p {
   text-align: center;
@@ -3470,6 +3472,7 @@ button {
 }
 .toolrange__prod-detail__prod-quantity-box {
   margin-top: 59.56px;
+  margin-bottom: 24px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3607,7 +3610,7 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 10px;
+  gap: 43px;
   position: relative;
   cursor: pointer;
   -webkit-transition: 0.2s ease-out;
@@ -4097,7 +4100,7 @@ button {
   color: #ed1c24;
 }
 @media (max-width: 768px) {
-  .toolrange__prod-detail__slider {
+  .toolrange__prod-detail__slider.swiper {
     display: none;
   }
 }
@@ -4228,9 +4231,17 @@ button {
 .toolrange__prod-detail__slider.ymalSwiper {
   margin-top: 150px;
 }
+
 .toolrange__prod-detail__recommended {
-  padding: 40px 16px;
+  display: none;
 }
+@media (max-width: 768px) {
+    .toolrange__prod-detail__recommended {
+        display: block;
+      padding: 40px 16px;
+    }
+}
+
 .toolrange__prod-detail__recommended-title {
   color: #131313;
   font-family: "Oswald-Regular";
@@ -4753,7 +4764,7 @@ button {
 }
 @media (max-width: 768px) {
   .toolrange__our-business__banner {
-    height: 475px;
+    height: 475px !important;
   }
 }
 @media (max-width: 490px) {
@@ -4959,9 +4970,14 @@ button {
     padding: 0 70px 81px;
   }
 }
-@media (max-width: 490px) {
+@media (max-width: 767px) {
   .toolrange__our-business__contact {
     padding: 60px 16px;
+  }
+}
+@media (max-width: 490px) {
+  .toolrange__our-business__contact {
+    padding: 60px 0;
   }
 }
 .toolrange__our-business__contact .toolrange__contact__intro-help-title {
@@ -5247,6 +5263,10 @@ button {
   .toolrange__contact-page__info {
     padding: 0;
   }
+
+  .toolrange__contact-page__banner {
+      background-image: url("/website_aardwolf/static/imgs/common/contact/banner-sp.png");
+    }
 }
 .toolrange__contact-page__info-us {
   display: -webkit-box;
@@ -5910,6 +5930,7 @@ button {
 .toolrange__b-distributor__demo-video-wrapper {
   position: relative;
   width: 50%;
+  max-height: calc(100% - 30px);
   padding-left: 6px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5954,6 +5975,7 @@ button {
 }
 .toolrange__b-distributor__demo-video {
   width: 100%;
+  height: 100%;
 }
 .toolrange__b-distributor__demo-video.pause {
   opacity: 0;
@@ -6876,7 +6898,6 @@ button {
 .aardwolf-login__form__btn {
   margin-top: 24px;
   width: 100%;
-  max-width: 465px;
   padding: 16px 32px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8418,9 +8439,28 @@ button {
     padding: 0 50px;
   }
 }
+@media (max-width: 767px) {
+  .toolrange__recomment-slider-slide .slide-img {
+      height: 231px;
+  }
+
+  .toolrange__recomment-slider-slide .img-content > p {
+    font-size: 18.475px;
+    line-height: 117.313%;
+  }
+}
 @media (max-width: 490px) {
   .toolrange__distributors__slider {
     padding: 0 40px;
+  }
+
+  .toolrange__recomment-slider-slide .slide-img {
+      height: 165px;
+  }
+
+  .toolrange__recomment-slider-slide .img-content > p {
+    font-size: 13.204px;
+    line-height: 117.313%;
   }
 }
 .toolrange__distributors__slide {
@@ -9303,6 +9343,11 @@ button {
 @media (max-width: 1024px) {
   .toolrange__contact__intro-policy {
     padding: 20px 60px;
+  }
+}
+@media (max-width: 767px) {
+  .toolrange__contact__intro-policy {
+    padding: 20px 16px;
   }
 }
 .toolrange__contact__intro-policy-message {

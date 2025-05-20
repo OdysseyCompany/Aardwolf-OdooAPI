@@ -105,3 +105,8 @@ $$('input[name="phone"]').forEach((field) => {
     e.target.value = "";
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  $(".video-icon").classList.add("hidden");
+  $("#b-distributor-video").classList.remove("pause");
+});

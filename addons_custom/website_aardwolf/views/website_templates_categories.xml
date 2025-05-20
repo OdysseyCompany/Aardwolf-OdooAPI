@@ -20,9 +20,9 @@
                             <div class="slider-view__info">
                                 <div class="slider-view__info-box">
                                     <div>
-                                        <p class="slider-view__info-text">
-                                            <t t-esc="category_data[0]['description']"/>
-                                        </p>
+<!--                                        <p class="slider-view__info-text">-->
+<!--                                            <t t-esc="category_data[0]['description']"/>-->
+<!--                                        </p>-->
                                         <h3 class="slider-view__info-name">
                                             <t t-esc="category_data[0]['name']"/>
                                         </h3>
@@ -70,9 +70,9 @@
                                 <div class="slider-view__info">
                                     <div class="slider-view__info-box">
                                         <div>
-                                            <p class="slider-view__info-text">
-                                                <t t-esc="category_data[1]['description']"/>
-                                            </p>
+<!--                                            <p class="slider-view__info-text">-->
+<!--                                                <t t-esc="category_data[1]['description']"/>-->
+<!--                                            </p>-->
                                             <h3 class="slider-view__info-name">
                                                 <t t-esc="category_data[1]['name']"/>
                                             </h3>
@@ -117,6 +117,11 @@
                         </div>
                     </t>
                 </t>
+
+                <a href="#" class="toolrange__categories-page__btn-link button-link">
+                  View All
+                </a>
+
                 <div class="toolrange__prod-detail__dialog toolrange-dialog">
                     <form action="" class="toolrange__prod-detail__form-request form-request__demo">
                         <div class="toolrange__prod-detail__form-request-close form-request-close"/>

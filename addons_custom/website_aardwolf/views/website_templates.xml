@@ -137,9 +137,9 @@
                     </div>
                 </div>
 
-                <div class="toolrange__header__search sp-on">
-                    <input type="text" placeholder="Search"/>
-                </div>
+<!--                <div class="toolrange__header__search sp-on">-->
+<!--                    <input type="text" placeholder="Search"/>-->
+<!--                </div>-->
                 <div class="toolrange__menu-sp">
                     <div class="toolrange__menu-sp__links">
                         <div class="toolrange__menu-sp__item item-dropdown">
@@ -820,6 +820,12 @@
                             <p class="content">+1 562-553-6050</p>
                         </div>
                     </div>
+
+                    <div class="toolrange__contact-page__certified">
+                        <p class="toolrange__contact-page__certified-label">Company Registration No.</p>
+                        <p class="toolrange__contact-page__certified-code">ISO 9001:2023 certified</p>
+                        <p class="toolrange__contact-page__certified-code">ISO 45001:2023 certified</p>
+                      </div>
 
                     <div class="toolrange__contact-page__contact">
                         <div class="toolrange__contact">
@@ -1647,10 +1653,10 @@
                                 height="600"
                                 id="b-distributor-video"
                                 class="toolrange__b-distributor__demo-video pause"
-
+                                controls="true" autoplay="true" loop="true" muted="true"
                         >
                             <source
-                                    src="/website_aardwolf/static/imgs/home_page/become_distributor/video.mp4"
+                                    src="/website_aardwolf/static/imgs/common/videos/video_demo_become_distributor.mp4"
                                     type="video/mp4"
                             />
                         </video>
@@ -1699,17 +1705,15 @@
                         <h5 class="toolrange__b-distributor__benefits-title">
                             What becoming a Distributor Partner can do for you
                         </h5>
-                        <pre class="toolrange__b-distributor__benefits-content">
-                            AARDWOLF lifting equipment and material handling are trusted by
-                            leading companies around the globe to improve safety and efficiency.
-                            This ensures you can confidently offer these products to your
-                            customers.
+                        <pre class="toolrange__b-distributor__benefits-content">AARDWOLF lifting equipment and material handling are trusted by
+leading companies around the globe to improve safety and efficiency.
+This ensures you can confidently offer these products to your
+customers.
 
-                            With our worldwide brand recognition and comprehensive support can
-                            unlock new opportunities for your business, enabling you to enter new
-                            markets, broaden your product range, and secure ongoing revenue
-                            streams
-                        </pre>
+With our worldwide brand recognition and comprehensive support can
+unlock new opportunities for your business, enabling you to enter new
+markets, broaden your product range, and secure ongoing revenue
+streams</pre>
                     </div>
 
                     <div class="toolrange__b-distributor__benefits-list">

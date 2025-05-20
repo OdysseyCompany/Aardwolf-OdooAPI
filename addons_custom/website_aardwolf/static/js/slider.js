@@ -11,6 +11,8 @@ const historySwiper2Settings = {
 }
 
 function handleCheckScreen(screenWidth) {
+    if(!historySwiper2) return;
+
   if (screenWidth <= 1024 && screenWidth > 490) {
     historySwiper2.params.slidesPerView = 2;
   } else if (screenWidth <= 490) {

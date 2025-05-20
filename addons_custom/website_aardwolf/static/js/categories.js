@@ -135,3 +135,8 @@ const swiperView5 = new Swiper(".swiperView5", {
     swiper: swiperThumbs5,
   },
 });
+
+$('.toolrange__categories-page__btn-link')?.addEventListener('click', function(e) {
+  e.preventDefault();
+  this.style.display = 'none';
+})

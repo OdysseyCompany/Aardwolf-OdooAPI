@@ -255,6 +255,23 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   };
 
+  // Handle menu sp
+    $('.toolrange__header__navbar-icon')?.addEventListener('click', function () {
+        console.log('toolrange__header__navbar');
+      this.classList.toggle('show');
+      $('.toolrange__menu-sp').classList.toggle('show');
+    });
+
+    // Handle submenu sp
+    $$('.toolrange__menu-sp__item.item-dropdown').forEach((item) => {
+      item.addEventListener('click', function () {
+        $$('.toolrange__menu-sp__item.item-dropdown').forEach((item2) =>
+          item2 !== this && item2.classList.remove('show')
+        );
+        this.classList.toggle('show');
+      });
+    });
+
   // Video Handler
   const videoHandler = {
     init() {

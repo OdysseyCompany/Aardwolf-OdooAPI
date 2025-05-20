@@ -352,7 +352,7 @@
                     </div>
                 </div>
 
-                <div class="toolrange__header__search sp-on">
+                <div class="toolrange__header__search sp-onz">
                     <img src="/website_toolrange/static/imgs/common/svgs/search.svg" alt="" loading="lazy"/>
                     <input type="text" placeholder="Search"/>
                 </div>
