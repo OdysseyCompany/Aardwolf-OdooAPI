@@ -26,10 +26,10 @@ $(".toolrange__categories-page .form-request-close")?.addEventListener(
 );
 
 
-const slideAction1 = {
-  nextEl: document.querySelectorAll(".swiper-button-next"),
-  prevEl: document.querySelectorAll(".swiper-button-prev"),
-};
+//const slideAction1 = {
+//  nextEl: document.querySelectorAll(".swiper-button-next"),
+//  prevEl: document.querySelectorAll(".swiper-button-prev"),
+//};
 
 const swiperThumbs = new Swiper(".swiperThumbs", {
   loop: true,
@@ -37,18 +37,9 @@ const swiperThumbs = new Swiper(".swiperThumbs", {
   slidesPerView: 4,
   freeMode: true,
   watchSlidesProgress: true,
-});
-
-const swiperView = new Swiper(".swiperView", {
-  slidesPerView: 1,
-  loop: true,
-  spaceBetween: 30,
   navigation: {
-    nextEl: slideAction1.nextEl[0],
-    prevEl: slideAction1.prevEl[0],
-  },
-  thumbs: {
-    swiper: swiperThumbs,
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
 });
 
@@ -58,18 +49,9 @@ const swiperThumbs2 = new Swiper(".swiperThumbs2", {
   slidesPerView: 4,
   freeMode: true,
   watchSlidesProgress: true,
-});
-
-const swiperView2 = new Swiper(".swiperView2", {
-  slidesPerView: 1,
-  loop: true,
-  spaceBetween: 30,
   navigation: {
-    nextEl: slideAction1.nextEl[1],
-    prevEl: slideAction1.prevEl[1],
-  },
-  thumbs: {
-    swiper: swiperThumbs2,
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
 });
 
@@ -79,18 +61,9 @@ const swiperThumbs3 = new Swiper(".swiperThumbs3", {
   slidesPerView: 4,
   freeMode: true,
   watchSlidesProgress: true,
-});
-
-const swiperView3 = new Swiper(".swiperView3", {
-  slidesPerView: 1,
-  loop: true,
-  spaceBetween: 30,
   navigation: {
-    nextEl: slideAction1.nextEl[2],
-    prevEl: slideAction1.prevEl[2],
-  },
-  thumbs: {
-    swiper: swiperThumbs3,
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
 });
 
@@ -100,18 +73,9 @@ const swiperThumbs4 = new Swiper(".swiperThumbs4", {
   slidesPerView: 4,
   freeMode: true,
   watchSlidesProgress: true,
-});
-
-const swiperView4 = new Swiper(".swiperView4", {
-  slidesPerView: 1,
-  loop: true,
-  spaceBetween: 30,
   navigation: {
-    nextEl: slideAction1.nextEl[3],
-    prevEl: slideAction1.prevEl[3],
-  },
-  thumbs: {
-    swiper: swiperThumbs4,
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
 });
 
@@ -121,18 +85,9 @@ const swiperThumbs5 = new Swiper(".swiperThumbs5", {
   slidesPerView: 4,
   freeMode: true,
   watchSlidesProgress: true,
-});
-
-const swiperView5 = new Swiper(".swiperView5", {
-  slidesPerView: 1,
-  loop: true,
-  spaceBetween: 30,
   navigation: {
-    nextEl: slideAction1.nextEl[4],
-    prevEl: slideAction1.prevEl[4],
-  },
-  thumbs: {
-    swiper: swiperThumbs5,
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
 });
 

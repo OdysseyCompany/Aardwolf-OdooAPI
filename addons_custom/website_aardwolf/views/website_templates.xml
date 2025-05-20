@@ -2129,10 +2129,10 @@ streams</pre>
                             >
                                 <input
                                         id="contact-country2"
-                                        name="country"
+                                        name="support-type"
                                         type="text"
                                         class="toolrange__prod-detail__form-request-field select-field"
-                                        placeholder="Country*"
+                                        placeholder="Support Type*"
                                 />
                                 <div class="select-custom__options select-country">
 

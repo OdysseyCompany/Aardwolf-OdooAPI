@@ -37,7 +37,7 @@ $(".form-request-close")?.addEventListener(
   }
 );
 
-const countries = ["Vietnam", "USA", "Canada"];
+const countries = ["Technical", "Sales", "Support", "Message"];
 
 function createOption(option) {
   const optionEl = document.createElement("data");
