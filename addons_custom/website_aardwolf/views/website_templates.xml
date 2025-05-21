@@ -45,9 +45,6 @@
                                         <a href="/categories">Careers</a>
                                     </li>
                                     <li>
-                                        <a href="#">Account</a>
-                                    </li>
-                                    <li>
                                         <a href="/our-trade-shows">Our Trade Shows</a>
                                     </li>
                                     <li>
@@ -803,21 +800,21 @@
                     <div class="toolrange__contact-page__info-group">
                         <div class="toolrange__contact-page__info-line">
                             <p class="title">Address</p>
-                            <p class="content">
+                            <a href="https://maps.app.goo.gl/xvD5hUThKZVdoZdt5" target="_blank" class="content">
                                 9401 Norwalk Blvd Santa Fe Springs California 90670
-                            </p>
+                            </a>
                         </div>
                         <div class="toolrange__contact-page__info-line">
                             <p class="title">E-mail</p>
-                            <p class="content">sales@aardwolfusa.com</p>
+                            <a href="mailto:sales@aardwolfusa.com" class="content">sales@aardwolfusa.com</a>
                         </div>
                         <div class="toolrange__contact-page__info-line">
                             <p class="title">Sales</p>
-                            <p class="content">+1 562-553-6050</p>
+                            <a href="tel:+1 562-553-6050" class="content">+1 562-553-6050</a>
                         </div>
                         <div class="toolrange__contact-page__info-line">
                             <p class="title">Service &amp; Parts</p>
-                            <p class="content">+1 562-553-6050</p>
+                            <a href="tel:+1 562-553-6050" class="content">+1 562-553-6050</a>
                         </div>
                     </div>
 
@@ -908,18 +905,20 @@
                                         />
                                     </div>
 
-                                    <div class="toolrange__contact__form-select select-common">
-                                        <label for="support-type" class="sr-only"></label>
-                                        <select
-                                                id="support-type"
-                                                name="Support Type"
-                                                class="toolrange__contact__form-field"
-                                        >
-                                            <option value="Technical">Technical</option>
-                                            <option value="Sales">Sales</option>
-                                            <option value="Support">Support</option>
-                                        </select>
-                                    </div>
+                                     <div
+                                        class="toolrange__prod-detail__form-request-combobox combobox-common"
+                                      >
+                                        <input
+                                          id="contact-country2"
+                                          name="support-type"
+                                          type="text"
+                                          class="toolrange__prod-detail__form-request-field select-field"
+                                          placeholder="Support Type*"
+                                        />
+                                        <div class="select-custom__options select-country">
+
+                                        </div>
+                                      </div>
 
                                     <textarea name="message" id="contact-message" class="toolrange__contact__form-field"
                                               placeholder="Message"/>
@@ -1259,7 +1258,7 @@
                                     <input
                                             id="contact-phone"
                                             name="phone"
-                                            type="number"
+                                            type="text"
                                             class="toolrange__contact__form-field"
                                             placeholder="Phone*"
                                     />
@@ -1281,26 +1280,20 @@
                                     />
                                 </div>
 
-                                <div
-                                        class="toolrange__contact__form-select select-custom select-common"
-                                >
-                                    <span name="select-mask" class="select-custom__mask"></span>
-                                    <input
-                                            id="contact-country"
-                                            name="country"
-                                            type="text"
-                                            class="toolrange__contact__form-field"
-                                            placeholder="Country*"
-                                    />
+                                 <div
+                                class="toolrange__prod-detail__form-request-combobox combobox-common"
+                              >
+                                <input
+                                  id="contact-country2"
+                                  name="support-type"
+                                  type="text"
+                                  class="toolrange__prod-detail__form-request-field select-field"
+                                  placeholder="Support Type*"
+                                />
+                                <div class="select-custom__options select-country">
 
-                                    <div class="select-custom__options">
-                                        <data value="Vietnam" class="select-custom__option"
-                                        >Vietnam
-                                        </data
-                                        >
-                                        <data value="USA" class="select-custom__option">USA</data>
-                                    </div>
                                 </div>
+                              </div>
 
                                 <textarea
                                         name="message"

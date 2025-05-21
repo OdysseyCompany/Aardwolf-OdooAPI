@@ -126,6 +126,13 @@
                     </div>
 
                     <div class="aardwolf-login__form__field">
+                        <input type="text" name="phone" t-att-value="phone" id="phone"
+                               class="form-control form-control-sm" autofocus="autofocus"
+                               autocapitalize="off" required="required"
+                               t-att-readonly="'readonly' if only_passwords else None" placeholder="Phone*"/>
+                    </div>
+
+                    <div class="aardwolf-login__form__field">
                         <input type="text" name="company_name" t-att-value="company_name" id="company_name"
                                class="form-control form-control-sm" autofocus="autofocus"
                                autocapitalize="off" required="required"
@@ -137,13 +144,6 @@
                                class="form-control form-control-sm" autofocus="autofocus"
                                autocapitalize="off" required="required"
                                t-att-readonly="'readonly' if only_passwords else None" placeholder="Postcode*"/>
-                    </div>
-
-                    <div class="aardwolf-login__form__field">
-                        <input type="text" name="phone" t-att-value="phone" id="phone"
-                               class="form-control form-control-sm" autofocus="autofocus"
-                               autocapitalize="off" required="required"
-                               t-att-readonly="'readonly' if only_passwords else None" placeholder="Phone*"/>
                     </div>
 
                     <div class="aardwolf-login__form__select select-custom select-common">

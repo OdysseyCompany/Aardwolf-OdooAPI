@@ -174,7 +174,7 @@
                                 />
                                 <input
                                         id="form-request-last-name"
-                                        name="phone"
+                                        name="postcode"
                                         type="number"
                                         class="toolrange__prod-detail__form-request-field"
                                         placeholder="Postcode*"

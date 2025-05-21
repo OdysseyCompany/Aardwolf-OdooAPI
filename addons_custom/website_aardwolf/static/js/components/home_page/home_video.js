@@ -26,7 +26,7 @@ class HomeVideo extends HTMLElement {
         
         $('.toolrange__video-icon').addEventListener('click', function() {
           $('#home-video').play();
-          $('#home-video').classList.add('play');
+//          $('#home-video').classList.add('play');
           this.classList.add('hidden');
         })
 

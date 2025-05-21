@@ -831,7 +831,6 @@ button {
   margin-left: 100px;
 }
 .toolrange__footer__grid-item:nth-child(3) > ul:nth-child(2) {
-  height: 120px;
   margin-bottom: 48px;
 }
 .toolrange__footer__grid-item:nth-child(4) {

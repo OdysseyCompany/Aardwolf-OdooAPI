@@ -211,7 +211,10 @@ const productInfo = {
   ],
 };
 
-import { createPagination } from "./pagination.js";
+//import { createPagination } from "./pagination.js";
+
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
 
 (function handleDataProduct() {
   const thumbWrapper = $(".toolrange__prod-detail__prod-thumbnalls");
@@ -221,13 +224,13 @@ import { createPagination } from "./pagination.js";
     const imgItem = document.createElement("div");
 
     const subClass = `${!index && "thumbnall-active"}`;
-    imgItem.classList.add("toolrange__prod-detail__prod-thumbnall", subClass);
+    imgItem?.classList.add("toolrange__prod-detail__prod-thumbnall", subClass);
 
     imgItem.innerHTML = `<img id="${"thumbnall-" + img.id}" src="${
       img.src
     }" alt="" data-type="${img.type}"/>`;
 
-    thumbWrapper.appendChild(imgItem);
+    thumbWrapper?.appendChild(imgItem);
   });
 
   $(".toolrange__prod-detail__prod-options-title").innerText =
@@ -238,12 +241,12 @@ import { createPagination } from "./pagination.js";
 
     const subClass = `${!index && "option-active"}`;
 
-    optionItem.classList.add("toolrange__prod-detail__prod-option", subClass);
+    optionItem?.classList.add("toolrange__prod-detail__prod-option", subClass);
     optionItem.id = `option-${option.id}`;
 
     optionItem.innerText = `${option.value}`;
 
-    optionsWrapper.appendChild(optionItem);
+    optionsWrapper?.appendChild(optionItem);
   });
 })();
 
@@ -256,7 +259,7 @@ import { createPagination } from "./pagination.js";
   thumbnalls.forEach((thumb) => {
     thumb.addEventListener("click", function () {
       thumbnalls.forEach((thumb2) => {
-        thumb2.classList.remove("thumbnall-active");
+        thumb2?.classList.remove("thumbnall-active");
       });
 
       this.classList.add("thumbnall-active");
@@ -268,10 +271,10 @@ import { createPagination } from "./pagination.js";
   options.forEach((option) => {
     option.addEventListener("click", function () {
       options.forEach((option2) => {
-        option2.classList.remove("option-active");
+        option2?.classList.remove("option-active");
       });
 
-      this.classList.add("option-active");
+      this?.classList.add("option-active");
     });
   });
 })();
@@ -282,17 +285,17 @@ $$(".product-quantity-action > button")?.forEach((btn) => {
     const quantityEl = $(".quantity");
     let quantity = quantityEl.innerText * 1;
 
-    if (this.classList.contains("increase-quantity")) {
+    if (this?.classList.contains("increase-quantity")) {
       quantity += 1;
       quantityEl.innerText = quantity;
-      $(".decrease-quantity").classList.remove("disable");
+      $(".decrease-quantity")?.classList.remove("disable");
     } else {
       if (quantity > 1) {
         quantity -= 1;
         quantityEl.innerText = quantity;
 
         if (quantity < 2) {
-          $(".decrease-quantity").classList.add("disable");
+          $(".decrease-quantity")?.classList.add("disable");
         }
       }
     }
@@ -310,17 +313,17 @@ $(".toolrange__prod-detail__prod-btn.btn-add").addEventListener(
 $(".toolrange__prod-detail .btn-request")?.addEventListener(
   "click",
   function () {
-    $(".toolrange__prod-detail .toolrange-dialog").classList.add("show");
-    $(".toolrange__prod-detail .form-request").classList.add("show");
+    $(".toolrange-dialog")?.classList.add("show");
+    $(".form-request__demo")?.classList.add("show");
   }
 );
 
-$(".toolrange__prod-detail .form-request-close")?.addEventListener(
+$(".form-request-close")?.addEventListener(
   "click",
   function () {
-    $(".toolrange__prod-detail .form-request").classList.remove("show");
+    $(".form-request__demo")?.classList.remove("show");
     setTimeout(() => {
-      $(".toolrange__prod-detail .toolrange-dialog").classList.remove("show");
+      $(".toolrange-dialog")?.classList.remove("show");
     }, 100);
   }
 );
@@ -329,17 +332,17 @@ $(".toolrange__prod-detail .form-request-close")?.addEventListener(
 $(".toolrange__prod-detail__reviews-btn")?.addEventListener(
   "click",
   function () {
-    $(".toolrange__prod-detail .toolrange-dialog2").classList.add("show");
-    $(".toolrange__prod-detail .form-review").classList.add("show");
+    $(".toolrange-dialog2")?.classList.add("show");
+    $(".form-review")?.classList.add("show");
   }
 );
 
-$(".toolrange__prod-detail .form-review-close")?.addEventListener(
+$(".form-review-close")?.addEventListener(
   "click",
   function () {
-    $(".toolrange__prod-detail .form-review").classList.remove("show");
+    $(".form-review")?.classList.remove("show");
     setTimeout(() => {
-      $(".toolrange__prod-detail .toolrange-dialog2").classList.remove("show");
+      $(".toolrange-dialog2")?.classList.remove("show");
     }, 100);
   }
 );
@@ -353,9 +356,9 @@ function handleCountryStateSelect(e) {
     const selectedValue = e.target.value;
 
     if (selectedValue === "usa") {
-      selectState.classList.add("visible");
+      selectState?.classList.add("visible");
     } else {
-      selectState.classList.remove("visible");
+      selectState?.classList.remove("visible");
     }
   }
 }
@@ -364,15 +367,15 @@ document.addEventListener("click", function (e) {
   handleCountryStateSelect(e);
 });
 
-const pagination = createPagination({
-  totalPages: 10,
-  visiblePages: 6,
-  currentPage: 1,
-  onChange: (page) => {
-    console.log('page: ', page);
-    // loadPageContent(page);
-  },
-});
+//const pagination = createPagination({
+//  totalPages: 10,
+//  visiblePages: 6,
+//  currentPage: 1,
+//  onChange: (page) => {
+//    console.log('page: ', page);
+//    // loadPageContent(page);
+//  },
+//});
 
 // pagination.update({
 //   totalPages: 15,

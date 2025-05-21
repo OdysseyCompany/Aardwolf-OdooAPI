@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   };
 
-  $("#home-video")?.classList.add("play");
+//  $("#home-video")?.classList.add("play");
   $(".toolrange__video-icon")?.classList.add("hidden");
 
   // Tabs Handler

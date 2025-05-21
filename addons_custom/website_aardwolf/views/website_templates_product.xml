@@ -45,7 +45,7 @@
                                             </h3>
                                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"
                                                    t-nocache="The csrf token must always be up to date."/>
-                                            <div class="js_product js_main_product mb-3">
+                                            <div class="js_product js_main_product">
                                                 <div class="toolrange__prod-detail__prod-options-wrapper">
                                                     <p class="toolrange__prod-detail__prod-options-title">
                                                         Grip Range Options
@@ -93,7 +93,7 @@
                                                             </a>
                                                         </div>
                                                     </div>
-                                                    <div class="d-flex gap-2">
+                                                    <div class="group-bns">
                                                         <button class="toolrange__prod-detail__prod-btn btn-find">
                                                             Find Your Nearest Store
                                                         </button>
@@ -955,10 +955,150 @@
                         </a>
                     </div>
                 </div>
+
+                <div class="toolrange__prod-detail__dialog toolrange-dialog">
+                    <form action="" class="toolrange__prod-detail__form-request form-request__demo">
+                        <div class="toolrange__prod-detail__form-request-close form-request-close"/>
+                        <h2 class="toolrange__prod-detail__form-request-title">
+                            Request demo
+                        </h2>
+
+                        <div class="group-fields">
+                            <div class="toolrange__prod-detail__form-request-fields">
+                                <input
+                                        id="form-request-first-name"
+                                        name="firstName"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="First Name*"
+                                />
+                                <input
+                                        id="form-request-last-name"
+                                        name="lastName"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Last Name*"
+                                />
+                            </div>
+
+                            <div class="toolrange__prod-detail__form-request-fields">
+                                <input
+                                        id="form-request-email"
+                                        name="firstName"
+                                        type="email"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Email*"
+                                />
+                                <input
+                                        id="form-request-phone"
+                                        name="phone"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Phone*"
+                                />
+                            </div>
+
+                            <div class="toolrange__prod-detail__form-request-fields">
+                                <input
+                                        id="form-request-company"
+                                        name="firstName"
+                                        type="email"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Company Name*"
+                                />
+                                <input
+                                        id="form-request-last-name"
+                                        name="postcode"
+                                        type="number"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Postcode*"
+                                />
+                            </div>
+                            <div
+                                class="toolrange__prod-detail__form-request-combobox combobox-common"
+                              >
+                                <input
+                                  id="contact-country2"
+                                  name="support-type"
+                                  type="text"
+                                  class="toolrange__prod-detail__form-request-field select-field"
+                                  placeholder="Support Type*"
+                                />
+                                <div class="select-custom__options select-country">
+
+                                </div>
+                              </div>
+
+                            <div class="toolrange__prod-detail__form-request-select select-custom select-state">
+                                <span name="select-mask" class="select-custom__mask"></span>
+                                <input
+                                        id="form-request-state"
+                                        name="state"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field select-field"
+                                        placeholder="state*"
+                                />
+
+                                <div class="select-custom__options">
+                                    <data value="Alabama" class="select-custom__option"
+                                    >Alabama
+                                    </data
+                                    >
+                                    <data value="Alaska" class="select-custom__option"
+                                    >Alaska
+                                    </data
+                                    >
+                                    <data value="Massachusetts" class="select-custom__option"
+                                    >Massachusetts
+                                    </data
+                                    >
+                                    <data value="Texas" class="select-custom__option">Texas</data>
+                                    <data value="California" class="select-custom__option"
+                                    >California
+                                    </data
+                                    >
+                                    <data value="New York" class="select-custom__option"
+                                    >New York
+                                    </data
+                                    >
+                                    <data value="Washington" class="select-custom__option"
+                                    >Washington
+                                    </data
+                                    >
+                                    <data value="West Virginia" class="select-custom__option"
+                                    >West Virginia
+                                    </data
+                                    >
+                                </div>
+                            </div>
+
+                            <textarea
+                                    name="message"
+                                    id="form-request-message"
+                                    class="toolrange__prod-detail__form-request-field"
+                                    placeholder="Message"/>
+                        </div>
+
+                        <button type="submit" class="toolrange__prod-detail__form-request-btn btn-submit">
+                            Request demo
+                        </button>
+
+                        <p class="toolrange__prod-detail__form-request-explain">
+                            *How we might use your information We may contact you by phone or
+                            email, if you have not opted out, or where we are otherwise
+                            permitted by law, to provide you with marketing communications
+                            about similar goods and services. The legal basis that allows us
+                            to use your information is ‘legitimate interests’. More
+                            information about how we use your personal data can be found in
+                            our Privacy Policy.
+                        </p>
+                    </form>
+                </div>
             </div>
         </main>
         <!--        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"/>-->
-        <!--        <script type="module" src="/website_aardwolf/static/js/main.js"/>-->
+         <script type="module" src="/website_aardwolf/static/js/main.js"/>
+         <script type="module" src="/website_aardwolf/static/js/product-detail.js"/>
         <!--        <script type="module" src="/website_aardwolf/static/js/click_thumbnails.js"/>-->
     </template>
 

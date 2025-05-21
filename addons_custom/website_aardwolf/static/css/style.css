@@ -1329,6 +1329,16 @@ button {
   position: relative;
   background-position: top;
 }
+@media (max-width: 1023px) {
+  .toolrange__banner {
+     background-image: url("/website_aardwolf/static/imgs/home_page/banner1-tablet.png");
+  }
+}
+@media (max-width: 767px) {
+  .toolrange__banner {
+     background-image: url("/website_aardwolf/static/imgs/home_page/banner1-sp.png");
+  }
+}
 .toolrange__banner__content {
   position: absolute;
   left: 148.25px;
@@ -1533,6 +1543,14 @@ button {
   line-height: 123%;
   text-transform: capitalize;
 }
+@media (max-width: 555px) {
+  .toolrange__categories__item .categorie-name {
+    left: 12px;
+    bottom: 11px;
+    font-size: 12.805px;
+    width: calc(100% - 15px);
+  }
+}
 .toolrange__categories__item::after {
   content: "";
   position: absolute;
@@ -1663,7 +1681,7 @@ button {
   -webkit-transform: unset;
           transform: unset;
 }
-.toolrange__industries__item:hover > img {
+.toolrange__industries__item:hover img {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
@@ -3589,7 +3607,8 @@ button {
     margin-top: 26px;
   }
 }
-.toolrange__prod-detail__prod-btns > .group-bns {
+.toolrange__prod-detail__prod-btns .group-bns {
+  width: 100%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 5px 1fr;
@@ -3597,7 +3616,13 @@ button {
   gap: 5px;
 }
 @media (max-width: 568px) {
-  .toolrange__prod-detail__prod-btns > .group-bns {
+  .toolrange__prod-detail__prod-btns .group-bns {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 6px;
+  }
+
+  .toolrange__prod-detail__prod-btns .group-bns button {
     -ms-grid-columns: 1fr;
     grid-template-columns: repeat(1, 1fr);
     gap: 6px;
@@ -4412,6 +4437,10 @@ button {
   max-height: -moz-fit-content;
   max-height: fit-content;
   opacity: 1;
+}
+.combobox-common input:focus + .select-custom__options,
+.combobox-common .select-custom__options:hover {
+  z-index: 998;
 }
 .combobox-common input:focus + .select-custom__options > data {
   opacity: 1;
@@ -6962,12 +6991,25 @@ button {
   max-width: 680px;
   border-radius: 32px;
   overflow: hidden;
+  background: url('/website_aardwolf/static/imgs/common/login-img.png') no-repeat, center;
+  background-size: cover;
+}
+@media (max-width: 1023px) {
+  .aardwolf-login__img {
+      background-image: url('/website_aardwolf/static/imgs/common/login-img-tablet.png');
+  }
+}
+@media (max-width: 767px) {
+  .aardwolf-login__img {
+      background-image: url('/website_aardwolf/static/imgs/common/login-img-sp.png');
+  }
 }
 .aardwolf-login__img > img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  display: none;
 }
 
 .aardwolf-login.aardwolf-forgot-password .aardwolf-login__form__text {
@@ -8794,7 +8836,6 @@ button {
 .toolrange__video {
   width: 100%;
   max-width: 2560px;
-  height: 803px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9241,7 +9282,7 @@ button {
           flex-direction: column;
   gap: 2px;
   opacity: 0;
-  z-index: 998;
+  z-index: -1;
   -webkit-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
   color: #191819;
@@ -9680,3 +9721,58 @@ button {
     display: block !important;
   }
 }
+
+.aardwolf__cart__title {
+  color: #191819;
+  font-family: "Oswald-Medium";
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 120%;
+
+  margin-bottom: 30px;
+}
+
+#cart_products {
+    display: flex;
+    max-width: 850px;
+    padding: 24px;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: 12px;
+    background: var(--Aditional-White, #FFF);
+}
+
+.cart__item-img {
+    display: flex;
+    width: 110px;
+    height: 110px;
+    justify-content: center;
+    align-items: center;
+    background: #FFF;
+    overflow: hidden;
+}
+
+.cart__item-img > div {
+    width: 100%;
+    height: 100%;
+}
+
+.cart__item-img > div > img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cart__item-name {
+    color: #191819;
+    font-family: "Kanit-Regular";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+ #wrapwrap {
+    overflow-x: hidden;
+ }
