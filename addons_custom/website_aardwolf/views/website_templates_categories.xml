@@ -150,7 +150,7 @@
                             <div class="toolrange__prod-detail__form-request-fields">
                                 <input
                                         id="form-request-email"
-                                        name="firstName"
+                                        name="email"
                                         type="email"
                                         class="toolrange__prod-detail__form-request-field"
                                         placeholder="Email*"
@@ -167,8 +167,8 @@
                             <div class="toolrange__prod-detail__form-request-fields">
                                 <input
                                         id="form-request-company"
-                                        name="firstName"
-                                        type="email"
+                                        name="companyName"
+                                        type="text"
                                         class="toolrange__prod-detail__form-request-field"
                                         placeholder="Company Name*"
                                 />

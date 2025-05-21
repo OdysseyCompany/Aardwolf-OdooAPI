@@ -2469,6 +2469,7 @@ button {
   display: flex;
   padding-left: 0;
   align-items: center;
+  justify-content: center;
   gap: 30px;
 }
 @media (max-width: 768px) {
@@ -2656,7 +2657,7 @@ button {
 }
 .toolrange__categories-page__slider-wrapper .slider-view__wrapper.reverse {
   padding-left: 0;
-  padding-right: 217.25px;
+  flex-direction: row-reverse;
 }
 @media (max-width: 768px) {
   .toolrange__categories-page__slider-wrapper .slider-view__wrapper.reverse {
@@ -2669,7 +2670,7 @@ button {
 }
 .toolrange__categories-page__slider-view {
   height: 100%;
-  margin-left: 0 !important;
+  margin: 0 !important;
 }
 .toolrange__categories-page__slider-view .swiper-wrapper .swiper-slide > img {
   width: 100%;
@@ -6988,6 +6989,7 @@ button {
   color: #49465F;
 }
 .aardwolf-login__img {
+  width: 50%;
   max-width: 680px;
   border-radius: 32px;
   overflow: hidden;
@@ -6996,6 +6998,7 @@ button {
 }
 @media (max-width: 1023px) {
   .aardwolf-login__img {
+      width: 100%;
       background-image: url('/website_aardwolf/static/imgs/common/login-img-tablet.png');
   }
 }
@@ -9776,3 +9779,34 @@ button {
  #wrapwrap {
     overflow-x: hidden;
  }
+
+
+@media (max-width: 767px) {
+  .toolrange .toolrange__banner {
+     order: 0;
+  }
+  .toolrange__video {
+    order: 1;
+  }
+  .toolrange__categories {
+    order: 3;
+  }
+  .toolrange__industries {
+    order: 2;
+  }
+  .toolrange__featured-products {
+    order: 4;
+  }
+  .toolrange__distributors {
+    order: 5;
+  }
+  .toolrange__why-aardwolf {
+    order: 6;
+  }
+  .toolrange__team {
+    order: 7;
+  }
+  .toolrange__become-distributor {
+    order: 8;
+  }
+}

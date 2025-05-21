@@ -89,11 +89,13 @@ $$(".combobox-common > input")?.forEach((input) => {
 
 $$('input[name="phone"]').forEach((field) => {
   field.addEventListener("focus", function (e) {
-    e.target.value = "+";
+    if(e.target.value.trim() === "") {
+       e.target.value = "+";
+    }
   });
 
   field.addEventListener("input", function (e) {
-    const value = e.target.value;
+    let value = e.target.value;
     if (!/^\+?\d*$/.test(value)) {
       e.target.value = value.replace(/[^+\d]/g, "");
     } else {
@@ -102,7 +104,9 @@ $$('input[name="phone"]').forEach((field) => {
   });
 
   field.addEventListener("blur", function (e) {
-    e.target.value = "";
+    if(e.target.value.trim() === "+") {
+       e.target.value = "";
+    }
   });
 });
 

@@ -305,7 +305,7 @@ $$(".product-quantity-action > button")?.forEach((btn) => {
 $(".toolrange__prod-detail__prod-btn.btn-add").addEventListener(
   "click",
   function () {
-    window.open(`/cart.html`, "_self");
+    window.open(`/cart`, "_self");
   }
 );
 
