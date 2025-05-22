@@ -290,15 +290,15 @@ class WebsiteAardwolf(http.Controller):
                 status=500
             )
 
-    @http.route('/cart', type='http', auth='public', website=True)
-    def view_cart(self, **kwargs):
-        sale_order = request.website.sale_get_order()
-        order_lines = sale_order.order_line if sale_order else []
-
-        return request.render('your_module_name.cart_template', {
-            'order': sale_order,
-            'order_lines': order_lines,
-        })
+    # @http.route('/cart', type='http', auth='public', website=True)
+    # def view_cart(self, **kwargs):
+    #     sale_order = request.website.sale_get_order()
+    #     order_lines = sale_order.order_line if sale_order else []
+    #
+    #     return request.render('your_module_name.cart_template', {
+    #         'order': sale_order,
+    #         'order_lines': order_lines,
+    #     })
 
     @http.route('/become-distributor', type='http', auth='public', website=True)
     def become_distributor(self, **kwargs):
