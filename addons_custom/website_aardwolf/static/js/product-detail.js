@@ -302,13 +302,6 @@ $$(".product-quantity-action > button")?.forEach((btn) => {
   });
 });
 
-$(".toolrange__prod-detail__prod-btn.btn-add").addEventListener(
-  "click",
-  function () {
-    window.open(`/cart`, "_self");
-  }
-);
-
 // Handle request form
 $(".toolrange__prod-detail .btn-request")?.addEventListener(
   "click",
