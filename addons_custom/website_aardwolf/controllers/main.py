@@ -406,7 +406,16 @@ class AardwolfHome(Home):
                 # 'disable_database_manager': False,
                 # 'signup_enabled': True,
                 # 'reset_password_enabled': True}
-                self.do_signup(qcontext)
+                # self.do_signup(qcontext)
+                partner = request.env['res.partner'].sudo().create({
+                    'name': kw['first_name'] + ' ' + kw['last_name'],
+                    'email': kw['login'],
+                    'phone': kw['phone'],
+                    'company_name': kw['company_name'],
+                    'zip': kw['postcode'],
+                    'street2': kw['country'],
+                    'comment': kw['message'],
+                })
 
                 # Set user to public if they were not signed in by do_signup
                 # (mfa enabled)
@@ -416,13 +425,13 @@ class AardwolfHome(Home):
 
                 # Send an account creation confirmation email
                 User = request.env['res.users']
-                user_sudo = User.sudo().search(
-                    User._get_login_domain(qcontext.get('login')), order=User._get_login_order(), limit=1
-                )
-                template = request.env.ref('auth_signup.mail_template_user_signup_account_created',
+                # user_sudo = User.sudo().search(
+                #     User._get_login_domain(qcontext.get('login')), order=User._get_login_order(), limit=1
+                # )
+                template = request.env.ref('website_aardwolf.noti_admin_user_signup',
                                            raise_if_not_found=False)
-                if user_sudo and template:
-                    template.sudo().send_mail(user_sudo.id, force_send=True)
+                if template:
+                    template.sudo().send_mail(partner.id, force_send=True)
                 return request.redirect('/')
             except UserError as e:
                 qcontext['error'] = e.args[0]
