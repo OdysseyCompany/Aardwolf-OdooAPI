@@ -646,8 +646,35 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   };
 
+  // Handle select custom
+    function handleSelectCommon(e) {
+      console.log('e: ', e.target);
+      const allSelects = document?.querySelectorAll(".select-custom");
+
+      if (e.target.closest(".select-custom__mask") || e.target.closest(".combobox-field")) {
+        const currentSelect = e.target.closest(".select-custom") || e.target.closest(".combobox-common");
+
+        allSelects.forEach((select) => {
+          if (select !== currentSelect) {
+            select.classList.remove("show");
+          }
+        });
+
+        currentSelect.classList.toggle("show");
+      } else if (e.target.tagName === "DATA") {
+        const parentSelect = e.target.closest(".select-custom") || e.target.closest(".combobox-common");
+        parentSelect.querySelector("input").value = e.target.innerText;
+        parentSelect.classList.remove("show");
+
+      } else {
+        allSelects.forEach((select) => {
+          select.classList.remove("show");
+        });
+      }
+    }
+
   // Handle combobox
-    const countries = ["Technical", "Sales", "Support", "Message"];
+    const countries = ["Technical", "Sales", "Support"];
 
     function createOption(option) {
       const optionEl = document.createElement("data");
@@ -700,7 +727,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Handle input phone
     $$('input[name="phone"]').forEach((field) => {
       field.addEventListener("focus", function (e) {
-        e.target.value = "+";
+        if(e.target.value.trim() === "") e.target.value = "+";
       });
 
       field.addEventListener("input", function (e) {
@@ -709,9 +736,14 @@ document.addEventListener("DOMContentLoaded", async function () {
       });
 
       field.addEventListener("blur", function (e) {
-        e.target.value = "";
+        if(e.target.value.trim() === "+") e.target.value = "";
       });
     });
+
+    document.addEventListener("click", function (e) {
+      handleSelectCommon(e);
+    });
+
 
   // Initialize all handlers
   await menuCategoryHandler.init();

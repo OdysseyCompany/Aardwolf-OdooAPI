@@ -960,7 +960,7 @@
                     <form action="" class="toolrange__prod-detail__form-request form-request__demo">
                         <div class="toolrange__prod-detail__form-request-close form-request-close"/>
                         <h2 class="toolrange__prod-detail__form-request-title">
-                            Request demo
+                            Request a price
                         </h2>
 
                         <div class="group-fields">
@@ -971,6 +971,7 @@
                                         type="text"
                                         class="toolrange__prod-detail__form-request-field"
                                         placeholder="First Name*"
+                                        required="true"
                                 />
                                 <input
                                         id="form-request-last-name"
@@ -978,6 +979,7 @@
                                         type="text"
                                         class="toolrange__prod-detail__form-request-field"
                                         placeholder="Last Name*"
+                                        required="true"
                                 />
                             </div>
 
@@ -988,6 +990,7 @@
                                         type="email"
                                         class="toolrange__prod-detail__form-request-field"
                                         placeholder="Email*"
+                                        required="true"
                                 />
                                 <input
                                         id="form-request-phone"
@@ -995,6 +998,7 @@
                                         type="text"
                                         class="toolrange__prod-detail__form-request-field"
                                         placeholder="Phone*"
+                                        required="true"
                                 />
                             </div>
 
@@ -1002,9 +1006,10 @@
                                 <input
                                         id="form-request-company"
                                         name="companyName"
-                                        type="email"
+                                        type="text"
                                         class="toolrange__prod-detail__form-request-field"
                                         placeholder="Company Name*"
+                                        required="true"
                                 />
                                 <input
                                         id="form-request-last-name"
@@ -1012,20 +1017,46 @@
                                         type="number"
                                         class="toolrange__prod-detail__form-request-field"
                                         placeholder="Postcode*"
+                                        required="true"
                                 />
                             </div>
-                            <div
-                                class="toolrange__prod-detail__form-request-combobox combobox-common"
-                              >
-                                <input
-                                  id="contact-country2"
-                                  name="support-type"
-                                  type="text"
-                                  class="toolrange__prod-detail__form-request-field select-field"
-                                  placeholder="Support Type*"
-                                />
-                                <div class="select-custom__options select-country">
+<!--                            <div-->
+<!--                                class="toolrange__prod-detail__form-request-combobox combobox-common"-->
+<!--                              >-->
+<!--                                <input-->
+<!--                                  id="contact-country2"-->
+<!--                                  name="support-type"-->
+<!--                                  type="text"-->
+<!--                                  class="toolrange__prod-detail__form-request-field select-field"-->
+<!--                                  placeholder="Support Type*"-->
+<!--                                  required="true"-->
+<!--                                />-->
+<!--                                <div class="select-custom__options select-country">-->
 
+<!--                                </div>-->
+<!--                              </div>-->
+
+                            <div
+                                class="toolrange__prod-detail__form-request-select select-custom select-country"
+                              >
+                                <span name="select-mask" class="select-custom__mask"></span>
+                                <input
+                                  id="form-request-country"
+                                  name="country"
+                                  type="text"
+                                  readonly="true"
+                                  class="toolrange__prod-detail__form-request-field select-field"
+                                  placeholder="Country*"
+                                />
+
+                                <div class="select-custom__options">
+                                  <data value="vn" class="select-custom__option">Vietnam</data>
+                                  <data value="usa" class="select-custom__option">America</data>
+                                  <data value="aus" class="select-custom__option"
+                                    >Australia</data
+                                  >
+                                  <data value="ca" class="select-custom__option">Canada</data>
+                                  <data value="ind" class="select-custom__option">India</data>
                                 </div>
                               </div>
 
@@ -1037,6 +1068,7 @@
                                         type="text"
                                         class="toolrange__prod-detail__form-request-field select-field"
                                         placeholder="state*"
+                                        required="true"
                                 />
 
                                 <div class="select-custom__options">
