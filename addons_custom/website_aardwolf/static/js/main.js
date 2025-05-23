@@ -398,7 +398,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           select.classList.toggle("show");
           e.stopPropagation();
           if (e.target.tagName === "DATA") {
-            select.firstElementChild.value = e.target.value;
+            select.querySelector('input').value = e.target.value;
           }
         });
       });
