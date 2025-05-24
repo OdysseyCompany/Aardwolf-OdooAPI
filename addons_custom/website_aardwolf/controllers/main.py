@@ -382,13 +382,7 @@ class AardwolfHome(Home):
 
     @http.route('/web/signup', type='http', auth='public', website=True, sitemap=False)
     def web_auth_signup(self, *args, **kw):
-        if kw:
-            kw['name'] = kw['first_name'] + ' ' + kw['last_name']
-            kw['password'] = '123123'
-            kw['confirm_password'] = '123123'
-            request.params = kw
         qcontext = self.get_auth_signup_qcontext()
-        # kw = {'login': 'vwegf', 'name': 'veq', 'password': '1', 'confirm_password': '1', 'redirect': '', 'token': ''}
 
         if not qcontext.get('token') and not qcontext.get('signup_enabled'):
             raise werkzeug.exceptions.NotFound()
@@ -397,25 +391,19 @@ class AardwolfHome(Home):
             try:
                 if not request.env['ir.http']._verify_request_recaptcha_token('signup'):
                     raise UserError(_("Suspicious activity detected by Google reCaptcha."))
-                # qcontext = {'login': 'vewfg',
-                # 'name': 'fqwe',
-                # 'password': '1',
-                # 'confirm_password': '1',
-                # 'redirect': '',
-                # 'token': '',
-                # 'disable_database_manager': False,
-                # 'signup_enabled': True,
-                # 'reset_password_enabled': True}
+                partner = False
+                if kw:
+                    partner = request.env['res.partner'].sudo().create({
+                        'name': kw['first_name'] + ' ' + kw['last_name'],
+                        'email': kw['login'],
+                        'phone': kw['phone'],
+                        'company_name': kw['company_name'],
+                        'zip': kw['postcode'],
+                        'street': kw['country'],
+                        'comment': kw['message'],
+                    })
+                # Check if the email is already registered
                 # self.do_signup(qcontext)
-                partner = request.env['res.partner'].sudo().create({
-                    'name': kw['first_name'] + ' ' + kw['last_name'],
-                    'email': kw['login'],
-                    'phone': kw['phone'],
-                    'company_name': kw['company_name'],
-                    'zip': kw['postcode'],
-                    'street2': kw['country'],
-                    'comment': kw['message'],
-                })
 
                 # Set user to public if they were not signed in by do_signup
                 # (mfa enabled)
@@ -428,9 +416,9 @@ class AardwolfHome(Home):
                 # user_sudo = User.sudo().search(
                 #     User._get_login_domain(qcontext.get('login')), order=User._get_login_order(), limit=1
                 # )
-                template = request.env.ref('website_aardwolf.noti_admin_user_signup',
+                template = request.env.ref('website_aardwolf.mail_template_noti_user_signup_account_created',
                                            raise_if_not_found=False)
-                if template:
+                if partner and template:
                     template.sudo().send_mail(partner.id, force_send=True)
                 return request.redirect('/')
             except UserError as e:

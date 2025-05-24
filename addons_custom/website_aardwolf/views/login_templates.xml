@@ -186,7 +186,7 @@
             </div>
         </div>
         <link rel="stylesheet" href="/website_aardwolf/static/css/style.css"/>
-        <script src="/website_aardwolf/static/js/main.js"></script>
+        <script src="/website_aardwolf/static/js/main.js"/>
     </template>
 
 </odoo>

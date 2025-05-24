@@ -42,7 +42,7 @@
                                         <a href="/our-business">Our Business</a>
                                     </li>
                                     <li>
-                                        <a href="/categories">Careers</a>
+                                        <a href="/careers">Careers</a>
                                     </li>
                                     <li>
                                         <a href="/">Blog</a>
@@ -264,6 +264,9 @@
                                 </li>
                                 <li>
                                     <img src="/website_aardwolf/static/imgs/home_page/nsi.png" alt="" loading="lazy"/>
+                                </li>
+                                <li>
+                                    <img src="/website_aardwolf/static/imgs/home_page/sfa.png" alt="" loading="lazy"/>
                                 </li>
                             </ul>
                         </div>
@@ -999,6 +1002,7 @@
                                                 type="text"
                                                 class="toolrange__contact__form-field"
                                                 placeholder="First Name*"
+                                                required="true"
                                         />
                                         <input
                                                 id="contact-last-name"
@@ -1006,6 +1010,7 @@
                                                 type="text"
                                                 class="toolrange__contact__form-field"
                                                 placeholder="Last Name*"
+                                                required="true"
                                         />
                                     </div>
                                     <div class="toolrange__contact__form-fields">
@@ -1015,6 +1020,7 @@
                                                 type="email"
                                                 class="toolrange__contact__form-field"
                                                 placeholder="Email*"
+                                                required="true"
                                         />
                                         <input
                                                 id="contact-phone"
@@ -1022,6 +1028,7 @@
                                                 type="text"
                                                 class="toolrange__contact__form-field"
                                                 placeholder="Phone*"
+                                                required="true"
                                         />
                                     </div>
                                     <div class="toolrange__contact__form-fields">
@@ -1031,6 +1038,7 @@
                                                 type="text"
                                                 class="toolrange__contact__form-field"
                                                 placeholder="Company Name*"
+                                                required="true"
                                         />
                                         <input
                                                 id="contact-postcode"
@@ -1038,6 +1046,7 @@
                                                 type="number"
                                                 class="toolrange__contact__form-field"
                                                 placeholder="Postcode*"
+                                                required="true"
                                         />
                                     </div>
 
@@ -1048,8 +1057,9 @@
                                           id="contact-country2"
                                           name="support-type"
                                           type="text"
-                                          class="toolrange__prod-detail__form-request-field select-field"
+                                          class="toolrange__prod-detail__form-request-field select-field combobox-field"
                                           placeholder="Support Type*"
+                                          required="true"
                                         />
                                         <div class="select-custom__options select-country">
 
@@ -1423,7 +1433,7 @@
                                   id="contact-country2"
                                   name="support-type"
                                   type="text"
-                                  class="toolrange__prod-detail__form-request-field select-field"
+                                  class="toolrange__prod-detail__form-request-field select-field combobox-field"
                                   placeholder="Support Type*"
                                 />
                                 <div class="select-custom__options select-country">
@@ -2185,8 +2195,10 @@ streams</pre>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-buttons">
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
                     </div>
 
                     <a href="./sass/" class="toolrange__b-distributor__all-partners-btn button-link">Find Your Nearest
@@ -2260,7 +2272,7 @@ streams</pre>
                                         id="contact-country2"
                                         name="support-type"
                                         type="text"
-                                        class="toolrange__prod-detail__form-request-field select-field"
+                                        class="toolrange__prod-detail__form-request-field select-field combobox-field"
                                         placeholder="Support Type*"
                                 />
                                 <div class="select-custom__options select-country">
