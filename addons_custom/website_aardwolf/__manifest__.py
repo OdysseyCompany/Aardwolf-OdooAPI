@@ -7,6 +7,7 @@
     'website': '',
     'depends': ['website_sale', 'portal', 'api_product'],
     'data': [
+        'data/mail_template_data.xml',
         'views/website_templates.xml',
         'views/website_templates_categories.xml',
         'views/website_templates_product.xml',
