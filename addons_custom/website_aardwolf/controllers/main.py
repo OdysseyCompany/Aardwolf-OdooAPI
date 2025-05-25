@@ -516,3 +516,7 @@ class WebsiteSaleAardwolf(WebsiteSale):
 
         return request.render("website_aardwolf.product_detail_aardwolf",
                               self._prepare_product_values(product, category, search, **kwargs))
+
+    @route(['/shop/confirm_order'], type='http', auth="public", website=True, sitemap=False)
+    def shop_confirm_order(self, **post):
+        return request.render('website_aardwolf.contact_thanks_page')
