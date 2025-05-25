@@ -4735,7 +4735,7 @@ button {
 .toolrange__cart__your-cart .your-cart__item-btn-remove:hover {
   background-color: #F6F6F6;
 }
-.toolrange__cart__your-cart .your-cart__order-btns {
+.your-cart__order-btns {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -4748,8 +4748,9 @@ button {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 11px;
+  padding-top:65px;
 }
-.toolrange__cart__your-cart .your-cart__order-btn {
+.your-cart__order-btn {
   width: 100%;
   height: 48px;
   padding: 10px 40px;
@@ -4772,7 +4773,7 @@ button {
   font-weight: 600;
   line-height: 120%;
 }
-.toolrange__cart__your-cart .your-cart__order-btn::after {
+.your-cart__order-btn::after {
   content: "";
   width: 16px;
   height: 16px;
@@ -4782,24 +4783,24 @@ button {
   -webkit-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
 }
-.toolrange__cart__your-cart .your-cart__order-btn:hover {
+.your-cart__order-btn:hover {
   -webkit-transform: unset;
           transform: unset;
 }
-.toolrange__cart__your-cart .your-cart__order-btn:hover::after {
+.your-cart__order-btn:hover::after {
   -webkit-transform: translateX(4px);
           transform: translateX(4px);
 }
-.toolrange__cart__your-cart .your-cart__order-btn.btn-request {
+.your-cart__order-btn.btn-request {
   background: #ED1C24;
 }
-.toolrange__cart__your-cart .your-cart__order-btn.btn-request::after {
+.your-cart__order-btn.btn-request::after {
   background-image: url("/website_aardwolf/static/imgs/common/svgs/chevron_right_small_white.svg");
 }
-.toolrange__cart__your-cart .your-cart__order-btn.btn-find {
+.your-cart__order-btn.btn-find {
   background: #131313;
 }
-.toolrange__cart__your-cart .your-cart__order-btn.btn-find::after {
+.your-cart__order-btn.btn-find::after {
   background-image: url("/website_aardwolf/static/imgs/common/svgs/track.svg");
 }
 
@@ -9751,15 +9752,6 @@ button {
   margin-bottom: 30px;
 }
 
-#cart_products {
-    display: flex;
-    max-width: 850px;
-    padding: 24px;
-    justify-content: space-between;
-    align-items: flex-start;
-    border-radius: 12px;
-    background: var(--Aditional-White, #FFF);
-}
 
 .cart__item-img {
     display: flex;

@@ -24,7 +24,7 @@
     'depends': ['web', 'auth_signup'],
 
     'external_dependencies': {
-        'python': ['jwt', 'simplejson'],
+        # 'python': ['jwt', 'simplejson'],
     },
     'data': [
         'security/ir.model.access.csv',

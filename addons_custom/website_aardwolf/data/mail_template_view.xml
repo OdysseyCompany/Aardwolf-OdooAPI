@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+
+    <record id="noti_admin_user_signup" model="mail.template">
+        <field name="name">New User Invite</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="subject">New User Invite</field>
+        <field name="partner_to">admin@gmail.com</field>
+        <field name="body_html" type="html">
+            <table border="0" cellpadding="0" cellspacing="0"
+                   style="padding-top: 16px; background-color: #FFFFFF; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                <tr>
+                    <td align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" width="590"
+                               style="padding: 16px; background-color: #FFFFFF; color: #454748; border-collapse:separate;">
+                            <tbody>
+                                <tr>
+                                    <td align="center" style="min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                               style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                            <tr>
+                                                <td valign="top" style="font-size: 13px;">
+                                                    <div>
+                                                        Dear <t t-out="object.name or ''">Administrator</t>,
+                                                        <br/>
+                                                        <br/>
+                                                        There is a request to create a new account with information:
+                                                        <br/>
+                                                        Name: <t t-out="object.email or ''"></t>
+                                                        <br/>
+                                                        Email: <t t-out="object.email or ''"></t>
+                                                        <br/>
+                                                        Phone: <t t-out="object.phone or ''"></t>
+                                                        <br/>
+                                                        Company name: <t t-out="object.street or ''"></t>
+                                                        <br/>
+                                                        Postcode: <t t-out="object.zip or ''"></t>
+                                                        <br/>
+                                                        Country: <t t-out="object.street2 or ''"></t>
+                                                        <br/>
+                                                        Message: <t t-out="object.comment or ''"></t>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:center;">
+                                                    <hr width="100%"
+                                                        style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <!-- FOOTER -->
+                                <tr>
+                                    <td align="center" style="min-width: 590px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="590"
+                                               style="min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                            <tr>
+                                                <td valign="middle" align="left">
+                                                    <t t-out="object.company_id.name or ''">YourCompany</t>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="middle" align="left" style="opacity: 0.7;">
+                                                    <t t-out="object.company_id.phone or ''">+1 650-123-4567</t>
+                                                    <t t-if="object.company_id.email">
+                                                        |
+                                                        <a t-att-href="'mailto:%s' % object.company_id.email"
+                                                           style="text-decoration:none; color: #454748;"
+                                                           t-out="object.company_id.email or ''">info@yourcompany.com
+                                                        </a>
+                                                    </t>
+                                                    <t t-if="object.company_id.website">
+                                                        |
+                                                        <a t-att-href="'%s' % object.company_id.website"
+                                                           style="text-decoration:none; color: #454748;"
+                                                           t-out="object.company_id.website or ''">
+                                                            http://www.example.com
+                                                        </a>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <!-- POWERED BY -->
+                <tr>
+                    <td align="center" style="min-width: 590px;">
+                        <table border="0" cellpadding="0" cellspacing="0" width="590"
+                               style="min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
+                            <tr>
+                                <td style="text-align: center; font-size: 13px;">
+                                    Powered by
+                                    <a target="_blank" href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth"
+                                       style="color: #875A7B;">Odoo
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </field>
+        <field name="lang">{{ object.lang }}</field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+</odoo>
