@@ -194,7 +194,6 @@
                             <p class="toolrange__prod-detail__description-tag">General</p>
                             <div class="toolrange__prod-detail__description-content">
                                 <t t-esc="values['description']"/>
-                                <img srcset="/website_aardwolf/static/imgs/common/specifications.png 2x" alt=""/>
                             </div>
                         </div>
 
