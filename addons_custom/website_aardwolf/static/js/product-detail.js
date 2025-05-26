@@ -216,39 +216,6 @@ const productInfo = {
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-(function handleDataProduct() {
-  const thumbWrapper = $(".toolrange__prod-detail__prod-thumbnalls");
-  const optionsWrapper = $(".toolrange__prod-detail__prod-options");
-
-  productInfo.images.map((img, index) => {
-    const imgItem = document.createElement("div");
-
-    const subClass = `${!index && "thumbnall-active"}`;
-    imgItem?.classList.add("toolrange__prod-detail__prod-thumbnall", subClass);
-
-    imgItem.innerHTML = `<img id="${"thumbnall-" + img.id}" src="${
-      img.src
-    }" alt="" data-type="${img.type}"/>`;
-
-    thumbWrapper?.appendChild(imgItem);
-  });
-
-  $(".toolrange__prod-detail__prod-options-title").innerText =
-    productInfo.options.title;
-
-  productInfo.options.data.map((option, index) => {
-    const optionItem = document.createElement("li");
-
-    const subClass = `${!index && "option-active"}`;
-
-    optionItem?.classList.add("toolrange__prod-detail__prod-option", subClass);
-    optionItem.id = `option-${option.id}`;
-
-    optionItem.innerText = `${option.value}`;
-
-    optionsWrapper?.appendChild(optionItem);
-  });
-})();
 
 (function handleChoseOption() {
   const thumbnalls = $$(".toolrange__prod-detail__prod-thumbnall");

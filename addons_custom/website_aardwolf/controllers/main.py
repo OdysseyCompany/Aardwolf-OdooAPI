@@ -476,9 +476,10 @@ class WebsiteSaleAardwolf(WebsiteSale):
             'category': product.public_categ_ids[0].name if product.public_categ_ids else False,
             'categ_slug': product.public_categ_ids[0].slug if product.public_categ_ids else False,
             'name': product.name,
-            'description': product.description,
-            'key_features': product.description,
-            'general': product.description,
+            'description': product.description_ecommerce,
+            'key_features': product.description_ecommerce,
+            'general': product.description_ecommerce,
+            'recommended': product.alternative_product_ids,
             'video': product.video_url,
             'img_128': url_img,
             'id': product.id
