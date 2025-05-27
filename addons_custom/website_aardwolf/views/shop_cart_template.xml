@@ -22,10 +22,9 @@
                         <div class="your-cart__order-btns">
                             <a role="button"
                                name="website_sale_main_button"
-                               class="your-cart__order-btn btn-request"
-                               href="/shop/confirm_order">
+                               class="your-cart__order-btn btn-request cart__btn-request"
+                               href="#">
                                 Request A Price
-                                <i class="fa fa-angle-right ms-2 fw-light"/>
                             </a>
                             <button class="your-cart__order-btn btn-find">
                                 Find Your Nearest Store
@@ -38,8 +37,165 @@
                      using XPath on the `oe_struture` element ID. Therefore, we can't use dynamic
                      IDs (like with t-att-id) and each template needs to define a div element. -->
                 <t t-out="oe_structure"/>
+                <div class="toolrange__prod-detail__dialog toolrange-dialog">
+                    <form action="" class="toolrange__prod-detail__form-request form-request__demo">
+                        <div class="toolrange__prod-detail__form-request-close form-request-close"/>
+                        <h2 class="toolrange__prod-detail__form-request-title">
+                            Request a price
+                        </h2>
+
+                        <div class="group-fields">
+                            <div class="toolrange__prod-detail__form-request-fields">
+                                <input
+                                        id="form-request-first-name"
+                                        name="firstName"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="First Name*"
+                                        required="true"
+                                />
+                                <input
+                                        id="form-request-last-name"
+                                        name="lastName"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Last Name*"
+                                        required="true"
+                                />
+                            </div>
+
+                            <div class="toolrange__prod-detail__form-request-fields">
+                                <input
+                                        id="form-request-email"
+                                        name="email"
+                                        type="email"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Email*"
+                                        required="true"
+                                />
+                                <input
+                                        id="form-request-phone"
+                                        name="phone"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Phone*"
+                                        required="true"
+                                />
+                            </div>
+
+                            <div class="toolrange__prod-detail__form-request-fields">
+                                <input
+                                        id="form-request-company"
+                                        name="companyName"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Company Name*"
+                                        required="true"
+                                />
+                                <input
+                                        id="form-request-last-name"
+                                        name="postcode"
+                                        type="number"
+                                        class="toolrange__prod-detail__form-request-field"
+                                        placeholder="Postcode*"
+                                        required="true"
+                                />
+                            </div>
+
+                            <div
+                                class="toolrange__prod-detail__form-request-select select-custom select-country"
+                              >
+                                <span name="select-mask" class="select-custom__mask"></span>
+                                <input
+                                  id="form-request-country"
+                                  name="country"
+                                  type="text"
+                                  readonly="true"
+                                  class="toolrange__prod-detail__form-request-field select-field"
+                                  placeholder="Country*"
+                                />
+
+                                <div class="select-custom__options">
+                                  <data value="vn" class="select-custom__option">Vietnam</data>
+                                  <data value="usa" class="select-custom__option">America</data>
+                                  <data value="aus" class="select-custom__option"
+                                    >Australia</data
+                                  >
+                                  <data value="ca" class="select-custom__option">Canada</data>
+                                  <data value="ind" class="select-custom__option">India</data>
+                                </div>
+                              </div>
+
+                            <div class="toolrange__prod-detail__form-request-select select-custom select-state">
+                                <span name="select-mask" class="select-custom__mask"></span>
+                                <input
+                                        id="form-request-state"
+                                        name="state"
+                                        type="text"
+                                        class="toolrange__prod-detail__form-request-field select-field"
+                                        placeholder="state*"
+                                        required="true"
+                                />
+
+                                <div class="select-custom__options">
+                                    <data value="Alabama" class="select-custom__option"
+                                    >Alabama
+                                    </data
+                                    >
+                                    <data value="Alaska" class="select-custom__option"
+                                    >Alaska
+                                    </data
+                                    >
+                                    <data value="Massachusetts" class="select-custom__option"
+                                    >Massachusetts
+                                    </data
+                                    >
+                                    <data value="Texas" class="select-custom__option">Texas</data>
+                                    <data value="California" class="select-custom__option"
+                                    >California
+                                    </data
+                                    >
+                                    <data value="New York" class="select-custom__option"
+                                    >New York
+                                    </data
+                                    >
+                                    <data value="Washington" class="select-custom__option"
+                                    >Washington
+                                    </data
+                                    >
+                                    <data value="West Virginia" class="select-custom__option"
+                                    >West Virginia
+                                    </data
+                                    >
+                                </div>
+                            </div>
+
+                            <textarea
+                                    name="message"
+                                    id="form-request-message"
+                                    class="toolrange__prod-detail__form-request-field"
+                                    placeholder="Message"/>
+                        </div>
+
+                        <button type="submit" class="toolrange__prod-detail__form-request-btn btn-submit">
+                            Request demo
+                        </button>
+
+                        <p class="toolrange__prod-detail__form-request-explain">
+                            *How we might use your information We may contact you by phone or
+                            email, if you have not opted out, or where we are otherwise
+                            permitted by law, to provide you with marketing communications
+                            about similar goods and services. The legal basis that allows us
+                            to use your information is ‘legitimate interests’. More
+                            information about how we use your personal data can be found in
+                            our Privacy Policy.
+                        </p>
+                    </form>
+                </div>
             </div>
         </t>
+        <script src="/website_aardwolf/static/js/main.js"/>
+        <script src="/website_aardwolf/static/js/cart.js"/>
     </template>
 
     <template id="website_sale.cart" name="Shopping Cart">
