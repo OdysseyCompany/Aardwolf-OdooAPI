@@ -1328,7 +1328,7 @@ button {
   -ms-flex-item-align: stretch;
       -ms-grid-row-align: stretch;
       align-self: stretch;
-  background: url("/website_aardwolf/static/imgs/home_page/banner1.png") no-repeat center;
+  background: url("/website_aardwolf/static/imgs/home_page/banner1.jpg") no-repeat center;
   background-size: cover;
   position: relative;
   background-position: top;
