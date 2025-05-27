@@ -298,7 +298,7 @@ button {
       letter-spacing: unset;
     }
 }
-@media (max-width: 666px) {
+@media (max-width: 767px) {
     .aardwolf-login.aardwolf-register {
     flex-direction: column-reverse;
     padding: 17.5px 16px;
@@ -1328,7 +1328,7 @@ button {
   -ms-flex-item-align: stretch;
       -ms-grid-row-align: stretch;
       align-self: stretch;
-  background: url("/website_aardwolf/static/imgs/home_page/banner1.png") no-repeat center;
+  background: url("/website_aardwolf/static/imgs/home_page/banner1.jpg") no-repeat center;
   background-size: cover;
   position: relative;
   background-position: top;
@@ -6285,6 +6285,7 @@ button {
   }
 }
 .toolrange__b-distributor__benefits-content {
+  max-width: 507.574px;
   margin-top: 49.84px;
   color: #000;
   font-family: "Kanit-Regular";
