@@ -46,13 +46,18 @@ class WebsiteAardwolf(http.Controller):
                 csrf=False)
     def contact_form_empty(self, **kwargs):
         name = kwargs['firstName'] + ' ' + kwargs['lastName']
-        request.env['res.partner'].sudo().create({
+        partner = request.env['res.partner'].sudo().create({
             'name': name,
             'email': kwargs['email'],
             'phone': kwargs['phone'],
+            'zip': kwargs['postcode'],
+            'street': kwargs['country'],
             'comment': kwargs,
         })
-        # This is a workaround to don't add language prefix to <form action="/website/form/" ...>
+        mail_template = request.env.ref('website_aardwolf.mail_template_submit_contact_form',
+                                   raise_if_not_found=False)
+        if mail_template:
+            mail_template.sudo().send_mail(partner.id, force_send=True)
         return request.render('website_aardwolf.contact_thanks_page')
 
     def update_product_image_thumb(self):

@@ -473,5 +473,105 @@
             <field name="auto_delete" eval="True"/>
         </record>
 
+        <record id="mail_template_submit_contact_form" model="mail.template">
+            <field name="name">Mail template submit contact form</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="subject">Submit contact</field>
+            <field name="email_to">{{ object.email }}</field>
+            <field name="description">Submit contact success</field>
+            <field name="body_html" type="html">
+                <div style="font-family: Arial, sans-serif; background: #f5f5f5; padding: 0; margin: 0;">
+                    <div style="max-width: 600px; margin: 0 auto; background: #fff; border: 1px solid #ccc;">
+                        <div style="background: #222; padding: 20px; text-align: center;">
+                            <img src="https://i.imgur.com/tQyVV4R.png" alt="Aardwolf Logo" style="max-width: 180px;"/>
+                        </div>
+                        <div style="padding: 30px;">
+                            <p>
+                                <strong>Dear ${object.partner_id.name},</strong>
+                            </p>
+
+                            <p>Thank you for your interest in our products/services and for submitting your pricing
+                                request through our website.
+                            </p>
+
+                            <p>We have received the following information from you:</p>
+
+                            <table style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+                                <tr>
+                                    <td style="padding: 10px; font-weight: bold;">Full Name</td>
+                                    <td style="padding: 10px;">${object.name}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; font-weight: bold;">Email</td>
+                                    <td style="padding: 10px;">${object.email}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; font-weight: bold;">Phone</td>
+                                    <td style="padding: 10px;">${object.phone or ''}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; font-weight: bold;">Company Name</td>
+                                    <td style="padding: 10px;">
+                                        ${object.company_name}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; font-weight: bold;">Postcode</td>
+                                    <td style="padding: 10px;">${object.zip or ''}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; font-weight: bold;">Country</td>
+                                    <td style="padding: 10px;">${object.street or ''}</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px; font-weight: bold;">Message</td>
+                                    <td style="padding: 10px;">${object.comment or ''}</td>
+                                </tr>
+                            </table>
+
+                            <p>Our sales team will get in touch with you shortly to provide a detailed quote and assist
+                                you with any further information you may need.
+                            </p>
+
+                            <p>If your request is urgent, please feel free to contact us directly at [company phone
+                                number] or [company email].
+                            </p>
+
+                            <p>We appreciate your interest and look forward to working with you.</p>
+
+                            <p>Best regards,<br/>Aardwolf Team
+                            </p>
+                        </div>
+                        <div style="text-align: center; font-size: 12px; padding: 20px; background: #f1f1f1; color: #777;">
+                            <img src="https://i.imgur.com/tQyVV4R.png" alt="Aardwolf Logo" style="max-width: 100px;"/>
+                            <br/>
+                            Sent with love from Aardwolf, Inc.
+                            <br/>
+                            9401 Norwalk Blvd Santa Fe Springs, CA 90670
+                            <br/>
+                            <a href="#">Who is Aardwolf?</a>
+                            ·
+                            <a href="#">Contact Us</a>
+                            <br/>
+                            <div style="margin-top: 10px;">
+                                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384015.png"
+                                     style="width: 20px; margin: 0 5px;"/>
+                                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384017.png"
+                                     style="width: 20px; margin: 0 5px;"/>
+                                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384014.png"
+                                     style="width: 20px; margin: 0 5px;"/>
+                                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png"
+                                     style="width: 20px; margin: 0 5px;"/>
+                                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384012.png"
+                                     style="width: 20px; margin: 0 5px;"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </field>
+            <field name="lang">{{ object.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
     </data>
 </odoo>
