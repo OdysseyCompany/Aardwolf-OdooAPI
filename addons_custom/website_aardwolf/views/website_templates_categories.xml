@@ -231,35 +231,57 @@
                                 />
 
                                 <div class="select-custom__options">
-                                    <data value="Alabama" class="select-custom__option"
-                                    >Alabama
-                                    </data
-                                    >
-                                    <data value="Alaska" class="select-custom__option"
-                                    >Alaska
-                                    </data
-                                    >
-                                    <data value="Massachusetts" class="select-custom__option"
-                                    >Massachusetts
-                                    </data
-                                    >
+                                    <data value="Alabama" class="select-custom__option">Alabama</data>
+                                    <data value="Alaska" class="select-custom__option">Alaska</data>
+                                    <data value="Arizona" class="select-custom__option">Arizona</data>
+                                    <data value="Arkansas" class="select-custom__option">Arkansas</data>
+                                    <data value="California" class="select-custom__option">California</data>
+                                    <data value="Colorado" class="select-custom__option">Colorado</data>
+                                    <data value="Connecticut" class="select-custom__option">Connecticut</data>
+                                    <data value="Delaware" class="select-custom__option">Delaware</data>
+                                    <data value="Delaware" class="select-custom__option">Delaware</data>
+                                    <data value="Florida" class="select-custom__option">Florida</data>
+                                    <data value="Georgia" class="select-custom__option">Georgia</data>
+                                    <data value="Hawaii" class="select-custom__option">Hawaii</data>
+                                    <data value="Idaho" class="select-custom__option">Idaho</data>
+                                    <data value="Illinois" class="select-custom__option">Illinois</data>
+                                    <data value="Indiana" class="select-custom__option">Indiana</data>
+                                    <data value="Iowa" class="select-custom__option">Iowa</data>
+                                    <data value="Kansas" class="select-custom__option">Kansas</data>
+                                    <data value="Kentucky" class="select-custom__option">Kentucky</data>
+                                    <data value="Louisiana" class="select-custom__option">Louisiana</data>
+                                    <data value="Maine" class="select-custom__option">Maine</data>
+                                    <data value="Maryland" class="select-custom__option">Maryland</data>
+                                    <data value="Massachusetts" class="select-custom__option">Massachusetts</data>
+                                    <data value="Michigan" class="select-custom__option">Michigan</data>
+                                    <data value="Minnesota" class="select-custom__option">Minnesota</data>
+                                    <data value="Mississippi" class="select-custom__option">Mississippi</data>
+                                    <data value="Missouri" class="select-custom__option">Missouri</data>
+                                    <data value="Montana" class="select-custom__option">Montana</data>
+                                    <data value="Nebraska" class="select-custom__option">Nebraska</data>
+                                    <data value="Nevada" class="select-custom__option">Nevada</data>
+                                    <data value="New Hampshire" class="select-custom__option">New Hampshire</data>
+                                    <data value="New Jersey" class="select-custom__option">New Jersey</data>
+                                    <data value="New Mexico" class="select-custom__option">New Mexico</data>
+                                    <data value="New York" class="select-custom__option">New York</data>
+                                    <data value="North Carolina" class="select-custom__option">North Carolina</data>
+                                    <data value="North Dakota" class="select-custom__option">North Dakota</data>
+                                    <data value="Ohio" class="select-custom__option">Ohio</data>
+                                    <data value="Oklahoma" class="select-custom__option">Oklahoma</data>
+                                    <data value="Oregon" class="select-custom__option">Oregon</data>
+                                    <data value="Pennsylvania" class="select-custom__option">Pennsylvania</data>
+                                    <data value="Rhode Island" class="select-custom__option">Rhode Island</data>
+                                    <data value="South Carolina" class="select-custom__option">South Carolina</data>
+                                    <data value="South Dakota" class="select-custom__option">South Dakota</data>
+                                    <data value="Tennessee" class="select-custom__option">Tennessee</data>
                                     <data value="Texas" class="select-custom__option">Texas</data>
-                                    <data value="California" class="select-custom__option"
-                                    >California
-                                    </data
-                                    >
-                                    <data value="New York" class="select-custom__option"
-                                    >New York
-                                    </data
-                                    >
-                                    <data value="Washington" class="select-custom__option"
-                                    >Washington
-                                    </data
-                                    >
-                                    <data value="West Virginia" class="select-custom__option"
-                                    >West Virginia
-                                    </data
-                                    >
+                                    <data value="Utah" class="select-custom__option">Utah</data>
+                                    <data value="Vermont" class="select-custom__option">Vermont</data>
+                                    <data value="Virginia" class="select-custom__option">Virginia</data>
+                                    <data value="Washington" class="select-custom__option">Washington</data>
+                                    <data value="West Virginia" class="select-custom__option">West Virginia</data>
+                                    <data value="Wisconsin" class="select-custom__option">Wisconsin</data>
+                                    <data value="Wyoming" class="select-custom__option">Wyoming</data>
                                 </div>
                             </div>
 
