@@ -298,7 +298,7 @@ button {
       letter-spacing: unset;
     }
 }
-@media (max-width: 666px) {
+@media (max-width: 767px) {
     .aardwolf-login.aardwolf-register {
     flex-direction: column-reverse;
     padding: 17.5px 16px;

@@ -95,3 +95,24 @@ $('.toolrange__categories-page__btn-link')?.addEventListener('click', function(e
   e.preventDefault();
   this.style.display = 'none';
 })
+
+function createOption(option) {
+  const optionEl = document.createElement("data");
+  optionEl.classList.add("select-custom__option");
+  optionEl.setAttribute("value", option);
+  optionEl.innerText = option;
+
+  return optionEl;
+}
+
+function updateOptions(options) {
+  const container = document.querySelector(
+    ".select-custom__options.select-country"
+  );
+  if (!container) return;
+  container.innerHTML = "";
+  const optionElements = options.map((option) => createOption(option));
+  optionElements.forEach((optionEl) => container.appendChild(optionEl));
+}
+
+updateOptions(countries);
