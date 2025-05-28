@@ -280,6 +280,21 @@ class WebsiteAardwolf(http.Controller):
                 status=500
             )
 
+    @http.route(['/our-distributor'], type='http', auth="public", website=True, sitemap=False)
+    def our_distributor(self, **post):
+        try:
+            result = []
+            return request.render("website_aardwolf.our_distributor_aardwolf", {
+                'values': result
+            })
+
+        except Exception as error:
+            return request.make_response(
+                str(error),
+                headers=[('Content-Type', 'text/plain')],
+                status=500
+            )
+
     @http.route(['/our-trade-shows'], type='http', auth="public", website=True, sitemap=False)
     def our_trade_shows(self, **post):
         try:

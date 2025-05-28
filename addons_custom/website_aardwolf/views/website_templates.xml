@@ -420,140 +420,140 @@
                     <h3 class="toolrange__featured-products__title">FEATURED PRODUCTS</h3>
 
                     <div class="toolrange__featured-products__list">
-                      <a
-                        productItemId=""
-                        href="#"
-                        class="toolrange__featured-products__item"
-                      >
-                        <div class="slide-img">
-                          <img src="/website_aardwolf/static/imgs/common/products/product-29.png" alt="" />
-                        </div>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__featured-products__item"
+                        >
+                            <div class="slide-img">
+                                <img src="/website_aardwolf/static/imgs/common/products/product-29.png" alt=""/>
+                            </div>
 
-                        <div class="img-content">
-                          <p>AARDWOLF Slab Lifter</p>
-                        </div>
-                      </a>
-                      <a
-                        productItemId=""
-                        href="#"
-                        class="toolrange__featured-products__item"
-                      >
-                        <div class="slide-img">
-                          <img src="/website_aardwolf/static/imgs/common/products/product-30.png" alt="" />
-                        </div>
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__featured-products__item"
+                        >
+                            <div class="slide-img">
+                                <img src="/website_aardwolf/static/imgs/common/products/product-30.png" alt=""/>
+                            </div>
 
-                        <div class="img-content">
-                          <p>Vacuum Glass Lifter</p>
-                        </div>
-                      </a>
-                      <a
-                        productItemId=""
-                        href="#"
-                        class="toolrange__featured-products__item"
-                      >
-                        <div class="slide-img">
-                          <img src="/website_aardwolf/static/imgs/common/products/product-31.png" alt="" />
-                        </div>
+                            <div class="img-content">
+                                <p>Vacuum Glass Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__featured-products__item"
+                        >
+                            <div class="slide-img">
+                                <img src="/website_aardwolf/static/imgs/common/products/product-31.png" alt=""/>
+                            </div>
 
-                        <div class="img-content">
-                          <p>Kitchen Installation Cart- Pro Version</p>
-                        </div>
-                      </a>
-                      <a
-                        productItemId=""
-                        href="#"
-                        class="toolrange__featured-products__item"
-                      >
-                        <div class="slide-img">
-                          <img src="/website_aardwolf/static/imgs/common/products/product-32.png" alt="" />
-                        </div>
+                            <div class="img-content">
+                                <p>Kitchen Installation Cart- Pro Version</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__featured-products__item"
+                        >
+                            <div class="slide-img">
+                                <img src="/website_aardwolf/static/imgs/common/products/product-32.png" alt=""/>
+                            </div>
 
-                        <div class="img-content">
-                          <p>Hydraulic brick scissor grab</p>
-                        </div>
-                      </a>
-                      <a
-                        productItemId=""
-                        href="#"
-                        class="toolrange__featured-products__item"
-                      >
-                        <div class="slide-img">
-                          <img src="/website_aardwolf/static/imgs/common/products/product-33.png" alt="" />
-                        </div>
+                            <div class="img-content">
+                                <p>Hydraulic brick scissor grab</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__featured-products__item"
+                        >
+                            <div class="slide-img">
+                                <img src="/website_aardwolf/static/imgs/common/products/product-33.png" alt=""/>
+                            </div>
 
-                        <div class="img-content">
-                          <p>Drill Guide Assembly</p>
-                        </div>
-                      </a>
-                      <a
-                        productItemId=""
-                        href="#"
-                        class="toolrange__featured-products__item"
-                      >
-                        <div class="slide-img">
-                          <img src="/website_aardwolf/static/imgs/common/products/product-29.png" alt="" />
-                        </div>
+                            <div class="img-content">
+                                <p>Drill Guide Assembly</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__featured-products__item"
+                        >
+                            <div class="slide-img">
+                                <img src="/website_aardwolf/static/imgs/common/products/product-29.png" alt=""/>
+                            </div>
 
-                        <div class="img-content">
-                          <p>AARDWOLF Slab Lifter</p>
-                        </div>
-                      </a>
-                      <a
-                        productItemId=""
-                        href="#"
-                        class="toolrange__featured-products__item"
-                      >
-                        <div class="slide-img">
-                          <img src="/website_aardwolf/static/imgs/common/products/product-31.png" alt="" />
-                        </div>
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__featured-products__item"
+                        >
+                            <div class="slide-img">
+                                <img src="/website_aardwolf/static/imgs/common/products/product-31.png" alt=""/>
+                            </div>
 
-                        <div class="img-content">
-                          <p>Kitchen Installation Cart- Pro Version</p>
-                        </div>
-                      </a>
-                      <a
-                        productItemId=""
-                        href="#"
-                        class="toolrange__featured-products__item"
-                      >
-                        <div class="slide-img">
-                          <img src="/website_aardwolf/static/imgs/common/products/product-30.png" alt="" />
-                        </div>
+                            <div class="img-content">
+                                <p>Kitchen Installation Cart- Pro Version</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__featured-products__item"
+                        >
+                            <div class="slide-img">
+                                <img src="/website_aardwolf/static/imgs/common/products/product-30.png" alt=""/>
+                            </div>
 
-                        <div class="img-content">
-                          <p>Vacuum Glass Lifter</p>
-                        </div>
-                      </a>
-                      <a
-                        productItemId=""
-                        href="#"
-                        class="toolrange__featured-products__item"
-                      >
-                        <div class="slide-img">
-                          <img src="/website_aardwolf/static/imgs/common/products/product-33.png" alt="" />
-                        </div>
+                            <div class="img-content">
+                                <p>Vacuum Glass Lifter</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__featured-products__item"
+                        >
+                            <div class="slide-img">
+                                <img src="/website_aardwolf/static/imgs/common/products/product-33.png" alt=""/>
+                            </div>
 
-                        <div class="img-content">
-                          <p>Drill Guide Assembly</p>
-                        </div>
-                      </a>
-                      <a
-                        productItemId=""
-                        href="#"
-                        class="toolrange__featured-products__item"
-                      >
-                        <div class="slide-img">
-                          <img src="/website_aardwolf/static/imgs/common/products/product-31.png" alt="" />
-                        </div>
+                            <div class="img-content">
+                                <p>Drill Guide Assembly</p>
+                            </div>
+                        </a>
+                        <a
+                                productItemId=""
+                                href="#"
+                                class="toolrange__featured-products__item"
+                        >
+                            <div class="slide-img">
+                                <img src="/website_aardwolf/static/imgs/common/products/product-31.png" alt=""/>
+                            </div>
 
-                        <div class="img-content">
-                          <p>AARDWOLF Slab Lifter</p>
-                        </div>
-                      </a>
+                            <div class="img-content">
+                                <p>AARDWOLF Slab Lifter</p>
+                            </div>
+                        </a>
                     </div>
 
                     <a href="/product" class="button-link">View All</a>
-                  </section>
+                </section>
 
                 <section class="toolrange__distributors">
                     <h3 class="toolrange__distributors__title">TRUSTED DISTRIBUTORS</h3>
@@ -796,7 +796,7 @@
                         </div>
                     </div>
 
-                    <a href="/" class="btn-common">Find Your Nearest Distributor</a>
+                    <a href="/our-distributor" class="btn-common">Find Your Nearest Distributor</a>
                 </section>
 
                 <section class="toolrange__why-aardwolf">
@@ -928,7 +928,7 @@
                         <p class="toolrange__contact-page__certified-label">Company Registration No.</p>
                         <p class="toolrange__contact-page__certified-code">ISO 9001:2023 certified</p>
                         <p class="toolrange__contact-page__certified-code">ISO 45001:2023 certified</p>
-                      </div>
+                    </div>
 
                     <div class="toolrange__contact-page__contact">
                         <div class="toolrange__contact">
@@ -1017,21 +1017,21 @@
                                         />
                                     </div>
 
-                                     <div
-                                        class="toolrange__prod-detail__form-request-combobox combobox-common"
-                                      >
+                                    <div
+                                            class="toolrange__prod-detail__form-request-combobox combobox-common"
+                                    >
                                         <input
-                                          id="contact-country2"
-                                          name="support-type"
-                                          type="text"
-                                          class="toolrange__prod-detail__form-request-field select-field combobox-field"
-                                          placeholder="Support Type*"
-                                          required="true"
+                                                id="contact-country2"
+                                                name="support-type"
+                                                type="text"
+                                                class="toolrange__prod-detail__form-request-field select-field combobox-field"
+                                                placeholder="Support Type*"
+                                                required="true"
                                         />
                                         <div class="select-custom__options select-country">
 
                                         </div>
-                                      </div>
+                                    </div>
 
                                     <textarea name="message" id="contact-message" class="toolrange__contact__form-field"
                                               placeholder="Message"/>
@@ -1393,20 +1393,20 @@
                                     />
                                 </div>
 
-                                 <div
-                                class="toolrange__prod-detail__form-request-combobox combobox-common"
-                              >
-                                <input
-                                  id="contact-country2"
-                                  name="support-type"
-                                  type="text"
-                                  class="toolrange__prod-detail__form-request-field select-field combobox-field"
-                                  placeholder="Support Type*"
-                                />
-                                <div class="select-custom__options select-country">
+                                <div
+                                        class="toolrange__prod-detail__form-request-combobox combobox-common"
+                                >
+                                    <input
+                                            id="contact-country2"
+                                            name="support-type"
+                                            type="text"
+                                            class="toolrange__prod-detail__form-request-field select-field combobox-field"
+                                            placeholder="Support Type*"
+                                    />
+                                    <div class="select-custom__options select-country">
 
+                                    </div>
                                 </div>
-                              </div>
 
                                 <textarea
                                         name="message"
@@ -1811,9 +1811,14 @@
                         <h5 class="toolrange__b-distributor__benefits-title">
                             What becoming a Distributor Partner can do for you
                         </h5>
-                        <pre class="toolrange__b-distributor__benefits-content">AARDWOLF lifting equipment and material handling are trusted by leading companies around the globe to improve safety and efficiency. This ensures you can confidently offer these products to your customers.
+                        <pre class="toolrange__b-distributor__benefits-content">AARDWOLF lifting equipment and material
+                            handling are trusted by leading companies around the globe to improve safety and efficiency.
+                            This ensures you can confidently offer these products to your customers.
 
-With our worldwide brand recognition and comprehensive support can unlock new opportunities for your business, enabling you to enter new markets, broaden your product range, and secure ongoing revenue streams</pre>
+                            With our worldwide brand recognition and comprehensive support can unlock new opportunities
+                            for your business, enabling you to enter new markets, broaden your product range, and secure
+                            ongoing revenue streams
+                        </pre>
                     </div>
 
                     <div class="toolrange__b-distributor__benefits-list">
@@ -2341,6 +2346,347 @@ With our worldwide brand recognition and comprehensive support can unlock new op
         <!--        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>-->
         <!--        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>-->
         <script type="module" src="/website_aardwolf/static/js/become-distributor.js"/>
+    </template>
+
+    <template id="our_distributor" name="Our Distributor">
+        <div class="toolrange">
+            <div class="toolrange__find-distributor">
+                <div class="toolrange__find-distributor__intro">
+                    <h2 class="toolrange__find-distributor__intro-title">
+                        Our Distributors
+                    </h2>
+
+                    <p class="toolrange__find-distributor__intro-message">
+                        Our extensive network of distributors spans across the USA, ensuring
+                        seamless accessibility to our products no matter where you are. With
+                        trusted partners in every region, we’re committed to providing
+                        reliable solutions and exceptional service through our nationwide
+                        distribution channels.
+                    </p>
+                </div>
+
+                <div class="toolrange__find-distributor__content">
+                    <div class="toolrange__find-distributor__content-map">
+                        <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12562816.630798155!2d-98.5!3d39.76!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1744625556970!5m2!1sen!2s"
+                                height="550"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
+
+                    <div class="toolrange__find-distributor__tabs-wrapper">
+                        <div class="toolrange__find-distributor__tabs">
+                            <div
+                                    data-country="usa"
+                                    class="toolrange__find-distributor__tabs-item tab-active"
+                            >
+                                <p>USA</p>
+                            </div>
+
+                            <div
+                                    data-country="canada"
+                                    class="toolrange__find-distributor__tabs-item"
+                            >
+                                <p>Canada</p>
+                            </div>
+
+                            <div
+                                    data-country="mexico"
+                                    class="toolrange__find-distributor__tabs-item"
+                            >
+                                <p>Mexico</p>
+                            </div>
+                        </div>
+
+                        <div class="toolrange__find-distributor__views">
+                            <div
+                                    data-country="usa"
+                                    class="toolrange__find-distributor__view view-active"
+                            >
+                                <div class="find-distributor__select select-state">
+                                    <p class="find-distributor__select-tag">State</p>
+
+                                    <div class="find-distributor__select-list">
+                                        <data value="Alaska" class="find-distributor__select-option">Alaska</data>
+                                        <data value="California" class="find-distributor__select-option">California
+                                        </data>
+                                        <data value="Colorado" class="find-distributor__select-option">Colorado</data>
+                                        <data value="Oregon" class="find-distributor__select-option">Oregon</data>
+                                        <data value="Washington" class="find-distributor__select-option">Washington
+                                        </data>
+                                        <data value="Nevada" class="find-distributor__select-option">Nevada</data>
+                                        <data value="Idaho" class="find-distributor__select-option">Idaho</data>
+                                        <data value="Montana" class="find-distributor__select-option">Montana</data>
+                                        <data value="Utah" class="find-distributor__select-option">Utah</data>
+                                        <data value="Alaska" class="find-distributor__select-option">Alaska</data>
+                                        <data value="California" class="find-distributor__select-option">California
+                                        </data>
+                                        <data value="Colorado" class="find-distributor__select-option">Colorado</data>
+                                        <data value="Oregon" class="find-distributor__select-option">Oregon</data>
+                                        <data value="Washington" class="find-distributor__select-option">Washington
+                                        </data>
+                                        <data value="Nevada" class="find-distributor__select-option">Nevada</data>
+                                        <data value="Idaho" class="find-distributor__select-option">Idaho</data>
+                                        <data value="Montana" class="find-distributor__select-option">Montana</data>
+                                        <data value="Utah" class="find-distributor__select-option">Utah</data>
+                                    </div>
+                                </div>
+                                <div class="find-distributor__select select-city">
+                                    <p class="find-distributor__select-tag">City</p>
+
+                                    <div class="find-distributor__select-list">
+                                        <data value="Bothell" class="find-distributor__select-option">Bothell</data>
+                                        <data value="Burien" class="find-distributor__select-option">Burien</data>
+                                        <data value="Edmonds" class="find-distributor__select-option">Edmonds</data>
+                                        <data value="Seattle" class="find-distributor__select-option">Seattle</data>
+                                        <data value="Everett" class="find-distributor__select-option">Everett</data>
+                                        <data value="Kirkland" class="find-distributor__select-option">Kirkland</data>
+                                        <data value="Redmond" class="find-distributor__select-option">Redmond</data>
+                                        <data value="Renton" class="find-distributor__select-option">Renton</data>
+                                        <data value="Bothell" class="find-distributor__select-option">Bothell</data>
+                                        <data value="Burien" class="find-distributor__select-option">Burien</data>
+                                        <data value="Edmonds" class="find-distributor__select-option">Edmonds</data>
+                                        <data value="Seattle" class="find-distributor__select-option">Seattle</data>
+                                        <data value="Everett" class="find-distributor__select-option">Everett</data>
+                                        <data value="Kirkland" class="find-distributor__select-option">Kirkland</data>
+                                        <data value="Redmond" class="find-distributor__select-option">Redmond</data>
+                                        <data value="Renton" class="find-distributor__select-option">Renton</data>
+                                    </div>
+                                </div>
+                                <div class="find-distributor__select select-brand">
+                                    <p class="find-distributor__select-tag">Brand</p>
+
+                                    <div class="find-distributor__select-list">
+                                        <data value="GranQuartz" class="find-distributor__select-option">GranQuartz
+                                        </data>
+                                        <data value="Master Wholesale" class="find-distributor__select-option">Master
+                                            Wholesale
+                                        </data>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                    data-country="canada"
+                                    class="toolrange__find-distributor__view"
+                            >
+                                <div class="find-distributor__select select-state">
+                                    <p class="find-distributor__select-tag">State</p>
+
+                                    <div class="find-distributor__select-list">
+                                        <data value="Alaska" class="find-distributor__select-option">Canada</data>
+                                        <data value="California" class="find-distributor__select-option">California
+                                        </data>
+                                        <data value="Colorado" class="find-distributor__select-option">Colorado</data>
+                                        <data value="Oregon" class="find-distributor__select-option">Oregon</data>
+                                        <data value="Washington" class="find-distributor__select-option">Washington
+                                        </data>
+                                        <data value="Nevada" class="find-distributor__select-option">Nevada</data>
+                                        <data value="Idaho" class="find-distributor__select-option">Idaho</data>
+                                        <data value="Montana" class="find-distributor__select-option">Montana</data>
+                                        <data value="Utah" class="find-distributor__select-option">Utah</data>
+                                        <data value="Alaska" class="find-distributor__select-option">Alaska</data>
+                                        <data value="California" class="find-distributor__select-option">California
+                                        </data>
+                                        <data value="Colorado" class="find-distributor__select-option">Colorado</data>
+                                        <data value="Oregon" class="find-distributor__select-option">Oregon</data>
+                                        <data value="Washington" class="find-distributor__select-option">Washington
+                                        </data>
+                                        <data value="Nevada" class="find-distributor__select-option">Nevada</data>
+                                        <data value="Idaho" class="find-distributor__select-option">Idaho</data>
+                                        <data value="Montana" class="find-distributor__select-option">Montana</data>
+                                        <data value="Utah" class="find-distributor__select-option">Utah</data>
+                                    </div>
+                                </div>
+                                <div class="find-distributor__select select-city">
+                                    <p class="find-distributor__select-tag">City</p>
+
+                                    <div class="find-distributor__select-list">
+                                        <data value="Bothell" class="find-distributor__select-option">Canada</data>
+                                        <data value="Burien" class="find-distributor__select-option">Burien</data>
+                                        <data value="Edmonds" class="find-distributor__select-option">Edmonds</data>
+                                        <data value="Seattle" class="find-distributor__select-option">Seattle</data>
+                                        <data value="Everett" class="find-distributor__select-option">Everett</data>
+                                        <data value="Kirkland" class="find-distributor__select-option">Kirkland</data>
+                                        <data value="Redmond" class="find-distributor__select-option">Redmond</data>
+                                        <data value="Renton" class="find-distributor__select-option">Renton</data>
+                                        <data value="Bothell" class="find-distributor__select-option">Bothell</data>
+                                        <data value="Burien" class="find-distributor__select-option">Burien</data>
+                                        <data value="Edmonds" class="find-distributor__select-option">Edmonds</data>
+                                        <data value="Seattle" class="find-distributor__select-option">Seattle</data>
+                                        <data value="Everett" class="find-distributor__select-option">Everett</data>
+                                        <data value="Kirkland" class="find-distributor__select-option">Kirkland</data>
+                                        <data value="Redmond" class="find-distributor__select-option">Redmond</data>
+                                        <data value="Renton" class="find-distributor__select-option">Renton</data>
+                                    </div>
+                                </div>
+                                <div class="find-distributor__select select-brand">
+                                    <p class="find-distributor__select-tag">Brand</p>
+
+                                    <div class="find-distributor__select-list">
+                                        <data value="GranQuartz" class="find-distributor__select-option">GranQuartz
+                                        </data>
+                                        <data value="Master Wholesale" class="find-distributor__select-option">Master
+                                            Wholesale
+                                        </data>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                    data-country="mexico"
+                                    class="toolrange__find-distributor__view"
+                            >
+                                <div class="find-distributor__select select-state">
+                                    <p class="find-distributor__select-tag">State</p>
+
+                                    <div class="find-distributor__select-list">
+                                        <data value="Alaska" class="find-distributor__select-option">Mexico</data>
+                                        <data value="California" class="find-distributor__select-option">California
+                                        </data>
+                                        <data value="Colorado" class="find-distributor__select-option">Colorado</data>
+                                        <data value="Oregon" class="find-distributor__select-option">Oregon</data>
+                                        <data value="Washington" class="find-distributor__select-option">Washington
+                                        </data>
+                                        <data value="Nevada" class="find-distributor__select-option">Nevada</data>
+                                        <data value="Idaho" class="find-distributor__select-option">Idaho</data>
+                                        <data value="Montana" class="find-distributor__select-option">Montana</data>
+                                        <data value="Utah" class="find-distributor__select-option">Utah</data>
+                                        <data value="Alaska" class="find-distributor__select-option">Alaska</data>
+                                        <data value="California" class="find-distributor__select-option">California
+                                        </data>
+                                        <data value="Colorado" class="find-distributor__select-option">Colorado</data>
+                                        <data value="Oregon" class="find-distributor__select-option">Oregon</data>
+                                        <data value="Washington" class="find-distributor__select-option">Washington
+                                        </data>
+                                        <data value="Nevada" class="find-distributor__select-option">Nevada</data>
+                                        <data value="Idaho" class="find-distributor__select-option">Idaho</data>
+                                        <data value="Montana" class="find-distributor__select-option">Montana</data>
+                                        <data value="Utah" class="find-distributor__select-option">Utah</data>
+                                    </div>
+                                </div>
+                                <div class="find-distributor__select select-city">
+                                    <p class="find-distributor__select-tag">City</p>
+
+                                    <div class="find-distributor__select-list">
+                                        <data value="Bothell" class="find-distributor__select-option">Mexico</data>
+                                        <data value="Burien" class="find-distributor__select-option">Burien</data>
+                                        <data value="Edmonds" class="find-distributor__select-option">Edmonds</data>
+                                        <data value="Seattle" class="find-distributor__select-option">Seattle</data>
+                                        <data value="Everett" class="find-distributor__select-option">Everett</data>
+                                        <data value="Kirkland" class="find-distributor__select-option">Kirkland</data>
+                                        <data value="Redmond" class="find-distributor__select-option">Redmond</data>
+                                        <data value="Renton" class="find-distributor__select-option">Renton</data>
+                                        <data value="Bothell" class="find-distributor__select-option">Bothell</data>
+                                        <data value="Burien" class="find-distributor__select-option">Burien</data>
+                                        <data value="Edmonds" class="find-distributor__select-option">Edmonds</data>
+                                        <data value="Seattle" class="find-distributor__select-option">Seattle</data>
+                                        <data value="Everett" class="find-distributor__select-option">Everett</data>
+                                        <data value="Kirkland" class="find-distributor__select-option">Kirkland</data>
+                                        <data value="Redmond" class="find-distributor__select-option">Redmond</data>
+                                        <data value="Renton" class="find-distributor__select-option">Renton</data>
+                                    </div>
+                                </div>
+
+                                <div class="find-distributor__select select-brand">
+                                    <p class="find-distributor__select-tag">Brand</p>
+
+                                    <div class="find-distributor__select-list">
+                                        <data value="GranQuartz" class="find-distributor__select-option">GranQuartz
+                                        </data>
+                                        <data value="Master Wholesale" class="find-distributor__select-option">Master
+                                            Wholesale
+                                        </data>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="toolrange__find-distributor__brand">
+                        <div class="toolrange__find-distributor__brand-tag">
+                            <p class="toolrange__find-distributor__brand-tag-name">GranQuartz</p>
+                            <div class="toolrange__find-distributor__brand-tag-flag">
+                                <img src="/website_aardwolf/static/imgs/common/svgs/flag_us.svg" alt=""/>
+                            </div>
+                        </div>
+
+                        <div class="toolrange__find-distributor__brand-info">
+                            <div class="toolrange__find-distributor__brand-info-logo">
+                                <img src="/website_aardwolf/static/imgs/common/find-distributor/logo_brand1.svg" alt=""/>
+                            </div>
+
+                            <div>
+                                <p class="toolrange__find-distributor__brand-info-name">GranQuartz</p>
+                                <p class="toolrange__find-distributor__brand-info-web">Website:
+                                    <a href="www.granquartz.com">www.granquartz.com</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="brand-contact__group">
+                            <div class="toolrange__find-distributor__brand-contact">
+                                <p class="toolrange__find-distributor__brand-contact-location">GranQuartz, Seattle, WA
+                                </p>
+
+                                <p class="toolrange__find-distributor__brand-contact-address">6001 6th Avenue South
+                                    Seattle, WA 98108
+                                </p>
+
+                                <p class="toolrange__find-distributor__brand-contact-phone">Phone:
+                                    <a href="tel:2069737640">206 973 7640</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="toolrange__find-distributor__brand">
+                        <div class="toolrange__find-distributor__brand-tag">
+                            <p class="toolrange__find-distributor__brand-tag-name">Master Wholesale</p>
+                            <div class="toolrange__find-distributor__brand-tag-flag">
+                                <img src="/website_aardwolf/static/imgs/common/svgs/flag_us.svg" alt=""/>
+                            </div>
+                        </div>
+
+                        <div class="toolrange__find-distributor__brand-info">
+                            <div class="toolrange__find-distributor__brand-info-logo">
+                                <img src="/website_aardwolf/static/imgs/common/find-distributor/logo_brand2.svg" alt=""/>
+                            </div>
+
+                            <div>
+                                <p class="toolrange__find-distributor__brand-info-name">Master Wholesale</p>
+                                <p class="toolrange__find-distributor__brand-info-web">Website:
+                                    <a href="www.masterwholesale.com">www.masterwholesale.com</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="brand-contact__group">
+                            <div class="toolrange__find-distributor__brand-contact">
+                                <p class="toolrange__find-distributor__brand-contact-location">Master Wholesale</p>
+
+                                <p class="toolrange__find-distributor__brand-contact-address">520 S.Front Street,
+                                    Seattle, WA 98108
+                                </p>
+
+                                <p class="toolrange__find-distributor__brand-contact-phone">Phone:
+                                    <a href="tel:206 973 7640">206 973 7640</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="our_distributor_aardwolf" name="Our Distributor">
+        <t t-call="website_aardwolf.layout">
+            <t t-call="website_aardwolf.our_distributor"/>
+        </t>
+        <script type="module" src="/website_aardwolf/static/js/find-distributor.js"/>
     </template>
 
 
