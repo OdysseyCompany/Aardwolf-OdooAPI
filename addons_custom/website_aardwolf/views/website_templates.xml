@@ -58,23 +58,6 @@
                     </div>
 
                     <div class="toolrange__header__right-group">
-                        <!--                        <div class="toolrange__header__search" id="search-container">-->
-                        <!--                            <input type="text" placeholder="Search" id="main-search"/>-->
-
-                        <!--                            <div class="toolrange__header__search-wrapper" id="search-wrapper">-->
-                        <!--                                <div class="toolrange__header__search-box">-->
-                        <!--                                    <div class="box-input-wrapper">-->
-                        <!--                                        <input type="text" class="toolrange__input-search" placeholder="Mechanical"-->
-                        <!--                                               id="sub-search"/>-->
-                        <!--                                        <img src="/website_aardwolf/static/imgs/common/svgs/close.svg" alt=""-->
-                        <!--                                             id="search-close"/>-->
-                        <!--                                    </div>-->
-                        <!--                                    <ul class="toolrange__header__search-suggestions" id="suggestion-list">-->
-                        <!--                                    </ul>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
-
                         <div class="toolrange__header__right-sub-group">
                             <!-- Search Bar -->
                             <t t-call="website.placeholder_header_search_box"
@@ -132,10 +115,6 @@
                         <a href="mailto:sales@aardwolfusa.com">SEND A MESSAGE</a>
                     </div>
                 </div>
-
-<!--                <div class="toolrange__header__search sp-on">-->
-<!--                    <input type="text" placeholder="Search"/>-->
-<!--                </div>-->
                 <div class="toolrange__menu-sp">
                     <div class="toolrange__menu-sp__links">
                         <div class="toolrange__menu-sp__item item-dropdown">
@@ -205,18 +184,6 @@
                                     <p>+1 562-553-6050 sales@aardwolfusa.com</p>
                                 </li>
                             </ul>
-
-                            <!--                            <div class="toolrange__footer__content-map">-->
-                            <!--                                <iframe-->
-                            <!--                                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31337.294137202523!2d106.62440613289374!3d10.95115023310836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s17%20KP%20Binh%20Thuan%202%2C%20Thuan%20An%2C%20Binh%20Duong%2C%20Vietnam!5e0!3m2!1svi!2s!4v1742617149029!5m2!1svi!2s"-->
-                            <!--                                        width="600"-->
-                            <!--                                        height="450"-->
-                            <!--                                        style="border: 0"-->
-                            <!--                                        allowfullscreen=""-->
-                            <!--                                        loading="lazy"-->
-                            <!--                                        referrerpolicy="no-referrer-when-downgrade"-->
-                            <!--                                />-->
-                            <!--                            </div>-->
                         </div>
 
                         <div class="toolrange__footer__content-follow">
@@ -301,8 +268,6 @@
                             </a>
                             <a href="/category-detail/transportation" style="color: white;">TRANSPORTATION</a>
                             <a href="/category-detail/fabrication" style="color: white;">FABRICATION</a>
-                            <!--                            <a href="/category-detail/installation" style="color: white;">INSTALLATION</a>-->
-                            <!--                            <a href="/category-detail/maintenance" style="color: white;">MAINTENANCE</a>-->
                         </ul>
                     </div>
 
@@ -461,7 +426,7 @@
                         class="toolrange__featured-products__item"
                       >
                         <div class="slide-img">
-                          <img src="./assets/imgs/common/products/product-29.png" alt="" />
+                          <img src="/website_aardwolf/static/imgs/common/products/product-29.png" alt="" />
                         </div>
 
                         <div class="img-content">
@@ -474,7 +439,7 @@
                         class="toolrange__featured-products__item"
                       >
                         <div class="slide-img">
-                          <img src="./assets/imgs/common/products/product-30.png" alt="" />
+                          <img src="/website_aardwolf/static/imgs/common/products/product-30.png" alt="" />
                         </div>
 
                         <div class="img-content">
@@ -487,7 +452,7 @@
                         class="toolrange__featured-products__item"
                       >
                         <div class="slide-img">
-                          <img src="./assets/imgs/common/products/product-31.png" alt="" />
+                          <img src="/website_aardwolf/static/imgs/common/products/product-31.png" alt="" />
                         </div>
 
                         <div class="img-content">
@@ -500,7 +465,7 @@
                         class="toolrange__featured-products__item"
                       >
                         <div class="slide-img">
-                          <img src="./assets/imgs/common/products/product-32.png" alt="" />
+                          <img src="/website_aardwolf/static/imgs/common/products/product-32.png" alt="" />
                         </div>
 
                         <div class="img-content">
@@ -513,7 +478,7 @@
                         class="toolrange__featured-products__item"
                       >
                         <div class="slide-img">
-                          <img src="./assets/imgs/common/products/product-33.png" alt="" />
+                          <img src="/website_aardwolf/static/imgs/common/products/product-33.png" alt="" />
                         </div>
 
                         <div class="img-content">
@@ -526,7 +491,7 @@
                         class="toolrange__featured-products__item"
                       >
                         <div class="slide-img">
-                          <img src="./assets/imgs/common/products/product-29.png" alt="" />
+                          <img src="/website_aardwolf/static/imgs/common/products/product-29.png" alt="" />
                         </div>
 
                         <div class="img-content">
@@ -539,7 +504,7 @@
                         class="toolrange__featured-products__item"
                       >
                         <div class="slide-img">
-                          <img src="./assets/imgs/common/products/product-31.png" alt="" />
+                          <img src="/website_aardwolf/static/imgs/common/products/product-31.png" alt="" />
                         </div>
 
                         <div class="img-content">
@@ -552,7 +517,7 @@
                         class="toolrange__featured-products__item"
                       >
                         <div class="slide-img">
-                          <img src="./assets/imgs/common/products/product-30.png" alt="" />
+                          <img src="/website_aardwolf/static/imgs/common/products/product-30.png" alt="" />
                         </div>
 
                         <div class="img-content">
@@ -565,7 +530,7 @@
                         class="toolrange__featured-products__item"
                       >
                         <div class="slide-img">
-                          <img src="./assets/imgs/common/products/product-33.png" alt="" />
+                          <img src="/website_aardwolf/static/imgs/common/products/product-33.png" alt="" />
                         </div>
 
                         <div class="img-content">
@@ -578,7 +543,7 @@
                         class="toolrange__featured-products__item"
                       >
                         <div class="slide-img">
-                          <img src="./assets/imgs/common/products/product-31.png" alt="" />
+                          <img src="/website_aardwolf/static/imgs/common/products/product-31.png" alt="" />
                         </div>
 
                         <div class="img-content">
