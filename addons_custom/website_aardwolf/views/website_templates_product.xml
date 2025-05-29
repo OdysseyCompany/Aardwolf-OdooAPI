@@ -77,6 +77,15 @@
                                                 <t t-set="hasBuyNow" t-value="false"/>
                                                 <!-- TODO: remove line below in master -->
                                                 <t t-set="ctaSizeBig" t-value="not hasQuantities or not hasBuyNow"/>
+                                                <t t-if="request.session.uid">
+                                                    <div class="mt-2 w-100">
+                                                        <span t-esc="product.list_price"
+                                                              class="fw-bold"
+                                                              name="product_price"
+                                                              style="font-size: 32px;"
+                                                              t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                                    </div>
+                                                </t>
                                                 <div class="toolrange__prod-detail__prod-quantity-box">
                                                     <span class="quantity-title">Quantity</span>
                                                     <div t-attf-class="toolrange__prod-detail__prod-quantity-action product-quantity-action css_quantity input-group {{'d-none' if combination_info['prevent_zero_price_sale'] else 'd-inline-flex'}} me-2 mb-2 align-middle"
@@ -93,6 +102,7 @@
                                                         </a>
                                                     </div>
                                                 </div>
+
                                                 <div class="group-bns">
                                                     <button class="toolrange__prod-detail__prod-btn btn-find">
                                                         Find Your Nearest Store
@@ -113,6 +123,7 @@
                                                 </div>
                                                 <div id="product_option_block" class="d-flex flex-wrap w-100"/>
                                             </div>
+
                                         </div>
                                     </form>
                                     <t t-if="not request.session.uid">
@@ -180,23 +191,6 @@
                                 <p>
                                     <t t-esc="values['description']"/>
                                 </p>
-                            </div>
-                        </div>
-
-                        <div class="toolrange__prod-detail__description-block">
-                            <p class="toolrange__prod-detail__description-tag">Key Features</p>
-
-                            <div class="toolrange__prod-detail__description-content">
-                                <p>
-                                    <t t-esc="values['description']"/>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="toolrange__prod-detail__description-block">
-                            <p class="toolrange__prod-detail__description-tag">General</p>
-                            <div class="toolrange__prod-detail__description-content">
-                                <t t-esc="values['description']"/>
                             </div>
                         </div>
 
@@ -490,7 +484,8 @@
 
 
                 <div class="toolrange__prod-detail__dialog toolrange-dialog">
-                    <form action="/contact/form" method="post" class="toolrange__prod-detail__form-request form-request__demo">
+                    <form action="/contact/form" method="post"
+                          class="toolrange__prod-detail__form-request form-request__demo">
                         <div class="toolrange__prod-detail__form-request-close form-request-close"/>
                         <h2 class="toolrange__prod-detail__form-request-title">
                             Request a price
@@ -582,7 +577,9 @@
                                     class="toolrange__prod-detail__form-request-field"
                                     placeholder="Message"/>
                         </div>
-                        <button type="submit" class="toolrange__prod-detail__form-request-btn btn-submit">Request a price</button>
+                        <button type="submit" class="toolrange__prod-detail__form-request-btn btn-submit">Request a
+                            price
+                        </button>
 
                         <p class="toolrange__prod-detail__form-request-explain">
                             *How we might use your information We may contact you by phone or
