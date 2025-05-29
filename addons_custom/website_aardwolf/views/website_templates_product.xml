@@ -194,23 +194,6 @@
                             </div>
                         </div>
 
-                        <div class="toolrange__prod-detail__description-block">
-                            <p class="toolrange__prod-detail__description-tag">Key Features</p>
-
-                            <div class="toolrange__prod-detail__description-content">
-                                <p>
-                                    <t t-esc="values['description']"/>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="toolrange__prod-detail__description-block">
-                            <p class="toolrange__prod-detail__description-tag">General</p>
-                            <div class="toolrange__prod-detail__description-content">
-                                <t t-esc="values['description']"/>
-                            </div>
-                        </div>
-
                         <div class="toolrange__prod-detail__description-block block-tab">
                             <div class="toolrange__prod-detail__description-tabs">
                                 <button data-tab="image" class="toolrange__prod-detail__description-tab tab-active">
