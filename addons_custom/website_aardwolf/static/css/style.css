@@ -9825,3 +9825,6 @@ button {
 .btn.rounded-circle > span {
     display: none;
 }
+.list-inline {
+    display: grid;
+}
