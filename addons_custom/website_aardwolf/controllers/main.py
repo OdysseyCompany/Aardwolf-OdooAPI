@@ -1,25 +1,25 @@
+import json
 import logging
 import re
 
-import werkzeug
-from markupsafe import Markup
-from odoo.exceptions import UserError
-from werkzeug.urls import url_encode
-import json
-import urllib.parse
-from odoo.addons.auth_signup.models.res_users import SignupError
-from odoo.addons.portal.controllers.portal import pager as portal_pager
 import odoo.exceptions
 import odoo.modules.registry
 import unicodedata
+import werkzeug
+from markupsafe import Markup
+from odoo.exceptions import UserError
+from odoo.http import Controller
 from odoo.http import request
 from odoo.http import route
 from odoo.tools.translate import _
-from odoo.addons.web.controllers.home import Home
+from werkzeug.urls import url_encode
+
 from odoo import http
+from odoo.addons.auth_signup.models.res_users import SignupError
+from odoo.addons.web.controllers.home import Home
+from odoo.addons.web.controllers.utils import ensure_db
 from odoo.addons.website.controllers.main import QueryURL
 from odoo.addons.website_sale.controllers.main import WebsiteSale
-from odoo.addons.web.controllers.utils import ensure_db
 
 _logger = logging.getLogger(__name__)
 
@@ -67,7 +67,8 @@ class WebsiteAardwolf(http.Controller):
 
     def update_product_image_thumb(self):
         # Chạy bằng shell hoặc cron job
-        products = request.env['product.template'].sudo().search([('image_1920', '!=', False), ('image_thumb', '=', False)])
+        products = request.env['product.template'].sudo().search(
+            [('image_1920', '!=', False), ('image_thumb', '=', False)])
         for p in products:
             p.image_thumb = p._generate_thumbnail(p.image_1920)
 
@@ -80,7 +81,8 @@ class WebsiteAardwolf(http.Controller):
 
             for idx, categ in enumerate(categories):
                 categ_product = request.env['product.template'].sudo().search(
-                    [('public_categ_ids', 'child_of', categ.id), ('is_published', '=', True)])  #, ('is_published', '=', True)
+                    [('public_categ_ids', 'child_of', categ.id),
+                     ('is_published', '=', True)])  # , ('is_published', '=', True)
                 temp.append({
                     'name': categ.name,
                     'description': categ.website_description,
@@ -170,7 +172,8 @@ class WebsiteAardwolf(http.Controller):
     @http.route(['/product-detail/<slug>'], type='http', auth="public", website=True)
     def product_detail(self, slug, **post):
         try:
-            product = request.env['product.template'].sudo().search([('slug', '=', slug), ('is_published', '=', True)], limit=1)
+            product = request.env['product.template'].sudo().search([('slug', '=', slug), ('is_published', '=', True)],
+                                                                    limit=1)
             if not product:
                 return request.not_found()
             url_img = f"/web/image/product.template/{product.id}/image_1024" if product.image_1024 else '/website_aardwolf/static/imgs/common/product/img-1.png'
@@ -218,7 +221,9 @@ class WebsiteAardwolf(http.Controller):
                 domain += [('industries_ids', 'in', int(industries))]
             result = []
             products = request.env['product.template'].sudo().search_read(domain=domain,
-                fields=['name', 'slug', 'image_512', 'website_url'], limit=limit, offset=(int(page) - 1) * limit)
+                                                                          fields=['name', 'slug', 'image_512',
+                                                                                  'website_url'], limit=limit,
+                                                                          offset=(int(page) - 1) * limit)
 
             for prd in products:
                 result.append({
@@ -477,6 +482,7 @@ class AardwolfHome(Home):
             return request.redirect(f'/product')
         return request.redirect(f'/product?search={search}&page={page}')
 
+
 class WebsiteSaleAardwolf(WebsiteSale):
 
     def _prepare_product_values(self, product, category, search, **kwargs):
@@ -559,3 +565,46 @@ class WebsiteSaleAardwolf(WebsiteSale):
         # if mail_template:
         #     mail_template.sudo().send_mail(partner.id, force_send=True)
         return request.render('website_aardwolf.contact_thanks_page')
+
+
+class WebsiteSaleVariantController(Controller):
+
+    @route('/website_sale/get_combination_info', type='json', auth='public', methods=['POST'], website=True)
+    def get_combination_info_website(
+            self, product_template_id, product_id, combination, add_qty, parent_combination=None,
+            **kwargs
+    ):
+        product_template = request.env['product.template'].browse(
+            product_template_id and int(product_template_id))
+
+        combination_info = product_template._get_combination_info(
+            combination=request.env['product.template.attribute.value'].browse(combination),
+            product_id=product_id and int(product_id),
+            add_qty=add_qty and float(add_qty) or 1.0,
+            parent_combination=request.env['product.template.attribute.value'].browse(parent_combination),
+        )
+
+        # Pop data only computed to ease server-side computations.
+        for key in ('product_taxes', 'taxes', 'currency', 'date', 'combination'):
+            combination_info.pop(key)
+
+        if request.website.product_page_image_width != 'none' and not request.env.context.get('website_sale_no_images',
+                                                                                              False):
+            combination_info['carousel'] = request.env['ir.ui.view']._render_template(
+                'website_sale.shop_product_images',
+                values={
+                    'product': product_template,
+                    'product_variant': request.env['product.product'].browse(combination_info['product_id']),
+                    'website': request.env['website'].get_current_website(),
+                },
+            )
+
+        product = request.env['product.product'].browse(combination_info['product_id'])
+        if product and request.website.is_view_active('website_sale.product_tags'):
+            combination_info['product_tags'] = request.env['ir.ui.view']._render_template(
+                'website_sale.product_tags', values={
+                    'all_product_tags': product.all_product_tag_ids.filtered('visible_on_ecommerce')
+                }
+            )
+            combination_info['specifications'] = product.specifications
+        return combination_info
