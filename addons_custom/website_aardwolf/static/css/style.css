@@ -9828,3 +9828,12 @@ button {
 .list-inline {
     display: grid;
 }
+.btn-check:checked + .btn,
+:not(.btn-check) + .btn:active,
+.btn:first-child:active,
+.btn.active,
+.btn.show {
+    color: black;
+    background-color: unset !important;
+    border: 2px solid #e60000; /* thay đổi tại đây */
+}

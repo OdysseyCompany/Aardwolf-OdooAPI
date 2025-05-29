@@ -486,6 +486,7 @@
                 <div class="toolrange__prod-detail__dialog toolrange-dialog">
                     <form action="/contact/form" method="post"
                           class="toolrange__prod-detail__form-request form-request__demo">
+                        <input type="hidden" name="request_price" value="True" />
                         <div class="toolrange__prod-detail__form-request-close form-request-close"/>
                         <h2 class="toolrange__prod-detail__form-request-title">
                             Request a price

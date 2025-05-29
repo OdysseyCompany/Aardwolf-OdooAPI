@@ -54,8 +54,13 @@ class WebsiteAardwolf(http.Controller):
             'street': kwargs['country'],
             'comment': kwargs,
         })
-        mail_template = request.env.ref('website_aardwolf.mail_template_submit_contact_form',
-                                   raise_if_not_found=False)
+        if kwargs.get('request_price'):
+            mail_template = request.env.ref('website_aardwolf.mail_template_request_price',
+                                            raise_if_not_found=False)
+        else:
+            mail_template = request.env.ref('website_aardwolf.mail_template_contact_form',
+                                            raise_if_not_found=False)
+
         if mail_template:
             mail_template.sudo().send_mail(partner.id, force_send=True)
         return request.render('website_aardwolf.contact_thanks_page')
@@ -540,4 +545,17 @@ class WebsiteSaleAardwolf(WebsiteSale):
 
     @route(['/shop/confirm_order'], type='http', auth="public", website=True, sitemap=False)
     def shop_confirm_order(self, **post):
+        # name = post['firstName'] + ' ' + post['lastName']
+        # partner = request.env['res.partner'].sudo().create({
+        #     'name': name,
+        #     'email': post['email'],
+        #     'phone': post['phone'],
+        #     'zip': post['postcode'],
+        #     'street': post['country'],
+        #     'comment': post,
+        # })
+        # mail_template = request.env.ref('website_aardwolf.mail_template_request_price',
+        #                                 raise_if_not_found=False)
+        # if mail_template:
+        #     mail_template.sudo().send_mail(partner.id, force_send=True)
         return request.render('website_aardwolf.contact_thanks_page')

@@ -473,101 +473,323 @@
             <field name="auto_delete" eval="True"/>
         </record>
 
-        <record id="mail_template_submit_contact_form" model="mail.template">
-            <field name="name">Mail template submit contact form</field>
+        <record id="mail_template_request_price" model="mail.template">
+            <field name="name">Mail template request price</field>
             <field name="model_id" ref="base.model_res_partner"/>
-            <field name="subject">Submit contact</field>
+            <field name="subject">Request a price</field>
             <field name="email_to">{{ object.email }}</field>
-            <field name="description">Submit contact success</field>
+            <field name="description">Request a price</field>
             <field name="body_html" type="html">
-                <div style="font-family: Arial, sans-serif; background: #f5f5f5; padding: 0; margin: 0;">
-                    <div style="max-width: 600px; margin: 0 auto; background: #fff; border: 1px solid #ccc;">
-                        <div style="background: #222; padding: 20px; text-align: center;">
-                            <img src="https://i.imgur.com/tQyVV4R.png" alt="Aardwolf Logo" style="max-width: 180px;"/>
-                        </div>
-                        <div style="padding: 30px;">
-                            <p>
-                                <strong>Dear ${object.partner_id.name},</strong>
-                            </p>
-
-                            <p>Thank you for your interest in our products/services and for submitting your pricing
-                                request through our website.
-                            </p>
-
-                            <p>We have received the following information from you:</p>
-
-                            <table style="width: 100%; margin-top: 20px; border-collapse: collapse;">
-                                <tr>
-                                    <td style="padding: 10px; font-weight: bold;">Full Name</td>
-                                    <td style="padding: 10px;">${object.name}</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 10px; font-weight: bold;">Email</td>
-                                    <td style="padding: 10px;">${object.email}</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 10px; font-weight: bold;">Phone</td>
-                                    <td style="padding: 10px;">${object.phone or ''}</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 10px; font-weight: bold;">Company Name</td>
-                                    <td style="padding: 10px;">
-                                        ${object.company_name}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 10px; font-weight: bold;">Postcode</td>
-                                    <td style="padding: 10px;">${object.zip or ''}</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 10px; font-weight: bold;">Country</td>
-                                    <td style="padding: 10px;">${object.street or ''}</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 10px; font-weight: bold;">Message</td>
-                                    <td style="padding: 10px;">${object.comment or ''}</td>
-                                </tr>
-                            </table>
-
-                            <p>Our sales team will get in touch with you shortly to provide a detailed quote and assist
-                                you with any further information you may need.
-                            </p>
-
-                            <p>If your request is urgent, please feel free to contact us directly at [company phone
-                                number] or [company email].
-                            </p>
-
-                            <p>We appreciate your interest and look forward to working with you.</p>
-
-                            <p>Best regards,<br/>Aardwolf Team
-                            </p>
-                        </div>
-                        <div style="text-align: center; font-size: 12px; padding: 20px; background: #f1f1f1; color: #777;">
-                            <img src="https://i.imgur.com/tQyVV4R.png" alt="Aardwolf Logo" style="max-width: 100px;"/>
-                            <br/>
-                            Sent with love from Aardwolf, Inc.
-                            <br/>
-                            9401 Norwalk Blvd Santa Fe Springs, CA 90670
-                            <br/>
-                            <a href="#">Who is Aardwolf?</a>
-                            ·
-                            <a href="#">Contact Us</a>
-                            <br/>
-                            <div style="margin-top: 10px;">
-                                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384015.png"
-                                     style="width: 20px; margin: 0 5px;"/>
-                                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384017.png"
-                                     style="width: 20px; margin: 0 5px;"/>
-                                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384014.png"
-                                     style="width: 20px; margin: 0 5px;"/>
-                                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png"
-                                     style="width: 20px; margin: 0 5px;"/>
-                                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384012.png"
-                                     style="width: 20px; margin: 0 5px;"/>
+                <body style="margin: 0; padding: 0; box-sizing: border-box;">
+                    <main class="mail" style="padding: 111px 180px 50px; background: #F4F4F4;">
+                        <section class="mail__form" style="width: 100%; max-width: 860px; margin: auto;">
+                            <div class="mail__head"
+                                 style="padding: 43px 100px 26px; background: #404040; display: flex; justify-content: center;">
+                                <img src="/website_aardwolf/static/imgs/common/svgs/logo_medium.svg" alt="logo"/>
                             </div>
-                        </div>
-                    </div>
-                </div>
+
+                            <div class="mail__content" style="padding: 55px 75px 77px 97px; background: #fff">
+                                <p class="mail__greeting"
+                                   style="margin: 0; font-family: 'Kanit', sans-serif; color: #000; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                    Dear <span class="first-name"><t t-out="object.name or ''"></t></span>
+                                </p>
+
+                                <p class="mail__foreword"
+                                   style="margin: 0; font-family: 'Kanit', sans-serif; color: #000; font-size: 16px; font-weight: 400; line-height: 160%;">
+                                    Thank you for your interest in our products/services and for submitting your pricing
+                                    request through our
+                                    website.
+                                    <br/>
+                                    We have received the following information from you:
+                                </p>
+
+                                <div class="mail__table" style="margin: 25px 0 35px;">
+                                    <div class="mail__table__row row-odd"
+                                         style="background: #F4F4F4; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Full Name
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.name or ''"></t>
+                                        </p>
+                                    </div>
+                                    <div class="mail__table__row row-even"
+                                         style="background: #fff; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Email
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.email or ''"></t>
+                                        </p>
+                                    </div>
+                                    <div class="mail__table__row row-odd"
+                                         style="background: #F4F4F4; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Phone
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.phone or ''"></t>
+                                        </p>
+                                    </div>
+                                    <div class="mail__table__row row-even"
+                                         style="background: #fff; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Company Name
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.company_name or ''"></t>
+                                        </p>
+                                    </div>
+                                    <div class="mail__table__row row-odd"
+                                         style="background: #F4F4F4; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Postcode
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.zip or ''"></t>
+                                        </p>
+                                    </div>
+                                    <div class="mail__table__row row-even"
+                                         style="background: #fff; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Country
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.street or ''"></t>
+                                        </p>
+                                    </div>
+                                    <div class="mail__table__row row-odd"
+                                         style="background: #F4F4F4; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Message
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.comment or ''"></t>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <p class="mail__foreword"
+                                   style="margin: 0; font-family: 'Kanit', sans-serif; color: #000; font-size: 16px; font-weight: 400; line-height: 160%;">
+                                    Our sales team will get in touch with you shortly to provide a detailed quote and
+                                    assist you with any
+                                    further information you may need.
+                                    <br/>
+                                    If your request is urgent, please feel free to contact us directly at [company phone
+                                    number] or [company
+                                    email].
+                                    <br/>
+                                    We appreciate your interest and look forward to working with you.
+                                    <br/>
+                                    Best regards,
+                                </p>
+                            </div>
+                        </section>
+
+                        <section style="margin-top: 50px; display: flex; flex-direction: column; align-items: center;">
+                            <img src="/website_aardwolf/static/imgs/common/svgs/logo_medium.svg" alt="logo"
+                                 style="width: 100%; max-width: 192px; height: 100%; max-height: 40px; margin-bottom: 10px;"/>
+                            <p style="margin: 0; text-align: center; font-family: 'Kanit', sans-serif; font-size: 16px; color: #818181; line-height: 160%;">
+                                Sent with love from Aardwork, Inc.
+                            </p>
+                            <p style="margin: 0; text-align: center; font-family: 'Kanit', sans-serif; font-size: 16px; color: #818181; line-height: 160%;">
+                                9401 Norwalk Blvd Santa Fe Springs, CA 90670
+                            </p>
+                            <div style="display: flex; align-items: center; gap: 5px;">
+                                <a href="/"
+                                   style="margin: 0; text-align: center; font-family: 'Kanit', sans-serif; font-size: 16px; color: #818181; line-height: 160%;">
+                                    Who
+                                    is Aardword?
+                                </a>
+                                <span style="margin: 0; text-align: center; font-family: 'Kanit', sans-serif; font-size: 16px; color: #818181; line-height: 160%;">
+                                    •
+                                </span>
+                                <a href="/"
+                                   style="margin: 0; text-align: center; font-family: 'Kanit', sans-serif; font-size: 16px; color: #818181; line-height: 160%;">
+                                    Contact
+                                    Us
+                                </a>
+                            </div>
+                            <div style="margin-top: 18px; display: flex; align-items: center; gap: 10px;">
+                                <a href="/" style="flex-shrink: 0; width: 40px; height: 40px;">
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/facebook.svg" alt="facebook"
+                                         style="width: 100%; height: 100%; object-fit: contain;"/>
+                                </a>
+                                <a href="/" style="flex-shrink: 0; width: 40px; height: 40px;">
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/youtube.svg" alt="youtube"
+                                         style="width: 100%; height: 100%; object-fit: contain;"/>
+                                </a>
+                                <a href="/" style="flex-shrink: 0; width: 40px; height: 40px;">
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/linkedin.svg" alt="linkedin"
+                                         style="width: 100%; height: 100%; object-fit: contain;"/>
+                                </a>
+                                <a href="/" style="flex-shrink: 0; width: 40px; height: 40px;">
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/instagram.svg" alt="instagram"
+                                         style="width: 100%; height: 100%; object-fit: contain;"/>
+                                </a>
+                                <a href="/" style="flex-shrink: 0; width: 40px; height: 40px;">
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/x.svg" alt="x"
+                                         style="width: 100%; height: 100%; object-fit: contain;"/>
+                                </a>
+                            </div>
+                        </section>
+                    </main>
+                </body>
+            </field>
+            <field name="lang">{{ object.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <record id="mail_template_contact_form" model="mail.template">
+            <field name="name">Mail template contact form</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="subject">New contact</field>
+            <field name="email_to">{{ object.email }}</field>
+            <field name="description">New contact</field>
+            <field name="body_html" type="html">
+                <body style="margin: 0; padding: 0; box-sizing: border-box;">
+                    <main class="mail" style="padding: 111px 180px 50px; background: #F4F4F4;">
+                        <section class="mail__form" style="width: 100%; max-width: 860px; margin: auto;">
+                            <div class="mail__head"
+                                 style="padding: 43px 100px 26px; background: #404040; display: flex; justify-content: center;">
+                                <img src="/website_aardwolf/static/imgs/common/svgs/logo_medium.svg" alt="logo"/>
+                            </div>
+
+                            <div class="mail__content" style="padding: 55px 75px 77px 97px; background: #fff">
+                                <p class="mail__greeting"
+                                   style="margin: 0; font-family: 'Kanit', sans-serif; color: #000; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                    Dear Admin
+                                </p>
+
+                                <p class="mail__foreword"
+                                   style="margin: 0; font-family: 'Kanit', sans-serif; color: #000; font-size: 16px; font-weight: 400; line-height: 160%;">
+                                    We would like to inform you that a new user has just registered an account on the system. Below are the details of the registration:
+                                </p>
+
+                                <div class="mail__table" style="margin: 25px 0 35px;">
+                                    <div class="mail__table__row row-odd"
+                                         style="background: #F4F4F4; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Full Name
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.name or ''"></t>
+                                        </p>
+                                    </div>
+                                    <div class="mail__table__row row-even"
+                                         style="background: #fff; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Email
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.email or ''"></t>
+                                        </p>
+                                    </div>
+                                    <div class="mail__table__row row-odd"
+                                         style="background: #F4F4F4; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Phone
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.phone or ''"></t>
+                                        </p>
+                                    </div>
+                                    <div class="mail__table__row row-even"
+                                         style="background: #fff; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Company Name
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.company_name or ''"></t>
+                                        </p>
+                                    </div>
+                                    <div class="mail__table__row row-odd"
+                                         style="background: #F4F4F4; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Postcode
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.zip or ''"></t>
+                                        </p>
+                                    </div>
+                                    <div class="mail__table__row row-even"
+                                         style="background: #fff; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Country
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.street or ''"></t>
+                                        </p>
+                                    </div>
+                                    <div class="mail__table__row row-odd"
+                                         style="background: #F4F4F4; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
+                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
+                                            Message
+                                        </p>
+                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
+                                            <t t-out="object.comment or ''"></t>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <p class="mail__foreword"
+                                   style="margin: 0; font-family: 'Kanit', sans-serif; color: #000; font-size: 16px; font-weight: 400; line-height: 160%;">
+                                    Please verify the information if necessary and take any further actions required according to the company’s onboarding process.
+                                    <br/>
+                                    If you have any questions or need additional information, feel free to reach out to the system support team.
+                                </p>
+                            </div>
+                        </section>
+
+                        <section style="margin-top: 50px; display: flex; flex-direction: column; align-items: center;">
+                            <img src="/website_aardwolf/static/imgs/common/svgs/logo_medium.svg" alt="logo"
+                                 style="width: 100%; max-width: 192px; height: 100%; max-height: 40px; margin-bottom: 10px;"/>
+                            <p style="margin: 0; text-align: center; font-family: 'Kanit', sans-serif; font-size: 16px; color: #818181; line-height: 160%;">
+                                Sent with love from Aardwork, Inc.
+                            </p>
+                            <p style="margin: 0; text-align: center; font-family: 'Kanit', sans-serif; font-size: 16px; color: #818181; line-height: 160%;">
+                                9401 Norwalk Blvd Santa Fe Springs, CA 90670
+                            </p>
+                            <div style="display: flex; align-items: center; gap: 5px;">
+                                <a href="/"
+                                   style="margin: 0; text-align: center; font-family: 'Kanit', sans-serif; font-size: 16px; color: #818181; line-height: 160%;">
+                                    Who
+                                    is Aardword?
+                                </a>
+                                <span style="margin: 0; text-align: center; font-family: 'Kanit', sans-serif; font-size: 16px; color: #818181; line-height: 160%;">
+                                    •
+                                </span>
+                                <a href="/"
+                                   style="margin: 0; text-align: center; font-family: 'Kanit', sans-serif; font-size: 16px; color: #818181; line-height: 160%;">
+                                    Contact
+                                    Us
+                                </a>
+                            </div>
+                            <div style="margin-top: 18px; display: flex; align-items: center; gap: 10px;">
+                                <a href="/" style="flex-shrink: 0; width: 40px; height: 40px;">
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/facebook.svg" alt="facebook"
+                                         style="width: 100%; height: 100%; object-fit: contain;"/>
+                                </a>
+                                <a href="/" style="flex-shrink: 0; width: 40px; height: 40px;">
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/youtube.svg" alt="youtube"
+                                         style="width: 100%; height: 100%; object-fit: contain;"/>
+                                </a>
+                                <a href="/" style="flex-shrink: 0; width: 40px; height: 40px;">
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/linkedin.svg" alt="linkedin"
+                                         style="width: 100%; height: 100%; object-fit: contain;"/>
+                                </a>
+                                <a href="/" style="flex-shrink: 0; width: 40px; height: 40px;">
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/instagram.svg" alt="instagram"
+                                         style="width: 100%; height: 100%; object-fit: contain;"/>
+                                </a>
+                                <a href="/" style="flex-shrink: 0; width: 40px; height: 40px;">
+                                    <img src="/website_aardwolf/static/imgs/common/svgs/x.svg" alt="x"
+                                         style="width: 100%; height: 100%; object-fit: contain;"/>
+                                </a>
+                            </div>
+                        </section>
+                    </main>
+                </body>
             </field>
             <field name="lang">{{ object.lang }}</field>
             <field name="auto_delete" eval="True"/>
