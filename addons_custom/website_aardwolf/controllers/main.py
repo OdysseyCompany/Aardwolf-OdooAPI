@@ -606,5 +606,5 @@ class WebsiteSaleVariantController(Controller):
                     'all_product_tags': product.all_product_tag_ids.filtered('visible_on_ecommerce')
                 }
             )
-            combination_info['specifications'] = product.specifications
+            combination_info['specifications'] = product.description
         return combination_info
