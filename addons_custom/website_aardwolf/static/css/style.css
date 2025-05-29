@@ -2743,9 +2743,9 @@ button {
   height: 92px;
   object-fit: contain;
 }
-.toolrange__categories-page__slider-thumbs .swiper-wrapper .swiper-slide > p {
+.toolrange__categories-page__slider-thumbs .swiper-wrapper .swiper-slide p {
   color: #000;
-  padding: 0 2px;
+  padding: 0 4px;
   text-align: center;
   font-family: "Kanit-Regular";
   font-size: 12px;
@@ -8493,7 +8493,7 @@ button {
   color: #fbb039;
 }
 .toolrange__distributors__slider {
-  max-width: 1184px;
+  max-width: 1000px;
   padding: 0 127px;
 }
 @media (max-width: 1024px) {
