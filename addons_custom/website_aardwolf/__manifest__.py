@@ -16,6 +16,8 @@
     ],
     'assets': {
         'web.assets_frontend': [
+            'website_aardwolf/static/src/js/custom_variant_mixin.js',
+            'website_aardwolf/static/src/js/my_custom_product.js',
         ],
     },
     'installable': True,
