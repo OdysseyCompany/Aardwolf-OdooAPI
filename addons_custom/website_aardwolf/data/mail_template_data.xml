@@ -67,15 +67,6 @@
                                                             Phone:
                                                             <t t-out="object.phone or ''"></t>
                                                             <br/>
-                                                            Company name:
-                                                            <t t-out="object.company_name or ''"></t>
-                                                            <br/>
-                                                            postcode:
-                                                            <t t-out="object.zip or ''"></t>
-                                                            <br/>
-                                                            country:
-                                                            <t t-out="object.street or ''"></t>
-                                                            <br/>
                                                             message:
                                                             <t t-out="object.comment or ''"></t>
                                                             Thanks,
@@ -225,15 +216,6 @@
                                                             Phone:
                                                             <t t-out="object.phone or ''"></t>
                                                             <br/>
-                                                            Company name:
-                                                            <t t-out="object.company_name or ''"></t>
-                                                            <br/>
-                                                            postcode:
-                                                            <t t-out="object.zip or ''"></t>
-                                                            <br/>
-                                                            country:
-                                                            <t t-out="object.street or ''"></t>
-                                                            <br/>
                                                             message:
                                                             <t t-out="object.comment or ''"></t>
                                                             Thanks,
@@ -378,33 +360,6 @@
                                             <t t-out="object.phone or ''"></t>
                                         </p>
                                     </div>
-                                    <div class="mail__table__row row-even"
-                                         style="background: #fff; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
-                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
-                                            Company Name
-                                        </p>
-                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
-                                            <t t-out="object.company_name or ''"></t>
-                                        </p>
-                                    </div>
-                                    <div class="mail__table__row row-odd"
-                                         style="background: #F4F4F4; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
-                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
-                                            Postcode
-                                        </p>
-                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
-                                            <t t-out="object.zip or ''"></t>
-                                        </p>
-                                    </div>
-                                    <div class="mail__table__row row-even"
-                                         style="background: #fff; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
-                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
-                                            Country
-                                        </p>
-                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
-                                            <t t-out="object.street or ''"></t>
-                                        </p>
-                                    </div>
                                     <div class="mail__table__row row-odd"
                                          style="background: #F4F4F4; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
                                         <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
@@ -540,33 +495,6 @@
                                         </p>
                                         <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
                                             <t t-out="object.phone or ''"></t>
-                                        </p>
-                                    </div>
-                                    <div class="mail__table__row row-even"
-                                         style="background: #fff; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
-                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
-                                            Company Name
-                                        </p>
-                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
-                                            <t t-out="object.company_name or ''"></t>
-                                        </p>
-                                    </div>
-                                    <div class="mail__table__row row-odd"
-                                         style="background: #F4F4F4; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
-                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
-                                            Postcode
-                                        </p>
-                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
-                                            <t t-out="object.zip or ''"></t>
-                                        </p>
-                                    </div>
-                                    <div class="mail__table__row row-even"
-                                         style="background: #fff; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
-                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
-                                            Country
-                                        </p>
-                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
-                                            <t t-out="object.street or ''"></t>
                                         </p>
                                     </div>
                                     <div class="mail__table__row row-odd"
@@ -737,33 +665,6 @@
                                         </p>
                                         <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
                                             <t t-out="object.partner_id.phone or ''"></t>
-                                        </p>
-                                    </div>
-                                    <div class="mail__table__row row-even"
-                                         style="background: #fff; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
-                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
-                                            Company Name
-                                        </p>
-                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
-                                            <t t-out="object.partner_id.company_name or ''"></t>
-                                        </p>
-                                    </div>
-                                    <div class="mail__table__row row-odd"
-                                         style="background: #F4F4F4; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
-                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
-                                            Postcode
-                                        </p>
-                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
-                                            <t t-out="object.partner_id.zip or ''"></t>
-                                        </p>
-                                    </div>
-                                    <div class="mail__table__row row-even"
-                                         style="background: #fff; padding: 10px 41.42px; display: flex; align-items: center; gap: 50px;">
-                                        <p style="margin: 0; min-width: 118px; font-family: 'Kanit', sans-serif; font-size: 16px; font-weight: 600; line-height: 160%;">
-                                            Country
-                                        </p>
-                                        <p style="margin: 0; font-family: 'Kanit', sans-serif; font-size: 16px; line-height: 160%;">
-                                            <t t-out="object.partner_id.street or ''"></t>
                                         </p>
                                     </div>
                                     <div class="mail__table__row row-odd"

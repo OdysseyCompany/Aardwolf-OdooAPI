@@ -50,9 +50,9 @@ class WebsiteAardwolf(http.Controller):
             'name': name,
             'email': kwargs['email'],
             'phone': kwargs['phone'],
-            'zip': kwargs['postcode'],
-            'street': kwargs['country'],
-            'comment': kwargs,
+            # 'zip': kwargs['postcode'],
+            # 'street': kwargs['country'],
+            'comment': kwargs['message'],
         })
         if kwargs.get('request_price'):
             mail_template = request.env.ref('website_aardwolf.mail_template_request_price',
