@@ -421,7 +421,7 @@ class AardwolfHome(Home):
             try:
                 if not request.env['ir.http']._verify_request_recaptcha_token('signup'):
                     raise UserError(_("Suspicious activity detected by Google reCaptcha."))
-                partner = False
+                user = False
                 if kw:
                     partner = request.env['res.partner'].sudo().create({
                         'name': kw['first_name'] + ' ' + kw['last_name'],
@@ -431,6 +431,13 @@ class AardwolfHome(Home):
                         'zip': kw['postcode'],
                         'street': kw['country'],
                         'comment': kw['message'],
+                    })
+
+                    user = request.env['res.users'].sudo().create({
+                        'name': kw['first_name'] + ' ' + kw['last_name'],
+                        'login': kw['login'],
+                        'groups_id': [(4, request.env.ref('base.group_portal').id)],
+                        'partner_id': partner.id,
                     })
                 # Check if the email is already registered
                 # self.do_signup(qcontext)
@@ -442,14 +449,13 @@ class AardwolfHome(Home):
                     request.update_env(user=public_user)
 
                 # Send an account creation confirmation email
-                User = request.env['res.users']
                 # user_sudo = User.sudo().search(
                 #     User._get_login_domain(qcontext.get('login')), order=User._get_login_order(), limit=1
                 # )
                 template = request.env.ref('website_aardwolf.mail_template_noti_user_signup_account_created',
                                            raise_if_not_found=False)
-                if partner and template:
-                    template.sudo().send_mail(partner.id, force_send=True)
+                if user and template:
+                    template.sudo().send_mail(user.partner_id.id, force_send=True)
                 return request.redirect('/')
             except UserError as e:
                 qcontext['error'] = e.args[0]
